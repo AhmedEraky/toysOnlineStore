@@ -11,7 +11,7 @@ public class Main {
         User user=new User();
         user.setName("Ahmed");
         user.setAddress("uducduc");
-        user.setEmail("ayhd");
+        user.setEmail("uiiw4uf");
         user.setPassword("cbcyeych");
         user.setImagePath("yhchfhe");
         user.setJob("hahaha");
