@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<header>
+    <ul>
+        <li class="right_item"><a href="registration.html">SignUp</a></li>
+        <li class="right_item"><a class="active" href="index.html">Login</a></li>
+    </ul>
+</header>
+
+<div class="w3-content w3-margin-top"
+     style="max-width:800px;margin:150px auto !important;">
+    <form action="loginValidate" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-green w3-margin">
+        <h2 class="w3-center">Login</h2>
+        <h1 id="warning"  class="w3-center" style="color: red;display: none">Sorry wrong Password Or UserName</h1>
+        <div class="w3-row w3-section">
+            <div class="w3-rest">
+                <input class="w3-input w3-border" name="email" required type="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="w3-row w3-section">
+            <div class="w3-rest">
+                <input class="w3-input w3-border" name="password" required type="password" minlength="6" placeholder="Password">
+            </div>
+        </div>
+        <input type="submit" value="Login" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding">
+    </form>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>
