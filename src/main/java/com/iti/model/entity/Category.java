@@ -21,8 +21,10 @@ public class Category  implements java.io.Serializable {
     private Integer categoryID;
     @Column(name="name", nullable=false, length=50)
     private String name;
+
     @OneToMany(fetch=FetchType.LAZY, mappedBy="category")
     private Set<Product> products = new HashSet(0);
+
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="user_interest_category", catalog="toysonlineshoppingdb",
             joinColumns = {@JoinColumn(name="user_id", nullable=false, updatable=false) },
@@ -35,7 +37,7 @@ public class Category  implements java.io.Serializable {
     public Category(String name) {
         this.name = name;
     }
-    public Category(String name, Set products) {
+    public Category(String name, Set<Product> products) {
         this.name = name;
         this.products = products;
     }
@@ -62,6 +64,14 @@ public class Category  implements java.io.Serializable {
 
     public void setProducts(Set<Product> products) {
         this.products = products;
+    }
+
+    public Set<User> getUserInterestCategory() {
+        return userInterestCategory;
+    }
+
+    public void setUserInterestCategory(Set<User> userInterestCategory) {
+        this.userInterestCategory = userInterestCategory;
     }
 }
 

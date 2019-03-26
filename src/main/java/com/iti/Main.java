@@ -1,24 +1,37 @@
 package com.iti;
-import com.iti.Dao.implementation.RegistrationDao;
-import java.math.BigDecimal;
+
+import com.iti.controller.UserController;
+import com.iti.model.entity.ShoppingCart;
+import com.iti.model.entity.User;
+
 import java.util.Date;
-import com.iti.model.entity.*;
 
 
 public class Main {
     public static void main(String arg[]){
 
-        User user=new User();
-        user.setName("Ahmed");
-        user.setAddress("uducduc");
-        user.setEmail("uiiw4uf");
-        user.setPassword("cbcyeych");
-        user.setImagePath("yhchfhe");
-        user.setJob("hahaha");
-        user.setBirthDate(new Date());
-        user.setCreditLimit(new BigDecimal("12"));
+        UserController userController=new UserController();
 
-        RegistrationDao registrationDao=new RegistrationDao();
-        registrationDao.Registration(user);
+        User user=new User();
+        ShoppingCart shoppingCart=new ShoppingCart();
+
+        user.setEmail("ahmed@yahoo.com");
+        user.setAddress("Cairo");
+        user.setBirthDate(new Date());
+        user.setCreditLimit(10d);
+        user.setName("Ahmed Eraky");
+        user.setPassword("111111");
+        shoppingCart.setTotalCost(0d);
+
+        user.setShoppingCart(shoppingCart);
+        userController.insertUser(user);
+        User currentUser=userController.retriveUserByEmail("ahmed@yahoo.com");
+        System.out.println("current Job is "+currentUser.getJob());
+        User newu=new User();
+        newu.setJob("new Job");
+        newu.setName("fdut");
+        userController.updateUser(currentUser,newu);
+        user=userController.retriveUserByEmail("ahmed@yahoo.com");
+        System.out.println("new Data = "+user.getJob());
     }
 }

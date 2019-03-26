@@ -27,20 +27,25 @@ import javax.persistence.Version;
 @Table(name="order_history",catalog="toysonlineshoppingdb")
 public class OrderHistory implements java.io.Serializable {
 
-    @Id @GeneratedValue(strategy=IDENTITY)
+    @Id
+    @GeneratedValue(strategy=IDENTITY)
     @Column(name="order_history_id", unique=true, nullable=false)
     private Integer orderHistoryID;
+
     @Version@Temporal(TemporalType.TIMESTAMP)
     @Column(name="timestamp", nullable=false, length=26)
     private Date timestamp;
+
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="user_id", nullable=false)
     private User user;
+
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="order_history_products", catalog="toysonlineshoppingdb",
             joinColumns = {@JoinColumn(name="products_id", nullable=false, updatable=false) },
             inverseJoinColumns = {@JoinColumn(name="order_history_id", nullable=false, updatable=false) })
     private Set<Product> orderHistoryProducts = new HashSet(0);
+
     public OrderHistory() {}
     public OrderHistory(User user) {
         this.user = user;

@@ -29,6 +29,9 @@ public class Review  implements java.io.Serializable {
     @Column(name="rate", nullable=false)
     private int rate;
 
+    @Column(name="review_description", nullable=true, length=1000)
+    private String reviewDescription;
+
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="products_id", nullable=false, insertable=false, updatable=false)
@@ -38,8 +41,6 @@ public class Review  implements java.io.Serializable {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="user_id", nullable=false, insertable=false, updatable=false)
     private User user;
-    @Column(name="review_description", nullable=true, length=300)
-    private String reviewDescription;
 
     public Review() {
     }
