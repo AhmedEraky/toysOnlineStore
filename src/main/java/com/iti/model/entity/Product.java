@@ -39,12 +39,8 @@ public class Product implements java.io.Serializable {
     @OneToOne(mappedBy = "products")
     private CartItem cartItems;
 
-    @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="stores_products", catalog="toysonlineshoppingdb",
-            joinColumns = {@JoinColumn(name="products_id", nullable=false, updatable=false) },
-            inverseJoinColumns = {@JoinColumn(name="stores_id", nullable=false, updatable=false) })
-    private Set<Store> stores = new HashSet(0);
-
+    @ManyToOne(fetch=FetchType.LAZY)
+    private Store store;
 
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="order_history_products", catalog="toysonlineshoppingdb",
@@ -143,12 +139,12 @@ public class Product implements java.io.Serializable {
         this.cartItems = cartItems;
     }
 
-    public Set<Store> getStores() {
-        return stores;
+    public Store getStore() {
+        return store;
     }
 
-    public void setStores(Set<Store> stores) {
-        this.stores = stores;
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     public Set<OrderHistory> getOrderHistories() {
