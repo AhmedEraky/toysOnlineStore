@@ -1,15 +1,16 @@
 <!--
   Created by IntelliJ IDEA.
   User: Eraky
-  Date: 3/26/2019
-  Time: 4:02 PM
+  Date: 3/27/2019
+  Time: 12:10 PM
   To change this template use File | Settings | File Templates.
 -->
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    <jsp:directive.page contentType="text/html;"/>
     <html>
-    <head><title>Title</title></head>
+    <head><title>welcome</title></head>
     <body>
-
+    <jsp:include page="header.jspx"/>
     </body>
     </html>
 </jsp:root>

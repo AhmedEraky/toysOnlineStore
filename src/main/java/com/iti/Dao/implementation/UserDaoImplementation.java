@@ -10,7 +10,10 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.exception.ConstraintViolationException;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,9 +36,11 @@ public class UserDaoImplementation implements UserDao {
 
     @Override
     public ArrayList<User> retriveUsersByName(String name, Session session) {
-        Criteria criteria=session.createCriteria(User.class).add(Restrictions.like("name",name));
+        session.beginTransaction();
+        Criteria criteria=session.createCriteria(User.class).add(Restrictions.like("name","%"+name+"%"));
         ArrayList<User> users= (ArrayList<User>) criteria.list();
         session.clear();
+        session.getTransaction().commit();
         return users;
     }
 
@@ -66,11 +71,10 @@ public class UserDaoImplementation implements UserDao {
     public boolean persistUser(User user, Session session) {
         session.beginTransaction();
         try {
-            session.persist(user);
+            session.save(user);
             session.getTransaction().commit();
             return true;
-        }catch (HibernateException exception){
-            session.getTransaction().rollback();
+        }catch (Exception e) {
             return false;
         }
     }

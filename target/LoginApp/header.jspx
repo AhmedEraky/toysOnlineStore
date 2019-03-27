@@ -86,10 +86,10 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Login</a>
+                            <a class="nav-link" href="login.jspx">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="register.html">Register</a>
+                            <a class="nav-link" href="registration.jspx">Register</a>
                         </li>
                     </ul>
                 </div>

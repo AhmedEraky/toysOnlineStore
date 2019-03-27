@@ -2,7 +2,8 @@
         xmlns:jsp="http://java.sun.com/JSP/Page"
         xmlns:c="http://java.sun.com/jsp/jstl/core"
         xmlns="http://www.w3.org/1999/xhtml" version="2.0">
-    <jsp:directive.page contentType="text/html;"/>
+    <jsp:directive.page contentType="text/html;" isELIgnored="false"/>
+    <jsp:useBean id="newUser" scope="request" class="com.iti.model.entity.User"/>
 
     <html>
     <head>
@@ -12,9 +13,13 @@
     <body>
     <jsp:include page="header.jspx"/>
     <jsp:include page="banner.jspx"/>
-    <jsp:include page="registrationForm.jspx"/>
-    <jsp:directive.include file="footer.html"/>
 
+
+    <c:if test="${signUp=='fail'}">
+        <p style="color:#f00;" class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">duplicate account</p>
+    </c:if>
+    <jsp:include page="registrationForm.html"/>
+    <jsp:directive.include file="footer.html"/>
     </body>
     </html>
 

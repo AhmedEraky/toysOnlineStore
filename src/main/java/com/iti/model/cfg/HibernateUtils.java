@@ -21,7 +21,7 @@ public class HibernateUtils {
     }
 
     public static Session getSession(){
-        Session session=getSessionFactory().openSession();
+        Session session=getSessionFactory().getCurrentSession();
         return session;
     }
 }
