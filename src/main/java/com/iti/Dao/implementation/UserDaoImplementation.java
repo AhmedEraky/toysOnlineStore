@@ -54,10 +54,12 @@ public class UserDaoImplementation implements UserDao {
 
     @Override
     public boolean isUser(User user, Session session) {
-        Example example= Example.create(user);
+        session.beginTransaction();
         Criteria criteria=session.createCriteria(User.class)
-                .add(example);
+                .add(Restrictions.eq("email",user.getEmail()))
+                .add(Restrictions.eq("password",user.getPassword()));
         User tempUser= (User) criteria.uniqueResult();
+        session.getTransaction().commit();
         if(tempUser==null)
         {
             return false;

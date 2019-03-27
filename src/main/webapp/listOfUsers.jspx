@@ -14,17 +14,20 @@
         <jsp:directive.include file="head.html"></jsp:directive.include>
     </head>
     <body>
+    <jsp:include page="header.jspx"/>
+    <jsp:include page="banner.jspx"/>
+    <c:set var="currentPage" scope="session" value="listOfUser"/>
     <div class="container">
 
         <h1 class="text-center">Search Form</h1>
         <p class="text-center">Please Enter What You Want to search For</p>
-        <form class="centered" action="listOfUsers.jspx">
+        <form class="centered" action="maincontroller">
             <label>Name:</label>
             <input required="" name="name" placeholder="name"/>
             <input type="submit" value="search"/>
         </form>
 
-        <jsp:include page="retriveUser"/>
+        <jsp:include page="retrieveUser"/>
 
         <table class="table" style="margin-top: 3%">
             <tr>
@@ -43,6 +46,7 @@
         </table>
     </div>
 
+    <jsp:directive.include file="footer.html"/>
     </body>
     </html>
 </jsp:root>

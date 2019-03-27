@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/retriveUser")
+@WebServlet("/retrieveUser")
 public class RetriveUser extends HttpServlet {
 
     @Override

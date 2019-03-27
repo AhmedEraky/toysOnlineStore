@@ -31,4 +31,10 @@ public class UserController {
         Session session= HibernateUtils.getSession();
         return userDao.retriveUsersByName(name,session);
     }
+
+    public boolean validateUser(User user) {
+        UserDao userDao=new UserDaoImplementation();
+        Session session= HibernateUtils.getSession();
+        return userDao.isUser(user,session);
+    }
 }
