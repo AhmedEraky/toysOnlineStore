@@ -6,36 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce44dfc8-e9fa-4469-916e-562f9312bb19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/target/LoginApp.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/Dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/Dao/AdminDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/Dao/implementation/AdminDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/Dao/implementation/AdminDaoImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/Dao/implementation/CartItemDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/Dao/implementation/CartItemDaoImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/Dao/implementation/StoreDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/Dao/implementation/StoreDaoImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/Dao/AdminDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/Dao/AdminDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/Dao/implementation/AdminDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/Dao/implementation/AdminDaoImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/servlet/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/servlet/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LoginApp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LoginApp/html/admin/allUsers/usersTable.jspx" beforeDir="false" afterPath="$PROJECT_DIR$/target/LoginApp/html/admin/allUsers/usersTable.jspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LoginApp/listOfUsers.jspx" beforeDir="false" afterPath="$PROJECT_DIR$/target/LoginApp/listOfUsers.jspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LoginApp/login.jspx" beforeDir="false" afterPath="$PROJECT_DIR$/target/LoginApp/login.jspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LoginApp/loginForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/LoginApp/loginForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LoginApp/registrationForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/LoginApp/registrationForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/iti/Dao/AdminDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/iti/Dao/AdminDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/iti/Dao/implementation/AdminDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/iti/Dao/implementation/AdminDaoImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/iti/Dao/implementation/StoreDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/iti/Dao/implementation/StoreDaoImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/iti/controller/DoubleTagHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/DoubleTagHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/iti/controller/HelloTagHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/HelloTagHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/iti/servlet/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/iti/servlet/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/iti/servlet/RetriveUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/iti/servlet/RetriveUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/iti/servlet/ValidateRegistration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/iti/servlet/ValidateRegistration.class" afterDir="false" />
-    </list>
+    <list default="true" id="ce44dfc8-e9fa-4469-916e-562f9312bb19" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/filter/MainFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+            <state relative-caret-position="203">
+              <caret line="57" column="28" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/servlet/ValidateRegistration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            <state relative-caret-position="248">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -441,7 +412,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553781678512" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553801673077" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -670,7 +641,7 @@
       <workItem from="1553703621186" duration="12908000" />
       <workItem from="1553754608620" duration="9581000" />
       <workItem from="1553774788082" duration="7041000" />
-      <workItem from="1553796587904" duration="1880000" />
+      <workItem from="1553796587904" duration="2649000" />
     </task>
     <task id="LOCAL-00001" summary="change Pom">
       <created>1553533940538</created>
@@ -704,7 +675,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144839000" />
+    <option name="totallyTimeSpent" value="145608000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1306,20 +1277,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/filter/MainFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/servlet/ValidateRegistration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+        <state relative-caret-position="248">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/servlet/ValidateRegistration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/filter/MainFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        <state relative-caret-position="203">
+          <caret line="57" column="28" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

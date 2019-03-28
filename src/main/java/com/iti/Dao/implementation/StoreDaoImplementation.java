@@ -18,6 +18,8 @@ public class StoreDaoImplementation implements StoreDao
         return product.getStore();
     }
 
+
+
     @Override
     public boolean persistStore(Store store, Session session)
     {

@@ -6,6 +6,6 @@ import org.hibernate.Session;
 
 public interface StoreDao {
 
-    Store retriveStoreByProduct(Product product, Session session);
+    Store retrieveStoreByProduct(Product product, Session session);
     boolean persistStore(Store store, Session session);
 }
