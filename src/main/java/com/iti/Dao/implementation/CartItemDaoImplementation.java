@@ -37,7 +37,7 @@ public class CartItemDaoImplementation implements CartItemDao {
         Example example=Example.create(item);
         Criteria cartItemCriteria = session.createCriteria(CartItem.class)
                 .add(example);
-        return (ArrayList<CartItem>)cartItemCriteria.list();
+        return new ArrayList<CartItem>(cartItemCriteria.list());
     
     }
 
@@ -47,7 +47,7 @@ public class CartItemDaoImplementation implements CartItemDao {
         Criteria cartItemsCriteria = session.createCriteria(CartItem.class,"c")
                 .createAlias("c.shoppingCarts", "shoppingCarts");
         cartItemsCriteria.add(Restrictions.eq("shoppingCarts.cartId", cart.getCartId()));
-        return (ArrayList<CartItem>)cartItemsCriteria.list();
+        return new ArrayList<CartItem>(cartItemsCriteria.list());
     
     }
 
