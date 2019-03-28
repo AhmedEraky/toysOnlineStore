@@ -15,8 +15,7 @@
     </head>
     <body>
 
-
-    <c:set var="currentPage" scope="session" value="login"/>
+    <c:set var="loginButton" scope="session" value="true"/>
     <jsp:include page="header.jspx"/>
     <jsp:include page="banner.jspx"/>
     <jsp:directive.include file="loginForm.html"/>

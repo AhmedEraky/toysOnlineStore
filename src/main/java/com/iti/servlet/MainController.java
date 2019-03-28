@@ -28,9 +28,7 @@ public class MainController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String currentPage= (String) req.getSession().getAttribute("currentPage");
-
-
+       /* String currentPage= (String) req.getAttribute("currentPage");
         if(currentPage.equals("login")){
             if(req.getSession().getAttribute("login")==null){
                 req.getSession().setAttribute("login",false);
@@ -42,7 +40,6 @@ public class MainController extends HttpServlet {
             }else {
                 UserController controller=new UserController();
                 User user=new User();
-
                 try {
                     BeanUtils.populate(user,req.getParameterMap());
                 } catch (IllegalAccessException e) {
@@ -50,7 +47,6 @@ public class MainController extends HttpServlet {
                 } catch (InvocationTargetException e) {
                     e.printStackTrace();
                 }
-
                 if(controller.validateUser(user)){
                     resp.sendRedirect("listOfUsers.jspx");
                     req.getSession().setAttribute("login",true);
@@ -60,6 +56,6 @@ public class MainController extends HttpServlet {
                     req.getSession().setAttribute("login",false);
                 }
             }
-        }
+        }*/
     }
 }

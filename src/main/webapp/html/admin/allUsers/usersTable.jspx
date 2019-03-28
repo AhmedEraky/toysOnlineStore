@@ -12,6 +12,7 @@
     <head>
         <title>Title</title></head>
     <body>
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-sm table-striped" style="margin-top: 3%">
             <thead class="thead-dark">
