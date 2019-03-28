@@ -14,7 +14,8 @@ public class HelloTagHandler extends SimpleTagSupport {
 
     @Override
     public void doTag() throws JspException, IOException {
-       JspWriter writer=getJspContext().getOut();
-       writer.println("<font color='red'>Eraky</font>");
+        System.out.println("inside a good place");
+        JspWriter out=getJspContext().getOut();
+        out.write("<font color='red'>Eraky</font>");
     }
 }
