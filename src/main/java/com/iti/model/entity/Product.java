@@ -31,6 +31,10 @@ public class Product implements java.io.Serializable {
     private Integer minAge;
     @Column(name="discount_percentage", nullable=true)
     private String discountPercentage;
+    @Column(name = "quantity", nullable = false)
+    private int quantity;
+    @Column(name = "purchase_count",nullable = false,columnDefinition = "int default 0")
+    private int purchaseCount;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="category_id", nullable=false)
@@ -177,6 +181,22 @@ public class Product implements java.io.Serializable {
 
     public void setReviews(Set<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getPurchaseCount() {
+        return purchaseCount;
+    }
+
+    public void setPurchaseCount(int purchaseCount) {
+        this.purchaseCount = purchaseCount;
     }
 }
 

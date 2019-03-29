@@ -1,7 +1,7 @@
 package com.iti.controller;
 
-import com.iti.Dao.UserDao;
-import com.iti.Dao.implementation.UserDaoImplementation;
+import com.iti.model.Dao.UserDao;
+import com.iti.model.Dao.implementation.UserDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.entity.User;
@@ -25,7 +25,7 @@ public class UserController {
         ShoppingCart cart=new ShoppingCart();
         cart.setTotalCost(0d);
         user.setShoppingCart(cart);
-        Session session=HibernateUtils.getSession();
+        Session session=HibernateUtils.getSessionFactory().openSession();
         UserDao userDao = new UserDaoImplementation();
         return userDao.persistUser(user,session);
 

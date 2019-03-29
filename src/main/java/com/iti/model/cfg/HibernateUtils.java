@@ -8,13 +8,11 @@ import java.util.ArrayList;
 
 public class HibernateUtils {
     private static SessionFactory factory=null;
-    ArrayList<Session> sessions;
-    private static int numberOfSessions;
+
     private HibernateUtils(){}
 
     public static SessionFactory getSessionFactory(){
         if(factory==null){
-            numberOfSessions=0;
             factory= new  Configuration().configure().buildSessionFactory();
         }
         return factory;

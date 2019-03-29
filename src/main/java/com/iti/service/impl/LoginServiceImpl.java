@@ -1,12 +1,11 @@
 package com.iti.service.impl;
 
-import com.iti.Dao.UserDao;
-import com.iti.Dao.implementation.UserDaoImplementation;
+import com.iti.model.Dao.UserDao;
+import com.iti.model.Dao.implementation.UserDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
-import com.iti.model.constants.Status;
+import com.iti.model.response.Status;
 import com.iti.model.entity.User;
 import com.iti.model.response.AuthenticationResponse;
-import com.iti.model.response.ValidationResponse;
 import com.iti.service.LoginService;
 import org.hibernate.Session;
 

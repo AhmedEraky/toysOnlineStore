@@ -1,0 +1,27 @@
+<!--Islam, Login Form Beginning-->
+<section class="inner-pages py-5">
+    <div class="container py-xl-5 py-sm-3">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Login to your account</h3>
+        <form method="POST" id="loginForm" action="listOfUsers">
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-5">
+                    <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                </div>
+            </div>
+            <input name="loginButton" value="true" hidden="hidden">
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-5">
+                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!--Islam, Login Form End-->

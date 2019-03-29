@@ -10,15 +10,15 @@
           xmlns:mytag="/WEB-INF/tlds/mytags.tld"
           version="2.0">
 
-    <jsp:directive.page contentType="text/html;"/>
+    <jsp:directive.page contentType="text/html;" isELIgnored="false"/>
     <html>
     <head>
         <title>welcome</title>
     </head>
     <body>
-    <jsp:include page="header.jspx"/>
-    <jsp:include page="banner.jspx"/>
-    <jsp:directive.include file="footer.html"/>
+    <jsp:include page="/html/common/header.jspx"/>
+    <jsp:include page="/html/common/banner.jspx"/>
+    <jsp:directive.include file="/html/common/footer.html"/>
     </body>
     </html>
 </jsp:root>

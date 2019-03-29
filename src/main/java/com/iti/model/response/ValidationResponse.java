@@ -1,7 +1,5 @@
 package com.iti.model.response;
 
-import com.iti.model.constants.Status;
-
 public class ValidationResponse {
     private Status status;
     private String message;
