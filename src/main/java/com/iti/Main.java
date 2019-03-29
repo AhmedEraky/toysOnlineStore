@@ -1,10 +1,14 @@
 package com.iti;
 
+import com.iti.Dao.implementation.CategoryDaoImplementation;
 import com.iti.controller.UserController;
+import com.iti.model.cfg.HibernateUtils;
+import com.iti.model.entity.Category;
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.entity.User;
 
 import java.util.Date;
+import org.hibernate.Session;
 
 
 public class Main {
@@ -33,5 +37,11 @@ public class Main {
         userController.updateUser(currentUser,newu);
         user=userController.retriveUserByEmail("ahmed@yahoo.com");
         System.out.println("new Data = "+user.getJob());
+        
+        Session session = HibernateUtils.getSession();
+        Category category = new Category("Dolls");
+        CategoryDaoImplementation categoryDaoImplementation = new CategoryDaoImplementation();
+        categoryDaoImplementation.persistCategory(category, session);
+        System.out.println("Done");     
     }
 }

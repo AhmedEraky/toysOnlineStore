@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import java.util.ArrayList;
 
 public interface CategoryDao {
-    Category retriveCartItemByID(Integer ID, Session session);
+    Category retriveCategoryByID(Integer ID, Session session);
     Category retriveCategoryByExample(Category category, Session session);
     ArrayList<Category> retriveCategoriesByExample(Category category, Session session);
     ArrayList<Category> retriveCategories(Session session);
