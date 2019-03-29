@@ -4,7 +4,7 @@ var currentDate = new Date();
 
 function isDate18orMoreYearsOld(day, month, year) 
 {
-    return new Date(year+18, month-1, day) <= new Date();
+    return true;
 }
 
 function handleForm(event)

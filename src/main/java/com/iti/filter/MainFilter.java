@@ -1,7 +1,14 @@
 package com.iti.filter;
 
 import com.iti.controller.UserController;
+import com.iti.model.constants.Status;
 import com.iti.model.entity.User;
+import com.iti.model.response.AuthenticationResponse;
+import com.iti.model.response.ValidationResponse;
+import com.iti.service.LoginService;
+import com.iti.service.RegistrationService;
+import com.iti.service.impl.LoginServiceImpl;
+import com.iti.service.impl.RegistrationServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.*;
@@ -10,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class MainFilter implements Filter {
 
@@ -38,34 +47,62 @@ public class MainFilter implements Filter {
             if(login!=null&&login==true) {
                 filterChain.doFilter(request,response);
             }
-            //if user is try to login
+            //if user is try to go to main Page
             else if(currentPage.equals("/listOfUsers.jspx")) {
+                User user;
+                //if user Try to Login
                 if (session.getAttribute("loginButton") != null&& session.getAttribute("loginButton").equals("true")) {
-                    UserController controller = new UserController();
-                    User user = new User();
-                    try {
-                        BeanUtils.populate(user, request.getParameterMap());
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                    if (controller.validateUser(user)) {
+                    session.removeAttribute("loginButton");
+                    user = createUser(request);
+                    LoginService service=new LoginServiceImpl();
+                    AuthenticationResponse loginResponse=service.login(user);
+                    if (loginResponse.getStatus().equals(Status.success)) {
+                        session.setAttribute("login", true);
                         filterChain.doFilter(request, response);
-                        request.getSession().setAttribute("login", true);
-
                     } else {
+                        session.setAttribute("errorMessage",loginResponse.getMessage());
                         response.sendRedirect("login.jspx");
                     }
-                    session.removeAttribute("loginButton");
+                }
+                //if user try to register
+                else if(request.getParameter("registrationButton")!=null&&request.getParameter("registrationButton").equals("true")){
+                    user = createUser(request);
+                    String date=request.getParameter("dateOfBirth");
+                    try {
+                        user.setBirthDate(new SimpleDateFormat("dd-mm-yyyy").parse(date));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    RegistrationService service=new RegistrationServiceImpl();
+                    AuthenticationResponse authenticationResponse=service.register(user);
+
+                    if(authenticationResponse.getStatus().equals(Status.success)){
+                        session.setAttribute("login",true);
+                        filterChain.doFilter(request,response);
+                    }else {
+                        session.setAttribute("errorMessage",authenticationResponse.getMessage());
+                        response.sendRedirect("registration.jspx?signup=fail");
+                    }
+                }else {
+                    RequestDispatcher dispatcher=request.getRequestDispatcher("index.jspx");
+                    dispatcher.forward(request,response);
                 }
             }
             else {
-                RequestDispatcher dispatcher=request.getRequestDispatcher("index.jspx");
-                dispatcher.forward(request,response);
+                filterChain.doFilter(servletRequest,servletResponse);
             }
         }
 
 
+    }
+
+    private User createUser(HttpServletRequest request) {
+        User user = new User();
+        try {
+            BeanUtils.populate(user, request.getParameterMap());
+        } catch (InvocationTargetException e) { e.printStackTrace(); } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }

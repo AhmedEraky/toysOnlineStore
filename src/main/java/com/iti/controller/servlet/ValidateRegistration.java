@@ -1,4 +1,4 @@
-package com.iti.servlet;
+package com.iti.controller.servlet;
 
 import com.iti.controller.UserController;
 import com.iti.model.entity.ShoppingCart;

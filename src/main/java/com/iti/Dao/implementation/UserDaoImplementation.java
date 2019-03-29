@@ -77,6 +77,7 @@ public class UserDaoImplementation implements UserDao {
             session.getTransaction().commit();
             return true;
         }catch (Exception e) {
+            session.getTransaction().rollback();
             return false;
         }
     }
@@ -92,7 +93,7 @@ public class UserDaoImplementation implements UserDao {
             session.update(oldUser);
             session.getTransaction().commit();
             return true;
-        }catch (HibernateException exception){
+        }catch (Exception exception){
             session.getTransaction().rollback();
             return false;
         }

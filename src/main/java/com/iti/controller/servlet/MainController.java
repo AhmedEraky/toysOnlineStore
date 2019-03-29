@@ -1,8 +1,4 @@
-package com.iti.servlet;
-
-import com.iti.controller.UserController;
-import com.iti.model.entity.User;
-import org.apache.commons.beanutils.BeanUtils;
+package com.iti.controller.servlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 @WebServlet("/maincontroller")
 public class MainController extends HttpServlet {

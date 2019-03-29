@@ -3,6 +3,7 @@ package com.iti.controller;
 import com.iti.Dao.UserDao;
 import com.iti.Dao.implementation.UserDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
+import com.iti.model.entity.ShoppingCart;
 import com.iti.model.entity.User;
 import org.hibernate.Session;
 
@@ -21,6 +22,9 @@ public class UserController {
         return userDao.retiveUserEmail(email,session);
     }
     public boolean insertUser(User user){
+        ShoppingCart cart=new ShoppingCart();
+        cart.setTotalCost(0d);
+        user.setShoppingCart(cart);
         Session session=HibernateUtils.getSession();
         UserDao userDao = new UserDaoImplementation();
         return userDao.persistUser(user,session);

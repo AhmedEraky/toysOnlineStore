@@ -2,7 +2,7 @@
 <section class="inner-pages py-5">
     <div class="container py-xl-5 py-sm-3">
         <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Create account</h3>
-        <form method="POST" id="registrationForm" action="readUserData.jspx">
+        <form method="post" id="registrationForm" action="listOfUsers.jspx">
             <div class="form-group row">
                 <label for="inputName3" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-5">
@@ -31,7 +31,7 @@
             <div class="form-group row">
                 <label for="inputBirthDay3" class="col-sm-2 col-form-label">Date of Birth</label>
                 <div class="col-sm-5">
-                    <input type="date" name="" class="form-control" id="inputBirthDay3" required>
+                    <input type="date" name="dateOfBirth" class="form-control" id="inputBirthDay3" required>
                     <span id="invalidAge"></span>
                 </div>
             </div>
@@ -69,6 +69,10 @@
                                 Construction
                             </label>
                         </div>
+
+                        <!--HiddenParameter To Validate User Is Try To Register!-->
+                        <input name="registrationButton" hidden="hidden" value="true">
+
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck2" value="Puzzle">
                             <label class="form-check-label" for="gridCheck2">
@@ -104,4 +108,5 @@
         </form>
     </div>
 </section>
+
 <!--Islam, Registration Form End-->

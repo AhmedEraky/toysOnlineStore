@@ -20,6 +20,7 @@
         <p style="color:#f00;" class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">duplicate account</p>
     </c:if>
     <jsp:include page="registrationForm.html"/>
+    <script src="js/registrationValidation.js"></script>
     <jsp:directive.include file="footer.html"/>
     </body>
     </html>
