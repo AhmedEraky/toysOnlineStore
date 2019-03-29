@@ -12,6 +12,7 @@ import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.exception.ConstraintViolationException;
 
+import javax.persistence.PersistenceException;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
@@ -76,7 +77,7 @@ public class UserDaoImplementation implements UserDao {
             session.save(user);
             session.getTransaction().commit();
             return true;
-        }catch (Exception e) {
+        }catch (PersistenceException e) {
             session.getTransaction().rollback();
             return false;
         }

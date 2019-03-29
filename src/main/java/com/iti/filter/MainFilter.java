@@ -69,7 +69,7 @@ public class MainFilter implements Filter {
                     user = createUser(request);
                     String date=request.getParameter("dateOfBirth");
                     try {
-                        user.setBirthDate(new SimpleDateFormat("dd-mm-yyyy").parse(date));
+                        user.setBirthDate(new SimpleDateFormat("yyyy-MM-dd").parse(date));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
