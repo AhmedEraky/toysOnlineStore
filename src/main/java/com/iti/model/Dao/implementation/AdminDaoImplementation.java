@@ -2,6 +2,7 @@ package com.iti.model.Dao.implementation;
 
 import com.iti.model.Dao.AdminDao;
 import com.iti.model.entity.Admin;
+import javax.persistence.PersistenceException;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -17,7 +18,8 @@ public class AdminDaoImplementation implements AdminDao
             session.persist(admin);
             session.getTransaction().commit();
             return true;
-        } catch (HibernateException ex)
+        } 
+        catch (PersistenceException ex)
         {
             session.getTransaction().rollback();
             return false;
