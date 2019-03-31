@@ -38,6 +38,11 @@
         <servlet-name>listOfUsers</servlet-name>
         <jsp-file>/html/admin/listOfUsers/listOfUsers.jspx</jsp-file>
     </servlet>
+    
+    <servlet>
+        <servlet-name>profile</servlet-name>
+        <jsp-file>/html/user/profile/userprofile.jspx</jsp-file>
+    </servlet>
 
 
     <!--Aya Servlet-->
@@ -79,6 +84,11 @@
     <servlet-mapping>
         <servlet-name>listOfUsers</servlet-name>
         <url-pattern>/listOfUsers</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
     </servlet-mapping>
 
 
