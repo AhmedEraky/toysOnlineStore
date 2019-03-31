@@ -23,6 +23,11 @@ import java.io.IOException;
 public class MainFilter implements Filter {
 
     @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         //get Main Request Information
         HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -67,5 +72,10 @@ public class MainFilter implements Filter {
             }
 
         }
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }
