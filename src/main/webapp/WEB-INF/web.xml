@@ -50,9 +50,11 @@
 
 
     <!--Ashraf Servlet-->
-
-
-
+    <servlet>
+        <servlet-name>filters</servlet-name>
+        <jsp-file>/html/user/filters/filters.html</jsp-file>
+    </servlet>    
+    
 
     <!--Hadeer Servlet-->
 
@@ -93,7 +95,10 @@
 
     <!--Ashraf Servlet  Mapping-->
 
-
+    <servlet-mapping>
+        <servlet-name>filters</servlet-name>
+        <url-pattern>/filters</url-pattern>
+    </servlet-mapping>
 
 
     <!--Hadeer Servlet  Mapping-->
