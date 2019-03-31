@@ -10,16 +10,13 @@
     <html>
     <head>
         <title>Profile</title>
-        <jsp:directive.include file="../../common/head.html"/>
+        <jsp:directive.include file="/html/common/head.html"/>
     </head>
     <body>
-
-
-    <jsp:include page="../../common/header.jspx"/>
-    <jsp:include page="../../common/banner.jspx"/>
-	
-    <jsp:directive.include file="profile.html"/>
-    <jsp:directive.include file="../../common/footer.html"/>
+    <jsp:include page="/html/common/header.jspx"/>
+    <jsp:include page="/html/common/banner.jspx"/>
+    <jsp:directive.include file="/html/user/profile/profile.html"/>
+    <jsp:directive.include file="/html/common/footer.html"/>
     </body>
     </html>
 </jsp:root>
