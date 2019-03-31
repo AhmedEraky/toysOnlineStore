@@ -46,6 +46,10 @@
 
     <!--Islam Servlet-->
 
+    <servlet>
+        <servlet-name>about</servlet-name>
+        <jsp-file>/html/common/about.html</jsp-file>
+    </servlet>
 
 
 
@@ -88,7 +92,10 @@
 
     <!--Islam Servlet  Mapping-->
 
-
+    <servlet-mapping>
+        <servlet-name>about</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
 
 
     <!--Ashraf Servlet  Mapping-->
