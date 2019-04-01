@@ -9,7 +9,7 @@
     <html>
     <head>
         <title>Shop</title>
-        <jsp:directive.include file="/html/common/head.html"/>
+        <jsp:directive.include file="/html/common/header.jspx"/>
         <jsp:include page="/html/common/header.jspx"/>
         <jsp:include page="/html/common/banner.jspx"/>
         <jsp:include page="/html/user/shop/shoppingList.jspx"/>
