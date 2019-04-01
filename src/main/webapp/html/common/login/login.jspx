@@ -9,7 +9,7 @@
     <body>
     <jsp:include page="/html/common/header.jspx"/>
     <jsp:include page="/html/common/banner.jspx"/>
-    <jsp:directive.include file="/html/user/login/loginForm.html"/>
+    <jsp:directive.include file="/html/common/login/loginForm.html"/>
     <jsp:directive.include file="/html/common/footer.html"/>
     </body>
     </html>

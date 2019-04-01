@@ -30,10 +30,10 @@ public class HomeHandler implements Handler {
             handler=new RegistrationHandler();
             handler.handle(request,response,filterChain,login);
         }
-        //if user Tru To Access login or registration and  user is already login
+        //if user Try to go to home page
         else {
-            RequestDispatcher dispatcher=request.getRequestDispatcher("index.jspx");
-            dispatcher.forward(request,response);
+            
+           filterChain.doFilter(request,response);
         }
     }
 

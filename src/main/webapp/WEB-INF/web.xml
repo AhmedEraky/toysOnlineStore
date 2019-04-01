@@ -44,6 +44,12 @@
         <jsp-file>/html/user/profile/userprofile.jspx</jsp-file>
     </servlet>
 
+    <servlet>
+        <servlet-name>shop</servlet-name>
+        <jsp-file>/html/user/shop/shop.jspx</jsp-file>
+    </servlet>
+
+
 
     <!--Aya Servlet-->
 
@@ -96,6 +102,12 @@
         <servlet-name>profile</servlet-name>
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>shop</servlet-name>
+        <url-pattern>/shop</url-pattern>
+    </servlet-mapping>
+
 
 
     <!--Aya Servlet  Mapping-->

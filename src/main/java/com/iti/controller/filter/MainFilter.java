@@ -3,6 +3,8 @@ package com.iti.controller.filter;
 import com.iti.controller.filter.handler.GuestHandler;
 import com.iti.controller.filter.handler.Handler;
 import com.iti.controller.filter.handler.HomeHandler;
+import com.iti.controller.filter.handler.ProfileHandler;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -52,7 +54,7 @@ public class MainFilter implements Filter {
                 filterChain.doFilter(request,response);
             }
             //if user is try to go to main Page
-            else if(currentPage.equals("/listOfUsers")) {
+            else if(currentPage.equals("/home")) {
                 handler=new HomeHandler();
                 handler.handle(request,response,filterChain,login);
             }
@@ -65,6 +67,10 @@ public class MainFilter implements Filter {
             //Ashraf Part
 
             //Hadeer Part
+            else if(currentPage.equals("/profile")){
+                handler =new ProfileHandler();
+                handler.handle(request,response,filterChain,login);
+            }
 
             //if other type of requst
             else {
