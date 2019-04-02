@@ -47,7 +47,7 @@
                                     <button id="my-fav-items"> <span class="far fa-heart"></span></button>
                                 </li>
                                 <li>
-                                    <button id="my-profile"> <span class="far fa-user"></span></button>
+                                    <a href="profile"><button id="my-profile"> <span class="far fa-user"></span></button></a>
                                 </li>
                                 <li class="toyscart toyscart2 cart cart box_1">
                                     <button id="my-cart"><span class="fas fa-cart-arrow-down"></span></button>

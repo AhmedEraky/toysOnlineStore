@@ -1,19 +1,36 @@
 package com.iti.controller.filter.handler;
 
 import com.iti.model.entity.User;
+import com.iti.model.response.ProfileResponse;
+import com.iti.model.response.Status;
 import com.iti.service.ProfileService;
+import com.iti.service.impl.ProfileServiceImpl;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class ProfileHandler implements Handler {
+public class ProfileHandler extends HomeHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Boolean login) throws IOException, ServletException {
-        if(login==true){
-            User user=new User();
+        session = request.getSession();
+        boolean loggedIn = (boolean) session.getAttribute("login");
+        if(loggedIn==true){
+            user=new User();
+            user.setEmail((String) session.getAttribute("mail"));
+            ProfileService service = new ProfileServiceImpl();
+            ProfileResponse profileResponse = service.getProfileInfo(user);
+            if (profileResponse.getStatus().equals(Status.success)) {
+                request.setAttribute("user",profileResponse);
+                filterChain.doFilter(request, response);
+            } else {
+                session.setAttribute("errorMessage",profileResponse.getMessage());
+                response.sendRedirect("login.jspx");
+            }
+
         }else {
             response.sendRedirect("login");
         }
