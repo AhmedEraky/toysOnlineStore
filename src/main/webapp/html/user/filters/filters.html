@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     </meta>
     <meta name="keywords"
-        content="Toys Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+          content="Toys Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
                    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script>
         addEventListener("load", function () {
@@ -50,57 +50,27 @@
 </head>
 
 <body>
-
-    <section>
-        <div class="myBackButtonComponent">
-            <p class="col-log-offset-4">
-                <a href="product.html">
-                    <i class='fas fa-chevron-left' style="font-size:48px;color:red" ></i>
-                </a>
-            </p>
-
-        </div>
-
-        <div class="mySearchComponent">
-
-            <form action="product.html" method="post">
-
-                <input type="submit" value="Apply" class="btn btn-warning" style="margin-left: 72%;"></input>
-
-            </form>
-
-        </div>
-
-
+<section>
+    <form action="shop">
 
         <!-- price range -->
-
         <div class="myPriceRangeComponent">
-
             <div class="range col-log-offset-4">
                 <h3 class="agileits-sear-head">Price range</h3>
                 <ul class="dropdown-menu6">
                     <li>
                         <div id="slider-range"></div>
                         <input type="text" id="amount" name="priceRangeInput" style="border: 0; color: #ffffff; font-weight: normal;" />
-
                     </li>
                 </ul>
             </div>
-
         </div>
-
-
-
         <!-- //price range -->
 
-        <!--preference -->
-
+        <!-- //Category -->
         <div class="myPreferenceComponent">
-
             <div class="left-side col-log-offset-4">
-
-                <h3 class="agileits-sear-head">Occasion</h3>
+                <h3 class="agileits-sear-head">Category</h3>
                 <ul name="occasionOptions">
                     <li>
                         <input type="checkbox" class="checked" name="giftOption">
@@ -121,12 +91,9 @@
                 </ul>
             </div>
         </div>
+        <!-- //Category -->
 
-
-
-        <!-- // preference -->
         <!-- discounts -->
-
         <div class="myDiscountsComponent">
 
             <div class="left-side col-log-offset-4">
@@ -160,12 +127,9 @@
             </div>
 
         </div>
-
-
-
         <!-- //discounts -->
-        <!-- reviews -->
 
+        <!-- reviews -->
         <div class="myReviewsComponent">
 
             <div class="customer-rev left-side col-log-offset-4">
@@ -225,87 +189,95 @@
             </div>
 
         </div>
+        <!-- reviews -->
+
+        <!--submit-->
+        <div class="form-group row">
+            <div class="col-sm-5">
+                <button type="submit" class="btn btn-primary">Apply Filter</button>
+            </div>
+        </div>
+
+    </form>
+
+</section>
 
 
+<!--js working-->
+<script src='js/jquery-2.2.3.min.js'></script>
+<!--//js working-->
+<!-- cart-js -->
+<script src="js/minicart.js"></script>
+<script>
+    toys.render();
 
-    </section>
+    toys.cart.on('toys_checkout', function (evt) {
+        var items, len, i;
 
+        if (this.subtotal() > 0) {
+            items = this.items();
 
-    <!--js working-->
-    <script src='js/jquery-2.2.3.min.js'></script>
-    <!--//js working-->
-    <!-- cart-js -->
-    <script src="js/minicart.js"></script>
-    <script>
-        toys.render();
-
-        toys.cart.on('toys_checkout', function (evt) {
-            var items, len, i;
-
-            if (this.subtotal() > 0) {
-                items = this.items();
-
-                for (i = 0, len = items.length; i < len; i++) { }
+            for (i = 0, len = items.length; i < len; i++) { }
+        }
+    });
+</script>
+<!-- //cart-js -->
+<!-- price range (top products) -->
+<script src="js/jquery-ui.js"></script>
+<script>
+    //<![CDATA[
+    $(window).load(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 9000,
+            values: [50, 6000],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             }
         });
-    </script>
-    <!-- //cart-js -->
-    <!-- price range (top products) -->
-    <script src="js/jquery-ui.js"></script>
-    <script>
-        //<![CDATA[
-        $(window).load(function () {
-            $("#slider-range").slider({
-                range: true,
-                min: 0,
-                max: 9000,
-                values: [50, 6000],
-                slide: function (event, ui) {
-                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                }
-            });
-            $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
 
-        }); //]]>
-    </script>
-    <!-- //price range (top products) -->
-    <!-- start-smoth-scrolling -->
-    <script src="js/move-top.js"></script>
-    <script src="js/easing.js"></script>
-    <script>
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-                $('html,body').animate({
-                    scrollTop: $(this.hash).offset().top
-                }, 900);
-            });
+    }); //]]>
+</script>
+<!-- //price range (top products) -->
+<!-- start-smoth-scrolling -->
+<script src="js/move-top.js"></script>
+<script src="js/easing.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 900);
         });
-    </script>
-    <!-- start-smoth-scrolling -->
-    <!-- here stars scrolling icon -->
-    <script>
-        $(document).ready(function () {
+    });
+</script>
+<!-- start-smoth-scrolling -->
+<!-- here stars scrolling icon -->
+<script>
+    $(document).ready(function () {
 
-            var defaults = {
-                containerID: 'toTop', // fading element id
-                containerHoverID: 'toTopHover', // fading element hover id
-                scrollSpeed: 1200,
-                easingType: 'linear'
-            };
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
 
 
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
-
+        $().UItoTop({
+            easingType: 'easeOutQuart'
         });
-    </script>
-    <!-- //here ends scrolling icon -->
-    <!--bootstrap working-->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- //bootstrap working-->
-    <!-- //OnScroll-Number-Increase-JavaScript -->
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+<!--bootstrap working-->
+<script src="js/bootstrap.min.js"></script>
+<!-- //bootstrap working-->
+<!-- //OnScroll-Number-Increase-JavaScript -->
 
 </body>
 
