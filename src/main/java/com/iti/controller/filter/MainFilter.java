@@ -3,6 +3,8 @@ package com.iti.controller.filter;
 import com.iti.controller.filter.handler.GuestHandler;
 import com.iti.controller.filter.handler.Handler;
 import com.iti.controller.filter.handler.HomeHandler;
+import com.iti.controller.filter.handler.ProfileHandler;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +23,11 @@ import com.iti.controller.filter.handler.ProductHandler;
 
 
 public class MainFilter implements Filter {
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -43,15 +50,11 @@ public class MainFilter implements Filter {
         }
         //Page Appear For User Who is Login
         else {
-            //if user is login Move to normal path
-            if(login!=null&&login==true) {
-                filterChain.doFilter(request,response);
-            }
-            //if user is try to go to main Page
-            else if(currentPage.equals("/listOfUsers")) {
+           if(currentPage.equals("/home")) {
                 handler=new HomeHandler();
                 handler.handle(request,response,filterChain,login);
             }
+            //if user is try to go to main Page
             //Eraky Part
 
             //Aya Part
@@ -70,6 +73,10 @@ public class MainFilter implements Filter {
             //Ashraf Part
 
             //Hadeer Part
+            else if(currentPage.equals("/profile")){
+                handler =new ProfileHandler();
+                handler.handle(request,response,filterChain,login);
+            }
 
             //if other type of requst
             else {
@@ -77,5 +84,10 @@ public class MainFilter implements Filter {
             }
 
         }
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

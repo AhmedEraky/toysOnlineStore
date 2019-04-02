@@ -19,7 +19,8 @@ public class LoginHandler  extends HomeHandler{
         LoginService service=new LoginServiceImpl();
         AuthenticationResponse loginResponse=service.login(user);
         if (loginResponse.getStatus().equals(Status.success)) {
-            session.setAttribute("login", true);
+            session.setAttribute("login",true);
+            session.setAttribute("mail",user.getEmail());
             filterChain.doFilter(request, response);
         } else {
             session.setAttribute("errorMessage",loginResponse.getMessage());

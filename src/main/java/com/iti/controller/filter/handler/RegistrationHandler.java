@@ -27,7 +27,7 @@ public class RegistrationHandler extends HomeHandler {
         RegistrationService service=new RegistrationServiceImpl();
         AuthenticationResponse authenticationResponse=service.register(user);
         if(authenticationResponse.getStatus().equals(Status.success)){
-            session.setAttribute("login",true);
+            request.setAttribute("registration",authenticationResponse);
             filterChain.doFilter(request,response);
         }else {
             session.setAttribute("errorMessage",authenticationResponse.getMessage());

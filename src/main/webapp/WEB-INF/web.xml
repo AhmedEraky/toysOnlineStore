@@ -26,7 +26,7 @@
 
     <servlet>
         <servlet-name>login</servlet-name>
-        <jsp-file>/html/user/login/login.jspx</jsp-file>
+        <jsp-file>/html/common/login/login.jspx</jsp-file>
     </servlet>
 
     <servlet>
@@ -38,6 +38,17 @@
         <servlet-name>listOfUsers</servlet-name>
         <jsp-file>/html/admin/listOfUsers/listOfUsers.jspx</jsp-file>
     </servlet>
+    
+    <servlet>
+        <servlet-name>profile</servlet-name>
+        <jsp-file>/html/user/profile/userprofile.jspx</jsp-file>
+    </servlet>
+
+    <servlet>
+        <servlet-name>shop</servlet-name>
+        <jsp-file>/html/user/shop/shop.jspx</jsp-file>
+    </servlet>
+
 
 
     <!--Aya Servlet-->
@@ -49,13 +60,19 @@
 
     <!--Islam Servlet-->
 
+    <servlet>
+        <servlet-name>about</servlet-name>
+        <jsp-file>/html/common/about.html</jsp-file>
+    </servlet>
 
 
 
     <!--Ashraf Servlet-->
-
-
-
+    <servlet>
+        <servlet-name>filters</servlet-name>
+        <jsp-file>/html/user/filters/filters.html</jsp-file>
+    </servlet>    
+    
 
     <!--Hadeer Servlet-->
 
@@ -83,6 +100,17 @@
         <servlet-name>listOfUsers</servlet-name>
         <url-pattern>/listOfUsers</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>shop</servlet-name>
+        <url-pattern>/shop</url-pattern>
+    </servlet-mapping>
+
 
 
     <!--Aya Servlet  Mapping-->
@@ -94,12 +122,18 @@
 
     <!--Islam Servlet  Mapping-->
 
-
+    <servlet-mapping>
+        <servlet-name>about</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
 
 
     <!--Ashraf Servlet  Mapping-->
 
-
+    <servlet-mapping>
+        <servlet-name>filters</servlet-name>
+        <url-pattern>/filters</url-pattern>
+    </servlet-mapping>
 
 
     <!--Hadeer Servlet  Mapping-->

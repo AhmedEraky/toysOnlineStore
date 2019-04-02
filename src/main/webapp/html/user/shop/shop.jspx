@@ -1,0 +1,21 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: Eraky
+  Date: 3/31/2019
+  Time: 11:42 PM
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    <html>
+    <head>
+        <title>Shop</title>
+        <jsp:directive.include file="/html/common/header.jspx"/>
+        <jsp:include page="/html/common/header.jspx"/>
+        <jsp:include page="/html/common/banner.jspx"/>
+        <jsp:include page="/html/user/shop/shoppingList.jspx"/>
+        <jsp:directive.include file="/html/common/footer.html"/>
+
+    </head>
+    <body></body>
+    </html>
+</jsp:root>
