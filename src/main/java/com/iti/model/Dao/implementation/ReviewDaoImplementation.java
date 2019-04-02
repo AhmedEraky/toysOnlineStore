@@ -61,4 +61,26 @@ public class ReviewDaoImplementation implements ReviewDao
             return false;
         }
     }
+    // Eraky part
+    
+    //Aya Part
+    @Override
+    public int retrieveRateByProduct(Product product, Session session) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Review.class)
+                .createAlias("products", "p").
+                        add(Restrictions.eq("p.ProductID", product.getProductID()));
+        List<Review> reviewsList = criteria.list();
+        //get rate of each review
+        int sum=0;
+        for(Review review:reviewsList){
+            sum+=review.getRate();
+        }
+        int overallReview = sum / (reviewsList.size());
+        session.clear();
+        session.getTransaction().commit();
+        return overallReview;
+    }
+
+
 }

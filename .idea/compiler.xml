@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Lab3" />
         <module name="LoginApp" />
+        <module name="toysOnlineStore" />
       </profile>
     </annotationProcessing>
   </component>

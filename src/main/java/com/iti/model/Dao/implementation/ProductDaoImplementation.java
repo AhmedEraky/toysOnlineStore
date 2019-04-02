@@ -16,8 +16,13 @@ import org.hibernate.criterion.Restrictions;
 public class ProductDaoImplementation implements ProductDao {
     @Override
     public Product retriveProductByID(Integer id, Session session) {
+        session.beginTransaction();
         Criteria criteria = session.createCriteria(Product.class).add(Restrictions.eq("ProductID", id));
         Product product = (Product) criteria.uniqueResult();
+        product.getCategory().getProducts();
+        product.getStore();
+        session.clear();
+        session.getTransaction().commit();
         return product;
     }
 
