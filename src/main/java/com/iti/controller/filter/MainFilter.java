@@ -49,15 +49,11 @@ public class MainFilter implements Filter {
         }
         //Page Appear For User Who is Login
         else {
-            //if user is login Move to normal path
-            if(login!=null&&login==true) {
-                filterChain.doFilter(request,response);
-            }
-            //if user is try to go to main Page
-            else if(currentPage.equals("/home")) {
+           if(currentPage.equals("/home")) {
                 handler=new HomeHandler();
                 handler.handle(request,response,filterChain,login);
             }
+            //if user is try to go to main Page
             //Eraky Part
 
             //Aya Part
