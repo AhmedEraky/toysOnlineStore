@@ -14,7 +14,6 @@ import org.hibernate.criterion.Restrictions;
 
 public class ReviewDaoImplementation implements ReviewDao
 {
-    //Eraky Part
 
     //Aya Part
 
@@ -69,6 +68,6 @@ public class ReviewDaoImplementation implements ReviewDao
         }
     }
 
-        //Ashraf Part
+
 
 }

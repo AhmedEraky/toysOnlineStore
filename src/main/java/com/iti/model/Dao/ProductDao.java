@@ -24,5 +24,5 @@ public interface ProductDao {
     boolean updateProductQuantity(Product soldedProduct  ,Session session);
 
     //Ashraf Part
-    
+
 }
