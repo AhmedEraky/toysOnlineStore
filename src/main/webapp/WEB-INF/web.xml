@@ -65,6 +65,11 @@
         <jsp-file>/html/common/about.html</jsp-file>
     </servlet>
 
+    <servlet>
+        <servlet-name>cartView</servlet-name>
+        <jsp-file>/html/user/cart/cart.jspx</jsp-file>
+    </servlet>
+    
 
 
     <!--Ashraf Servlet-->
@@ -127,6 +132,10 @@
         <url-pattern>/about</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>cartView</servlet-name>
+        <url-pattern>/ViewYourCart</url-pattern>
+    </servlet-mapping>
 
     <!--Ashraf Servlet  Mapping-->
 

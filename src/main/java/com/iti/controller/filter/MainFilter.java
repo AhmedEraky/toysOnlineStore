@@ -72,7 +72,10 @@ public class MainFilter implements Filter {
             }
 
             //Islam Part
-
+            else if(currentPage.equals("/ViewYourCart"))
+            {
+                filterChain.doFilter(servletRequest,servletResponse);
+            }
             //Ashraf Part
 
             //Hadeer Part
