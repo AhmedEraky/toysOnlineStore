@@ -1,9 +1,6 @@
 package com.iti.controller.filter;
 
-import com.iti.controller.filter.handler.GuestHandler;
-import com.iti.controller.filter.handler.Handler;
-import com.iti.controller.filter.handler.HomeHandler;
-import com.iti.controller.filter.handler.ProfileHandler;
+import com.iti.controller.filter.handler.*;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -55,6 +52,12 @@ public class MainFilter implements Filter {
             }
             //if user is try to go to main Page
             //Eraky Part
+
+           else if(currentPage.contains("/shop")){
+               handler=new ShopHandler();
+               handler.handle(request,response,filterChain,login);
+           }
+
 
             //Aya Part
 
