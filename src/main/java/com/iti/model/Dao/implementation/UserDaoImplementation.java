@@ -14,8 +14,11 @@ import java.util.ArrayList;
 public class UserDaoImplementation implements UserDao {
     @Override
     public User retiveUserEmail(String email, Session session) {
+        session.beginTransaction();
         Criteria criteria=session.createCriteria(User.class).add(Restrictions.eq("email",email));
         User user= (User) criteria.uniqueResult();
+        session.clear();
+        session.getTransaction().commit();
         return user;
     }
 
