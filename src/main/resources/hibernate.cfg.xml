@@ -57,7 +57,6 @@ Contributor(s):
     <property name="hibernate.c3p0.timeout">1500</property>
     <property name="hibernate.c3p0.max_statements">50</property>
 
-
     <mapping class="com.iti.model.entity.Admin"/>
     <mapping class="com.iti.model.entity.Category"/>
     <mapping class="com.iti.model.entity.CartItem"/>
