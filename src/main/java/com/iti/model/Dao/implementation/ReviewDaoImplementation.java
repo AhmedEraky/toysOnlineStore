@@ -18,6 +18,10 @@ public class ReviewDaoImplementation implements ReviewDao
     @Override
     public ArrayList<Review> retrieveReviewsByProduct(Product product, Session session)
     {
+        //Eraky
+
+        //Aya
+
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Review.class).createCriteria("products")
 
@@ -27,6 +31,12 @@ public class ReviewDaoImplementation implements ReviewDao
         session.clear();
         session.getTransaction().commit();
         return productReviews;
+        //Ashraf
+
+        //Hadeer
+
+        //Islam
+        
     }
 
     @Override
