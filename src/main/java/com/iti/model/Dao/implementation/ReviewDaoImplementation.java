@@ -14,29 +14,23 @@ import org.hibernate.criterion.Restrictions;
 
 public class ReviewDaoImplementation implements ReviewDao
 {
+    //Eraky Part
+
+    //Aya Part
 
     @Override
     public ArrayList<Review> retrieveReviewsByProduct(Product product, Session session)
     {
-        //Eraky
-
-        //Aya
-
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Review.class).createCriteria("products")
+        Criteria criteria = session.createCriteria(Review.class).createAlias("products","p")
 
-               .add(Restrictions.eq("ProductID", product.getProductID()));
+               .add(Restrictions.eq("p.ProductID", product.getProductID()));
         List<Review> reviewsList = criteria.list();
         ArrayList<Review> productReviews = new ArrayList<>(reviewsList);
         session.clear();
         session.getTransaction().commit();
         return productReviews;
-        //Ashraf
 
-        //Hadeer
-
-        //Islam
-        
     }
 
     @Override
@@ -75,6 +69,6 @@ public class ReviewDaoImplementation implements ReviewDao
         }
     }
 
-
+        //Ashraf Part
 
 }

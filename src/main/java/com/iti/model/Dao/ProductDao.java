@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import com.iti.model.entity.Category;
 
 public interface ProductDao {
+    //Eraky Part
+
+    //Aya Part
+
     Product retriveProductByID(Integer id, Session session);
     Product retriveProductByExample(Product product, Session session);
     ArrayList<Product> retriveProductsByExample(Product product, Session session);
@@ -18,4 +22,7 @@ public interface ProductDao {
     ArrayList<Product> retrieveNewProducts(Session session);
     ArrayList<Product> retrievePopularProducts(Session session); 
     boolean updateProductQuantity(Product soldedProduct  ,Session session);
+
+    //Ashraf Part
+    
 }
