@@ -23,8 +23,7 @@ public class LoginHandler  extends HomeHandler{
             session.setAttribute("mail",user.getEmail());
             filterChain.doFilter(request, response);
         } else {
-            session.setAttribute("errorMessage",loginResponse.getMessage());
-            response.sendRedirect("login.jspx");
+            response.sendRedirect("login?message="+loginResponse.getMessage());
         }
     }
 }

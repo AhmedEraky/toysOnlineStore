@@ -22,23 +22,6 @@ function handleForm(event)
 		event.preventDefault();
 	}
 
-	/*var birthDate = $("#inputBirthDay3").val().split('-');
-	var year = birthDate[0];
-	var month = birthDate[1];
-	var day = birthDate[2];
-	var ageCheck = isDate18orMoreYearsOld(day, month, year);
-	console.log(year);
-	console.log(month);
-	console.log(day);
-	console.log(ageCheck);
-	//event.preventDefault();
-	if(!ageCheck)
-	{
-		$("#inputBirthDay3").addClass("inputError");
-		$("#invalidAge").text("You must be at least 18 years old to use our service.");
-		event.preventDefault();
-	}*/
-
 	var birthDate = $("#inputBirthDay3").val();
 	var age = getAge(birthDate);
 	if(age < 18)

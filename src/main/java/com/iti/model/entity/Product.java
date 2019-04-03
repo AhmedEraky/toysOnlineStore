@@ -29,21 +29,21 @@ public class Product implements java.io.Serializable {
     private Double price;
     @Column(name="min_age", nullable=false)
     private Integer minAge;
-    @Column(name="discount_percentage", nullable=true)
-    private String discountPercentage;
+    @Column(name = "discount_percentage",nullable = false,columnDefinition = "int default 0")
+    private Integer discountPercentage;
     @Column(name = "quantity", nullable = false)
     private int quantity;
     @Column(name = "purchase_count",nullable = false,columnDefinition = "int default 0")
     private int purchaseCount;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="category_id", nullable=false)
     private Category category;
 
     @OneToOne(mappedBy = "products")
     private CartItem cartItems;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
     private Store store;
 
     @ManyToMany(fetch=FetchType.LAZY)
@@ -119,12 +119,28 @@ public class Product implements java.io.Serializable {
         this.minAge = minAge;
     }
 
-    public String getDiscountPercentage() {
+    public Integer getDiscountPercentage() {
         return discountPercentage;
     }
 
-    public void setDiscountPercentage(String discountPercentage) {
+    public void setDiscountPercentage(Integer discountPercentage) {
         this.discountPercentage = discountPercentage;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getPurchaseCount() {
+        return purchaseCount;
+    }
+
+    public void setPurchaseCount(int purchaseCount) {
+        this.purchaseCount = purchaseCount;
     }
 
     public Category getCategory() {
@@ -181,22 +197,6 @@ public class Product implements java.io.Serializable {
 
     public void setReviews(Set<Review> reviews) {
         this.reviews = reviews;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getPurchaseCount() {
-        return purchaseCount;
-    }
-
-    public void setPurchaseCount(int purchaseCount) {
-        this.purchaseCount = purchaseCount;
     }
 }
 

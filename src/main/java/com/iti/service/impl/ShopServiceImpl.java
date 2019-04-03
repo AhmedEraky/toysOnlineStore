@@ -16,13 +16,14 @@ public class ShopServiceImpl implements ShopService {
     public ArrayList<ShopResponse> shopData(ShopRequest shopRequest) {
         ProductDao productDao=new ProductDaoImplementation();
         Session session= HibernateUtils.getSession();
-        ArrayList<Product> products=productDao.retrieveNewProducts(session);
+        ArrayList<Product> products=productDao.retrieveProductsByFilters(shopRequest,session,0,10);
         ArrayList<ShopResponse> shopResponse=new ArrayList<>();
         for (Product product:products){
             ShopResponse response=new ShopResponse();
             response.setName(product.getName());
             response.setImagePath(product.getImagePath());
             response.setPrice("$"+product.getPrice());
+            response.setImagePath(product.getImagePath());
             shopResponse.add(response);
         }
         return shopResponse;

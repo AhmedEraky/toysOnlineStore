@@ -98,18 +98,26 @@
 <!-- //short-->
 <!--show Now-->
 <!--show Now-->
+
 <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
     <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
         <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Toys Shop</h3>
+        <div class="container mb-lg-4 mb-md-3 mb-sm-2 mb-2">
+            <div  class="center-block text-center">
+                <button id="filterButton" type="submit" class="btn col-3  btn-success">Filter</button>
+                <button id="clearFilter" type="submit" class="btn col-3  btn-danger">Clear</button>
+            </div>
+        </div>
+
         <div class="row">
             <div class="left-ads-display col-sm-12">
                 <div class="row">
-                    <c:forEach begin="0" end="5" step="1">
+                    <c:forEach items="${shopProduct}" var="product">
                         <div class="col-lg-4 col-md-6 col-sm-6 product-men women_two">
                             <div class="product-toys-info">
                                 <div class="men-pro-item">
                                     <div class="men-thumb-item">
-                                        <img src="images/a1.jpg" class="img-thumbnail img-fluid" alt=""/>
+                                        <img src="${product.imagePath}" class="img-thumbnail img-fluid" alt=""/>
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
                                                 <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -122,10 +130,10 @@
                                             <div class="grid_meta">
                                                 <div class="product_price">
                                                     <h4>
-                                                        <a href="single.html">toys(barbie)</a>
+                                                        <a href="single.html">${product.name}</a>
                                                     </h4>
                                                     <div class="grid-price mt-2">
-                                                        <span class="money ">$575.00</span>
+                                                        <span class="money ">${product.price}</span>
                                                     </div>
                                                 </div>
                                                 <ul class="stars">
@@ -260,6 +268,7 @@
 
     });
 </script>
+<script src="js/shop.js"></script>
 <!-- //here ends scrolling icon -->
 <!--bootstrap working-->
 <script src="js/bootstrap.min.js"></script>

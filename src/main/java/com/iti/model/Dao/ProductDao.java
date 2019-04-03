@@ -1,11 +1,26 @@
 package com.iti.model.Dao;
 import com.iti.model.entity.Product;
+import com.iti.model.request.ShopRequest;
 import org.hibernate.Session;
 import java.util.ArrayList;
 import com.iti.model.entity.Category;
 
+//Eraky Import
+
+
+//Aya import
+
+
+//Ashraf Import
+
+
+
 public interface ProductDao {
     //Eraky Part
+
+    ArrayList<Product> retrieveProductsByFilters(ShopRequest request,Session session,int start,int pageSize);
+    public ArrayList<Product> retrieveProductsByPage(Session session,int start,int pageSize);
+
 
     //Aya Part
 
