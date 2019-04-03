@@ -52,7 +52,7 @@ public class Product implements java.io.Serializable {
             inverseJoinColumns = {@JoinColumn(name="order_history_id", nullable=false, updatable=false) })
     private Set<OrderHistory> orderHistories = new HashSet(0);
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="user_products", catalog="toysonlineshoppingdb", joinColumns = {
             @JoinColumn(name="products_id", nullable=false, updatable=false) }, inverseJoinColumns = {
             @JoinColumn(name="user_id", nullable=false, updatable=false) })
@@ -65,7 +65,7 @@ public class Product implements java.io.Serializable {
             inverseJoinColumns = {@JoinColumn(name="products_id", nullable=false, updatable=false) })
     private Set<User> userWishes = new HashSet(0);
 
-    @OneToMany(fetch=FetchType.EAGER, mappedBy="products")
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="products")
     private Set<Review> reviews = new HashSet(0);
 
     public Product() {
