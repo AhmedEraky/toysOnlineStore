@@ -14,22 +14,40 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 public class ProductDaoImplementation implements ProductDao {
+    //Eraky Part
+
+    //Aya Part
+
     @Override
     public Product retriveProductByID(Integer id, Session session) {
+
+        session.beginTransaction();
         Criteria criteria = session.createCriteria(Product.class).add(Restrictions.eq("ProductID", id));
         Product product = (Product) criteria.uniqueResult();
+        product.getCategory().getProducts();
+        product.getStore();
+        session.clear();
+        session.getTransaction().commit();
         return product;
+
+
     }
 
     @Override
     public Product retriveProductByExample(Product product, Session session) {
+
+
         Example example = Example.create(product);
         Criteria criteria = session.createCriteria(Product.class).add(example);
         return (Product) criteria.uniqueResult();
+
+
     }
 
     @Override
     public ArrayList<Product> retriveProductsByExample(Product product, Session session) {
+
+
         Example example = Example.create(product);
         Criteria criteria = session.createCriteria(Product.class).add(example);
         return (ArrayList<Product>) criteria.list();
@@ -37,6 +55,7 @@ public class ProductDaoImplementation implements ProductDao {
 
     @Override
     public ArrayList<Product> retriveProductsByAge(int minAge, int maxAge, Session session) {
+
         Criteria criteria = session.createCriteria(Product.class).add(Restrictions.between("minAge", minAge, maxAge));
         ArrayList<Product> products = (ArrayList<Product>) criteria.list();
         return products;
@@ -44,6 +63,8 @@ public class ProductDaoImplementation implements ProductDao {
 
     @Override
     public ArrayList<Product> retriveProductsByPrice(long minPrice, long maxPrice, Session session) {
+
+
         Criteria criteria = session.createCriteria(Product.class).add(Restrictions.between("price", minPrice, maxPrice));
         ArrayList<Product> products = (ArrayList<Product>) criteria.list();
         return products;
@@ -108,7 +129,7 @@ public class ProductDaoImplementation implements ProductDao {
     @Override
     public ArrayList<Product> retrieveNewProducts(Session session) {
         Criteria criteria = session.createCriteria(Product.class).addOrder(Order.desc("ProductID"));
-        ArrayList<Product> products = (ArrayList<Product>) criteria.setMaxResults(10);
+        ArrayList<Product> products = (ArrayList<Product>) criteria.setMaxResults(6);
         return products;
     }
 
@@ -138,4 +159,6 @@ public class ProductDaoImplementation implements ProductDao {
            
         
     }
+    //Ashraf Part
+
 }

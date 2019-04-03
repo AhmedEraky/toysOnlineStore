@@ -10,7 +10,7 @@ import java.io.IOException;
 //Eraky Part
 
 //Aya Part
-
+import com.iti.controller.filter.handler.ProductHandler;
 //Islam Part
 
 //Ashraf Part
@@ -34,6 +34,7 @@ public class MainFilter implements Filter {
         String currentPage= request.getServletPath();
         Boolean login = (Boolean) request.getSession().getAttribute("login");
         Handler handler;
+
         //Navigation Management
         //Page Appear For User who is not Login
         if(currentPage.equals("/login")) {
@@ -46,18 +47,29 @@ public class MainFilter implements Filter {
         }
         //Page Appear For User Who is Login
         else {
-            //if user is login Move to normal path
-            if(login!=null&&login==true) {
-                filterChain.doFilter(request,response);
-            }
-            //if user is try to go to main Page
-            else if(currentPage.equals("/home")) {
+           if(currentPage.equals("/home")) {
                 handler=new HomeHandler();
                 handler.handle(request,response,filterChain,login);
             }
+            //if user is try to go to main Page
             //Eraky Part
 
+           else if(currentPage.contains("/shop")){
+               handler=new ShopHandler();
+               handler.handle(request,response,filterChain,login);
+           }
+
+
             //Aya Part
+
+            else if(currentPage.equals("/productPage")) {
+                //if login is true or not
+               String productId=request.getParameter("ProductID");
+                handler=new ProductHandler();
+                handler.handle(request,response,filterChain,login);
+
+
+            }
 
             //Islam Part
             else if(currentPage.equals("/ViewYourCart"))

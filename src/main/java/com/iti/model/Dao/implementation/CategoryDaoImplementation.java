@@ -54,8 +54,9 @@ public class CategoryDaoImplementation implements CategoryDao {
 
     @Override
     public Category retriveCategoryByProduct(Product product, Session session) {
+        ///
         session.beginTransaction();
-        Criteria criteria= session.createCriteria(Category.class).createCriteria("products")
+         Criteria criteria= session.createCriteria(Category.class).createCriteria("products")
                 .add(Restrictions.idEq(product.getCategory().getCategoryID()));
         session.getTransaction().commit();
         session.clear();

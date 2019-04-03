@@ -33,12 +33,12 @@ public class Review  implements java.io.Serializable {
     private String reviewDescription;
 
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="products_id", nullable=false, insertable=false, updatable=false)
     private Product products;
 
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="user_id", nullable=false, insertable=false, updatable=false)
     private User user;
 

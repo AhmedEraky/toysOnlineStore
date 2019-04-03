@@ -12,4 +12,5 @@ public interface ReviewDao {
     boolean persistReview(Review review, Session session);
     boolean updateReviewData(Review oldReview, Review newReview, Session session);
 
+
 }

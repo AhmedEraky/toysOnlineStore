@@ -47,7 +47,7 @@
                                     <button id="my-fav-items"> <span class="far fa-heart"></span></button>
                                 </li>
                                 <li>
-                                    <button id="my-profile"> <span class="far fa-user"></span></button>
+                                    <a href="profile"><button id="my-profile"> <span class="far fa-user"></span></button></a>
                                 </li>
                                 <li class="toyscart toyscart2 cart cart box_1">
                                     <button id="my-cart"><span class="fas fa-cart-arrow-down"></span></button>
@@ -73,7 +73,7 @@
                             <a href="service.html" class="nav-link">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a href="shop.html" class="nav-link">Shop Now</a>
+                            <a href="" class="nav-link">Shop Now</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

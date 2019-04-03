@@ -4,6 +4,7 @@
     <html>
     <head>
         <title>login</title>
+        <link href="css/registration.css" rel='stylesheet' type='text/css' media="all"/>
         <jsp:directive.include file="/html/common/head.html"/>
     </head>
     <body>

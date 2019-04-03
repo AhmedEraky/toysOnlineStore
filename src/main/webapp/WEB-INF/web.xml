@@ -26,7 +26,7 @@
 
     <servlet>
         <servlet-name>login</servlet-name>
-        <jsp-file>/html/user/login/login.jspx</jsp-file>
+        <jsp-file>/html/common/login/login.jspx</jsp-file>
     </servlet>
 
     <servlet>
@@ -53,7 +53,10 @@
 
     <!--Aya Servlet-->
 
-
+    <servlet>
+        <servlet-name>productPage</servlet-name>
+        <jsp-file>/html/user/product/productPage.jspx</jsp-file>
+    </servlet>
 
     <!--Islam Servlet-->
 
@@ -116,7 +119,10 @@
 
 
     <!--Aya Servlet  Mapping-->
-
+    <servlet-mapping>
+        <servlet-name>productPage</servlet-name>
+        <url-pattern>/productPage</url-pattern>
+    </servlet-mapping>
 
 
     <!--Islam Servlet  Mapping-->
