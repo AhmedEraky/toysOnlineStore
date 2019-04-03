@@ -3,6 +3,7 @@ package com.iti.service.impl;
 import com.iti.model.Dao.UserDao;
 import com.iti.model.Dao.implementation.UserDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
+import com.iti.model.entity.ShoppingCart;
 import com.iti.model.response.Status;
 import com.iti.model.entity.User;
 import com.iti.model.response.AuthenticationResponse;
@@ -26,5 +27,15 @@ public class LoginServiceImpl implements LoginService {
             response.setMessage("Wrong Email Or Password");
         }
         return response;
+    }
+
+    @Override
+    public ShoppingCart getLoggedInUserCart(User user)
+    {
+        UserDao userDao = new UserDaoImplementation();
+        Session session = HibernateUtils.getSession();
+        User LoggedInUser = userDao.retiveUserEmail(user.getEmail(), session);
+        ShoppingCart LoggedInUserCart = LoggedInUser.getShoppingCart();
+        return LoggedInUserCart;
     }
 }

@@ -1,9 +1,6 @@
 package com.iti.controller.filter;
 
-import com.iti.controller.filter.handler.GuestHandler;
-import com.iti.controller.filter.handler.Handler;
-import com.iti.controller.filter.handler.HomeHandler;
-import com.iti.controller.filter.handler.ProfileHandler;
+import com.iti.controller.filter.handler.*;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -63,7 +60,10 @@ public class MainFilter implements Filter {
             //Aya Part
 
             //Islam Part
-
+            else if(currentPage.equals("/ViewYourCart"))
+            {
+                filterChain.doFilter(servletRequest,servletResponse);
+            }
             //Ashraf Part
 
             //Hadeer Part
