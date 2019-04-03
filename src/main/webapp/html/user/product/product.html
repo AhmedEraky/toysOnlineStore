@@ -62,13 +62,14 @@
                   <div class="col-lg-8 single-right-left simpleCart_shelfItem">
                     <h3><c:out value="${requestScope.product.name}"/></h3>
                       <p hidden name="productid" value="${requestScope.product.id}"/>
-					 <h4>Product by </h4>
+					 <h4>Product by: <c:out value="${requestScope.product.storeName}"/></h4>
+                      <h5>Category: <c:out value="${requestScope.product.categoryName}"/></h5>
 					 <div class="rating1">
                         <ul class="stars">
-                            <c:forEach begin="1" end="4">
+                            <c:forEach begin="1" end="${requestScope.product.rate}">
                                 <i class="fa fa-star fa-2x text-primary" aria-hidden="true"></i>
                             </c:forEach>
-                            <c:forEach begin="${4+1}" end="5">
+                            <c:forEach begin="${(requestScope.product.rate)+1}" end="5">
                                 <i class="fa fa-star fa-2x text-muted" aria-hidden="true"></i>
                             </c:forEach>
 
@@ -79,18 +80,7 @@
 
                       </p>
 					 <hr>
-                      <div class="form-group row">
-                          <label  class="col-sm-2 col-form-label">Quantity</label>
-                          <div class="col-sm-2">
-                              <select class="form-control" id="selection" name="selection">
 
-                                  <c:forEach begin="1" end="${requestScope.product.quantity}" varStatus="inner">
-                                      <option><c:out value="${inner.index}"/></option>
-                                  </c:forEach>
-                              </select>
-                          </div>
-
-                      </div>
 
                       <c:choose>
                           <c:when test="${ requestScope.product.discountPercentage eq 0}">
@@ -119,23 +109,89 @@
                       <hr>
 
 
+                      <div class="form-group row">
+                          <label  class="col-sm-2 col-form-label">Quantity</label>
+                          <div class="col-sm-2">
+                              <select class="form-control" id="selection" name="selection">
+
+                                  <c:forEach begin="1" end="${requestScope.product.quantity}" varStatus="inner">
+                                      <option><c:out value="${inner.index}"/></option>
+                                  </c:forEach>
+                              </select>
+                          </div>
+
+                      </div>
 
 
 
+                      <div class="occasion-cart">
+                          <div class="toys single-item singlepage">
+                              <form action="#" method="post">
+                                  <input type="hidden" name="cmd" value="_cart">
+                                  <input type="hidden" name="add" value="1">
+                                  <input type="hidden" name="toys_item" value="Farenheit">
+                                  <input type="hidden" name="amount" value="575.00">
+                                  <button type="submit" class="toys-cart ptoys-cart add">
+                                      Add to Cart
+                                  </button>
+                              </form>
+                          </div>
+                      </div>
 
-
-
-
-
-
-                   <form action="#" method="post">
-                   <button id="my-cart"><span class="fas fa-cart-arrow-down"></span></button>
-                   </form>
                   </div>
                </div>
             </div>
          </div>
 
+ <!--review-->
+          <div class="responsive_tabs">
+              <div id="horizontalTab">
+                  <ul class="resp-tabs-list">
+
+                      <li>Reviews</li>
+
+                  </ul>
+                  <div class="resp-tabs-container">
+          <div class="tab2">
+              <div class="single_page">
+                  <div class="bootstrap-tab-text-grids">
+                      <div class="bootstrap-tab-text-grid">
+                          <div class="bootstrap-tab-text-grid-left">
+                              <img src="images/team1.jpg" alt=" " class="img-fluid">
+                          </div>
+                          <div class="bootstrap-tab-text-grid-right">
+                              <ul>
+                                  <li><a href="#">Admin</a></li>
+
+                              </ul>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget.Ut enim ad minima veniam,
+                                  quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
+                                  autem vel eum iure reprehenderit.
+                              </p>
+                          </div>
+                          <div class="clearfix"> </div>
+                      </div>
+                      <div class="add-review">
+                          <h4>add a review</h4>
+                          <form action="#" method="post">
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <input type="text" name="Name"  placeholder="Enter your name" required="">
+                                  </div>
+                                  <div class="col-md-6">
+                                      <input type="email" name="Email"  placeholder="Enter your email" required="">
+                                  </div>
+                              </div>
+                              <textarea name="Message"  placeholder="Enter your message" required=""></textarea>
+                              <input type="submit" class="toys-cart ptoys-cart" value="SEND">
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+                  </div>
+              </div>
+          </div>
       </section>
      
       <script src="js/jquery-2.2.3.min.js"></script>

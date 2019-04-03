@@ -11,10 +11,14 @@ import com.iti.model.Dao.implementation.StoreDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
 import com.iti.model.entity.Category;
 import com.iti.model.entity.Product;
+import com.iti.model.entity.Review;
 import com.iti.model.entity.Store;
 import com.iti.model.response.ProductResponse;
 import com.iti.service.ProductService;
 import org.hibernate.Session;
+
+import java.util.ArrayList;
+import java.util.Set;
 
 public class ProductServiceImpl implements ProductService {
     @Override
@@ -24,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 
         Session session= HibernateUtils.getSession();
         ProductDao productDao = new ProductDaoImplementation();
-        ReviewDao reviewDao = new ReviewDaoImplementation();
+
         Product product=productDao.retriveProductByID(productID,session);
         Category category=product.getCategory();
         //fill productresponse
@@ -35,25 +39,27 @@ public class ProductServiceImpl implements ProductService {
         response.setImagePath(product.getImagePath());
         response.setMinAge(product.getMinAge());
         response.setQuantity(product.getQuantity());
+        response.setStoreName(product.getStore().getName());
+        response.setCategoryName(product.getCategory().getName());
 
-        //category
-/*
-        Session session1= HibernateUtils.getSession();
-        CategoryDao categoryDao = new CategoryDaoImplementation();
-        Category category=categoryDao.retriveCategoryByProduct(product,session1);
-        response.setCategoryName(category.getName());
-        */
-        //stores
-/*
-        StoreDao storeDao = new StoreDaoImplementation();
-        Session session2= HibernateUtils.getSession();
-        Store store=storeDao.retrieveStoreByProduct(product,session2);
-        response.setStoreName(store.getName());
+        ///
+        Session session1=HibernateUtils.getSession();
+        ReviewDao reviewDao = new ReviewDaoImplementation();
+        reviewDao.retrieveReviewsByProduct(product,session1);
+        ///
         //rate
-        int rate=reviewDao.retrieveRateByProduct( product,  session);
+        int rate=retrieveRate( product);
         response.setRate(rate);
-*/
+
         return response;
 
+    }
+    public int retrieveRate(Product product){
+        Set<Review> reviews=product.getReviews();
+        int sum=0;
+        for(Review review:reviews){
+           sum+=review.getRate();
+        }
+        return sum/(reviews.size());
     }
 }

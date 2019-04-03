@@ -7,277 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce44dfc8-e9fa-4469-916e-562f9312bb19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/toysOnlineStore.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/iti/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/user/product/product.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/user/product/productPage.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/META-INF/context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/META-INF/toysOnlineStore.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/filter/MainFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/filter/handler/GuestHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/filter/handler/Handler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/filter/handler/HomeHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/filter/handler/LoginHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/filter/handler/ProductHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/filter/handler/RegistrationHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/listner/ContextListner.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/listner/SessionListner.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/servlet/MainController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/servlet/RetriveUser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/controller/servlet/ValidateRegistration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/AdminDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/CartItemDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/CategoryDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/OrderHistoryDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/ProductDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/ReviewDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/ShoppingCartDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/StoreDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/AdminDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/CartItemDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/CategoryDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/OrderHistoryDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/ProductDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/RegistrationDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/ReviewDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/ShoppingCartDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/StoreDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/Dao/implementation/UserDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/cfg/HibernateUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/Admin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/CartItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/Category.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/OrderHistory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/Product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/Review.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/ReviewId.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/ShoppingCart.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/Store.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/entity/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/response/AuthenticationResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/response/FeaturedProductResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/response/ProductResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/response/Status.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/response/ValidationResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/util/ProductUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/util/ReviewUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/model/util/UserUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/service/LoginService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/service/ProductService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/service/RegistrationService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/service/impl/LoginServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/service/impl/ProductServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/com/iti/service/impl/RegistrationServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/classes/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/FastInfoset-1.2.15.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/antlr-2.7.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/byte-buddy-1.9.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/c3p0-0.9.5.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/classmate-1.3.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/commons-beanutils-1.9.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/commons-collections-3.2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/dom4j-2.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/hibernate-c3p0-5.3.6.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/hibernate-commons-annotations-5.1.0.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/hibernate-core-5.4.1.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/istack-commons-runtime-3.0.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/jandex-2.0.5.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/javassist-3.24.0-GA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/javax.activation-api-1.2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/javax.persistence-api-2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/jaxb-api-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/jaxb-runtime-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/jboss-logging-3.3.2.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/mchange-commons-java-0.2.11.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/mysql-connector-java-8.0.13.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/protobuf-java-3.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/stax-ex-1.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/lib/txw2-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/tlds/mytags.tld" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/checkout.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/clientSideCss/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/creditly.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/easy-responsive-tabs.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/flexslider.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/jquery-ui1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/registration.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/shop.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/admin/listOfUsers/listOfUsers.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/admin/listOfUsers/usersTable.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/common/banner.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/common/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/common/head.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/common/header.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/customTags/CustomTag.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/user/login/login.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/user/login/loginForm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/user/product/product.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/user/product/productPage.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/user/profile/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/user/profile/userprofile.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/user/registration/readUserData.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/user/registration/registration.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/html/user/registration/registrationForm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/a1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/a2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/a3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/a4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/a5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/a6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/arr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/b1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/b3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/cc1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/cc2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/close_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/f1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/f2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/f3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/g1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/g2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/g3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/g4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/left-arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/p1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/p2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/p3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/p4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/paypal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/pp1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/right-arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/t1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/t2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/t3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/team1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/tt1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/tt2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/images/typo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/index.jspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/Slideshow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/creditly.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/easing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/easy-responsive-tabs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/flexiselDemo1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/hoverScript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/imagezoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/jquery-2.2.3.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/jquery-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/jquery.flexisel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/jquery.flexslider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/minicart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/move-top.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/registrationValidation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/responsiveslides.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/js/scrollAnimate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/LoginApp/webfonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/toysOnlineStore.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/filter/MainFilter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/filter/handler/GuestHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/filter/handler/Handler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/filter/handler/HomeHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/filter/handler/LoginHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/filter/handler/ProductHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/filter/handler/RegistrationHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/listner/ContextListner.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/listner/SessionListner.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/servlet/MainController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/servlet/RetriveUser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/controller/servlet/ValidateRegistration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/AdminDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/CartItemDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/CategoryDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/OrderHistoryDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/ProductDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/ReviewDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/ShoppingCartDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/StoreDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/AdminDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/CartItemDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/CategoryDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/OrderHistoryDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/ProductDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/RegistrationDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/ReviewDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/ShoppingCartDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/StoreDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/Dao/implementation/UserDaoImplementation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/cfg/HibernateUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/Admin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/CartItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/Category.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/OrderHistory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/Product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/Review.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/ReviewId.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/ShoppingCart.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/Store.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/entity/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/response/AuthenticationResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/response/FeaturedProductResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/response/ProductResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/response/Status.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/response/ValidationResponse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/util/ProductUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/util/ReviewUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/model/util/UserUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/service/LoginService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/service/ProductService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/service/RegistrationService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/service/impl/LoginServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/service/impl/ProductServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/iti/service/impl/RegistrationServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ReviewDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ReviewDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/CategoryDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/CategoryDaoImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/model/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/model/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/model/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/model/entity/Review.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/model/response/ProductResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/model/response/ProductResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/common/header.jspx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/common/header.jspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/user/product/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/user/product/product.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -304,19 +46,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/CategoryDaoImplementation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="128">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -327,8 +60,56 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="262">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/common/header.jspx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="73" column="29" lean-forward="true" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ReviewDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="10" column="46" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="23" column="68" selection-start-line="23" selection-start-column="68" selection-end-line="23" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/HomeHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="33">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -339,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="145">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -349,65 +130,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ProductDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/response/ProductResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/product/product.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="58" column="29" lean-forward="true" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/controller/listner/ContextListner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/entity/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+            <state relative-caret-position="1156">
+              <caret line="108" selection-start-line="108" selection-end-line="108" />
               <folding>
-                <element signature="e#5041#5042#0" expanded="true" />
-                <element signature="e#5072#5073#0" expanded="true" />
-                <element signature="e#5117#5118#0" expanded="true" />
-                <element signature="e#5157#5158#0" expanded="true" />
-                <element signature="e#5194#5195#0" expanded="true" />
-                <element signature="e#5230#5231#0" expanded="true" />
-                <element signature="e#5285#5286#0" expanded="true" />
-                <element signature="e#5335#5336#0" expanded="true" />
+                <element signature="e#442#443#0" expanded="true" />
+                <element signature="e#467#468#0" expanded="true" />
+                <element signature="e#500#501#0" expanded="true" />
+                <element signature="e#528#529#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/product/productPage.jspx">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/response/ReviewResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+            <state relative-caret-position="136">
+              <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+              <folding>
+                <element signature="e#273#274#0" expanded="true" />
+                <element signature="e#339#340#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
+                <element signature="e#432#433#0" expanded="true" />
+                <element signature="e#463#464#0" expanded="true" />
+                <element signature="e#511#512#0" expanded="true" />
+                <element signature="e#551#552#0" expanded="true" />
+                <element signature="e#587#588#0" expanded="true" />
+                <element signature="e#619#620#0" expanded="true" />
+                <element signature="e#669#670#0" expanded="true" />
+                <element signature="e#711#712#0" expanded="true" />
+                <element signature="e#747#748#0" expanded="true" />
+                <element signature="e#779#780#0" expanded="true" />
+                <element signature="e#829#830#0" expanded="true" />
+                <element signature="e#871#872#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -423,8 +181,8 @@
         <option value="package-info" />
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -446,6 +204,7 @@
       <find>nb</find>
       <find>reviewDao</find>
       <find>rating1</find>
+      <find>reply</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -460,8 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/registrationForm.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/registrationValidation.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/iti/Dao/implementation/UserDaoImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/iti/service/impl/RegistrationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/registration.jspx" />
@@ -493,24 +250,26 @@
         <option value="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/RegistrationHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/HomeHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/LoginHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/iti/service/ProductService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ReviewDao.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/user/product/login.jspx" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/common/header.jspx" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/user/product/productPage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/CategoryDao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/user/product/productPage.jspx" />
-        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/response/ProductResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/user/product/product.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/CategoryDaoImplementation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/entity/Review.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/user/product/product.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/iti/model/entity/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/response/ProductResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/response/ReviewResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/common/header.jspx" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ReviewDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java" />
       </list>
     </option>
   </component>
@@ -597,25 +356,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="iti" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineToysShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toysOnlineStore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="iti" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineToysShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toysOnlineStore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="iti" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -627,6 +367,17 @@
               <item name="iti" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="Dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OnlineToysShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="toysOnlineStore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="iti" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="Dao" type="462c0819:PsiDirectoryNode" />
+              <item name="implementation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OnlineToysShop" type="b2602c69:ProjectViewProjectNode" />
@@ -662,6 +413,16 @@
               <item name="toysOnlineStore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="iti" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OnlineToysShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="toysOnlineStore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -679,35 +440,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineToysShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toysOnlineStore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineToysShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toysOnlineStore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OnlineToysShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="toysOnlineStore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -757,7 +490,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554179507487" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554278767171" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1071,7 +804,7 @@
       <workItem from="1554053137342" duration="6975000" />
       <workItem from="1554101572123" duration="15198000" />
       <workItem from="1554174334655" duration="5251000" />
-      <workItem from="1554195654252" duration="2916000" />
+      <workItem from="1554195654252" duration="12729000" />
     </task>
     <task id="LOCAL-00001" summary="change Pom">
       <created>1553533940538</created>
@@ -1112,7 +845,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220769000" />
+    <option name="totallyTimeSpent" value="230582000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1381,285 +1114,177 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java</url>
-          <line>58</line>
+          <line>61</line>
           <properties />
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java</url>
-          <line>60</line>
+          <line>63</line>
           <properties />
           <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java</url>
-          <line>61</line>
+          <line>64</line>
           <properties />
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java</url>
-          <line>62</line>
+          <line>65</line>
           <properties />
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java</url>
-          <line>17</line>
+          <line>18</line>
           <properties />
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java</url>
-          <line>18</line>
+          <line>19</line>
           <properties />
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java</url>
-          <line>19</line>
+          <line>20</line>
           <properties />
           <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java</url>
-          <line>21</line>
+          <line>22</line>
           <properties />
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java</url>
-          <line>22</line>
+          <line>23</line>
           <properties />
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>25</line>
+          <line>29</line>
           <properties />
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>24</line>
+          <line>28</line>
           <properties />
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>26</line>
+          <line>30</line>
           <properties />
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>27</line>
+          <line>31</line>
           <properties />
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>31</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>30</line>
+          <line>34</line>
           <properties />
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>32</line>
+          <line>36</line>
           <properties />
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>33</line>
+          <line>37</line>
           <properties />
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>34</line>
+          <line>38</line>
           <properties />
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>35</line>
+          <line>39</line>
           <properties />
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>36</line>
+          <line>40</line>
           <properties />
           <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
           <line>50</line>
-          <properties />
-          <option name="timeStamp" value="133" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>52</line>
           <properties />
           <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>53</line>
+          <line>51</line>
           <properties />
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>55</line>
+          <line>53</line>
           <properties />
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java</url>
-          <line>19</line>
+          <line>24</line>
           <properties />
           <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java</url>
-          <line>25</line>
+          <line>30</line>
           <properties />
           <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java</url>
-          <line>18</line>
+          <line>23</line>
           <properties />
           <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java</url>
-          <line>20</line>
+          <line>25</line>
           <properties />
           <option name="timeStamp" value="142" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java</url>
-          <line>23</line>
+          <line>28</line>
           <properties />
           <option name="timeStamp" value="143" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java</url>
-          <line>24</line>
+          <line>29</line>
           <properties />
           <option name="timeStamp" value="144" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>68</line>
-          <properties />
-          <option name="timeStamp" value="145" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>69</line>
-          <properties />
-          <option name="timeStamp" value="146" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>70</line>
-          <properties />
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>71</line>
-          <properties />
-          <option name="timeStamp" value="149" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>72</line>
-          <properties />
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>73</line>
-          <properties />
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>74</line>
-          <properties />
-          <option name="timeStamp" value="152" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>75</line>
-          <properties />
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>77</line>
-          <properties />
-          <option name="timeStamp" value="154" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>78</line>
-          <properties />
-          <option name="timeStamp" value="155" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>81</line>
-          <properties />
-          <option name="timeStamp" value="156" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>79</line>
-          <properties />
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
-          <line>80</line>
-          <properties />
-          <option name="timeStamp" value="158" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="159" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>42</line>
-          <properties />
-          <option name="timeStamp" value="160" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>41</line>
-          <properties />
-          <option name="timeStamp" value="161" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/StoreDaoImplementation.java</url>
@@ -1711,19 +1336,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>47</line>
-          <properties />
-          <option name="timeStamp" value="171" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>48</line>
-          <properties />
-          <option name="timeStamp" value="172" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>28</line>
+          <line>32</line>
           <properties />
           <option name="timeStamp" value="174" />
         </line-breakpoint>
@@ -1758,12 +1371,6 @@
           <option name="timeStamp" value="185" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="186" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/CategoryDaoImplementation.java</url>
           <line>16</line>
           <properties />
@@ -1777,15 +1384,99 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java</url>
-          <line>21</line>
+          <line>26</line>
           <properties />
           <option name="timeStamp" value="189" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java</url>
-          <line>22</line>
+          <line>27</line>
           <properties />
           <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="191" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="194" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="196" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
+          <line>22</line>
+          <properties />
+          <option name="timeStamp" value="200" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="201" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="204" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/RegistrationServiceImpl.java</url>
@@ -1797,6 +1488,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="this.request" custom="javax.servlet.http.HttpServletRequest" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1812,20 +1508,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/login/login.jspx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/login/loginForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/registration/registrationForm.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -1875,13 +1557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="124" selection-start-line="124" selection-end-line="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1956,13 +1631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/entity/Review.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/service/LoginService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1983,38 +1651,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/HomeHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="44" column="21" lean-forward="true" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/product/login.jspx" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/common/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/common/header.jspx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="46" column="53" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/profile/userprofile.jspx">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -2063,13 +1700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ReviewDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/UserDaoImplementation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -2078,13 +1708,6 @@
             <element signature="imports" expanded="true" />
             <element signature="method#retriveUserByExample#0;class#UserDaoImplementation#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="80" column="42" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -2116,18 +1739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/response/ProductResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="e#467#468#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/entity/CartItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
@@ -2138,14 +1749,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/CategoryDaoImplementation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ProductDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -2156,34 +1760,134 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/product/productPage.jspx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/common/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1962">
+          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ProductDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/entity/Review.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="46" column="33" lean-forward="true" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/entity/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+        <state relative-caret-position="231">
+          <caret line="58" column="34" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/product/product.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="164" selection-start-line="164" selection-end-line="164" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/response/ReviewResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
           <folding>
-            <element signature="e#5041#5042#0" expanded="true" />
-            <element signature="e#5072#5073#0" expanded="true" />
-            <element signature="e#5117#5118#0" expanded="true" />
-            <element signature="e#5157#5158#0" expanded="true" />
-            <element signature="e#5194#5195#0" expanded="true" />
-            <element signature="e#5230#5231#0" expanded="true" />
-            <element signature="e#5285#5286#0" expanded="true" />
-            <element signature="e#5335#5336#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#587#588#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#829#830#0" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/response/ProductResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="1156">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+          <folding>
+            <element signature="e#442#443#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#528#529#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/service/ReviewService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="34">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/common/header.jspx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="73" column="29" lean-forward="true" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/ReviewDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/HomeHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2192,35 +1896,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/handler/ProductHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="262">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/product/product.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/service/impl/ProductServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="58" column="29" lean-forward="true" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/user/product/productPage.jspx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/controller/filter/MainFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="145">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ReviewDaoImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="23" column="68" selection-start-line="23" selection-start-column="68" selection-end-line="23" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/iti/model/Dao/implementation/ProductDaoImplementation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
         </state>
       </provider>
     </entry>

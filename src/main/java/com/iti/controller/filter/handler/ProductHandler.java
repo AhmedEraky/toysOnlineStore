@@ -13,12 +13,13 @@ import java.io.IOException;
 
 public class ProductHandler implements Handler {
     HttpSession session;
+
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Boolean login) throws IOException, ServletException {
         session=request.getSession();
         ProductService service=new ProductServiceImpl();
-      //  ProductResponse productResponse=service.fetch(Integer.parseInt(request.getParameter("ProductID")));
-        ProductResponse productResponse=service.fetch(1);
+      ProductResponse productResponse=service.fetch(Integer.parseInt(request.getParameter("ProductID")));
+      //  ProductResponse productResponse=service.fetch(1);
         request.setAttribute("product",productResponse);/////////// on request
         filterChain.doFilter(request,response);
 

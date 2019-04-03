@@ -7,13 +7,14 @@ public class ProductResponse {
     private String description;
     private String imagePath;
     private int minAge;
-    private String discountPercentage;////// int not string
+    private String discountPercentage;
     private int quantity;
     private String categoryName;
     private String storeName;
     ///rate
     private int rate;
-    //reviews
+
+
 
     public int getId() {
         return id;
@@ -104,4 +105,6 @@ public class ProductResponse {
     public void setStoreName(String storeName) {
         this.storeName = storeName;
     }
+
+
 }

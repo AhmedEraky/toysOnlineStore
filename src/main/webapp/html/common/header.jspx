@@ -73,7 +73,7 @@
                             <a href="service.html" class="nav-link">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a href="productPage" class="nav-link">Shop Now</a>
+                            <a href="" class="nav-link">Shop Now</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

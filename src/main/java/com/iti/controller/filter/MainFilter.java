@@ -61,7 +61,7 @@ public class MainFilter implements Filter {
 
             else if(currentPage.equals("/productPage")) {
                 //if login is true or not
-               // String productId=request.getParameter("ProductID");
+               String productId=request.getParameter("ProductID");
                 handler=new ProductHandler();
                 handler.handle(request,response,filterChain,login);
 
