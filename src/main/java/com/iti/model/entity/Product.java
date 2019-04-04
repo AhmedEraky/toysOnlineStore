@@ -30,7 +30,7 @@ public class Product implements java.io.Serializable {
     @Column(name="min_age", nullable=false)
     private Integer minAge;
     @Column(name="discount_percentage", nullable=true)
-    private String discountPercentage;
+    private int discountPercentage;
     @Column(name = "quantity", nullable = false)
     private int quantity;
     @Column(name = "purchase_count",nullable = false,columnDefinition = "int default 0")
@@ -52,7 +52,7 @@ public class Product implements java.io.Serializable {
             inverseJoinColumns = {@JoinColumn(name="order_history_id", nullable=false, updatable=false) })
     private Set<OrderHistory> orderHistories = new HashSet(0);
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="user_products", catalog="toysonlineshoppingdb", joinColumns = {
             @JoinColumn(name="products_id", nullable=false, updatable=false) }, inverseJoinColumns = {
             @JoinColumn(name="user_id", nullable=false, updatable=false) })
@@ -65,7 +65,7 @@ public class Product implements java.io.Serializable {
             inverseJoinColumns = {@JoinColumn(name="products_id", nullable=false, updatable=false) })
     private Set<User> userWishes = new HashSet(0);
 
-    @OneToMany(fetch=FetchType.EAGER, mappedBy="products")
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="products")
     private Set<Review> reviews = new HashSet(0);
 
     public Product() {
@@ -119,11 +119,11 @@ public class Product implements java.io.Serializable {
         this.minAge = minAge;
     }
 
-    public String getDiscountPercentage() {
+    public int getDiscountPercentage() {
         return discountPercentage;
     }
 
-    public void setDiscountPercentage(String discountPercentage) {
+    public void setDiscountPercentage(int discountPercentage) {
         this.discountPercentage = discountPercentage;
     }
 

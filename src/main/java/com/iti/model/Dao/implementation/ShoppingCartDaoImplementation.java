@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class ShoppingCartDaoImplementation implements ShoppingCartDao {
     @Override
-    public ArrayList<ShoppingCart> retriveShoppingCartByUser(User user, Session session) {
+    public ShoppingCart retriveShoppingCartByUser(User user, Session session) {
         return null;
     }
 

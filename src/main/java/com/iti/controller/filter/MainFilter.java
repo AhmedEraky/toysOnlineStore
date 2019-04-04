@@ -1,9 +1,6 @@
 package com.iti.controller.filter;
 
-import com.iti.controller.filter.handler.GuestHandler;
-import com.iti.controller.filter.handler.Handler;
-import com.iti.controller.filter.handler.HomeHandler;
-import com.iti.controller.filter.handler.ProfileHandler;
+import com.iti.controller.filter.handler.*;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +10,7 @@ import java.io.IOException;
 //Eraky Part
 
 //Aya Part
-import com.iti.controller.filter.handler.ProductHandler;
+
 //Islam Part
 
 //Ashraf Part
@@ -64,6 +61,9 @@ public class MainFilter implements Filter {
                String productId=request.getParameter("ProductID");
                 handler=new ProductHandler();
                 handler.handle(request,response,filterChain,login);
+                //review
+               handler=new ReviewHandler();
+               handler.handle(request,response,filterChain,login);
 
 
             }

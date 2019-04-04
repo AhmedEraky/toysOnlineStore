@@ -35,31 +35,23 @@ public class ProductServiceImpl implements ProductService {
         response.setDescription(product.getDescription());
         response.setName(product.getName());
         response.setPrice(product.getPrice());
-        response.setDiscountPercentage(product.getDiscountPercentage());
+        response.setDiscountPercentage((product.getDiscountPercentage()));
         response.setImagePath(product.getImagePath());
         response.setMinAge(product.getMinAge());
         response.setQuantity(product.getQuantity());
         response.setStoreName(product.getStore().getName());
         response.setCategoryName(product.getCategory().getName());
-
+        response.setId(product.getProductID());
         ///
-        Session session1=HibernateUtils.getSession();
-        ReviewDao reviewDao = new ReviewDaoImplementation();
-        reviewDao.retrieveReviewsByProduct(product,session1);
+
         ///
         //rate
+        /*
         int rate=retrieveRate( product);
         response.setRate(rate);
-
+*/
         return response;
 
     }
-    public int retrieveRate(Product product){
-        Set<Review> reviews=product.getReviews();
-        int sum=0;
-        for(Review review:reviews){
-           sum+=review.getRate();
-        }
-        return sum/(reviews.size());
-    }
+
 }

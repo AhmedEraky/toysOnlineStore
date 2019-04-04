@@ -15,4 +15,7 @@ public interface UserDao {
     boolean persistUser(User user, Session session);
     boolean updateUser(User oldUser, User newUser, Session session);
 
+    //Aya Part
+    boolean updateUser(User user, Session session);
+
 }
