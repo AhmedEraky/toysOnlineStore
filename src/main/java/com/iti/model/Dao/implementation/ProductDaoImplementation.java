@@ -2,6 +2,7 @@ package com.iti.model.Dao.implementation;
 
 import com.iti.model.Dao.ProductDao;
 import com.iti.model.entity.Product;
+import com.iti.model.util.ShopFiltrationUtil;
 import org.hibernate.Session;
 import com.iti.model.util.ProductUtil;
 import com.iti.model.entity.Category;
@@ -9,12 +10,57 @@ import com.iti.model.entity.Category;
 import java.util.ArrayList;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
+
+//Eraky Import
+import com.iti.model.request.ShopRequest;
+
+
+//Aya import
+
+
+//Ashraf Import
+
+
+
 public class ProductDaoImplementation implements ProductDao {
     //Eraky Part
+
+
+
+    @Override
+    public ArrayList<Product> retrieveProductsByFilters(ShopRequest request, Session session,int start,int pageSize){
+        start=start*pageSize;
+        session.beginTransaction();
+        ShopFiltrationUtil util=new ShopFiltrationUtil();
+        Criteria criteria=session.createCriteria(Product.class,"product").
+                createAlias("product.category","category");
+        util.ShopFilter(criteria,request,session);
+        criteria.setFirstResult(start);
+        criteria.setMaxResults(pageSize);
+        ArrayList products= (ArrayList) criteria.list();
+        session.clear();
+        session.getTransaction().commit();
+        return products;
+
+    }
+
+    @Override
+    public ArrayList<Product> retrieveProductsByPage(Session session,int start,int pageSize) {
+        session.beginTransaction();
+        start=start*pageSize;
+        Criteria criteria = session.createCriteria(Product.class);
+        criteria.setFirstResult(start);
+        criteria.setMaxResults(pageSize);
+        ArrayList<Product> products = (ArrayList<Product>)criteria.list();
+        session.clear();
+        session.getTransaction().commit();
+        return products;
+    }
 
     //Aya Part
 

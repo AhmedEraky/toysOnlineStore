@@ -54,6 +54,12 @@ public class MainFilter implements Filter {
             //if user is try to go to main Page
             //Eraky Part
 
+           else if(currentPage.contains("/shop")){
+               handler=new ShopHandler();
+               handler.handle(request,response,filterChain,login);
+           }
+
+
             //Aya Part
 
             else if(currentPage.equals("/productPage")) {
@@ -69,7 +75,10 @@ public class MainFilter implements Filter {
             }
 
             //Islam Part
-
+            else if(currentPage.equals("/ViewYourCart"))
+            {
+                filterChain.doFilter(servletRequest,servletResponse);
+            }
             //Ashraf Part
 
             //Hadeer Part
