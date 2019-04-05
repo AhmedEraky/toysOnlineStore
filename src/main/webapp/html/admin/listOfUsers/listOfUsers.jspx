@@ -15,8 +15,8 @@
     </head>
     <body>
 
-    <jsp:include page="/html/common/header.jspx"/>
-    <jsp:include page="/html/common/banner.jspx"/>
+    <jsp:directive.include file="/html/common/header.html"/>
+    <jsp:directive.include file="/html/common/banner.html"/>
 
     <c:set var="currentPage" scope="session" value="listOfUser"/>
 

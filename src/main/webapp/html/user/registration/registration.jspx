@@ -10,11 +10,13 @@
         <jsp:directive.include file="/html/common/head.html"/>
     </head>
     <body>
-    <jsp:include page="/html/common/header.jspx"/>
-    <jsp:include page="/html/common/banner.jspx"/>
+
+    <jsp:directive.include file="/html/common/header.html"/>
+    <jsp:directive.include file="/html/common/banner.html"/>
+
     <jsp:include page="/html/user/registration/registrationForm.html"/>
-    <script src="js/registrationValidation.js"></script>
     <jsp:directive.include file="/html/common/footer.html"/>
+    <script src="js/registrationValidation.js"></script>
     </body>
     </html>
 
