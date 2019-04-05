@@ -5,6 +5,24 @@ public class ReviewResponse {
     private String userName;
     private String  userEmail;
     private String imagePath;
+    private int rate;
+    private int productid;
+
+    public int getProductid() {
+        return productid;
+    }
+
+    public void setProductid(int productid) {
+        this.productid = productid;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
 
     public String getReviewDescription() {
         return reviewDescription;

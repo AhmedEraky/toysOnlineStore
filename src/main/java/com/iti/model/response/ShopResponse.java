@@ -1,10 +1,10 @@
 package com.iti.model.response;
 
 public class ShopResponse {
-    String imagePath;
-    String price;
-    String rate;
-    String name;
+    private String imagePath;
+    private String price;
+    private String rate;
+    private String name;
 
     public String getImagePath() {
         return imagePath;

@@ -104,27 +104,27 @@
                 <h3 class="agileits-sear-head">Discount</h3>
                 <ul name="discountOptions">
                     <li>
-                        <input type="checkbox" class="checked" name="dscount5OPtion">
+                        <input type="checkbox" class="checked" name="discount5Option">
                         <span class="span">5% or More</span>
                     </li>
                     <li>
-                        <input type="checkbox" class="checked" name="dscount10OPtion">
+                        <input type="checkbox" class="checked" name="discount10Option">
                         <span class="span">10% or More</span>
                     </li>
                     <li>
-                        <input type="checkbox" class="checked" name="dscount20OPtion">
+                        <input type="checkbox" class="checked" name="discount20Option">
                         <span class="span">20% or More</span>
                     </li>
                     <li>
-                        <input type="checkbox" class="checked" name="dscount30OPtion">
+                        <input type="checkbox" class="checked" name="discount30Option">
                         <span class="span">30% or More</span>
                     </li>
                     <li>
-                        <input type="checkbox" class="checked" name="dscount50OPtion">
+                        <input type="checkbox" class="checked" name="discount50Option">
                         <span class="span">50% or More</span>
                     </li>
                     <li>
-                        <input type="checkbox" class="checked" name="dscount60OPtion">
+                        <input type="checkbox" class="checked" name="discount60Option">
                         <span class="span">60% or More</span>
                     </li>
                 </ul>
@@ -235,7 +235,7 @@
             range: true,
             min: 0,
             max: 9000,
-            values: [50, 6000],
+            values: [0, 6000],
             slide: function (event, ui) {
                 $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             }

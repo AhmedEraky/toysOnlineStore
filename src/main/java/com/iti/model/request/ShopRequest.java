@@ -8,12 +8,12 @@ public class ShopRequest {
     private String construction;
     private String dolls;
     private String puzzles;
-    private String dscount5OPtion;
-    private String dscount10OPtion;
-    private String dscount20OPtion;
-    private String dscount30OPtion;
-    private String dscount50OPtion;
-    private String dscount60OPtion;
+    private String discount5Option;
+    private String discount10Option;
+    private String discount20Option;
+    private String discount30Option;
+    private String discount50Option;
+    private String discount60Option;
     private String fiveStarOption;
     private String fourStarOption;
     private String threeAndAHalfStarOption;
@@ -71,52 +71,52 @@ public class ShopRequest {
         this.puzzles = puzzles;
     }
 
-    public String getDscount5OPtion() {
-        return dscount5OPtion;
+    public String getDiscount5Option() {
+        return discount5Option;
     }
 
-    public void setDscount5OPtion(String dscount5OPtion) {
-        this.dscount5OPtion = dscount5OPtion;
+    public void setDiscount5Option(String discount5Option) {
+        this.discount5Option = discount5Option;
     }
 
-    public String getDscount10OPtion() {
-        return dscount10OPtion;
+    public String getDiscount10Option() {
+        return discount10Option;
     }
 
-    public void setDscount10OPtion(String dscount10OPtion) {
-        this.dscount10OPtion = dscount10OPtion;
+    public void setDiscount10Option(String discount10Option) {
+        this.discount10Option = discount10Option;
     }
 
-    public String getDscount20OPtion() {
-        return dscount20OPtion;
+    public String getDiscount20Option() {
+        return discount20Option;
     }
 
-    public void setDscount20OPtion(String dscount20OPtion) {
-        this.dscount20OPtion = dscount20OPtion;
+    public void setDiscount20Option(String discount20Option) {
+        this.discount20Option = discount20Option;
     }
 
-    public String getDscount30OPtion() {
-        return dscount30OPtion;
+    public String getDiscount30Option() {
+        return discount30Option;
     }
 
-    public void setDscount30OPtion(String dscount30OPtion) {
-        this.dscount30OPtion = dscount30OPtion;
+    public void setDiscount30Option(String discount30Option) {
+        this.discount30Option = discount30Option;
     }
 
-    public String getDscount50OPtion() {
-        return dscount50OPtion;
+    public String getDiscount50Option() {
+        return discount50Option;
     }
 
-    public void setDscount50OPtion(String dscount50OPtion) {
-        this.dscount50OPtion = dscount50OPtion;
+    public void setDiscount50Option(String discount50Option) {
+        this.discount50Option = discount50Option;
     }
 
-    public String getDscount60OPtion() {
-        return dscount60OPtion;
+    public String getDiscount60Option() {
+        return discount60Option;
     }
 
-    public void setDscount60OPtion(String dscount60OPtion) {
-        this.dscount60OPtion = dscount60OPtion;
+    public void setDiscount60Option(String discount60Option) {
+        this.discount60Option = discount60Option;
     }
 
     public String getFiveStarOption() {

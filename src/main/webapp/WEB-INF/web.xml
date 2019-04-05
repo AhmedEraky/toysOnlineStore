@@ -57,7 +57,15 @@
         <servlet-name>productPage</servlet-name>
         <jsp-file>/html/user/product/productPage.jspx</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>ReviewServlet</servlet-name>
+        <servlet-class>com.iti.controller.servlet.ReviewServlet</servlet-class>
+    </servlet>
 
+    <servlet>
+        <servlet-name>ProductHandling</servlet-name>
+        <servlet-class>com.iti.controller.servlet.ProductHandling</servlet-class>
+    </servlet>
     <!--Islam Servlet-->
 
     <servlet>
@@ -119,12 +127,20 @@
 
 
     <!--Aya Servlet  Mapping-->
+
     <servlet-mapping>
         <servlet-name>productPage</servlet-name>
         <url-pattern>/productPage</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReviewServlet</servlet-name>
+        <url-pattern>/ReviewServlet</url-pattern>
+    </servlet-mapping>
 
-
+    <servlet-mapping>
+        <servlet-name>ProductHandling</servlet-name>
+        <url-pattern>/ProductHandling</url-pattern>
+    </servlet-mapping>
     <!--Islam Servlet  Mapping-->
 
     <servlet-mapping>

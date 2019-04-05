@@ -16,9 +16,11 @@ public class ProductUtil {
          if(newProduct.getDescription()!=null){
             oldProduct.setDescription(newProduct.getDescription());
         }
+         /*
          if(newProduct.getDiscountPercentage()!=null){
             oldProduct.setDiscountPercentage(newProduct.getDiscountPercentage());
         }
+        */
         if(newProduct.getImagePath()!=null){
             oldProduct.setImagePath(newProduct.getImagePath());
         }

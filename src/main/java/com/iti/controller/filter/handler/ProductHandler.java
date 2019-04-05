@@ -21,7 +21,7 @@ public class ProductHandler implements Handler {
       ProductResponse productResponse=service.fetch(Integer.parseInt(request.getParameter("ProductID")));
       //  ProductResponse productResponse=service.fetch(1);
         request.setAttribute("product",productResponse);/////////// on request
-        filterChain.doFilter(request,response);
+      //  filterChain.doFilter(request,response);
 
     }
 }

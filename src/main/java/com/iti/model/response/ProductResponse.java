@@ -7,7 +7,7 @@ public class ProductResponse {
     private String description;
     private String imagePath;
     private int minAge;
-    private String discountPercentage;
+    private int discountPercentage;
     private int quantity;
     private String categoryName;
     private String storeName;
@@ -74,11 +74,11 @@ public class ProductResponse {
         this.minAge = minAge;
     }
 
-    public String getDiscountPercentage() {
+    public int getDiscountPercentage() {
         return discountPercentage;
     }
 
-    public void setDiscountPercentage(String discountPercentage) {
+    public void setDiscountPercentage(int discountPercentage) {
         this.discountPercentage = discountPercentage;
     }
 

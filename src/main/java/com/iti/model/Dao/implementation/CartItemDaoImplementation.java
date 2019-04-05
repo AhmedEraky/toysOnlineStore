@@ -33,10 +33,11 @@ public class CartItemDaoImplementation implements CartItemDao {
 
     @Override
     public ArrayList<CartItem> retriveCartItemsByExample(CartItem item, Session session) {
-        
+        session.beginTransaction();
         Example example=Example.create(item);
         Criteria cartItemCriteria = session.createCriteria(CartItem.class)
                 .add(example);
+        session.getTransaction().commit();
         return new ArrayList<CartItem>(cartItemCriteria.list());
     
     }
@@ -55,11 +56,12 @@ public class CartItemDaoImplementation implements CartItemDao {
     public boolean persistCartItem(CartItem item, Session session) {
         session.beginTransaction();
         try {
-            session.save(item);
+            session.saveOrUpdate(item);
             session.getTransaction().commit();
             session.close();
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             session.close();
             return false;
         }

@@ -7,6 +7,7 @@
     <head>
         <title>product</title>
         <jsp:directive.include file="/html/common/head.html"/>
+
     </head>
     <body>
     <jsp:include page="/html/common/header.jspx"/>

@@ -28,10 +28,10 @@ public class RegistrationHandler extends HomeHandler {
         AuthenticationResponse authenticationResponse=service.register(user);
         if(authenticationResponse.getStatus().equals(Status.success)){
             request.setAttribute("registration",authenticationResponse);
-            filterChain.doFilter(request,response);
+            response.sendRedirect("login?signup="+authenticationResponse.getStatus()+"&message="+authenticationResponse.getMessage());
         }else {
             session.setAttribute("errorMessage",authenticationResponse.getMessage());
-            response.sendRedirect("registration.jspx?signup="+authenticationResponse.getStatus()+"&error="+authenticationResponse.getMessage());
+            response.sendRedirect("registration?signup="+authenticationResponse.getStatus()+"&message="+authenticationResponse.getMessage());
         }
     }
 }
