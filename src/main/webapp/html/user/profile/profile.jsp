@@ -14,36 +14,36 @@
 					<div class="form-group row">
 						<label class="col-sm-4 col-form-label">Birth Date</label>
 						<div class="col-sm-8 px-4">
-							<input type="text" value="${requestScope.user.birthDate}" name="birthDate" class="form-control" id="birthDate" readonly>
+							<input type="text" value="${requestScope.user.birthDate}" name="birthDate" class="form-control" id="birthDate" disabled>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Address</label>
 						<div class="col-sm-10 px-4">
-							<input type="text" value="${requestScope.user.address}" name="address" class="form-control" id="address" readonly>
+							<input type="text" value="${requestScope.user.address}" name="address" class="form-control" id="address" disabled>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Job</label>
 						<div class="col-sm-10 px-4">
-							<input type="text" value="${requestScope.user.job}" name="job" class="form-control" id="job" readonly>
+							<input type="text" value="${requestScope.user.job}" name="job" class="form-control" id="job" disabled>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Email</label>
 						<div class="col-sm-10 px-4">
-							<input type="text" value="${requestScope.user.email}" name="email" class="form-control" id="email" readonly>
+							<input type="text" value="${requestScope.user.email}" name="email" class="form-control" id="email" disabled>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-4 col-form-label">Credit Limit</label>
 						<div class="col-sm-8 px-4">
-							<input type="number" value="${requestScope.user.creditLimit}" name="credit" class="form-control" id="credit" readonly>
+							<input type="number" value="${requestScope.user.creditLimit}" name="credit" class="form-control" id="credit" disabled>
 						</div>
 					</div>
 					<div class="form-group row">
                     <div class="col-sm-10">
-                        <button id="edit" class="btn btn-primary">Edit Profile</button>
+                        <input type="button" id="edit" class="btn btn-primary" value="Edit Profile"></input>
                     </div>
                   </div>
 				</div>
@@ -53,4 +53,4 @@
 		  </form>
 		</div>               
       </section>
-<!--User Profile-->
+ <!--User Profile-->

@@ -6,6 +6,8 @@ import com.iti.model.entity.ShoppingCart;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
@@ -44,11 +46,14 @@ public class CartItemDaoImplementation implements CartItemDao {
 
     @Override
     public ArrayList<CartItem> retriveCartItemByShoppingCart(ShoppingCart cart, Session session) {
-        
+        session.beginTransaction();
         Criteria cartItemsCriteria = session.createCriteria(CartItem.class,"c")
                 .createAlias("c.shoppingCarts", "shoppingCarts");
         cartItemsCriteria.add(Restrictions.eq("shoppingCarts.cartId", cart.getCartId()));
-        return new ArrayList<CartItem>(cartItemsCriteria.list());
+        List items = cartItemsCriteria.list();
+        session.clear();
+        session.getTransaction().commit();
+        return new ArrayList<CartItem>(items);
     
     }
 
