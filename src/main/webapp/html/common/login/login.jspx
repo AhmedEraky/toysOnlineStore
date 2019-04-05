@@ -8,8 +8,11 @@
         <jsp:directive.include file="/html/common/head.html"/>
     </head>
     <body>
-    <jsp:include page="/html/common/header.jspx"/>
-    <jsp:include page="/html/common/banner.jspx"/>
+
+
+    <jsp:directive.include file="/html/common/header.html"/>
+    <jsp:directive.include file="/html/common/banner.html"/>
+
     <jsp:directive.include file="/html/common/login/loginForm.html"/>
     <jsp:directive.include file="/html/common/footer.html"/>
     </body>
