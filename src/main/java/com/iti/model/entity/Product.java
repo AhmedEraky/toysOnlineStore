@@ -29,13 +29,8 @@ public class Product implements java.io.Serializable {
     private Double price;
     @Column(name="min_age", nullable=false)
     private Integer minAge;
-<<<<<<< HEAD
-    @Column(name="discount_percentage", nullable=true)
-    private int discountPercentage;
-=======
     @Column(name = "discount_percentage",nullable = false,columnDefinition = "int default 0")
     private Integer discountPercentage;
->>>>>>> cb0f5999aae22e5279945fa3ac2ca87dd58f2690
     @Column(name = "quantity", nullable = false)
     private int quantity;
     @Column(name = "purchase_count",nullable = false,columnDefinition = "int default 0")
@@ -124,19 +119,11 @@ public class Product implements java.io.Serializable {
         this.minAge = minAge;
     }
 
-<<<<<<< HEAD
-    public int getDiscountPercentage() {
-        return discountPercentage;
-    }
-
-    public void setDiscountPercentage(int discountPercentage) {
-=======
     public Integer getDiscountPercentage() {
         return discountPercentage;
     }
 
     public void setDiscountPercentage(Integer discountPercentage) {
->>>>>>> cb0f5999aae22e5279945fa3ac2ca87dd58f2690
         this.discountPercentage = discountPercentage;
     }
 
