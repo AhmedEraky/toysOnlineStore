@@ -17,8 +17,7 @@ public class ProfileHandler extends HomeHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Boolean login) throws IOException, ServletException {
         session = request.getSession();
-        boolean loggedIn = (boolean) session.getAttribute("login");
-        if(loggedIn==true){
+        if(login!=null&&login==true){
             user=new User();
             user.setEmail((String) session.getAttribute("mail"));
             ProfileService service = new ProfileServiceImpl();
@@ -32,7 +31,7 @@ public class ProfileHandler extends HomeHandler {
             }
 
         }else {
-            response.sendRedirect("login");
+            response.sendRedirect("login?message=you don,t have profile");
         }
     }
 }
