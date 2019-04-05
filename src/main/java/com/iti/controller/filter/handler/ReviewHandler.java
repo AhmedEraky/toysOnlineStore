@@ -20,8 +20,15 @@ public class ReviewHandler implements Handler {
         session=request.getSession();
         ReviewService service=new ReviewServiceImpl();
         ArrayList<ReviewResponse> reviewResponse=service.fetch(Integer.parseInt(request.getParameter("ProductID")));
-        request.setAttribute("reviews",reviewResponse);/////////// on request
-        request.setAttribute("averageRate",retrieveRate(reviewResponse));
+
+        if(reviewResponse.size()!=0) {
+            request.setAttribute("averageRate", retrieveRate(reviewResponse));
+            request.setAttribute("reviews",reviewResponse);/////////// on request
+        }
+        else{
+            request.setAttribute("averageRate", 0);
+            request.setAttribute("reviews",reviewResponse);/////////// on request
+        }
         filterChain.doFilter(request,response);
     }
     public int retrieveRate(ArrayList<ReviewResponse> reviews){

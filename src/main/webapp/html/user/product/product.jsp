@@ -1,11 +1,3 @@
-<!--A Design by W3layouts
-   Author: W3layout
-   Author URL: http://w3layouts.com
-   License: Creative Commons Attribution 3.0 Unported
-   License URL: http://creativecommons.org/licenses/by/3.0/
-   -->
-
-
 <!--/shop-->
 <section class="banner-bottom py-lg-5 py-3 ">
     <div class="container">
@@ -35,7 +27,7 @@
                                 <c:choose>
                                     <c:when test="${ requestScope.averageRate eq 0}">
                                         <c:forEach begin="1" end="5">
-                                        <i class="fa fa-star fa-2x text-muted" aria-hidden="true"></i>
+                                            <i class="fa fa-star fa-2x text-muted" aria-hidden="true"></i>
                                         </c:forEach>
 
                                     </c:when>
@@ -143,7 +135,7 @@
                                 <h4>Reviews</h4>
                                 <c:choose>
                                     <c:when test="${ requestScope.averageRate eq 0}">
-                                      <p>No Reviews</p>
+                                        <p>No Reviews</p>
                                         <hr/>
                                     </c:when>
                                     <c:otherwise>
@@ -177,7 +169,7 @@
                                                 <div class="container  py-lg-5 py-md-5 py-sm-4 py-4">
                                                     <div class="bootstrap-tab-text-grid">
                                                         <div class="single_page">
-                                                            <p class="para"><c:out value="${current.reviewDescription}"/>
+                                                            <p class="para"><span><c:out value="${current.reviewDescription}"/></span>
                                                             </p>
                                                         </div>
                                                     </div>
