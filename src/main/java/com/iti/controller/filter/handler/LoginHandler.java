@@ -42,31 +42,30 @@ public class LoginHandler  extends HomeHandler{
         ShoppingCart savedCart = service.getLoggedInUserCart(user);
         ShoppingCart sessionCart = (ShoppingCart) session.getAttribute("cart");
         //Get CartItem sets
-        Set<CartItem> savedItems = savedCart.getShoppingCartItems();
+        Set<CartItem> savedItems = service.getLoggedInUserCartItems(savedCart);
         Set<CartItem> sessionItems = sessionCart.getShoppingCartItems();
-        //Create merged set
-        Set<CartItem> AllItems = new HashSet<>();
-        //The Merging Process
-        for(CartItem savedItem:savedItems)
+        if(savedItems != null && sessionItems != null)
         {
-            boolean added = false;
-            for(CartItem sessionItem:sessionItems)
-            {
-                if(sessionItem.getProducts().getProductID().intValue() == savedItem.getProducts().getProductID().intValue())
-                {
-                   sessionItem.setQuantity(sessionItem.getQuantity() + 1);
-                   added = true;
+            //Create merged set
+            Set<CartItem> AllItems = new HashSet<>();
+            //The Merging Process
+            for (CartItem savedItem : savedItems) {
+                boolean added = false;
+                for (CartItem sessionItem : sessionItems) {
+                    if (sessionItem.getProducts().getProductID().intValue() == savedItem.getProducts().getProductID().intValue()) {
+                        sessionItem.setQuantity(sessionItem.getQuantity() + 1);
+                        added = true;
+                    }
+                    AllItems.add(sessionItem);
                 }
-                AllItems.add(sessionItem);
+                if (added == false) {
+                    AllItems.add(savedItem);
+                }
             }
-            if(added == false)
-            {
-                AllItems.add(savedItem);
-            }
+            //Add the merged set to the session cart
+            sessionCart.setShoppingCartItems(AllItems);
+            //Update the Session Cart
+            session.setAttribute("cart", sessionCart);
         }
-        //Add the merged set to the session cart
-        sessionCart.setShoppingCartItems(AllItems);
-        //Update the Session Cart
-        session.setAttribute("cart", sessionCart);
     }
 }
