@@ -11,14 +11,8 @@
     <html>
     <head>
         <title>Toys Shop</title>
-        <!--Shoping cart-->
         <link rel="stylesheet" href="css/shop.css" type="text/css" />
-        <!--//Shoping cart-->
-        <!--price range-->
-        <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css"/>
-        <!--//price range-->
         <jsp:directive.include file="/html/common/head.html"/>
-
     </head>
     <body>
     <jsp:directive.include file="shopList.html"/>
