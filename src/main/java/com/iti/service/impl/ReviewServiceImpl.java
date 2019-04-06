@@ -26,16 +26,19 @@ public class ReviewServiceImpl implements ReviewService {
         Session session= HibernateUtils.getSession();
         ReviewDao reviewDao = new ReviewDaoImplementation();
         ArrayList<Review> reviews=reviewDao.retrieveReviewsByProductID(productID,session);
+        if(reviews.size()!=0) {
+            //response
+            for (Review review : reviews) {
+                //image////////////////////////////////////////////////////////////////////////////////////
 
-        //response
-        for (Review review:reviews) {
-            //image
-            ReviewResponse response=new ReviewResponse();
-            response.setReviewDescription(review.getReviewDescription());
-            response.setUserEmail(review.getUser().getEmail());
-            response.setUserName(review.getUser().getName());
-            response.setRate(review.getRate());
-            responses.add(response);
+                ReviewResponse response = new ReviewResponse();
+                response.setReviewDescription(review.getReviewDescription());
+                response.setUserEmail(review.getUser().getEmail());
+                response.setUserName(review.getUser().getName());
+                response.setRate(review.getRate());
+
+                responses.add(response);
+            }
         }
         return responses;
     }

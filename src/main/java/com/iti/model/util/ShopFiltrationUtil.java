@@ -8,14 +8,39 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 public class ShopFiltrationUtil {
-    public void ShopFilter(Criteria criteria, ShopRequest request,Session session){
+    public void ShopFilter(Criteria criteria, ShopRequest request){
         //catgory Filtration
-        int count=0;
+        filterByCategory(criteria,request);
+        //Discount Filtration
+
+        filterByDiscount(criteria,request);
+        //Price filter
+
+        if(request.getPriceRangeInput()!=null) {
+            filterByPrice(criteria,request);
+        }
+
+        //Search Filter
+        Criterion searchCriterion=Restrictions.sqlRestriction("(1=0)");
+        if(request.getSearch()!=null){
+            filterByname(criteria,request);
+        }
+
+    }
+
+    private void filterByname(Criteria criteria, ShopRequest request) {
+        Criterion searchCriterion=Restrictions.like("name","%"+request.getSearch()+"%");
+        criteria.add(searchCriterion);
+
+    }
+
+    private void filterByCategory(Criteria criteria, ShopRequest request) {
         Criterion actionFiguresCriterion=Restrictions.sqlRestriction("(1=0)");
         Criterion carsAndPlanesCriterion=Restrictions.sqlRestriction("(1=0)");
         Criterion constructionCriterion=Restrictions.sqlRestriction("(1=0)");
         Criterion dollsCriterion=Restrictions.sqlRestriction("(1=0)");
         Criterion puzzlesCriterion=Restrictions.sqlRestriction("(1=0)");
+        int count=0;
         if(request.getActionFigures()!=null){
             count++;
             actionFiguresCriterion=Restrictions.eq("category.name","Action Figures");
@@ -39,15 +64,16 @@ public class ShopFiltrationUtil {
         if(count>0)
             criteria.add(Restrictions.or(actionFiguresCriterion,carsAndPlanesCriterion,constructionCriterion,dollsCriterion,puzzlesCriterion));
 
-        //Discount Filtration
+    }
 
+    private void filterByDiscount(Criteria criteria, ShopRequest request) {
         Criterion discount5Criterion=Restrictions.sqlRestriction("(1=0)");
         Criterion discount10Criterion=Restrictions.sqlRestriction("(1=0)");
         Criterion discount20Criterion=Restrictions.sqlRestriction("(1=0)");
         Criterion discount30Criterion=Restrictions.sqlRestriction("(1=0)");
         Criterion discount50Criterion=Restrictions.sqlRestriction("(1=0)");
         Criterion discount60Criterion=Restrictions.sqlRestriction("(1=0)");
-        count=0;
+        int count=0;
         if (request.getDiscount5Option()!=null){
             count++;
             discount5Criterion=Restrictions.ge("discountPercentage",5);
@@ -80,24 +106,24 @@ public class ShopFiltrationUtil {
         if(count>0)
             criteria.add(Restrictions.or(discount5Criterion,discount10Criterion,discount20Criterion,discount30Criterion,discount50Criterion,discount60Criterion));
 
-        //Price filter
+    }
+
+    private void filterByPrice(Criteria criteria, ShopRequest request) {
         String minPrice="",maxPrice="";
-
-        if(request.getPriceRangeInput()!=null) {
-            int i = 1;
-            while (request.getPriceRangeInput().charAt(i) != ' ') {
-                minPrice += request.getPriceRangeInput().charAt(i);
-                i++;
-            }
-            while (request.getPriceRangeInput().charAt(i) != '$')
-                i++;
-
+        int i = 1;
+        while (request.getPriceRangeInput().charAt(i) != ' ') {
+            minPrice += request.getPriceRangeInput().charAt(i);
             i++;
-            for (; i < request.getPriceRangeInput().length(); i++) {
-                maxPrice += request.getPriceRangeInput().charAt(i);
-            }
-            criteria.add(Restrictions.ge("price", Double.parseDouble(minPrice))).add(Restrictions.le("price", Double.parseDouble(maxPrice)));
         }
+        while (request.getPriceRangeInput().charAt(i) != '$')
+            i++;
+
+        i++;
+        for (; i < request.getPriceRangeInput().length(); i++) {
+            maxPrice += request.getPriceRangeInput().charAt(i);
+        }
+        criteria.add(Restrictions.ge("price", Double.parseDouble(minPrice))).add(Restrictions.le("price", Double.parseDouble(maxPrice)));
+
     }
 
 

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 -->
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+
     <html>
     <head><title>Title</title></head>
     <body>
@@ -16,9 +17,9 @@
             <ul class="short_ls">
                 <li>
                     <a href="home">Home</a>
-                    <span>/ /</span>
+                    <span>/</span>
                 </li>
-                <li>Registration</li>
+                <li>${pageContext.request.servletPath}</li>
             </ul>
         </div>
     </div>

@@ -2,59 +2,29 @@
 <html>
 <head>
     <title>Toys Shop an Ecommerce Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+
     <!--meta tags -->
-    <meta charset="UTF-8">
-    </meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    </meta>
-    <meta name="keywords"
-          content="Toys Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-                   Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <!--//meta tags ends here-->
-    <!--booststrap-->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
-    </link>
-    <!--//booststrap end-->
-    <!-- font-awesome icons -->
-    <link href="css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
-    </link>
-    <!-- //font-awesome icons -->
-    <!--Shoping cart-->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" integrity="sha384-VY3F8aCQDLImi4L+tPX4XjtiJwXDwwyXNbkH7SHts0Jlo85t1R15MlXVBKLNx+dj" crossorigin="anonymous">
     <link rel="stylesheet" href="css/shop.css" type="text/css" />
-    <!--//Shoping cart-->
-    <!--price range-->
     <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
-    </link>
-    <!--//price range-->
-    <!--stylesheets-->
-    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
-    </link>
-    <!--//stylesheets-->
     <link href="//fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
-    </link>
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
-    </link>
-
-    <link rel="stylesheet" type="text/css" href="css/filters.css">
-    </link>
-
 </head>
 
 <body>
 <section>
+    <div class="container">
+        <div style="text-align: center" class="jumbotron">
+            <h1>Filter Your Shopping Result</h1>
+        </div>
+    </div>
     <form action="shop">
-
         <!-- price range -->
-        <div class="myPriceRangeComponent">
+        <div class="container">
             <div class="range col-log-offset-4">
                 <h3 class="agileits-sear-head">Price range</h3>
                 <ul class="dropdown-menu6">
@@ -68,7 +38,7 @@
         <!-- //price range -->
 
         <!-- //Category -->
-        <div class="myPreferenceComponent">
+        <div class="container">
             <div class="left-side col-log-offset-4">
                 <h3 class="agileits-sear-head">Category</h3>
                 <ul name="categoryOption">
@@ -98,7 +68,7 @@
         <!-- //Category -->
 
         <!-- discounts -->
-        <div class="myDiscountsComponent">
+        <div class="container">
 
             <div class="left-side col-log-offset-4">
                 <h3 class="agileits-sear-head">Discount</h3>
@@ -134,7 +104,7 @@
         <!-- //discounts -->
 
         <!-- reviews -->
-        <div class="myReviewsComponent">
+        <div class="container">
 
             <div class="customer-rev left-side col-log-offset-4">
                 <h3 class="agileits-sear-head">Customer Review</h3>
@@ -196,9 +166,9 @@
         <!-- reviews -->
 
         <!--submit-->
-        <div class="form-group row">
-            <div class="col-sm-5">
-                <button type="submit" class="btn btn-primary">Apply Filter</button>
+        <div class="container mb-lg-4 mb-md-3 mb-sm-2 mb-2">
+            <div  class="center-block text-center">
+                <button id="filterButton" type="submit" class="btn col-3  btn-success">Apply</button>
             </div>
         </div>
 

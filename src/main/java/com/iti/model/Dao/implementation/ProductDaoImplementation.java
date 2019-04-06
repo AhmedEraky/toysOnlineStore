@@ -39,7 +39,7 @@ public class ProductDaoImplementation implements ProductDao {
         ShopFiltrationUtil util=new ShopFiltrationUtil();
         Criteria criteria=session.createCriteria(Product.class,"product").
                 createAlias("product.category","category");
-        util.ShopFilter(criteria,request,session);
+        util.ShopFilter(criteria,request);
         criteria.setFirstResult(start);
         criteria.setMaxResults(pageSize);
         ArrayList products= (ArrayList) criteria.list();
