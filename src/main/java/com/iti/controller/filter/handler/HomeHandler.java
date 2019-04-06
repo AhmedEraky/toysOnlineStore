@@ -32,8 +32,10 @@ public class HomeHandler implements Handler {
         }
         //if user Try to go to home page
         else {
-            
-           filterChain.doFilter(request,response);
+
+            handler = new HomePageHandler();
+            handler.handle(request,response,filterChain,login);
+
         }
     }
 

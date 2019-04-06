@@ -174,15 +174,21 @@ public class ProductDaoImplementation implements ProductDao {
 
     @Override
     public ArrayList<Product> retrieveNewProducts(Session session) {
+        session.beginTransaction();
         Criteria criteria = session.createCriteria(Product.class).addOrder(Order.desc("ProductID"));
-        ArrayList<Product> products = (ArrayList<Product>) criteria.setMaxResults(6);
+        ArrayList<Product> products = (ArrayList<Product>) criteria.setMaxResults(6).list();
+        session.clear();
+        session.getTransaction().commit();
         return products;
     }
 
     @Override
     public ArrayList<Product> retrievePopularProducts(Session session) {
+        session.beginTransaction();
         Criteria criteria = session.createCriteria(Product.class).addOrder(Order.desc("purchaseCount"));
-        ArrayList<Product> products = (ArrayList<Product>) criteria.setMaxResults(6);
+        ArrayList<Product> products = (ArrayList<Product>) criteria.setMaxResults(3).list();
+        session.clear();
+        session.getTransaction().commit();
         return products;
     }
 

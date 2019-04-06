@@ -17,7 +17,7 @@
     </head>
     <body>
     <jsp:include page="/html/common/header.jspx"/>
-    <jsp:include page="/html/common/banner.jspx"/>
+    <jsp:include page="/html/common/homeBanner.jspx"/>
     <jsp:directive.include file="/html/common/footer.html"/>
     </body>
     </html>
