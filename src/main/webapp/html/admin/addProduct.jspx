@@ -1,21 +1,27 @@
 <!--
-  Created by IntelliJ IDEA.
-  User: Eraky
-  Date: 3/31/2019
-  Time: 11:42 PM
-  To change this template use File | Settings | File Templates.
+    Document   : addProductForm
+    Created on : Mar 27, 2019, 8:17:50 PM
+    Author     : AG
 -->
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
           xmlns:c="http://java.sun.com/jsp/jstl/core">
     <jsp:directive.page contentType="text/html" isELIgnored="false"/>
+
     <html>
     <head>
-        <title>Toys Shop</title>
-        <link rel="stylesheet" href="css/shop.css" type="text/css" />
+        <title>Add Product</title>
+
+
         <jsp:directive.include file="/html/common/head.html"/>
+
     </head>
     <body>
-    <jsp:directive.include file="shopList.html"/>
+    <jsp:include page="/html/common/header.jspx"/>
+    <jsp:include page="/html/common/banner.jspx"/>
+
+    <jsp:include page="/html/admin/addProduct.jsp"/>
+    <jsp:directive.include file="/html/common/footer.html"/>
+
     </body>
     </html>
 </jsp:root>

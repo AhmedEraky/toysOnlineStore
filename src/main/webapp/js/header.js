@@ -11,5 +11,5 @@ $( window ).on( "load",
         }else if (window.location.href.substring(window.location.href.length-12, window.location.href.length)=="registration") {
             $("#nav-registration").addClass("active");
         }
-
-});
+        $("#search-input").css({'color':'red'});
+    });

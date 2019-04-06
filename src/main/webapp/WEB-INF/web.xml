@@ -66,6 +66,15 @@
         <servlet-name>ProductHandling</servlet-name>
         <servlet-class>com.iti.controller.servlet.ProductHandling</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShoppingCartServlet</servlet-name>
+        <servlet-class>com.iti.controller.servlet.ShoppingCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addProduct</servlet-name>
+        <jsp-file>/html/admin/addProduct.jspx</jsp-file>
+    </servlet>
+
     <!--Islam Servlet-->
 
     <servlet>
@@ -144,6 +153,15 @@
         <servlet-name>ProductHandling</servlet-name>
         <url-pattern>/ProductHandling</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShoppingCartServlet</servlet-name>
+        <url-pattern>/ShoppingCartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addProduct</servlet-name>
+        <url-pattern>/addProduct</url-pattern>
+    </servlet-mapping>
+
     <!--Islam Servlet  Mapping-->
 
     <servlet-mapping>

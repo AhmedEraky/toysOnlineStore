@@ -43,14 +43,7 @@ public class ProductServiceImpl implements ProductService {
         response.setStoreName(product.getStore().getName());
         response.setCategoryName(product.getCategory().getName());
         response.setId(product.getProductID());
-        ///
 
-        ///
-        //rate
-        /*
-        int rate=retrieveRate( product);
-        response.setRate(rate);
-*/
         return response;
 
     }

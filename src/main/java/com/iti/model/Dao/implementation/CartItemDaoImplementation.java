@@ -61,7 +61,7 @@ public class CartItemDaoImplementation implements CartItemDao {
     public boolean persistCartItem(CartItem item, Session session) {
         session.beginTransaction();
         try {
-            session.saveOrUpdate(item);
+            session.save(item);
             session.getTransaction().commit();
             session.close();
             return true;

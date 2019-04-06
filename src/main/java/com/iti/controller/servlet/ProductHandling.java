@@ -35,55 +35,8 @@ public class ProductHandling extends HttpServlet {
 
         Session sessionUser= HibernateUtils.getSession();
 
-        if (request.getParameter("submitButton").equals("cart")){
-            int quantity=Integer.parseInt((String)request.getParameter("quantity"));
-            int discount=product.getDiscountPercentage();
-            double price=product.getPrice();
-            double totalcost;
-            if((product.getDiscountPercentage())!=0) {/////////////////////
-                 totalcost = (price-(price*(discount/100.0)))*quantity;
-            }
-            else{
-                 totalcost = (product.getPrice())* quantity;
 
-            }
-
-                //cartitem data
-            CartItem cartItem=new CartItem();
-            cartItem.setQuantity(quantity);
-            cartItem.setTotalCost(totalcost);
-            cartItem.setProducts(product);
-            //get shoopingcart of user
-
-
-
-           //add cartitem to shoppingcart
-
-            //insert cartitem
-            CartItemDao cartItemDao=new CartItemDaoImplementation();
-            Session sessionItem=HibernateUtils.getSession();
-            boolean flag=cartItemDao.persistCartItem(cartItem,sessionItem);
-            User user= userDao.retiveUserEmail(userEmail,sessionUser);
-/*
-            Set< ShoppingCart> shoppingCarts=new HashSet<>();
-            shoppingCarts.add(user.getShoppingCart());
-            cartItem.setShoppingCarts(shoppingCarts);
-            */
-
-            /*
-            Session sessionCartItem=HibernateUtils.getSession();
-            ArrayList<CartItem> cartItem1=cartItemDao.retriveCartItemsByExample(cartItem,sessionCartItem);
-
-            Set<CartItem> shoppingCartItems=new HashSet<>();
-            cartItem1.get(0).setShoppingCarts(shoppingCarts);
-            shoppingCartItems.add(cartItem1.get(0));
-            user.getShoppingCart().setShoppingCartItems(shoppingCartItems);
-            Session sessionCart= HibernateUtils.getSession();
-            boolean userFlag=userDao.updateUser(user,sessionCart);
-*/
-
-        }
-        else if(request.getParameter("submitButton").equals("wishes")){
+         if(request.getParameter("submitButton").equals("wishes")){
 
 
             //get product from id
