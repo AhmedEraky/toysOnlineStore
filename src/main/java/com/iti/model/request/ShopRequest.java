@@ -19,6 +19,7 @@ public class ShopRequest {
     private String threeAndAHalfStarOption;
     private String threeStarOption;
     private String twoAndAHalfStarOption;
+    private String search;
 
     public ShopRequest() {
     }
@@ -157,5 +158,13 @@ public class ShopRequest {
 
     public void setTwoAndAHalfStarOption(String twoAndAHalfStarOption) {
         this.twoAndAHalfStarOption = twoAndAHalfStarOption;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 }
