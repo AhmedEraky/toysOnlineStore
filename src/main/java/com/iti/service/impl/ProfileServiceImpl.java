@@ -39,4 +39,17 @@ public class ProfileServiceImpl implements ProfileService {
         return response;
 
     }
+
+    @Override
+    public Boolean updateProfile(User user) {
+        UserDao userDao = new UserDaoImplementation();
+        Session session = HibernateUtils.getSession();
+        User currentUser = userDao.retiveUserEmail(user.getEmail(),session);
+        currentUser.setBirthDate(user.getBirthDate());
+        currentUser.setJob(user.getJob());
+        currentUser.setAddress(user.getAddress());
+        currentUser.setCreditLimit(user.getCreditLimit());
+        Boolean updated = userDao.updateUser(currentUser,session);
+        return updated;
+    }
 }

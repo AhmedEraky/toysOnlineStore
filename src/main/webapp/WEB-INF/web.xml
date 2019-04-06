@@ -89,7 +89,10 @@
 
     <!--Hadeer Servlet-->
 
-
+    <servlet>
+        <servlet-name>UpdateProfile</servlet-name>
+        <servlet-class>com.iti.controller.servlet.UpdateProfile</servlet-class>
+    </servlet>
 
     <!--Eraky Servlet Mapping-->
 
@@ -163,7 +166,10 @@
 
     <!--Hadeer Servlet  Mapping-->
 
-
+    <servlet-mapping>
+        <servlet-name>UpdateProfile</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
 
 
 
