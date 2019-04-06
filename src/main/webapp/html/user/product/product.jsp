@@ -99,7 +99,7 @@
                             <div class="toys single-item singlepage">
 
 
-                                <button type="submit"  name="submitButton" value="cart" formaction="ShoppingCartHandling" class="toys-cart ptoys-cart add">
+                                <button type="submit"  name="submitButton" value="cart" formaction="ShoppingCartServlet" class="toys-cart ptoys-cart add">
                                     Add to Cart
                                 </button>
                                 <button type="submit"  name="submitButton" value="wishes" formaction="ProductHandling" class="toys-cart ptoys-cart ">

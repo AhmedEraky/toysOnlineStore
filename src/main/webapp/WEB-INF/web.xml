@@ -67,8 +67,8 @@
         <servlet-class>com.iti.controller.servlet.ProductHandling</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ShoppingCartHandling</servlet-name>
-        <servlet-class>com.iti.controller.servlet.ShoppingCartHandling</servlet-class>
+        <servlet-name>ShoppingCartServlet</servlet-name>
+        <servlet-class>com.iti.controller.servlet.ShoppingCartServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>addProduct</servlet-name>
@@ -151,8 +151,8 @@
         <url-pattern>/ProductHandling</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ShoppingCartHandling</servlet-name>
-        <url-pattern>/ShoppingCartHandling</url-pattern>
+        <servlet-name>ShoppingCartServlet</servlet-name>
+        <url-pattern>/ShoppingCartServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>addProduct</servlet-name>

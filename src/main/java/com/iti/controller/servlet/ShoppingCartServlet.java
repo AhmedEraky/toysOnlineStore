@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ShoppingCartHandling extends HttpServlet {
+public class ShoppingCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productid = (String) request.getParameter("productid");
 
@@ -45,20 +45,23 @@ public class ShoppingCartHandling extends HttpServlet {
             cartItem.setProducts(product);
 
             //get shoopingcart of user
-            Set<CartItem> shoppingCartItems=new HashSet<>();
-            shoppingCartItems.add(cartItem);
+            Set<CartItem> cartItems=new HashSet<>();
+            Set<ShoppingCart> shoppingCarts=new HashSet<>();
+            cartItems.add(cartItem);
+
             ShoppingCart shoppingCart=new ShoppingCart();
             shoppingCart  =(ShoppingCart) request.getSession().getAttribute("cart");
+            shoppingCarts.add(shoppingCart);
             //add cartitem to shoppingcart
-           shoppingCart.setShoppingCartItems(shoppingCartItems);/////////
-
-
+           shoppingCart.setShoppingCartItems(cartItems);/////////
+                //add shoppingcart to cartitem
+           cartItem.setShoppingCarts(shoppingCarts);
             //insert cartitem
             CartItemDao cartItemDao = new CartItemDaoImplementation();
             Session sessionItem = HibernateUtils.getSession();
             boolean flag = cartItemDao.persistCartItem(cartItem, sessionItem);
 
-
+            response.sendRedirect("/toysOnlineStore_war_exploded/productPage?ProductID="+productid);
         }
     }
 }

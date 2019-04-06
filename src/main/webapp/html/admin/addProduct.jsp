@@ -10,7 +10,7 @@
 
 
                 <div class="form-group row">
-                    <label for="inputCategory" class="col-sm-2 col-form-label">Category</label>
+                    <label  class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-5">
                         <select class="form-control" id="selection" name="selection">
                             <option>Choose one...</option>
