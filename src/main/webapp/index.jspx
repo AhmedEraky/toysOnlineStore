@@ -8,16 +8,21 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
           xmlns="http://www.w3.org/1999/xhtml"
           xmlns:mytag="/WEB-INF/tlds/mytags.tld"
-          version="2.0">
+          version="2.0" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <jsp:directive.page contentType="text/html;" isELIgnored="false"/>
     <html>
     <head>
         <title>welcome</title>
+        <link href="css/JiSlider.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="all" />
+        <link href="css/clientSideCss/index.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/shop.css" type="text/css" />
+        <jsp:directive.include file="/html/common/head.html"/>
     </head>
     <body>
-    <jsp:include page="/html/common/header.jspx"/>
-    <jsp:include page="/html/common/homeBanner.jspx"/>
+    <jsp:directive.include file="/html/common/header.html"/>
+    <jsp:directive.include file="/html/common/homeBanner.html"/>
     <jsp:directive.include file="/html/common/footer.html"/>
     </body>
     </html>

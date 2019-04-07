@@ -17,8 +17,8 @@ public class HomePageHandler implements  Handler{
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Boolean login) throws IOException, ServletException {
         HttpSession session = request.getSession();
-        String loginAttribute = (String)session.getAttribute("login");
-        if( (loginAttribute!=null )&& loginAttribute.equals("ture")){
+        Boolean loginAttribute = (Boolean)session.getAttribute("login");
+        if( (loginAttribute!=null )&& loginAttribute.equals(true)){
             String userEmail =(String)session.getAttribute("mail");
             HomePageService homePageService = new HomePageServiceImpl();
             ArrayList<HomePageProductsResponse> newProducts = homePageService.getNewProducts();
