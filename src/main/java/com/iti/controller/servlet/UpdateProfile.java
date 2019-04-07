@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UpdateProfile extends HttpServlet {
@@ -23,14 +26,17 @@ public class UpdateProfile extends HttpServlet {
 
         User user = new User();
         user.setEmail(email);
-        user.setBirthDate(new Date(birthDate));
+        try {
+            user.setBirthDate(new SimpleDateFormat("yyyy-MM-dd").parse(birthDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         user.setCreditLimit(credit);
         user.setJob(job);
         user.setAddress(address);
 
         ProfileService profileService = new ProfileServiceImpl();
-        if(profileService.updateProfile(user))
-            resp.sendRedirect("profile");
-
+        profileService.updateProfile(user);
+        resp.sendRedirect("profile");
     }
 }
