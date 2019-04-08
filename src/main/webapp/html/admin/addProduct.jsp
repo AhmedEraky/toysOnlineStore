@@ -6,13 +6,13 @@
         <div class="shop_inner_inf">
 
             <h3>Add <span>Products</span></h3>
-            <form method="post" id="addProductForm" action="readProductData.jspx">
+            <form method="post" id="addProductForm" action="">
 
 
                 <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-5">
-                        <select class="form-control" id="selection" name="selection">
+                        <select class="form-control" id="selection" name="categoryName" required>
                             <option>Choose one...</option>
                             <option>Construction</option>
                             <option>Puzzle</option>
@@ -23,6 +23,12 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <label for="inputStore" class="col-sm-2 col-form-label">Store</label>
+                    <div class="col-sm-5">
+                        <input  name="storeName" class="form-control" id="inputStore" placeholder="Store...." required=""/>
+                    </div>
+                </div>
 
 
                 <div class="form-group row">
@@ -79,6 +85,9 @@
                 <div class=" container col-sm-5">
                     <img id='img-upload'/>
                     <br>
+
+                    <!--HiddenParameter To Validate User Is Try To Register!-->
+                    <input name="addproductButton" hidden="hidden" value="true">
                     <div class="float-right">
                         <button type="submit" class="btn btn-primary btn-lg" >Add</button>
                     </div>

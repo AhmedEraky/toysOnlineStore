@@ -61,7 +61,7 @@ public class ShoppingCartServlet extends HttpServlet {
             Session sessionItem = HibernateUtils.getSession();
             boolean flag = cartItemDao.persistCartItem(cartItem, sessionItem);
 
-            response.sendRedirect("/toysOnlineStore_war_exploded/productPage?ProductID="+productid);
+            response.sendRedirect("productPage?ProductID="+productid);
         }
     }
 }

@@ -76,5 +76,14 @@ public class CategoryDaoImplementation implements CategoryDao {
         }
     }
 
-    
+    @Override
+    public Category retriveCategoryByName(String name, Session session) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(Category.class).add(Restrictions.eq("name",name));
+        session.getTransaction().commit();
+        session.clear();
+        return (Category) criteria.uniqueResult();
+    }
+
+
 }

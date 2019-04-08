@@ -51,6 +51,6 @@ public class ProductHandling extends HttpServlet {
             Session sessionWishes= HibernateUtils.getSession();
             boolean flag=userDao.updateUser(user,sessionWishes);
         }
-        response.sendRedirect("/toysOnlineStore_war_exploded/productPage?ProductID="+productid);
+        response.sendRedirect("productPage?ProductID="+productid);
     }
 }
