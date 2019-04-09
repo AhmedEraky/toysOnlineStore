@@ -13,17 +13,16 @@
     <jsp:directive.page contentType="text/html;" isELIgnored="false"/>
     <html>
     <head>
+        <jsp:directive.include file="/html/common/HomeHead.html"/>
         <title>welcome</title>
-        <link href="css/JiSlider.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="all" />
+        <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/shop.css" rel="stylesheet" type="text/css"/>
         <link href="css/clientSideCss/index.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="css/shop.css" type="text/css" />
-        <jsp:directive.include file="/html/common/head.html"/>
     </head>
     <body>
     <jsp:directive.include file="/html/common/header.html"/>
     <jsp:directive.include file="/html/common/homeBanner.html"/>
-    <jsp:directive.include file="/html/common/footer.html"/>
+    <jsp:directive.include file="/html/common/HomeFooter.html"/>
     </body>
     </html>
 </jsp:root>

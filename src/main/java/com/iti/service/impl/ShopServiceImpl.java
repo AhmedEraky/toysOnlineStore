@@ -20,6 +20,7 @@ public class ShopServiceImpl implements ShopService {
         ArrayList<ShopResponse> shopResponse=new ArrayList<>();
         for (Product product:products){
             ShopResponse response=new ShopResponse();
+            response.setId(Integer.toString(product.getProductID()));
             response.setName(product.getName());
             response.setImagePath(product.getImagePath());
             response.setPrice("$"+product.getPrice());

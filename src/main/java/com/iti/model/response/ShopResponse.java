@@ -5,6 +5,9 @@ public class ShopResponse {
     private String price;
     private String rate;
     private String name;
+    private String id;
+
+
 
     public String getImagePath() {
         return imagePath;
@@ -36,5 +39,13 @@ public class ShopResponse {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
