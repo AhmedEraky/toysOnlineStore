@@ -42,8 +42,10 @@ public class StoreDaoImplementation implements StoreDao
     public Store retrieveStoreByName(String name, Session session) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Store.class).add(Restrictions.eq("name",name));
-        session.getTransaction().commit();
+      Store store=(Store) criteria.uniqueResult();
         //session.clear();
-        return (Store) criteria.uniqueResult();
+        session.getTransaction().commit();
+        return store;
+
     }
 }

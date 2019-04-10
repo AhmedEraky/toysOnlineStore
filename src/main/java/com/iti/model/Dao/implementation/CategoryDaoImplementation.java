@@ -58,9 +58,10 @@ public class CategoryDaoImplementation implements CategoryDao {
         session.beginTransaction();
          Criteria criteria= session.createCriteria(Category.class).createCriteria("products")
                 .add(Restrictions.idEq(product.getCategory().getCategoryID()));
+         Category category=(Category) criteria.uniqueResult();
         session.getTransaction().commit();
         session.clear();
-        return (Category) criteria.uniqueResult();
+        return category;
     }
 
     @Override
@@ -80,9 +81,10 @@ public class CategoryDaoImplementation implements CategoryDao {
     public Category retriveCategoryByName(String name, Session session) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Category.class).add(Restrictions.eq("name",name));
+        Category category=(Category)criteria.uniqueResult();
         session.getTransaction().commit();
-        session.clear();
-        return (Category) criteria.uniqueResult();
+       //session.clear();
+        return category;
     }
 
 

@@ -6,6 +6,9 @@
         <div class="shop_inner_inf">
 
             <h3>Add <span>Products</span></h3>
+
+                  <div></div>  <p> <c:out value="${requestScope.message}"/></p>
+        </div>
             <form method="post" id="addProductForm" action="">
 
 
@@ -13,7 +16,7 @@
                     <label  class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-5">
                         <select class="form-control" id="selection" name="categoryName" required>
-                            <option>Choose one...</option>
+                            <option value="">Choose one...</option>
                             <option>Construction</option>
                             <option>Puzzle</option>
                             <option>Dolls</option>
@@ -66,7 +69,7 @@
                 <div class="form-group row">
                     <label for="inputDiscount" class="col-sm-2 col-form-label">Discount</label>
                     <div class="col-sm-5">
-                        <input  type="number" min="0" name="discountPercentage" class="form-control" id="inputDiscount" placeholder="Enter Discount...." required=""/>
+                        <input  type="number" min="0" step="0.01" name="discountPercentage" class="form-control" id="inputDiscount" placeholder="Enter Discount...." required=""/>
                     </div>
                 </div>
                 <br>
@@ -86,9 +89,10 @@
                     <img id='img-upload'/>
                     <br>
 
-                    <!--HiddenParameter To Validate User Is Try To Register!-->
-                    <input name="addproductButton" hidden="hidden" value="true">
+
                     <div class="float-right">
+                        <!--HiddenParameter To Validate User Is Try To Register!-->
+                        <input name="addproductButton" hidden="hidden" value="true">
                         <button type="submit" class="btn btn-primary btn-lg" >Add</button>
                     </div>
                 </div>

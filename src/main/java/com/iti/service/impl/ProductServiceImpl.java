@@ -59,7 +59,8 @@ public class ProductServiceImpl implements ProductService {
         product.setStore(getStore(storeName));
 
         //create product object from data in clientside
-
+            //image
+        product.setImagePath("images/"+product.getImagePath());
         //add to product
         product.setCategory(getCategory(categoryName));
 
