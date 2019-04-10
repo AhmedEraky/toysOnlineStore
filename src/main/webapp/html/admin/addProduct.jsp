@@ -26,7 +26,7 @@
                 <div class="form-group row">
                     <label for="inputStore" class="col-sm-2 col-form-label">Store</label>
                     <div class="col-sm-5">
-                        <input  name="storeName" class="form-control" id="inputStore" placeholder="Store...." required=""/>
+                        <input  type="text" name="storeName" class="form-control" id="inputStore" placeholder="Store...." required=""/>
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Product Name</label>
                     <div class="col-sm-5">
-                        <input  name="name" class="form-control" id="inputName" placeholder="Product Name...." required=""/>
+                        <input  type="text" name="name" class="form-control" id="inputName" placeholder="Product Name...." required=""/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -46,27 +46,27 @@
                 <div class="form-group row">
                     <label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
                     <div class="col-sm-5">
-                        <input  name="quantity" class="form-control" id="inputQuantity" placeholder="Quantity...." required=""/>
+                        <input type="number" min="1" name="quantity" class="form-control" id="inputQuantity" placeholder="Quantity...." required=""/>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputMinage" class="col-sm-2 col-form-label">Minimum Age</label>
                     <div class="col-sm-5">
-                        <input  name="minAge" class="form-control" id="inputMinage" placeholder="Minimum Age...." required=""/>
+                        <input  type="number" min="1" name="minAge" class="form-control" id="inputMinage" placeholder="Minimum Age...." required=""/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPrice" class="col-sm-2 col-form-label">Product Price</label>
                     <div class="col-sm-5">
-                        <input  name="price" class="form-control" id="inputPrice" placeholder="Product Price...." required=""/>
+                        <input  type="number" step="0.01" min="0" name="price" class="form-control" id="inputPrice" placeholder="Product Price...." required=""/>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputDiscount" class="col-sm-2 col-form-label">Discount</label>
                     <div class="col-sm-5">
-                        <input  name="discountPercentage" class="form-control" id="inputDiscount" placeholder="Enter Discount...." required=""/>
+                        <input  type="number" min="0" name="discountPercentage" class="form-control" id="inputDiscount" placeholder="Enter Discount...." required=""/>
                     </div>
                 </div>
                 <br>

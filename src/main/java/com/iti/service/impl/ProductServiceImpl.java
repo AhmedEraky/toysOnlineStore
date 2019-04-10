@@ -52,22 +52,17 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ConfirmationResponse insert(Product product,String categoryName,String storeName) {
-        //create product object from data in clientside
-        Category category;
-        //get category by name
-        Session sessionC= HibernateUtils.getSession();
-        CategoryDao categoryDao=new CategoryDaoImplementation();
-        category= categoryDao.retriveCategoryByName(categoryName,sessionC);
-        //add to product
-        product.setCategory(category);
+        //get store by name
         //get store object
-        Store store;
-        //get category by name
-        Session sessionStore= HibernateUtils.getSession();
-        StoreDao storeDao=new StoreDaoImplementation();
-        store= storeDao.retrieveStoreByName(storeName,sessionStore);
+
         //add to product
-        product.setStore(store);
+        product.setStore(getStore(storeName));
+
+        //create product object from data in clientside
+
+        //add to product
+        product.setCategory(getCategory(categoryName));
+
 
         //insert product
         Session session= HibernateUtils.getSession();
@@ -84,6 +79,21 @@ public class ProductServiceImpl implements ProductService {
                 confirmationResponse.setMessage("Error exists! Please Insert again");
             }
             return confirmationResponse;
+    }
+    public Store getStore(String storeName){
+        Store store;
+        Session sessionStore= HibernateUtils.getSession();
+        StoreDao storeDao=new StoreDaoImplementation();
+        store= storeDao.retrieveStoreByName(storeName,sessionStore);
+        return store;
+    }
+    public Category getCategory(String categoryName){
+        Category category;
+        //get category by name
+        Session sessionCategroy= HibernateUtils.getSession();
+        CategoryDao categoryDao=new CategoryDaoImplementation();
+        category= categoryDao.retriveCategoryByName(categoryName,sessionCategroy);
+        return category;
     }
 
 }
