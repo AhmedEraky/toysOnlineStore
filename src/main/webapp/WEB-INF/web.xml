@@ -79,7 +79,7 @@
 
     <servlet>
         <servlet-name>about</servlet-name>
-        <jsp-file>/html/common/about.html</jsp-file>
+        <jsp-file>/html/common/about.jspx</jsp-file>
     </servlet>
 
     <servlet>
