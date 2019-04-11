@@ -21,6 +21,7 @@
          Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
         <!--//meta tags ends here-->
         <jsp:directive.include file="/html/common/head.html"/>
+        <script src="js/ReviewAJAX.js"></script>
 
     </head>
     <body>

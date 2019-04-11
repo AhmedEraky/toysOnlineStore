@@ -8,4 +8,7 @@ public interface StoreDao {
 
     Store retrieveStoreByProduct(Product product, Session session);
     boolean persistStore(Store store, Session session);
+
+    //Aya
+    Store retrieveStoreByName(String name,Session session);
 }

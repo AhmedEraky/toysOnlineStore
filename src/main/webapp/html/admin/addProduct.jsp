@@ -6,14 +6,17 @@
         <div class="shop_inner_inf">
 
             <h3>Add <span>Products</span></h3>
-            <form method="post" id="addProductForm" action="readProductData.jspx">
+
+                  <div></div>  <p> <c:out value="${requestScope.message}"/></p>
+        </div>
+            <form method="post" id="addProductForm" action="">
 
 
                 <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-5">
-                        <select class="form-control" id="selection" name="selection">
-                            <option>Choose one...</option>
+                        <select class="form-control" id="selection" name="categoryName" required>
+                            <option value="">Choose one...</option>
                             <option>Construction</option>
                             <option>Puzzle</option>
                             <option>Dolls</option>
@@ -23,12 +26,18 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <label for="inputStore" class="col-sm-2 col-form-label">Store</label>
+                    <div class="col-sm-5">
+                        <input  type="text" name="storeName" class="form-control" id="inputStore" placeholder="Store...." required=""/>
+                    </div>
+                </div>
 
 
                 <div class="form-group row">
                     <label for="inputName" class="col-sm-2 col-form-label">Product Name</label>
                     <div class="col-sm-5">
-                        <input  name="name" class="form-control" id="inputName" placeholder="Product Name...." required=""/>
+                        <input  type="text" name="name" class="form-control" id="inputName" placeholder="Product Name...." required=""/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -40,27 +49,27 @@
                 <div class="form-group row">
                     <label for="inputQuantity" class="col-sm-2 col-form-label">Quantity</label>
                     <div class="col-sm-5">
-                        <input  name="quantity" class="form-control" id="inputQuantity" placeholder="Quantity...." required=""/>
+                        <input type="number" min="1" name="quantity" class="form-control" id="inputQuantity" placeholder="Quantity...." required=""/>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputMinage" class="col-sm-2 col-form-label">Minimum Age</label>
                     <div class="col-sm-5">
-                        <input  name="minAge" class="form-control" id="inputMinage" placeholder="Minimum Age...." required=""/>
+                        <input  type="number" min="1" name="minAge" class="form-control" id="inputMinage" placeholder="Minimum Age...." required=""/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPrice" class="col-sm-2 col-form-label">Product Price</label>
                     <div class="col-sm-5">
-                        <input  name="price" class="form-control" id="inputPrice" placeholder="Product Price...." required=""/>
+                        <input  type="number" step="0.01" min="0" name="price" class="form-control" id="inputPrice" placeholder="Product Price...." required=""/>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputDiscount" class="col-sm-2 col-form-label">Discount</label>
                     <div class="col-sm-5">
-                        <input  name="discountPercentage" class="form-control" id="inputDiscount" placeholder="Enter Discount...." required=""/>
+                        <input  type="number" min="0" step="0.01" name="discountPercentage" class="form-control" id="inputDiscount" placeholder="Enter Discount...." required=""/>
                     </div>
                 </div>
                 <br>
@@ -79,7 +88,11 @@
                 <div class=" container col-sm-5">
                     <img id='img-upload'/>
                     <br>
+
+
                     <div class="float-right">
+                        <!--HiddenParameter To Validate User Is Try To Register!-->
+                        <input name="addproductButton" hidden="hidden" value="true">
                         <button type="submit" class="btn btn-primary btn-lg" >Add</button>
                     </div>
                 </div>

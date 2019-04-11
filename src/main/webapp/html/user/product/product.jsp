@@ -22,7 +22,7 @@
                         <h4>Product by: <c:out value="${requestScope.product.storeName}"/></h4>
                         <h5>Category: <c:out value="${requestScope.product.categoryName}"/></h5>
                         <div class="rating1">
-                            <ul class="stars">
+                            <ul  id="starul" class="stars">
 
                                 <c:choose>
                                     <c:when test="${ requestScope.averageRate eq 0}">
@@ -187,13 +187,13 @@
                             </div>
                             <div class="add-review">
                                 <h4>add a review</h4>
-                                <form action="ReviewServlet" method="post">
+                                <form action="" method="post">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="userName"  placeholder="Enter your name" required="">
+                                            <input type="text" name="userName" id="userName" placeholder="Enter your name" required="">
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="email" name="userEmail"  placeholder="Enter your email" required="">
+                                            <input type="email" name="userEmail"   placeholder="Enter your email" required="">
                                         </div>
                                         <!--stars-->
                                         <div class="rate" >
@@ -211,9 +211,9 @@
                                         <!--end-->
                                     </div>
                                     <textarea name="reviewDescription"   rows="2" cols="3" placeholder="Enter your message" required=""></textarea>
-                                    <input type="submit" class="toys-cart ptoys-cart" value="SEND">
+                                    <input type="submit" id="send" class="toys-cart ptoys-cart" value="SEND"/>
 
-                                    <input  name="productid" hidden="hidden" value="${requestScope.product.id}"/>
+                                    <input  name="productid" id="productid" hidden="hidden" value="${requestScope.product.id}"/>
                                 </form>
                             </div>
                         </div>

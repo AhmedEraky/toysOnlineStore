@@ -22,4 +22,5 @@ public class ShoppingCartDaoImplementation implements ShoppingCartDao {
     public boolean updateShoppingCart(ShoppingCart oldShoppingCart, ShoppingCart newShoppingCart, Session session) {
         return false;
     }
+
 }
