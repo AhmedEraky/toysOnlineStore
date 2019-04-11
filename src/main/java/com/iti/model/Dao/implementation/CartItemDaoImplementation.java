@@ -3,6 +3,7 @@ package com.iti.model.Dao.implementation;
 import com.iti.model.Dao.CartItemDao;
 import com.iti.model.entity.CartItem;
 import com.iti.model.entity.ShoppingCart;
+import com.iti.model.util.CartItemUtils;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
@@ -61,7 +62,7 @@ public class CartItemDaoImplementation implements CartItemDao {
     public boolean persistCartItem(CartItem item, Session session) {
         session.beginTransaction();
         try {
-            session.save(item);
+            session.saveOrUpdate(item);
             session.getTransaction().commit();
             session.close();
             return true;
@@ -72,4 +73,7 @@ public class CartItemDaoImplementation implements CartItemDao {
         }
         
     }
+
+
+
 }
