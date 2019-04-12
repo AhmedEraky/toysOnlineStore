@@ -13,7 +13,9 @@ import com.iti.model.entity.Category;
 import com.iti.model.entity.Product;
 import com.iti.model.entity.Review;
 import com.iti.model.entity.Store;
+import com.iti.model.response.ConfirmationResponse;
 import com.iti.model.response.ProductResponse;
+import com.iti.model.response.Status;
 import com.iti.service.ProductService;
 import org.hibernate.Session;
 
@@ -46,6 +48,53 @@ public class ProductServiceImpl implements ProductService {
 
         return response;
 
+    }
+
+    @Override
+    public ConfirmationResponse insert(Product product,String categoryName,String storeName) {
+        //get store by name
+        //get store object
+
+        //add to product
+        product.setStore(getStore(storeName));
+
+        //create product object from data in clientside
+            //image
+        product.setImagePath("images/"+product.getImagePath());
+        //add to product
+        product.setCategory(getCategory(categoryName));
+
+
+        //insert product
+        Session session= HibernateUtils.getSession();
+        ProductDao productDao=new ProductDaoImplementation();
+        boolean flag=productDao.persistProduct(product,session);
+        // message in confirmationResponse
+        ConfirmationResponse confirmationResponse=new ConfirmationResponse();
+            if(flag){
+                confirmationResponse.setStatus(Status.success);
+                confirmationResponse.setMessage(product.getName()+" Successfully added");
+            }
+            else{
+                confirmationResponse.setStatus(Status.fail);
+                confirmationResponse.setMessage("Error exists! Please Insert again");
+            }
+            return confirmationResponse;
+    }
+    public Store getStore(String storeName){
+        Store store;
+        Session sessionStore= HibernateUtils.getSession();
+        StoreDao storeDao=new StoreDaoImplementation();
+        store= storeDao.retrieveStoreByName(storeName,sessionStore);
+        return store;
+    }
+    public Category getCategory(String categoryName){
+        Category category;
+        //get category by name
+        Session sessionCategroy= HibernateUtils.getSession();
+        CategoryDao categoryDao=new CategoryDaoImplementation();
+        category= categoryDao.retriveCategoryByName(categoryName,sessionCategroy);
+        return category;
     }
 
 }

@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -36,7 +37,7 @@ public class ProductHandling extends HttpServlet {
         Session sessionUser= HibernateUtils.getSession();
 
 
-         if(request.getParameter("submitButton").equals("wishes")){
+
 
 
             //get product from id
@@ -50,7 +51,9 @@ public class ProductHandling extends HttpServlet {
             //update user
             Session sessionWishes= HibernateUtils.getSession();
             boolean flag=userDao.updateUser(user,sessionWishes);
-        }
-        response.sendRedirect("productPage?ProductID="+productid);
+
+        //response.sendRedirect("productPage?ProductID="+productid);
+        PrintWriter out=response.getWriter();
+        out.print("Successfully added to wishes list");
     }
 }
