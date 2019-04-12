@@ -62,7 +62,7 @@ public class CartItemDaoImplementation implements CartItemDao {
     public boolean persistCartItem(CartItem item, Session session) {
         session.beginTransaction();
         try {
-            session.saveOrUpdate(item);
+            session.save(item);
             session.getTransaction().commit();
             session.close();
             return true;
@@ -74,6 +74,20 @@ public class CartItemDaoImplementation implements CartItemDao {
         
     }
 
+    @Override
+    public boolean updateCartItem(CartItem item, Session session) {
+        session.beginTransaction();
+        try {
+            session.update(item);
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.close();
+            return false;
+        }
+    }
 
 
 }

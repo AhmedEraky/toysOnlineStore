@@ -30,9 +30,10 @@ $(document).ready(function () {
 
 
         });
-        getReviews();
-    });
 
+
+    });
+   // setInterval(getReviews,1000);
 
 });
 function getReviews(){
@@ -46,15 +47,14 @@ function getReviews(){
         type: "GET",
 
         success: function (data) {
+        alert(data);
             var object = JSON.parse(data);
             //rate
             var mark;
             var rate=parseInt(object[0]);
             if(rate==0){
 
-                for(var c=0;c<5;c++) {
-                    mark += " <i class=\"fa fa-star fa-2x text-muted\" aria-hidden=\"true\"></i>";
-                }
+                mark="<p>"+NoReview+"</p>";
                 $("#starul").append(mark);
             }
             else{
@@ -67,8 +67,8 @@ function getReviews(){
                 $("#starul").append(mark);
             }
             var count;
-            if(object.length!=0){
-                for (count = 0; count < object[1].length; count++)
+            if(object[1].size()!=0){
+                for (count = 0; count < object[1].size(); count++)
                 {
 
                 }

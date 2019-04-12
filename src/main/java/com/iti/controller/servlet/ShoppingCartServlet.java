@@ -10,32 +10,38 @@ import com.iti.model.entity.ShoppingCart;
 import com.iti.model.entity.Product;
 import org.hibernate.Session;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
 
 public class ShoppingCartServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String productid = (String) request.getParameter("productid");
 
         //get product by id
         Product product=getProductById(Integer.parseInt(productid));
 
-        if (request.getParameter("submitButton").equals("cart")) {
+       // if (request.getParameter("submitButton").equals("cart")) {
             int quantity = Integer.parseInt((String) request.getParameter("quantity"));
-            System.out.println("===================="+quantity);
+            //System.out.println("===================="+quantity);
             CartItem cartItem=generateNewCartItem(product,quantity);
 
             //get shoopingcart of user
 
             ShoppingCart shoppingCart  =(ShoppingCart) request.getSession().getAttribute("cart");
             Set<CartItem> cartItems=shoppingCart.getShoppingCartItems();
-            cartItems.add(cartItem);
-            shoppingCart.setShoppingCartItems(cartItems);
+            //check if cartitem is already added or not if it is added before ,change quantity
+            Set<CartItem> updatedCartItems=addNewCartItem(cartItem,cartItems);
+
+            shoppingCart.setShoppingCartItems(updatedCartItems);
 
 
                 //add shoppingcart to cartitem
@@ -43,15 +49,12 @@ public class ShoppingCartServlet extends HttpServlet {
             shoppingCarts.add(shoppingCart);
            cartItem.setShoppingCarts(shoppingCarts);
 
+           //forward to productpage
+           //response.sendRedirect("productPage?ProductID="+productid);
+        PrintWriter out=response.getWriter();
+        out.print("Successfully added to Shooping cart");
 
-
-            //insert cartitem
-            CartItemDao cartItemDao = new CartItemDaoImplementation();
-            Session sessionItem = HibernateUtils.getSession();
-            boolean flag = cartItemDao.persistCartItem(cartItem, sessionItem);
-
-            response.sendRedirect("productPage?ProductID="+productid);
-        }
+      //  }
     }
 
     Product getProductById(int productid){
@@ -78,5 +81,21 @@ public class ShoppingCartServlet extends HttpServlet {
         cartItem.setTotalCost(totalcost);
         cartItem.setProducts(product);
         return cartItem;
+    }
+    Set<CartItem>  addNewCartItem(CartItem cartItem,Set<CartItem> cartItems){
+        boolean check=false;
+        for(CartItem item:cartItems){
+            if((item.getProducts().getProductID()).equals(cartItem.getProducts().getProductID())){
+                check=true;
+                item.setQuantity(cartItem.getQuantity());
+            }
+        }
+
+        if(!check){
+            cartItems.add(cartItem);
+        }
+
+
+        return cartItems;
     }
 }

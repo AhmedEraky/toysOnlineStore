@@ -19,6 +19,7 @@
                     <form  method="post">
                         <h3><c:out value="${requestScope.product.name}"/></h3>
                         <p hidden name="productid" value="${requestScope.product.id}"/>
+
                         <h4>Product by: <c:out value="${requestScope.product.storeName}"/></h4>
                         <h5>Category: <c:out value="${requestScope.product.categoryName}"/></h5>
                         <div class="rating1">
@@ -96,15 +97,15 @@
 
 
                         <div class="occasion-cart">
-                            <div class="toys single-item singlepage">
+                            <div  id="com" class="toys single-item singlepage">
 
 
-                                <button type="submit"  name="submitButton" value="cart" formaction="ShoppingCartServlet" class="toys-cart ptoys-cart add">
-                                    Add to Cart
-                                </button>
-                                <button type="submit"  name="submitButton" value="wishes" formaction="ProductHandling" class="toys-cart ptoys-cart ">
-                                    Add to wishes
-                                </button>
+                                <input type="button"  name="submitButton" value="   Add to Cart"  id="cart" class="btn btn-outline-danger btn-lg">
+
+
+                                <input type="button"  id="wishes" name="submitButton" value=" Add to wishes"  class="btn btn-outline-danger btn-lg"/>
+
+
                                 <input  name="productid" hidden="hidden" value="${requestScope.product.id}"/>
                             </div>
                         </div>

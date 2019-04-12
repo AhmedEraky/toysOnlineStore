@@ -58,7 +58,7 @@ public class ReviewServlet extends HttpServlet {
 
         PrintWriter out=response.getWriter();
             out.print("done");
-       response.sendRedirect("/toysOnlineStore_war_exploded/productPage?ProductID="+productid);
+      // response.sendRedirect("/toysOnlineStore_war_exploded/productPage?ProductID="+productid);
 
     }
 
@@ -82,6 +82,9 @@ public class ReviewServlet extends HttpServlet {
             reviewJson.addProperty("reviews",jsonFromJavaArrayList);
 
         }
+       // PrintWriter out=response.getWriter();
+       // out.print(reviewJson);
+        response.sendRedirect("productPage?ProductID="+request.getParameter("productid"));
     }
     public int retrieveRate(ArrayList<ReviewResponse> reviews){
         int sum=0;
