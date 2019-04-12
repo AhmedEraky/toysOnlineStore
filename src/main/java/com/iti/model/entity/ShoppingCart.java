@@ -23,10 +23,10 @@ public class ShoppingCart implements java.io.Serializable {
     @Column(name="total_cost", nullable=false, precision=6, scale=3)
     private Double totalCost;
 
-    @OneToOne(mappedBy="shoppingCart")
+    @OneToOne(mappedBy="shoppingCart",cascade = CascadeType.ALL)
     private User user;
 
-    @ManyToMany(fetch=FetchType.LAZY)
+    @ManyToMany(fetch=FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinTable(name="shopping_cart_items", catalog="toysonlineshoppingdb",
             joinColumns = {@JoinColumn(name="cart_id", nullable=false, updatable=false) },
             inverseJoinColumns = {@JoinColumn(name="items_id", nullable=false, updatable=false) })

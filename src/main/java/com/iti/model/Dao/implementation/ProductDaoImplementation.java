@@ -65,8 +65,20 @@ public class ProductDaoImplementation implements ProductDao {
     //Aya Part
 
     @Override
-    public Product retriveProductByID(Integer id, Session session) {
+    public Product retriveProductnew(Integer id, Session session) {
 
+
+        Criteria criteria = session.createCriteria(Product.class).add(Restrictions.eq("ProductID", id));
+        Product product = (Product) criteria.uniqueResult();
+        product.getCategory().getProducts();
+        product.getStore();
+        return product;
+
+
+    }
+
+    @Override
+    public Product retriveProductByID(Integer id, Session session) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Product.class).add(Restrictions.eq("ProductID", id));
         Product product = (Product) criteria.uniqueResult();

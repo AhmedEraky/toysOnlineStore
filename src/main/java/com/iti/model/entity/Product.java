@@ -43,7 +43,7 @@ public class Product implements java.io.Serializable {
     @OneToOne(mappedBy = "products")
     private CartItem cartItems;
 
-    @ManyToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Store store;
 
     @ManyToMany(fetch=FetchType.LAZY)

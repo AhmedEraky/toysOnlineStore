@@ -10,6 +10,9 @@ public interface UserDao {
     User retiveUserEmail(String email, Session session);
     User retriveUserByExample(User user, Session session);
     ArrayList<User> retriveUsersByName(String name, Session session);
+
+    User retiveUserEmailNew(String email, Session session);
+
     ArrayList<User> retriveUsers(Session session);
     boolean isUser(User user, Session session);
     boolean persistUser(User user, Session session);

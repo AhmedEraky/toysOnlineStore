@@ -42,6 +42,12 @@ public class UserDaoImplementation implements UserDao {
     }
 
     @Override
+    public User retiveUserEmailNew(String email, Session session) {
+        Criteria criteria=session.createCriteria(User.class).add(Restrictions.eq("email",email));
+        User user= (User) criteria.uniqueResult();
+        return user;
+    }
+    @Override
     public ArrayList<User> retriveUsers(Session session) {
         session.beginTransaction();
         Criteria criteria=session.createCriteria(User.class);
@@ -100,18 +106,11 @@ public class UserDaoImplementation implements UserDao {
         }
     }
 
+
     @Override
     public boolean updateUser(User user, Session session) {
-        session.beginTransaction();
-        try {
-
             session.saveOrUpdate(user);
-            session.getTransaction().commit();
             return true;
-        }catch (PersistenceException e) {
-            e.printStackTrace();///////////////////////
-            session.getTransaction().rollback();
-            return false;
-        }
+
     }
 }
