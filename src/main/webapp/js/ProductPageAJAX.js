@@ -35,7 +35,7 @@ $(document).ready(function () {
 
             success: function (data) {
                 console.log(data);
-                var mark=" <p class=\"bg-success\">"+data+"</p>";
+                var mark=" <p class=\"bg-success\" id=\'p\'>"+data+"</p>";
                 $("#com").append(mark);
 
             }

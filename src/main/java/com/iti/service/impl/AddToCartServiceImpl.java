@@ -14,11 +14,13 @@ import org.hibernate.Session;
 import java.util.Set;
 
 public class AddToCartServiceImpl implements AddToCartService {
+   boolean quantityCheck=false;
     @Override
     public AddingResponse addToCart(Integer productID, Integer quantity, ShoppingCart cart) {
         TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
 
-        Boolean result=false;
+         Boolean result=false;
+
         AddingResponse addingResponse=new AddingResponse();
         try {
             result=transactionManager.runInTransaction( session -> {
@@ -28,7 +30,7 @@ public class AddToCartServiceImpl implements AddToCartService {
 
                 CartItem cartItem=generateNewCartItem(product,quantity);
                 Set<CartItem> cartItems=cart.getShoppingCartItems();
-                Set<CartItem> updatedCartItems=addNewCartItem(cartItem,cartItems);
+                Set<CartItem> updatedCartItems=addNewCartItem(cartItem,cartItems,product);
 
                 cart.setShoppingCartItems(updatedCartItems);
                 updateCartTotalCost(product,quantity,cart);
@@ -42,6 +44,10 @@ public class AddToCartServiceImpl implements AddToCartService {
         if (result==true){
             addingResponse.setMessage("Successfully added to Shopping cart");
             addingResponse.setStatus("Success");
+        }
+        if(quantityCheck){
+            addingResponse.setMessage("You added quantity more than the available quantity");
+            addingResponse.setStatus("Fail");
         }
         return addingResponse;
     }
@@ -73,12 +79,18 @@ public class AddToCartServiceImpl implements AddToCartService {
         return cartItem;
     }
 
-    Set<CartItem>  addNewCartItem(CartItem cartItem,Set<CartItem> cartItems){
+    Set<CartItem>  addNewCartItem(CartItem cartItem,Set<CartItem> cartItems,Product product){
         boolean check=false;
         for(CartItem item:cartItems){
             if((item.getProducts().getProductID()).equals(cartItem.getProducts().getProductID())){
                 check=true;
-                item.setQuantity(cartItem.getQuantity());
+                if(((cartItem.getQuantity())+(item.getQuantity()))<=product.getQuantity()) {
+                    item.setQuantity(((cartItem.getQuantity())+(item.getQuantity())));
+                }
+                else{
+                    quantityCheck=true;
+                    item.setQuantity(product.getQuantity());
+                }
             }
         }
 
