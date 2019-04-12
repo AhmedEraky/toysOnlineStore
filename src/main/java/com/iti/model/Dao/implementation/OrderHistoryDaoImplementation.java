@@ -14,8 +14,8 @@ public class OrderHistoryDaoImplementation implements OrderHistoryDao {
     public OrderHistory retriveOrderHistoryByID(Integer id, Session session) {
         session.beginTransaction();
         OrderHistory orderHistory = session.get(OrderHistory.class, id);
-        session.getTransaction().commit();
         session.clear();
+        session.getTransaction().commit();
         return orderHistory;
     }
 
@@ -24,18 +24,20 @@ public class OrderHistoryDaoImplementation implements OrderHistoryDao {
         session.beginTransaction();
         Example orderHistoryExample = Example.create(orderHistory);
         Criteria criteria = session.createCriteria(OrderHistory.class).add(orderHistoryExample);
-        session.getTransaction().commit();
+        OrderHistory retrievedOrderHistory = (OrderHistory) criteria.uniqueResult();
         session.clear();
-        return (OrderHistory) criteria.uniqueResult();
+        session.getTransaction().commit();
+        return retrievedOrderHistory;
     }
 
     @Override
     public OrderHistory retriveOrderHistoryByUser(User user, Session session) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(OrderHistory.class).add(Restrictions.eq("user", user));
-        session.getTransaction().commit();
+        OrderHistory orderHistory = (OrderHistory) criteria.uniqueResult();
         session.clear();
-        return (OrderHistory) criteria.uniqueResult();
+        session.getTransaction().commit();
+        return orderHistory;
     }
 
     @Override
@@ -43,12 +45,12 @@ public class OrderHistoryDaoImplementation implements OrderHistoryDao {
         session.beginTransaction();
         try{
             session.persist(orderHistory);
-            session.getTransaction().commit();
             session.clear();
+            session.getTransaction().commit();
             return true;
         }catch(HibernateException e){
-            session.getTransaction().rollback();
             session.clear();
+            session.getTransaction().rollback();
             return false;
         }
     }

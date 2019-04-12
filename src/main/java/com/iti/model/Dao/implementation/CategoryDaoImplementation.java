@@ -6,6 +6,8 @@ import com.iti.model.entity.Product;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.Example;
@@ -16,9 +18,10 @@ public class CategoryDaoImplementation implements CategoryDao {
     public Category retriveCategoryByID(Integer ID, Session session) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Category.class).add(Restrictions.idEq(ID));
-        session.getTransaction().commit();
+        Category category = (Category) criteria.uniqueResult();
         session.clear();
-        return (Category) criteria.uniqueResult();
+        session.getTransaction().commit();
+        return category;
         
     }
 
@@ -27,9 +30,10 @@ public class CategoryDaoImplementation implements CategoryDao {
         session.beginTransaction();
         Example categoryExample = Example.create(category);
         Criteria criteria = session.createCriteria(Category.class).add(categoryExample);
-        session.getTransaction().commit();
+        Category retrievedCategory = (Category) criteria.uniqueResult();
         session.clear();
-        return (Category) criteria.uniqueResult();
+        session.getTransaction().commit();
+        return retrievedCategory;
     }
 
     @Override
@@ -37,9 +41,10 @@ public class CategoryDaoImplementation implements CategoryDao {
         session.beginTransaction();
         Example categoryExample = Example.create(category);
         Criteria criteria = session.createCriteria(Category.class).add(categoryExample);
-        session.getTransaction().commit();
+        ArrayList categories = (ArrayList<Category>) criteria.list();
         session.clear();
-        return (ArrayList<Category>) criteria.list();
+        session.getTransaction().commit();
+        return categories;
         
     }
 
@@ -47,9 +52,10 @@ public class CategoryDaoImplementation implements CategoryDao {
     public ArrayList<Category> retriveCategories(Session session) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Category.class);
-        session.getTransaction().commit();
+        ArrayList categories = (ArrayList<Category>) criteria.list();
         session.clear();
-        return (ArrayList<Category>) criteria.list();
+        session.getTransaction().commit();
+        return categories;
     }
 
     @Override
@@ -59,8 +65,8 @@ public class CategoryDaoImplementation implements CategoryDao {
          Criteria criteria= session.createCriteria(Category.class).createCriteria("products")
                 .add(Restrictions.idEq(product.getCategory().getCategoryID()));
          Category category=(Category) criteria.uniqueResult();
-        session.getTransaction().commit();
         session.clear();
+        session.getTransaction().commit();
         return category;
     }
 
@@ -69,10 +75,12 @@ public class CategoryDaoImplementation implements CategoryDao {
          session.beginTransaction();
         try{
             session.persist(category);
-            session.getTransaction().commit();
             session.clear();
+            session.getTransaction().commit();
             return true;
         }catch(HibernateException e){
+            session.clear();
+            session.getTransaction().rollback();
             return false;
         }
     }
@@ -82,8 +90,8 @@ public class CategoryDaoImplementation implements CategoryDao {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(Category.class).add(Restrictions.eq("name",name));
         Category category=(Category)criteria.uniqueResult();
+        session.clear();
         session.getTransaction().commit();
-       //session.clear();
         return category;
     }
 
