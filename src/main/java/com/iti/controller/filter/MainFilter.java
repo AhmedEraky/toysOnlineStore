@@ -54,6 +54,9 @@ public class MainFilter implements Filter {
             //if user is try to go to main Page
             //Eraky Part
 
+           else if(currentPage.contains("/signUp")){
+               filterChain.doFilter(request,response);
+           }
            else if(currentPage.contains("/shop")){
                handler=new ShopHandler();
                handler.handle(request,response,filterChain,login);

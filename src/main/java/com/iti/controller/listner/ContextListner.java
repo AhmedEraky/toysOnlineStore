@@ -7,12 +7,13 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 public class ContextListner implements ServletContextListener {
-    int userCount=0;
+    int imageCount;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         HibernateUtils.getSessionFactory();
-
+        imageCount=0;
+        sce.getServletContext().setAttribute("imageCount",imageCount);
     }
 
     @Override
