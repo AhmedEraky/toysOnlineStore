@@ -13,10 +13,9 @@
 
     <jsp:directive.include file="/html/common/header.html"/>
     <jsp:directive.include file="/html/common/banner.html"/>
-
     <jsp:include page="/html/user/registration/registrationForm.html"/>
     <jsp:directive.include file="/html/common/footer.html"/>
-    <script src="js/registrationValidation.js"></script>
+    <jsp:directive.include file="registrationScript.html"/>
     </body>
     </html>
 

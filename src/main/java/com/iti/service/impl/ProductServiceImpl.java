@@ -9,6 +9,7 @@ import com.iti.model.Dao.implementation.ProductDaoImplementation;
 import com.iti.model.Dao.implementation.ReviewDaoImplementation;
 import com.iti.model.Dao.implementation.StoreDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
+import com.iti.model.cfg.transaction.TransactionManager;
 import com.iti.model.entity.Category;
 import com.iti.model.entity.Product;
 import com.iti.model.entity.Review;
@@ -25,29 +26,35 @@ import java.util.Set;
 public class ProductServiceImpl implements ProductService {
     @Override
     public ProductResponse fetch(Integer productID) {
-        ProductResponse response=new ProductResponse();
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
 
+        try {
+            return transactionManager.runInTransaction(session -> {
 
-        Session session= HibernateUtils.getSession();
-        ProductDao productDao = new ProductDaoImplementation();
+                ProductResponse response=new ProductResponse();
+                ProductDao productDao = new ProductDaoImplementation();
+                Product product=productDao.retriveProductByID(productID,session);
+                Category category=product.getCategory();
+                fillresponse(response,product);
+                return response;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ProductResponse();
+        }
+    }
 
-        Product product=productDao.retriveProductByID(productID,session);
-        Category category=product.getCategory();
-        //fill productresponse
+    private void fillresponse(ProductResponse response, Product product) {
         response.setDescription(product.getDescription());
         response.setName(product.getName());
         response.setPrice(product.getPrice());
         response.setDiscountPercentage((product.getDiscountPercentage()));
-
         response.setImagePath(product.getImagePath());
         response.setMinAge(product.getMinAge());
         response.setQuantity(product.getQuantity());
         response.setStoreName(product.getStore().getName());
         response.setCategoryName(product.getCategory().getName());
         response.setId(product.getProductID());
-
-        return response;
-
     }
 
     @Override
@@ -59,42 +66,67 @@ public class ProductServiceImpl implements ProductService {
         product.setStore(getStore(storeName));
 
         //create product object from data in clientside
-            //image
+        //image
         product.setImagePath("images/"+product.getImagePath());
         //add to product
         product.setCategory(getCategory(categoryName));
-
-
-        //insert product
-        Session session= HibernateUtils.getSession();
-        ProductDao productDao=new ProductDaoImplementation();
-        boolean flag=productDao.persistProduct(product,session);
-        // message in confirmationResponse
         ConfirmationResponse confirmationResponse=new ConfirmationResponse();
-            if(flag){
-                confirmationResponse.setStatus(Status.success);
-                confirmationResponse.setMessage(product.getName()+" Successfully added");
-            }
-            else{
-                confirmationResponse.setStatus(Status.fail);
-                confirmationResponse.setMessage("Error exists! Please Insert again");
-            }
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+        try {
+            return transactionManager.runInTransaction(session -> {
+                //insert product
+                ProductDao productDao=new ProductDaoImplementation();
+                boolean flag=productDao.persistProduct(product,session);
+                // message in confirmationResponse
+                if(flag){
+                    confirmationResponse.setStatus(Status.success);
+                    confirmationResponse.setMessage(product.getName()+" Successfully added");
+                }
+                else{
+                    confirmationResponse.setStatus(Status.fail);
+                    confirmationResponse.setMessage("Error exists! Please Insert again");
+                }
+                return confirmationResponse;
+
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            confirmationResponse.setStatus(Status.fail);
+            confirmationResponse.setMessage("Error exists! Please Insert again");
             return confirmationResponse;
+        }
+
     }
     public Store getStore(String storeName){
-        Store store;
-        Session sessionStore= HibernateUtils.getSession();
-        StoreDao storeDao=new StoreDaoImplementation();
-        store= storeDao.retrieveStoreByName(storeName,sessionStore);
-        return store;
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+        try {
+            return transactionManager.runInTransaction(session -> {
+                Store store;
+                StoreDao storeDao=new StoreDaoImplementation();
+                store= storeDao.retrieveStoreByName(storeName,session);
+                return store;
+
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Store();
+        }
     }
+
     public Category getCategory(String categoryName){
-        Category category;
-        //get category by name
-        Session sessionCategroy= HibernateUtils.getSession();
-        CategoryDao categoryDao=new CategoryDaoImplementation();
-        category= categoryDao.retriveCategoryByName(categoryName,sessionCategroy);
-        return category;
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+
+        try {
+            return transactionManager.runInTransaction(session -> {
+                CategoryDao categoryDao=new CategoryDaoImplementation();
+                Category category= categoryDao.retriveCategoryByName(categoryName,session);
+                return category;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Category();
+        }
+
     }
 
 }

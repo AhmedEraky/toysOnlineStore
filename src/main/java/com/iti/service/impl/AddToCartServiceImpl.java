@@ -14,19 +14,18 @@ import org.hibernate.Session;
 import java.util.Set;
 
 public class AddToCartServiceImpl implements AddToCartService {
-   boolean quantityCheck=false;
+    boolean quantityCheck=false;
     @Override
     public AddingResponse addToCart(Integer productID, Integer quantity, ShoppingCart cart) {
+
         TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
-
-         Boolean result=false;
-
+        Boolean result=false;
         AddingResponse addingResponse=new AddingResponse();
         try {
             result=transactionManager.runInTransaction( session -> {
 
                 ProductDao productDao = new ProductDaoImplementation();
-                Product product = productDao.retriveProductnew(productID, session);
+                Product product = productDao.retriveProductByID(productID, session);
 
                 CartItem cartItem=generateNewCartItem(product,quantity);
                 Set<CartItem> cartItems=cart.getShoppingCartItems();

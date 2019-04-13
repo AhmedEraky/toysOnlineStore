@@ -14,11 +14,8 @@ import java.util.ArrayList;
 public class UserDaoImplementation implements UserDao {
     @Override
     public User retiveUserEmail(String email, Session session) {
-        session.beginTransaction();
         Criteria criteria=session.createCriteria(User.class).add(Restrictions.eq("email",email));
         User user= (User) criteria.uniqueResult();
-        session.clear();
-        session.getTransaction().commit();
         return user;
     }
 
@@ -33,11 +30,8 @@ public class UserDaoImplementation implements UserDao {
 
     @Override
     public ArrayList<User> retriveUsersByName(String name, Session session) {
-        session.beginTransaction();
         Criteria criteria=session.createCriteria(User.class).add(Restrictions.like("name","%"+name+"%"));
         ArrayList<User> users= (ArrayList<User>) criteria.list();
-        session.clear();
-        session.getTransaction().commit();
         return users;
     }
 
@@ -49,24 +43,18 @@ public class UserDaoImplementation implements UserDao {
     }
     @Override
     public ArrayList<User> retriveUsers(Session session) {
-        session.beginTransaction();
         Criteria criteria=session.createCriteria(User.class);
         ArrayList<User> users=(ArrayList<User>) criteria.list();
-        session.clear();
-        session.getTransaction().commit();
         return users;
     }
 
 
     @Override
     public boolean isUser(User user, Session session) {
-        session.beginTransaction();
         Criteria criteria=session.createCriteria(User.class)
                 .add(Restrictions.eq("email",user.getEmail()))
                 .add(Restrictions.eq("password",user.getPassword()));
         User tempUser= (User) criteria.uniqueResult();
-        session.clear();
-        session.getTransaction().commit();
         if(tempUser==null)
         {
             return false;
@@ -78,37 +66,24 @@ public class UserDaoImplementation implements UserDao {
 
     @Override
     public boolean persistUser(User user, Session session) {
-        session.beginTransaction();
-        try {
-            session.save(user);
-            session.getTransaction().commit();
-            return true;
-        }catch (PersistenceException e) {
-            session.getTransaction().rollback();
-            return false;
-        }
+        session.save(user);
+        return true;
     }
 
     @Override
     public boolean updateUser(User oldUser, User newUser, Session session) {
-        session.beginTransaction();
         oldUser=session.get(User.class,oldUser.getEmail());
         UserUtil userUtil=new UserUtil();
         oldUser=session.get(User.class,oldUser.getEmail());
         userUtil.compareUser(oldUser,newUser);
-        try {
-            session.update(oldUser);
-            session.getTransaction().commit();
-            return true;
-        }catch (Exception exception){
-            session.getTransaction().rollback();
-            return false;
-        }
+        session.update(oldUser);
+        return true;
     }
 
 
     @Override
     public boolean updateUser(User user, Session session) {
+<<<<<<< HEAD
         session.beginTransaction();
         try {
             session.update(user);
@@ -119,5 +94,9 @@ public class UserDaoImplementation implements UserDao {
             return false;
         }
 
+=======
+        session.saveOrUpdate(user);
+        return true;
+>>>>>>> f67d15b51c18eb969ac6cfa89ff953ca1d00c061
     }
 }

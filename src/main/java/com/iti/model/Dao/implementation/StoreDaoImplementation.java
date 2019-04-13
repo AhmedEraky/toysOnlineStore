@@ -14,9 +14,7 @@ public class StoreDaoImplementation implements StoreDao
     @Override
     public Store retrieveStoreByProduct(Product product, Session session)
     {
-        session.beginTransaction();
         session.get(Product.class, product.getProductID());
-        session.getTransaction().commit();
         return product.getStore();
     }
 
@@ -25,26 +23,14 @@ public class StoreDaoImplementation implements StoreDao
     @Override
     public boolean persistStore(Store store, Session session)
     {
-        try
-        {
-            session.beginTransaction();
-            session.persist(store);
-            session.getTransaction().commit();
-            return true;
-        } catch (HibernateException ex)
-        {
-            session.getTransaction().rollback();
-            return false;
-        }
+        session.persist(store);
+        return true;
     }
 
     @Override
     public Store retrieveStoreByName(String name, Session session) {
-        session.beginTransaction();
         Criteria criteria = session.createCriteria(Store.class).add(Restrictions.eq("name",name));
-      Store store=(Store) criteria.uniqueResult();
-        //session.clear();
-        session.getTransaction().commit();
+        Store store=(Store) criteria.uniqueResult();
         return store;
 
     }

@@ -12,18 +12,8 @@ public class AdminDaoImplementation implements AdminDao
     @Override
     public boolean persistAdmin(Admin admin, Session session)
     {
-        try
-        {
-            session.beginTransaction();
             session.persist(admin);
-            session.getTransaction().commit();
             return true;
-        } 
-        catch (PersistenceException ex)
-        {
-            session.getTransaction().rollback();
-            return false;
-        }
     }
 
     @Override

@@ -36,57 +36,33 @@ public class CartItemDaoImplementation implements CartItemDao {
 
     @Override
     public ArrayList<CartItem> retriveCartItemsByExample(CartItem item, Session session) {
-        session.beginTransaction();
         Example example=Example.create(item);
         Criteria cartItemCriteria = session.createCriteria(CartItem.class)
                 .add(example);
-        session.getTransaction().commit();
         return new ArrayList<CartItem>(cartItemCriteria.list());
     
     }
 
     @Override
     public ArrayList<CartItem> retriveCartItemByShoppingCart(ShoppingCart cart, Session session) {
-        session.beginTransaction();
         Criteria cartItemsCriteria = session.createCriteria(CartItem.class,"c")
                 .createAlias("c.shoppingCarts", "shoppingCarts");
         cartItemsCriteria.add(Restrictions.eq("shoppingCarts.cartId", cart.getCartId()));
         List items = cartItemsCriteria.list();
-        session.clear();
-        session.getTransaction().commit();
         return new ArrayList<CartItem>(items);
     
     }
 
     @Override
     public boolean persistCartItem(CartItem item, Session session) {
-        session.beginTransaction();
-        try {
             session.save(item);
-            session.getTransaction().commit();
-            session.close();
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            session.close();
-            return false;
-        }
-        
     }
 
     @Override
     public boolean updateCartItem(CartItem item, Session session) {
-        session.beginTransaction();
-        try {
-            session.update(item);
-            session.getTransaction().commit();
-            session.close();
+            session.saveOrUpdate(item);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            session.close();
-            return false;
-        }
     }
 
 
