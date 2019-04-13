@@ -86,7 +86,11 @@
         <servlet-name>cartView</servlet-name>
         <jsp-file>/html/user/cart/cart.jspx</jsp-file>
     </servlet>
-    
+
+    <servlet>
+        <servlet-name>BuyingProcessServlet</servlet-name>
+        <servlet-class>com.iti.controller.servlet.BuyingProcessServlet</servlet-class>
+    </servlet>
 
 
     <!--Ashraf Servlet-->
@@ -172,6 +176,11 @@
     <servlet-mapping>
         <servlet-name>cartView</servlet-name>
         <url-pattern>/ViewYourCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BuyingProcessServlet</servlet-name>
+        <url-pattern>/BuyingProcessServlet</url-pattern>
     </servlet-mapping>
 
     <!--Ashraf Servlet  Mapping-->

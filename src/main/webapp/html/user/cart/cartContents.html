@@ -40,7 +40,7 @@
                                     </div>
                                 </td>
                                 <td class="invert">${cartItem.getProducts().getName()}</td>
-                                <td class="invert">${cartItem.getProducts().getPrice()}</td>
+                                <td class="invert">${(cartItem.getQuantity() * cartItem.getProducts().getPrice())}</td>
                                 <td class="invert">
                                     <div class="rem">
                                         <div class="close1"> </div>
@@ -53,12 +53,12 @@
                 </div>
                 <div class="checkout-left">
                     <div class="col-md-4 checkout-left-basket">
-                        <h4>Continue to basket</h4>
+                        <h4 id="buyingButton">Buy Now</h4>
                         <ul>
                             <c:set var="totalPrice" value="${0}"/>
                             <c:forEach items="${sessionScope.cart.getShoppingCartItems()}" var="cartItem">
                                 <c:set var="totalPrice" value="${totalPrice + (cartItem.getQuantity() * cartItem.getProducts().getPrice())}"/>
-                                <li>${cartItem.getProducts().getName()} <i>-</i> <span>${cartItem.getProducts().getPrice()} </span></li>
+                                <li>${cartItem.getProducts().getName()} <i>-</i> <span>${(cartItem.getQuantity() * cartItem.getProducts().getPrice())} </span></li>
                             </c:forEach>
                             <li>Total <i>-</i> <span>${totalPrice}</span></li>
                         </ul>
@@ -70,4 +70,5 @@
         </div>
         <!-- //top products -->
     </div>
+    <script src="js/cart.js"></script>
 </section>
