@@ -24,6 +24,7 @@ public class CartItem implements java.io.Serializable {
     private Integer quantity;
     @Column(name="total_cost", nullable=false, precision=6, scale=3)
     private double totalCost;
+
     @OneToOne(fetch=FetchType.EAGER,optional = false)
     private Product products;
     @ManyToMany(fetch=FetchType.LAZY, mappedBy="shoppingCartItems")

@@ -36,14 +36,14 @@ public class Product implements java.io.Serializable {
     @Column(name = "purchase_count",nullable = false,columnDefinition = "int default 0")
     private int purchaseCount;
 
-    @ManyToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="category_id", nullable=false)
     private Category category;
 
     @OneToOne(mappedBy = "products")
     private CartItem cartItems;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.DETACH})
     private Store store;
 
     @ManyToMany(fetch=FetchType.LAZY)
