@@ -54,6 +54,12 @@ public class CartItemDaoImplementation implements CartItemDao {
     }
 
     @Override
+    public boolean deleteCartItem(CartItem cartItem,Session session) {
+        session.delete(cartItem);
+        return true;
+    }
+
+    @Override
     public boolean persistCartItem(CartItem item, Session session) {
             session.save(item);
             return true;
