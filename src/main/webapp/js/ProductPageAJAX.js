@@ -11,7 +11,7 @@ $(document).ready(function () {
 
             success: function (data) {
                 console.log(data);
-                var mark=" <p class=\"bg-success\">"+data+"</p>";
+                var mark=" <p class=\"bg-success\" id=\'p\'>"+data+"</p>";
                 $("#com").append(mark);
 
             }
@@ -66,17 +66,21 @@ $(document).ready(function () {
 
             success: function (data) {
                 console.log(data);
-                alert("dddd");
+alert(data);
                 $('#userEmail').val("");
                 $("#userName").val();
                 $("#reviewDescription").val("");
                 $("#rate").val("");
+                //remove  all reviews
+
+                //add new reviews
+
 
             }
 
 
         });
 
-    });
 
+    });
     });
