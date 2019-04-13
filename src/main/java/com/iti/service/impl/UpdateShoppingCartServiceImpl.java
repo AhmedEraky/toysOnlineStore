@@ -1,12 +1,17 @@
 package com.iti.service.impl;
 
+import com.iti.model.Dao.CartItemDao;
 import com.iti.model.Dao.UserDao;
+import com.iti.model.Dao.implementation.CartItemDaoImplementation;
 import com.iti.model.Dao.implementation.UserDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
 import com.iti.model.cfg.transaction.TransactionManager;
+import com.iti.model.entity.CartItem;
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.entity.User;
 import com.iti.service.UpdateShoppingCartService;
+
+import java.util.Set;
 
 public class UpdateShoppingCartServiceImpl implements UpdateShoppingCartService {
     @Override
@@ -17,8 +22,10 @@ public class UpdateShoppingCartServiceImpl implements UpdateShoppingCartService 
             return transactionManager.runInTransaction((session) -> {
                 UserDao userDao=new UserDaoImplementation();
                 User user=userDao.retiveUserEmailNew(email,session);
-                user.setShoppingCart(cart);
+                user.getShoppingCart().setTotalCost(cart.getTotalCost());
+                user.getShoppingCart().setShoppingCartItems(cart.getShoppingCartItems());
                 userDao.updateUser(user,session);
+
                 return true;
             });
         } catch (Exception e) {
