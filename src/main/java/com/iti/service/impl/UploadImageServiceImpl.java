@@ -1,5 +1,7 @@
 package com.iti.service.impl;
 
+import com.iti.model.cfg.HibernateUtils;
+import com.iti.model.cfg.transaction.TransactionManager;
 import com.iti.service.UploadImageService;
 import org.apache.commons.fileupload.FileItem;
 
