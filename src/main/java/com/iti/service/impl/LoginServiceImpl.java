@@ -4,6 +4,7 @@ import com.iti.model.Dao.UserDao;
 import com.iti.model.Dao.implementation.CartItemDaoImplementation;
 import com.iti.model.Dao.implementation.UserDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
+import com.iti.model.cfg.transaction.TransactionManager;
 import com.iti.model.entity.CartItem;
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.response.Status;
@@ -19,43 +20,70 @@ import java.util.Set;
 public class LoginServiceImpl implements LoginService {
     @Override
     public AuthenticationResponse login(User user) {
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
         AuthenticationResponse response=new AuthenticationResponse();
-        UserDao userDao=new UserDaoImplementation();
-        Session session= HibernateUtils.getSession();
-        if(userDao.isUser(user,session)){
-            response.setStatus(Status.success);
-            response.setEmail(user.getEmail());
-            response.setMessage("Success Login");
-        }
-        else {
+        try {
+            return transactionManager.runInTransaction(session -> {
+                UserDao userDao=new UserDaoImplementation();
+                if(userDao.isUser(user,session)){
+                    response.setStatus(Status.success);
+                    response.setEmail(user.getEmail());
+                    response.setMessage("Success Login");
+                }
+                else {
+                    response.setStatus(Status.fail);
+                    response.setEmail("");
+                    response.setMessage("Wrong Email Or Password");
+                }
+                return response;
+
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
             response.setStatus(Status.fail);
             response.setEmail("");
             response.setMessage("Wrong Email Or Password");
+            return response;
         }
-        return response;
     }
 
     @Override
     public ShoppingCart getLoggedInUserCart(User user)
     {
-        UserDao userDao = new UserDaoImplementation();
-        Session session = HibernateUtils.getSession();
-        User LoggedInUser = userDao.retiveUserEmail(user.getEmail(), session);
-        ShoppingCart LoggedInUserCart = LoggedInUser.getShoppingCart();
-        return LoggedInUserCart;
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+        try {
+            return transactionManager.runInTransaction(session -> {
+                UserDao userDao = new UserDaoImplementation();
+                User LoggedInUser = userDao.retiveUserEmail(user.getEmail(), session);
+                ShoppingCart LoggedInUserCart = LoggedInUser.getShoppingCart();
+                return LoggedInUserCart;
+
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ShoppingCart();
+        }
     }
 
     @Override
     public Set<CartItem> getLoggedInUserCartItems(ShoppingCart userCart)
     {
-        Set<CartItem> savedItems = null;
-        Session session = HibernateUtils.getSession();
-        CartItemDaoImplementation cartItemDaoImplementation = new CartItemDaoImplementation();
-        List<CartItem> savedCartItems = cartItemDaoImplementation.retriveCartItemByShoppingCart(userCart, session);
-        if(savedCartItems != null)
-        {
-            savedItems = new HashSet<CartItem>(savedCartItems);
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+        try {
+            return transactionManager.runInTransaction(session -> {
+                Set<CartItem> savedItems = null;
+                CartItemDaoImplementation cartItemDaoImplementation = new CartItemDaoImplementation();
+                List<CartItem> savedCartItems = cartItemDaoImplementation.retriveCartItemByShoppingCart(userCart, session);
+                if(savedCartItems != null)
+                {
+                    savedItems = new HashSet<CartItem>(savedCartItems);
+                }
+                return savedItems;
+
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new HashSet<>();
         }
-        return savedItems;
     }
 }

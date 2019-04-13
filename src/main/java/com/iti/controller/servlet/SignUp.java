@@ -64,8 +64,10 @@ public class SignUp extends HttpServlet {
             String appPath=request.getServletContext().getRealPath("");
             String directory=appPath+ File.separator+"images"+File.separator+"users";
             request.getSession().getServletContext().setAttribute("imageCount",imageCount+1);
+
             UploadImageService uploadImageService=new UploadImageServiceImpl();
             uploadImageService.uploadImage(imageItem,directory,filename);
+
             request.setAttribute("registration",authenticationResponse);
             response.sendRedirect("login?signup="+authenticationResponse.getStatus()+"&message="+authenticationResponse.getMessage());
 

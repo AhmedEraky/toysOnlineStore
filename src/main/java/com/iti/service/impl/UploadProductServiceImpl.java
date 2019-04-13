@@ -3,6 +3,7 @@ package com.iti.service.impl;
 import com.iti.model.Dao.ProductDao;
 import com.iti.model.Dao.implementation.ProductDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
+import com.iti.model.cfg.transaction.TransactionManager;
 import com.iti.model.entity.Category;
 import com.iti.model.entity.Product;
 import com.iti.model.entity.Store;
@@ -13,9 +14,8 @@ public class UploadProductServiceImpl implements UploadProductService {
 
     @Override
     public void uploadProduct(Product product) {
-        Session session= HibernateUtils.getSession();
-        ProductDao productDao=new ProductDaoImplementation();
-        product=new Product();
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+      /*  product=new Product();
         product.setName("Eraky Product");
         product.setDescription("a good new Product");
         product.setDiscountPercentage(0);
@@ -29,7 +29,15 @@ public class UploadProductServiceImpl implements UploadProductService {
         Category category=new Category();
         category.setName("Erakys");
         product.setCategory(category);
-        product.setStore(store);
-        productDao.persistProduct(product,session);
+        product.setStore(store);*/
+        try {
+            transactionManager.runInTransaction(session -> {
+                ProductDao productDao=new ProductDaoImplementation();
+                productDao.persistProduct(product,session);
+                return null;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

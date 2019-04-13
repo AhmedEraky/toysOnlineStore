@@ -17,7 +17,7 @@
         </head>
         <body>
             <jsp:directive.include file="cartContents.html"/>
-            <jsp:directive.include file="/html/common/footer.html"/>
+            <jsp:directive.include file="cartFooter.html"/>
         </body>
     </html>
 </jsp:root>

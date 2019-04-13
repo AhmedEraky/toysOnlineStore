@@ -23,9 +23,6 @@ public interface ProductDao {
 
 
     //Aya Part
-
-    Product retriveProductnew(Integer id, Session session);
-
     Product retriveProductByID(Integer id, Session session);
     Product retriveProductByExample(Product product, Session session);
     ArrayList<Product> retriveProductsByExample(Product product, Session session);
