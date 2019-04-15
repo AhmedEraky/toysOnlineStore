@@ -66,5 +66,12 @@ public class ReviewDaoImplementation implements ReviewDao
         return reviews;
     }
 
+    @Override
+    public boolean updateReview(Review newReview, Session session)
+    {
 
+        session.saveOrUpdate(newReview);
+        return true;
+
+    }
 }
