@@ -166,4 +166,7 @@ public class ProductDaoImplementation implements ProductDao {
     }
     //Ashraf Part
 
+    //Hadeer's Part
+
+    //Islam's Part
 }

@@ -4,12 +4,13 @@ import com.iti.model.Dao.UserDao;
 import com.iti.model.Dao.implementation.UserDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
 import com.iti.model.cfg.transaction.TransactionManager;
+import com.iti.model.entity.ShoppingCart;
 import com.iti.model.entity.User;
 import com.iti.model.response.Status;
 import com.iti.model.response.ValidationResponse;
-import com.iti.service.CreditHandlingService;
+import com.iti.service.BuyingProcessHandlingService;
 
-public class CreditHandlingServiceImpl implements CreditHandlingService
+public class BuyingProcessHandlingServiceImpl implements BuyingProcessHandlingService
 {
     @Override
     public ValidationResponse hasEnoughCredit(String userEmail, double totalCost)
@@ -39,6 +40,12 @@ public class CreditHandlingServiceImpl implements CreditHandlingService
             response.setMessage("Buying Operation failed");
             return response;
         }
+
+    }
+
+    @Override
+    public void updateProductsData(ShoppingCart cart)
+    {
 
     }
 }

@@ -4,9 +4,9 @@ import com.iti.model.entity.CartItem;
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.response.Status;
 import com.iti.model.response.ValidationResponse;
-import com.iti.service.CreditHandlingService;
+import com.iti.service.BuyingProcessHandlingService;
 import com.iti.service.UpdateShoppingCartService;
-import com.iti.service.impl.CreditHandlingServiceImpl;
+import com.iti.service.impl.BuyingProcessHandlingServiceImpl;
 import com.iti.service.impl.UpdateShoppingCartServiceImpl;
 
 import javax.servlet.ServletException;
@@ -25,13 +25,14 @@ public class BuyingProcessServlet extends HttpServlet
         Boolean loggedIn = (Boolean) request.getSession().getAttribute("login");
         if(loggedIn != null && loggedIn)
         {
-            CreditHandlingService checkingService = new CreditHandlingServiceImpl();
+            BuyingProcessHandlingService buyingService = new BuyingProcessHandlingServiceImpl();
             String userEmail =(String)request.getSession().getAttribute("mail");
             ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
             double totalCost = getTotalCostOfCart(cart);
-            ValidationResponse validationResponse = checkingService.hasEnoughCredit(userEmail, totalCost);
+            ValidationResponse validationResponse = buyingService.hasEnoughCredit(userEmail, totalCost);
             if(validationResponse.getStatus().equals(Status.success))
             {
+                buyingService.updateProductsData(cart);
                 cart.setShoppingCartItems(new HashSet<>());
                 cart.setTotalCost(0.0);
                 UpdateShoppingCartService updateShoppingCartService = new UpdateShoppingCartServiceImpl();
