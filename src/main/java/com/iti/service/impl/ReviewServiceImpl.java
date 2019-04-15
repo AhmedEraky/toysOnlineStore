@@ -26,8 +26,10 @@ public class ReviewServiceImpl implements ReviewService {
         try {
             return transactionManager.runInTransaction(session -> {
                 ArrayList<ReviewResponse> responses=new  ArrayList<ReviewResponse>();
+                ProductDao productDao=new ProductDaoImplementation();
+                Product product=productDao.retriveProductByID(productID,session);
                 ReviewDao reviewDao = new ReviewDaoImplementation();
-                ArrayList<Review> reviews=reviewDao.retrieveReviewsByProductID(productID,session);
+                ArrayList<Review> reviews=reviewDao.retrieveReviewsByProduct(product,session);
                 if(reviews.size()!=0) {
                     //response
                     for (Review review : reviews) {
@@ -75,7 +77,8 @@ public class ReviewServiceImpl implements ReviewService {
                 reviewId.setProductsId(product.getProductID());
                 review.setId(reviewId);
                 //insert review
-                Session sessionPeview= HibernateUtils.getSession();
+               
+
                 return (reviewDao.persistReview(review,session));
             });
         } catch (Exception e) {

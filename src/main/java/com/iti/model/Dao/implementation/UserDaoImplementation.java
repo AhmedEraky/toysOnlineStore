@@ -83,20 +83,9 @@ public class UserDaoImplementation implements UserDao {
 
     @Override
     public boolean updateUser(User user, Session session) {
-<<<<<<< HEAD
-        session.beginTransaction();
-        try {
-            session.update(user);
-            session.getTransaction().commit();
-            return true;
-        }catch (PersistenceException e) {
-            session.getTransaction().rollback();
-            return false;
-        }
 
-=======
         session.saveOrUpdate(user);
         return true;
->>>>>>> f67d15b51c18eb969ac6cfa89ff953ca1d00c061
+
     }
 }

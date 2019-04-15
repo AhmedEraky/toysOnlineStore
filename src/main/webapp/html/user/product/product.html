@@ -100,7 +100,7 @@
                             <div  id="com" class="toys single-item singlepage">
 
 
-                                <input type="button"  name="submitButton" value="   Add to Cart"  id="cart" class="btn btn-outline-danger btn-lg">
+                                <input type="button"  name="submitButton" value="   Add to Cart"  id="cart" class="btn btn-outline-danger btn-lg"/>
 
 
                                 <input type="button"  id="wishes" name="submitButton" value=" Add to wishes"  class="btn btn-outline-danger btn-lg"/>
@@ -120,7 +120,7 @@
     </div>
 
     <!--review-->
-    <div class="responsive_tabs">
+    <div id="revid" class="responsive_tabs">
         <div id="horizontalTab">
             <ul class="resp-tabs-list">
 
@@ -130,8 +130,8 @@
             <div class="resp-tabs-container">
                 <div class="tab2">
                     <div class="single_page">
-                        <div class="bootstrap-tab-text-grids">
-                            <div class="bootstrap-tab-text-grid">
+                        <div  id="idr" class="bootstrap-tab-text-grids">
+                            <div  class="bootstrap-tab-text-grid">
 
 
                                 <h4>Reviews</h4>
@@ -192,13 +192,13 @@
                                 <form action="" method="post">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="userName" id="userName" placeholder="Enter your name" required="">
+                                            <input type="text" name="userName" id="userName" placeholder="Enter your name" required=""/>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="email" name="userEmail"   placeholder="Enter your email" required="">
+                                            <input type="email" name="userEmail"   id="userEmail" placeholder="Enter your email" required=""/>
                                         </div>
                                         <!--stars-->
-                                        <div class="rate" >
+                                        <div class="rate" id="stardiv">
                                             <input type="radio" id="star5" name="rate" value="5" />
                                             <label for="star5" title="text">5 stars</label>
                                             <input type="radio" id="star4" name="rate" value="4" />
@@ -212,8 +212,8 @@
                                         </div>
                                         <!--end-->
                                     </div>
-                                    <textarea name="reviewDescription"   rows="2" cols="3" placeholder="Enter your message" required=""></textarea>
-                                    <input type="submit" id="send" class="toys-cart ptoys-cart" value="SEND"/>
+                                    <textarea name="reviewDescription"  id="reviewDescription" rows="2" cols="3" placeholder="Enter your message" required=""></textarea>
+                                    <input type="button" id="send"  class="btn btn-outline-danger btn-lg" value="SEND"/>
 
                                     <input  name="productid" id="productid" hidden="hidden" value="${requestScope.product.id}"/>
                                 </form>
