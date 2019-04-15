@@ -169,4 +169,22 @@ public class ProductDaoImplementation implements ProductDao {
     //Hadeer's Part
 
     //Islam's Part
+
+    @Override
+    public boolean updateProductPurchaseCount(Product soldProduct, Session session)
+    {
+        Product product = session.load(Product.class, soldProduct.getProductID());
+        int purchaseCount = product.getPurchaseCount() + soldProduct.getPurchaseCount();
+        product.setPurchaseCount(purchaseCount);
+        try
+        {
+            session.update(product);
+            return true;
+        }
+        catch (HibernateException e)
+        {
+            session.getTransaction().rollback();
+            return false;
+        }
+    }
 }

@@ -42,5 +42,6 @@ public interface ProductDao {
     //Hadeer's Part
 
     //Islam's Part
+    boolean updateProductPurchaseCount(Product soldProduct, Session session);
 
 }
