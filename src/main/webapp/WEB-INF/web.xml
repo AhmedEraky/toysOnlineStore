@@ -96,7 +96,7 @@
     <!--Ashraf Servlet-->
     <servlet>
         <servlet-name>filters</servlet-name>
-        <jsp-file>/html/user/filters/filters.html</jsp-file>
+        <jsp-file>/html/user/filters/filters.jspx</jsp-file>
     </servlet>    
     
 
