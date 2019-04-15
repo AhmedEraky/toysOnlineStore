@@ -18,6 +18,7 @@
         <body>
             <jsp:directive.include file="cartContents.html"/>
             <jsp:directive.include file="/html/common/footer.html"/>
+            <jsp:directive.include file="/js/addMinusRemove.js"/>
         </body>
     </html>
 </jsp:root>

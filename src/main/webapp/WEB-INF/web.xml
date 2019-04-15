@@ -93,7 +93,12 @@
     <servlet>
         <servlet-name>filters</servlet-name>
         <jsp-file>/html/user/filters/filters.html</jsp-file>
-    </servlet>    
+    </servlet>
+
+    <servlet>
+        <servlet-name>CartModification</servlet-name>
+        <servlet-class>com.iti.controller.servlet.CartModificationServlet</servlet-class>
+    </servlet>
     
 
     <!--Hadeer Servlet-->
@@ -179,6 +184,11 @@
     <servlet-mapping>
         <servlet-name>filters</servlet-name>
         <url-pattern>/filters</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CartModification</servlet-name>
+        <url-pattern>/cartModification</url-pattern>
     </servlet-mapping>
 
 
