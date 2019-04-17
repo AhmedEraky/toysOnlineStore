@@ -16,8 +16,13 @@ document.getElementById("edit").addEventListener('click',function() {
         this.value="Save";
     }
     else {
-        document.getElementById("profileForm").submit();
-        this.value="Edit Profile";
-
+        if (credit.value < 0){
+            credit.style="border-color: #E34234;";
+            document.getElementById("invalidCredit").innerText = "invalid entry";
+        }
+        else {
+            document.getElementById("profileForm").submit();
+            this.value = "Edit Profile";
+        }
     }
 });
