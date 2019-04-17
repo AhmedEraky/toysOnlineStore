@@ -173,6 +173,19 @@ public class ProductDaoImplementation implements ProductDao {
     //Ashraf Part
 
     //Hadeer's Part
+    @Override
+    public boolean removeProductByID(Integer productId,Session session){
+        Product product = session.load(Product.class,productId);
+        try {
+            session.delete(product);
+            return true;
+
+        }catch (HibernateException e){
+            session.getTransaction().rollback();
+            return false;
+        }
+
+    }
 
     //Islam's Part
 

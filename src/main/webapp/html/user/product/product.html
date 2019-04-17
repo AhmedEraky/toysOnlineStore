@@ -105,13 +105,25 @@
 
                                 <input type="button"  id="wishes" name="submitButton" value=" Add to wishes"  class="btn btn-outline-danger btn-lg"/>
 
-                                <br>
-                                <br>
-                                <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#exampleModal">
+                                <!--<br>-->
+                                <!--<br>-->
+                                <!--<button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#exampleModal">-->
+                                    <!--Edit-->
+                                <!--</button>-->
+
+                                <input  name="productid" hidden="hidden" value="${requestScope.product.id}"/>
+                            </div>
+
+                            <br>
+
+                            <div>
+                                <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#editModal">
                                     Edit
                                 </button>
 
-                                <input  name="productid" hidden="hidden" value="${requestScope.product.id}"/>
+                                <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#deleteModal">
+                                    Delete
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -126,8 +138,8 @@
     </div>
     <!-- Button trigger modal -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -164,6 +176,31 @@
         </div>
     </div>
 
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteLabel">Delete Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="updateProduct" method="get">
+
+                    <div class="modal-body">
+                        <input  name="productId" hidden="hidden" value="${requestScope.product.id}"/>
+                        <p>Are You Sure You Want To Delete This Product ?</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
     <!--review-->
     <div class="responsive_tabs">
         <div id="horizontalTab">

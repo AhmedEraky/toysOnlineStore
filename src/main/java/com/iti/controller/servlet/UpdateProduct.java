@@ -13,7 +13,10 @@ import java.io.IOException;
 public class UpdateProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        int productId = Integer.parseInt(req.getParameter("productId"));
+        ProductService productService = new ProductServiceImpl();
+        productService.removeProduct(productId);
+        resp.sendRedirect("shop");
     }
 
     @Override
