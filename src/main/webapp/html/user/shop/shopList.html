@@ -16,7 +16,6 @@
                 <button id="clearFilter" type="submit" class="btn col-3  btn-danger">Clear</button>
             </div>
         </div>
-
         <div class="row">
             <div class="left-ads-display col-sm-12">
                 <div class="row">
@@ -95,7 +94,10 @@
         </div>
     </div>
 </section>
-<div id="pagination"></div>
+
+<div style="display:flex; margin-bottom: 5%">
+<div id="pagination" style="margin:auto;" ></div>
+</div>
 
 <!-- footer -->
 <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
@@ -111,36 +113,44 @@
 <script type="text/javascript" src="js/jquery.simplePagination.js"></script>
 <script>
     jQuery(function($) {
-        var numItems = 8;
-        var perPage = 10;
+        var searchParams = new URLSearchParams(window.location.search)
+
+        var numItems = ${requestScope.size};
+
+        var perPage = 9;
+        var currentPage=1;
+        if(searchParams.has("pageNo")){
+            currentPage=searchParams.get("pageNo")
+        }
         $("#pagination").pagination({
             items: numItems,
             itemsOnPage: perPage,
             cssStyle: "compact-theme",
+            currentPage:currentPage,
             // This is the actual page changing functionality.
             onPageClick: function(pageNumber) {
-                // We need to show and hide `tr`s appropriately.
-                var showFrom = perPage * (pageNumber - 1);
-                var showTo = showFrom + perPage;
+                var link=window.location.pathname+"?";
+                var cout=0;
+                for(var pair of searchParams.entries()){
+                    if(pair[0]!="pageNo"){
+                        if(cout>0){
+                            link+="&";
+                        }
+                        link+=pair[0]+"="+pair[1];
+                        cout++;
+                    }
+                }
 
+                if(cout>0){
+                    link+='&';
+                }
+                link+="pageNo="+pageNumber;
+                window.location.href=link;
             }
         });
     });
 </script>
-<script src="js/minicart.js"></script>
-<script>
-    toys.render();
 
-    toys.cart.on('toys_checkout', function (evt) {
-        var items, len, i;
-
-        if (this.subtotal() > 0) {
-            items = this.items();
-
-            for (i = 0, len = items.length; len > i; i++) {}
-        }
-    });
-</script>
 <script src="js/jquery-ui.js"></script>
 <script>
     //<![CDATA[
