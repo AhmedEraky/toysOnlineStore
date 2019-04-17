@@ -22,9 +22,14 @@ public class ShopHandler implements Handler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Boolean login) throws IOException, ServletException {
         shopRequest=createShopRequest(request);
-         ShopService shopService=new ShopServiceImpl();
-        ArrayList<ShopResponse> shopResponse=shopService.shopData(shopRequest);
+        ShopService shopService=new ShopServiceImpl();
+        String pageNumber=request.getParameter("pageNo");
+        if(pageNumber==null){
+            pageNumber="1";
+        }
+        ArrayList<ShopResponse> shopResponse=shopService.shopData(shopRequest,Integer.parseInt(pageNumber));
         request.setAttribute("shopProduct",shopResponse);
+        request.setAttribute("size",shopService.getProductCount(shopRequest));
         filterChain.doFilter(request,response);
     }
 

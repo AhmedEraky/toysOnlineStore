@@ -50,12 +50,17 @@ public class SignUp extends HttpServlet {
             if (item.isFormField()) {
                 fillUserData(item);
             } else {
-                imageItem=item;
-                String imageName=item.getName().substring(0,item.getName().length()-4);
-                String imageExtantion=item.getName().substring(item.getName().length()-4,item.getName().length());
-                filename = FilenameUtils.getName(imageName+imageCount+imageExtantion); // Get filename.
-                user.setImagePath("images"+File.separator+"users\\"+filename);
+                if(!item.getName().equals("")) {
+                    imageItem = item;
+                    String imageName = item.getName().substring(0, item.getName().length() - 4);
+                    String imageExtantion = item.getName().substring(item.getName().length() - 4, item.getName().length());
+                    filename = FilenameUtils.getName(imageName + imageCount + imageExtantion); // Get filename.
+                    user.setImagePath("images" + File.separator + "users\\" + filename);
+                }
             }
+        }
+        if(user.getImagePath()==null){
+            user.setImagePath("images\\a2.jpg");
         }
         //Try To Register
         RegistrationService service=new RegistrationServiceImpl();
@@ -65,14 +70,15 @@ public class SignUp extends HttpServlet {
             String directory=appPath+ File.separator+"images"+File.separator+"users";
             request.getSession().getServletContext().setAttribute("imageCount",imageCount+1);
 
-            UploadImageService uploadImageService=new UploadImageServiceImpl();
-            uploadImageService.uploadImage(imageItem,directory,filename);
+            if(imageItem!=null) {
+                UploadImageService uploadImageService = new UploadImageServiceImpl();
+                uploadImageService.uploadImage(imageItem, directory, filename);
+            }
 
             request.setAttribute("registration",authenticationResponse);
             response.sendRedirect("login?signup="+authenticationResponse.getStatus()+"&message="+authenticationResponse.getMessage());
 
         }else {
-            session.setAttribute("errorMessage",authenticationResponse.getMessage());
             response.sendRedirect("registration?signup="+authenticationResponse.getStatus()+"&message="+authenticationResponse.getMessage());
         }
     }

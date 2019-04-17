@@ -19,8 +19,8 @@ public interface ProductDao {
     //Eraky Part
 
     ArrayList<Product> retrieveProductsByFilters(ShopRequest request,Session session,int start,int pageSize);
-    public ArrayList<Product> retrieveProductsByPage(Session session,int start,int pageSize);
-
+    ArrayList<Product> retrieveProductsByPage(Session session,int start,int pageSize);
+    int getCountByFilter(ShopRequest shopRequest, Session session);
 
     //Aya Part
     Product retriveProductByID(Integer id, Session session);
