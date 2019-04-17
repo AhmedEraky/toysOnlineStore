@@ -53,7 +53,14 @@ public class LoginHandler  extends HomeHandler{
                 boolean added = false;
                 for (CartItem sessionItem : sessionItems) {
                     if (sessionItem.getProducts().getProductID().intValue() == savedItem.getProducts().getProductID().intValue()) {
-                        sessionItem.setQuantity(sessionItem.getQuantity() + 1);
+                        if((sessionItem.getQuantity() + savedItem.getQuantity()) <= sessionItem.getProducts().getQuantity())
+                        {
+                            sessionItem.setQuantity(sessionItem.getQuantity() + savedItem.getQuantity());
+                        }
+                        else
+                        {
+                            sessionItem.setQuantity(sessionItem.getProducts().getQuantity());
+                        }
                         added = true;
                     }
                     AllItems.add(sessionItem);

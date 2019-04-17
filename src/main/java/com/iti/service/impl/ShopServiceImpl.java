@@ -13,13 +13,14 @@ import org.hibernate.Session;
 import java.util.ArrayList;
 
 public class ShopServiceImpl implements ShopService {
+    TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+
     @Override
-    public ArrayList<ShopResponse> shopData(ShopRequest shopRequest) {
-        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+    public ArrayList<ShopResponse> shopData(ShopRequest shopRequest,int pageNumber) {
         try {
             return transactionManager.runInTransaction(session -> {
                 ProductDao productDao=new ProductDaoImplementation();
-                ArrayList<Product> products=productDao.retrieveProductsByFilters(shopRequest,session,0,10);
+                ArrayList<Product> products=productDao.retrieveProductsByFilters(shopRequest,session,(pageNumber-1)*9,9);
                 ArrayList<ShopResponse> shopResponse=new ArrayList<>();
                 for (Product product:products){
                     ShopResponse response=new ShopResponse();
@@ -36,6 +37,19 @@ public class ShopServiceImpl implements ShopService {
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public int getProductCount(ShopRequest shopRequest) {
+        try {
+            return transactionManager.runInTransaction(session -> {
+                ProductDao productDao=new ProductDaoImplementation();
+                return productDao.getCountByFilter(shopRequest,session);
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
         }
     }
 }
