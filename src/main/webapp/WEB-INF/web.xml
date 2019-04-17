@@ -107,6 +107,11 @@
         <servlet-class>com.iti.controller.servlet.UpdateProfile</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>UpdateProduct</servlet-name>
+        <servlet-class>com.iti.controller.servlet.UpdateProduct</servlet-class>
+    </servlet>
+
     <!--Eraky Servlet Mapping-->
 
     <servlet-mapping>
@@ -199,6 +204,10 @@
     </servlet-mapping>
 
 
+    <servlet-mapping>
+        <servlet-name>UpdateProduct</servlet-name>
+        <url-pattern>/updateProduct</url-pattern>
+    </servlet-mapping>
 
 
     <welcome-file-list>
