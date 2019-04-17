@@ -96,20 +96,25 @@
     <!--Ashraf Servlet-->
     <servlet>
         <servlet-name>filters</servlet-name>
-        <jsp-file>/html/user/filters/filters.html</jsp-file>
+		<jsp-file>/html/user/filters/filters.jspx</jsp-file>
     </servlet>
 
     <servlet>
         <servlet-name>CartModification</servlet-name>
         <servlet-class>com.iti.controller.servlet.CartModificationServlet</servlet-class>
     </servlet>
-    
+       
 
     <!--Hadeer Servlet-->
 
     <servlet>
         <servlet-name>UpdateProfile</servlet-name>
         <servlet-class>com.iti.controller.servlet.UpdateProfile</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateProduct</servlet-name>
+        <servlet-class>com.iti.controller.servlet.UpdateProduct</servlet-class>
     </servlet>
 
     <!--Eraky Servlet Mapping-->
@@ -209,6 +214,10 @@
     </servlet-mapping>
 
 
+    <servlet-mapping>
+        <servlet-name>UpdateProduct</servlet-name>
+        <url-pattern>/updateProduct</url-pattern>
+    </servlet-mapping>
 
 
     <welcome-file-list>

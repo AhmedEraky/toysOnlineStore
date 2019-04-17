@@ -71,7 +71,7 @@ div#my-cart-modal .modal-footer {
 	border-top: 3px solid #000;
 }
 
-div#my-cart-modal button.btn.btn-default, div#my-cart-modal button.btn.btn-primary  input[type=button]{
+div#my-cart-modal button.btn.btn-default, div#my-cart-modal button.btn.btn-primary {
 	padding: 8px 0;
 	width: 15%;
 	font-family: 'Montserrat', sans-serif;
@@ -83,15 +83,15 @@ div#my-cart-modal button.btn.btn-default, div#my-cart-modal button.btn.btn-prima
 	color: #FFF;
 }
 
-div#my-cart-modal button.btn.btn-default:hover input[type=button]:hover{
+div#my-cart-modal button.btn.btn-default:hover {
 	background-color: #c41228;
 }
 
-div#my-cart-modal button.btn.btn-primary a input[type=button]{
+div#my-cart-modal button.btn.btn-primary a {
 	color: #FFF;
 }
 
-div#my-cart-modal button.btn.btn-primary:hover input[type=button]:hover{
+div#my-cart-modal button.btn.btn-primary:hover {
 	background-color: #c41228;
 }
 
@@ -482,7 +482,7 @@ ul.stars li a:hover {
 	padding: 7px 8px;
 }
 
-.btn-group.bootstrap-select.show-tick button input[type=button]{
+.btn-group.bootstrap-select.show-tick button {
 	padding: 8px 10px;
 }
 
@@ -508,7 +508,7 @@ ul.stars li a:hover {
 	box-shadow: none;
 }
 
-#custom-search-input button input[type=button]{
+#custom-search-input button {
 	margin: 2px 0 0 0;
 	background: none;
 	box-shadow: none;
@@ -518,7 +518,7 @@ ul.stars li a:hover {
 	border-left: solid 1px #ccc;
 }
 
-#custom-search-input button:hover input[type=button]:hover{
+#custom-search-input button:hover {
 	border: 0;
 	box-shadow: none;
 	border-left: solid 1px #ccc;
@@ -816,7 +816,7 @@ span.item_price {
 	padding: 1em;
 	border-top: 1px solid #ddd;
 }
-button.toys-cart  input[type=button].toys-cart{
+button.toys-cart  {
 	font-size: 1.2em;
 	color: #fff;
 	border:none;
@@ -827,7 +827,7 @@ button.toys-cart  input[type=button].toys-cart{
 	width:20%;
 	padding:12px 0px
 }
-button.toys-cart:hover input[type=button].toys-cart:hover{
+button.toys-cart:hover {
 	background:#ffcb2d;
 }
 /*-- single-page --*/
@@ -1060,20 +1060,6 @@ input.button.ptoys-cart{
 	letter-spacing: 1px;
 	font-weight: 600;
 }
-input.button.ptoys-cart{
-	font-size: 13px;
-	color: #fff;
-	background: #1d1d1d;
-	text-decoration: none;
-	position: relative;
-	border: none;
-	border-radius: 0;
-	text-transform: uppercase;
-	padding: .7em 1em;
-	outline: none;
-	letter-spacing: 1px;
-	font-weight: 600;
-}
 .responsive_tabs {
 	margin-top: 2em;
 }
@@ -1130,9 +1116,6 @@ input.button.ptoys-cart{
 	button.toys-cart {
 		width: 28%;
 	}
-	input[type=button].toys-cart {
-		width: 28%;
-	}
 
 }
 @media(max-width:991px){
@@ -1150,11 +1133,6 @@ input.button.ptoys-cart{
 		padding: 9px 0px;
 		width: 17%;
 	}
-	input[type=button].toys-cart {
-		padding: 9px 0px;
-		width: 17%;
-	}
-
 }
 @media(max-width:800px){
 	.single_page h6 {
@@ -1207,17 +1185,9 @@ input.button.ptoys-cart{
 	button.toys-cart {
 		width: 38%;
 	}
-	input[type=button].toys-cart {
-		width: 38%;
-	}
-
 }
 @media(max-width:440px){
 	button.toys-cart {
-		width: 46%;
-		font-size: 1em;
-	}
-	input[type=button].toys-cart {
 		width: 46%;
 		font-size: 1em;
 	}

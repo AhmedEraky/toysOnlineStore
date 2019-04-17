@@ -10,10 +10,7 @@ import com.iti.model.entity.Category;
 import java.util.ArrayList;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Example;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.*;
 
 
 //Eraky Import
@@ -34,7 +31,6 @@ public class ProductDaoImplementation implements ProductDao {
 
     @Override
     public ArrayList<Product> retrieveProductsByFilters(ShopRequest request, Session session,int start,int pageSize){
-        start=start*pageSize;
         ShopFiltrationUtil util=new ShopFiltrationUtil();
         Criteria criteria=session.createCriteria(Product.class,"product").
                 createAlias("product.category","category");
@@ -46,6 +42,16 @@ public class ProductDaoImplementation implements ProductDao {
 
     }
 
+    @Override
+    public int getCountByFilter(ShopRequest request, Session session){
+        ShopFiltrationUtil util=new ShopFiltrationUtil();
+        Criteria criteria=session.createCriteria(Product.class,"product").
+                createAlias("product.category","category");
+        util.ShopFilter(criteria,request);
+        criteria.setProjection(Projections.rowCount());
+        return ((Long) criteria.uniqueResult()).intValue();
+
+    }
     @Override
     public ArrayList<Product> retrieveProductsByPage(Session session,int start,int pageSize) {
         start=start*pageSize;
@@ -167,6 +173,19 @@ public class ProductDaoImplementation implements ProductDao {
     //Ashraf Part
 
     //Hadeer's Part
+    @Override
+    public boolean removeProductByID(Integer productId,Session session){
+        Product product = session.load(Product.class,productId);
+        try {
+            session.delete(product);
+            return true;
+
+        }catch (HibernateException e){
+            session.getTransaction().rollback();
+            return false;
+        }
+
+    }
 
     //Islam's Part
 

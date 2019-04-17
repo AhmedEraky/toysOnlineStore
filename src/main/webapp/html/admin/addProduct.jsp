@@ -9,7 +9,7 @@
 
                   <div></div>  <p> <c:out value="${requestScope.message}"/></p>
         </div>
-            <form method="post" id="addProductForm" action="">
+            <form method="post" id="addProductForm" action="uploadProduct" enctype="multipart/form-data">
 
 
                 <div class="form-group row">
