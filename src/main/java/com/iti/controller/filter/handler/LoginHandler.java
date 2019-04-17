@@ -44,7 +44,7 @@ public class LoginHandler  extends HomeHandler{
         //Get CartItem sets
         Set<CartItem> savedItems = service.getLoggedInUserCartItems(savedCart);
         Set<CartItem> sessionItems = sessionCart.getShoppingCartItems();
-        if(savedItems != null && sessionItems != null)
+        if(savedItems != null && sessionItems != null && savedItems.size() != 0)
         {
             //Create merged set
             Set<CartItem> AllItems = new HashSet<>();
@@ -53,7 +53,14 @@ public class LoginHandler  extends HomeHandler{
                 boolean added = false;
                 for (CartItem sessionItem : sessionItems) {
                     if (sessionItem.getProducts().getProductID().intValue() == savedItem.getProducts().getProductID().intValue()) {
-                        sessionItem.setQuantity(sessionItem.getQuantity() + 1);
+                        if((sessionItem.getQuantity() + savedItem.getQuantity()) <= sessionItem.getProducts().getQuantity())
+                        {
+                            sessionItem.setQuantity(sessionItem.getQuantity() + savedItem.getQuantity());
+                        }
+                        else
+                        {
+                            sessionItem.setQuantity(sessionItem.getProducts().getQuantity());
+                        }
                         added = true;
                     }
                     AllItems.add(sessionItem);

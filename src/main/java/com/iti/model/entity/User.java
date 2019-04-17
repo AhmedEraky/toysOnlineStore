@@ -42,7 +42,8 @@ public class User  implements java.io.Serializable {
     @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
     private Set<OrderHistory> orderHistories = new HashSet(0);
 
-    @OneToOne(cascade = CascadeType.ALL,optional = false,fetch = FetchType.EAGER)
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="products")
+    @OneToOne(cascade = CascadeType.ALL,optional = false)
     private ShoppingCart shoppingCart;
 
     @ManyToMany(fetch=FetchType.LAZY)

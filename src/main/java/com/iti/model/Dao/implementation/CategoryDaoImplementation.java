@@ -6,6 +6,8 @@ import com.iti.model.entity.Product;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.Example;
@@ -14,67 +16,55 @@ import org.hibernate.criterion.Restrictions;
 public class CategoryDaoImplementation implements CategoryDao {
     @Override
     public Category retriveCategoryByID(Integer ID, Session session) {
-        session.beginTransaction();
         Criteria criteria = session.createCriteria(Category.class).add(Restrictions.idEq(ID));
-        session.getTransaction().commit();
-        session.clear();
-        return (Category) criteria.uniqueResult();
+        Category category = (Category) criteria.uniqueResult();
+        return category;
         
     }
 
     @Override
     public Category retriveCategoryByExample(Category category, Session session) {
-        session.beginTransaction();
         Example categoryExample = Example.create(category);
         Criteria criteria = session.createCriteria(Category.class).add(categoryExample);
-        session.getTransaction().commit();
-        session.clear();
-        return (Category) criteria.uniqueResult();
+        Category retrievedCategory = (Category) criteria.uniqueResult();
+        return retrievedCategory;
     }
 
     @Override
     public ArrayList<Category> retriveCategoriesByExample(Category category, Session session) {
-        session.beginTransaction();
         Example categoryExample = Example.create(category);
         Criteria criteria = session.createCriteria(Category.class).add(categoryExample);
-        session.getTransaction().commit();
-        session.clear();
-        return (ArrayList<Category>) criteria.list();
+        ArrayList categories = (ArrayList<Category>) criteria.list();
+        return categories;
         
     }
 
     @Override
     public ArrayList<Category> retriveCategories(Session session) {
-        session.beginTransaction();
         Criteria criteria = session.createCriteria(Category.class);
-        session.getTransaction().commit();
-        session.clear();
-        return (ArrayList<Category>) criteria.list();
+        ArrayList categories = (ArrayList<Category>) criteria.list();
+        return categories;
     }
 
     @Override
     public Category retriveCategoryByProduct(Product product, Session session) {
-        ///
-        session.beginTransaction();
          Criteria criteria= session.createCriteria(Category.class).createCriteria("products")
                 .add(Restrictions.idEq(product.getCategory().getCategoryID()));
-        session.getTransaction().commit();
-        session.clear();
-        return (Category) criteria.uniqueResult();
+         Category category=(Category) criteria.uniqueResult();
+        return category;
     }
 
     @Override
     public boolean persistCategory(Category category, Session session) {
-         session.beginTransaction();
-        try{
-            session.persist(category);
-            session.getTransaction().commit();
-            session.clear();
+            session.saveOrUpdate(category);
             return true;
-        }catch(HibernateException e){
-            return false;
-        }
     }
 
-    
+    @Override
+    public Category retriveCategoryByName(String name, Session session) {
+        Criteria criteria = session.createCriteria(Category.class).add(Restrictions.eq("name",name));
+        Category category=(Category)criteria.uniqueResult();
+        return category;
+    }
+
 }

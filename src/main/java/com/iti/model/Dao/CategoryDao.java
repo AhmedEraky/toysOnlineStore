@@ -13,4 +13,7 @@ public interface CategoryDao {
     ArrayList<Category> retriveCategories(Session session);
     Category retriveCategoryByProduct(Product product, Session session);
     boolean persistCategory(Category category, Session session);
+
+    //Aya
+    Category retriveCategoryByName(String name, Session session);
 }

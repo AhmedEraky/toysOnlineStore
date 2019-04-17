@@ -23,7 +23,6 @@ public interface ProductDao {
 
 
     //Aya Part
-
     Product retriveProductByID(Integer id, Session session);
     Product retriveProductByExample(Product product, Session session);
     ArrayList<Product> retriveProductsByExample(Product product, Session session);
@@ -39,5 +38,10 @@ public interface ProductDao {
     boolean updateProductQuantity(Product soldedProduct  ,Session session);
 
     //Ashraf Part
+
+    //Hadeer's Part
+
+    //Islam's Part
+    boolean updateProductPurchaseCount(Product soldProduct, Session session);
 
 }

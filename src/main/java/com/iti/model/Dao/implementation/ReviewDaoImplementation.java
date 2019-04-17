@@ -23,7 +23,6 @@ public class ReviewDaoImplementation implements ReviewDao
     @Override
     public ArrayList<Review> retrieveReviewsByProduct(Product product, Session session)
     {
-        session.beginTransaction();
         Criteria criteria = session.createCriteria(Review.class).createAlias("products","p").add(Restrictions.eq("p.ProductID",product.getProductID()));
         ArrayList<Review> productReviews= (ArrayList<Review>) criteria.list();
        /* ArrayList<Product> productList = (ArrayList<Product>) criteria.list();
@@ -35,8 +34,6 @@ public class ReviewDaoImplementation implements ReviewDao
 
         return productReviews;
 */
-        session.clear();
-        session.getTransaction().commit();
 
         return productReviews;
 
@@ -46,53 +43,27 @@ public class ReviewDaoImplementation implements ReviewDao
     @Override
     public boolean persistReview(Review review, Session session)
     {
-        try
-        {
-            session.beginTransaction();
-            session.saveOrUpdate(review);
-            session.getTransaction().commit();
-            return true;
-        } catch (PersistenceException ex)
-        {
-
-            session.getTransaction().rollback();
-            return false;
-        }
+        session.saveOrUpdate(review);
+        return true;
     }
 
     @Override
     public boolean updateReviewData(Review oldReview, Review newReview, Session session)
     {
-        session.beginTransaction();
         oldReview = session.get(Review.class, oldReview.getId());
         ReviewUtil reviewUtil = new ReviewUtil();
         reviewUtil.compareReview(oldReview, newReview);
-        try
-        {
-            session.update(oldReview);
-            session.getTransaction().commit();
-            return true;
-        } 
-        catch (Exception exception)
-        {
-            session.getTransaction().rollback();
-            return false;
-        }
+        session.update(oldReview);
+        return true;
+
     }
 
     @Override
     public ArrayList<Review> retrieveReviewsByProductID(int productID, Session session) {
-        session.beginTransaction();
         Criteria criteria = session.createCriteria(Product.class).add(Restrictions.eq("ProductID", productID));
         Product product = (Product) criteria.uniqueResult();
-        session.clear();
-        session.getTransaction().commit();
-        Session session1= HibernateUtils.getSession();
-        ArrayList<Review> reviews=retrieveReviewsByProduct( product, session1);
-
-
+        ArrayList<Review> reviews=retrieveReviewsByProduct( product, session);
         return reviews;
-
     }
 
 

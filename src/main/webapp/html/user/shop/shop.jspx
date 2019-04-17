@@ -11,6 +11,7 @@
     <html>
     <head>
         <title>Toys Shop</title>
+        <link type="text/css" rel="stylesheet" href="css/simplePagination.css"/>
         <link rel="stylesheet" href="css/shop.css" type="text/css" />
         <jsp:directive.include file="/html/common/head.html"/>
     </head>

@@ -95,6 +95,8 @@
         </div>
     </div>
 </section>
+<div id="pagination"></div>
+
 <!-- footer -->
 <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
     <div class="copy-agile-right">
@@ -105,10 +107,26 @@
 </footer>
 <!-- //footer -->
 
-<!--js working-->
 <script src='js/jquery-2.2.3.min.js'></script>
-<!--//js working-->
-<!-- cart-js -->
+<script type="text/javascript" src="js/jquery.simplePagination.js"></script>
+<script>
+    jQuery(function($) {
+        var numItems = 8;
+        var perPage = 10;
+        $("#pagination").pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            cssStyle: "compact-theme",
+            // This is the actual page changing functionality.
+            onPageClick: function(pageNumber) {
+                // We need to show and hide `tr`s appropriately.
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+
+            }
+        });
+    });
+</script>
 <script src="js/minicart.js"></script>
 <script>
     toys.render();
@@ -123,8 +141,6 @@
         }
     });
 </script>
-<!-- //cart-js -->
-<!-- price range (top products) -->
 <script src="js/jquery-ui.js"></script>
 <script>
     //<![CDATA[
@@ -142,9 +158,6 @@
 
     }); //]]>
 </script>
-<!-- //price range (top products) -->
-
-<!-- start-smoth-scrolling -->
 <script src="js/move-top.js"></script>
 <script src="js/easing.js"></script>
 <script>
@@ -157,8 +170,6 @@
         });
     });
 </script>
-<!-- start-smoth-scrolling -->
-<!-- here stars scrolling icon -->
 <script>
     $(document).ready(function () {
 
@@ -177,7 +188,4 @@
     });
 </script>
 <script src="js/shop.js"></script>
-<!-- //here ends scrolling icon -->
-<!--bootstrap working-->
 <script src="js/bootstrap.min.js"></script>
-<!-- //bootstrap working-->

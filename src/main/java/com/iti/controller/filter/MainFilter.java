@@ -54,6 +54,9 @@ public class MainFilter implements Filter {
             //if user is try to go to main Page
             //Eraky Part
 
+           else if(currentPage.contains("/signUp")){
+               filterChain.doFilter(request,response);
+           }
            else if(currentPage.contains("/shop")){
                handler=new ShopHandler();
                handler.handle(request,response,filterChain,login);
@@ -73,6 +76,12 @@ public class MainFilter implements Filter {
 
 
             }
+            /////Admin (need to check if itis admin or not ????!)
+           else if(request.getParameter("addproductButton")!=null&&request.getParameter("addproductButton").equals("true"))
+           {
+               handler=new ProductAdditionHandler();
+               handler.handle(request,response,filterChain,login);
+           }
 
             //Islam Part
             else if(currentPage.equals("/ViewYourCart"))

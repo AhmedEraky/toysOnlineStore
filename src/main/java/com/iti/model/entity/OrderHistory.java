@@ -36,7 +36,7 @@ public class OrderHistory implements java.io.Serializable {
     @Column(name="timestamp", nullable=false, length=26)
     private Date timestamp;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
     private User user;
 

@@ -24,12 +24,6 @@ public class HomeHandler implements Handler {
             handler=new LoginHandler();
             handler.handle(request,response,filterChain,login);
         }
-        //if user try to register
-        else if(request.getParameter("registrationButton")!=null&&request.getParameter("registrationButton").equals("true"))
-        {
-            handler=new RegistrationHandler();
-            handler.handle(request,response,filterChain,login);
-        }
         //if user Try to go to home page
         else {
 

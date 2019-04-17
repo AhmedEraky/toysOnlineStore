@@ -3,6 +3,7 @@ package com.iti.service.impl;
 import com.iti.model.Dao.ProductDao;
 import com.iti.model.Dao.implementation.ProductDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
+import com.iti.model.cfg.transaction.TransactionManager;
 import com.iti.model.entity.Product;
 import com.iti.model.response.HomePageProductsResponse;
 import com.iti.service.HomePageService;
@@ -16,34 +17,57 @@ public class HomePageServiceImpl implements HomePageService {
 
     @Override
     public ArrayList<HomePageProductsResponse> getNewProducts() {
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
 
-        Session session = HibernateUtils.getSession();
-        ArrayList<Product> dataBaseProducts = productDao.retrieveNewProducts(session);
-        ArrayList<HomePageProductsResponse> products = new ArrayList<>();
-        transformProductToResponse(dataBaseProducts,products);
-        return products;
-
+        try {
+            return transactionManager.runInTransaction(session -> {
+                ArrayList<Product> dataBaseProducts = productDao.retrieveNewProducts(session);
+                ArrayList<HomePageProductsResponse> products = new ArrayList<>();
+                transformProductToResponse(dataBaseProducts,products);
+                return products;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     @Override
     public ArrayList<HomePageProductsResponse> getGuestFeaturedProducts() {
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+        try {
+            return transactionManager.runInTransaction(session -> {
+                ArrayList<Product> dataBaseProducts = productDao.retrievePopularProducts(session);
+                ArrayList<HomePageProductsResponse> products = new ArrayList<>();
+                transformProductToResponse(dataBaseProducts,products);
+                return products;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
 
-        Session session = HibernateUtils.getSession();
-        ArrayList<Product> dataBaseProducts = productDao.retrievePopularProducts(session);
-        ArrayList<HomePageProductsResponse> products = new ArrayList<>();
-        transformProductToResponse(dataBaseProducts,products);
-        return products;
+        }
+
+
 
     }
 
     @Override
     public ArrayList<HomePageProductsResponse> getUserFeaturedProducts(String userEamil) {
 
-        Session session = HibernateUtils.getSession();
-        ArrayList<Product> dataBaseProducts = productDao.retrievePopularProducts(session);
-        ArrayList<HomePageProductsResponse> products = new ArrayList<>();
-        transformProductToResponse(dataBaseProducts,products);
-        return products;
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+        try {
+            return transactionManager.runInTransaction(session -> {
+                ArrayList<Product> dataBaseProducts = productDao.retrievePopularProducts(session);
+                ArrayList<HomePageProductsResponse> products = new ArrayList<>();
+                transformProductToResponse(dataBaseProducts,products);
+                return products;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+
+        }
 
     }
 

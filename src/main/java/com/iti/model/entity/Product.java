@@ -16,60 +16,57 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Product implements java.io.Serializable {
 
     @Id
-    @GeneratedValue(strategy=IDENTITY)
-    @Column(name="product_id", unique=true, nullable=false)
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "product_id", unique = true, nullable = false)
     private Integer ProductID;
-    @Column(name="name", nullable=false, length=50)
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
-    @Column(name="description", nullable=false, length=500)
+    @Column(name = "description", nullable = false, length = 500)
     private String description;
-    @Column(name="image_path", nullable=false, length=50)
+    @Column(name = "image_path", nullable = false, length = 50)
     private String imagePath;
-    @Column(name="price", nullable=false, precision=3, scale=3)
+    @Column(name = "price", nullable = false, precision = 3, scale = 3)
     private Double price;
-    @Column(name="min_age", nullable=false)
+    @Column(name = "min_age", nullable = false)
     private Integer minAge;
-    @Column(name = "discount_percentage",nullable = false,columnDefinition = "int default 0")
+    @Column(name = "discount_percentage", nullable = false, columnDefinition = "int default 0")
     private Integer discountPercentage;
     @Column(name = "quantity", nullable = false)
     private int quantity;
-    @Column(name = "purchase_count",nullable = false,columnDefinition = "int default 0")
+    @Column(name = "purchase_count", nullable = false, columnDefinition = "int default 0")
     private int purchaseCount;
 
-    @ManyToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinColumn(name="category_id", nullable=false)
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @OneToOne(mappedBy = "products")
-    private CartItem cartItems;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "products")
+    private Set<CartItem> cartItems;
 
-    @ManyToOne(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.DETACH})
     private Store store;
 
-    @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="order_history_products", catalog="toysonlineshoppingdb",
-            joinColumns = {@JoinColumn(name="products_id", nullable=false, updatable=false) },
-            inverseJoinColumns = {@JoinColumn(name="order_history_id", nullable=false, updatable=false) })
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "order_history_products", catalog = "toysonlineshoppingdb",
+            joinColumns = {@JoinColumn(name = "products_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "order_history_id", nullable = false, updatable = false)})
     private Set<OrderHistory> orderHistories = new HashSet(0);
 
-    @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="user_products", catalog="toysonlineshoppingdb", joinColumns = {
-            @JoinColumn(name="products_id", nullable=false, updatable=false) }, inverseJoinColumns = {
-            @JoinColumn(name="user_id", nullable=false, updatable=false) })
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_products", catalog = "toysonlineshoppingdb", joinColumns = {
+            @JoinColumn(name = "products_id", nullable = false, updatable = false)}, inverseJoinColumns = {
+            @JoinColumn(name = "user_id", nullable = false, updatable = false)})
     private Set<User> userProducts = new HashSet(0);
 
 
-    @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="user_wishes", catalog="toysonlineshoppingdb",
-            joinColumns = {@JoinColumn(name="user_id", nullable=false, updatable=false) },
-            inverseJoinColumns = {@JoinColumn(name="products_id", nullable=false, updatable=false) })
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_wishes", catalog = "toysonlineshoppingdb",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "products_id", nullable = false, updatable = false)})
     private Set<User> userWishes = new HashSet(0);
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="products")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "products")
     private Set<Review> reviews = new HashSet(0);
-
-    public Product() {
-    }
 
     public Integer getProductID() {
         return ProductID;
@@ -151,11 +148,11 @@ public class Product implements java.io.Serializable {
         this.category = category;
     }
 
-    public CartItem getCartItems() {
+    public Set<CartItem> getCartItems() {
         return cartItems;
     }
 
-    public void setCartItems(CartItem cartItems) {
+    public void setCartItems(Set<CartItem> cartItems) {
         this.cartItems = cartItems;
     }
 

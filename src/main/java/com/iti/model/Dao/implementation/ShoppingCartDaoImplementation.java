@@ -19,7 +19,11 @@ public class ShoppingCartDaoImplementation implements ShoppingCartDao {
     }
 
     @Override
-    public boolean updateShoppingCart(ShoppingCart oldShoppingCart, ShoppingCart newShoppingCart, Session session) {
-        return false;
+    public boolean updateShoppingCart(String email,ShoppingCart newShoppingCart, Session session) {
+        User user=session.get(User.class,email);
+        user.setShoppingCart(newShoppingCart);
+        session.saveOrUpdate(user);
+        return true;
     }
+
 }

@@ -10,5 +10,5 @@ public interface ShoppingCartDao {
 
     ShoppingCart retriveShoppingCartByUser(User user, Session session);
     boolean persistShoppingChart(ShoppingCart cart, Session session);
-    boolean updateShoppingCart(ShoppingCart oldShoppingCart, ShoppingCart newShoppingCart, Session session);
+    boolean updateShoppingCart(String email,ShoppingCart newShoppingCart, Session session);
 }

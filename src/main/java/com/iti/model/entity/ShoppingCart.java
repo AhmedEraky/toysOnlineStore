@@ -2,6 +2,8 @@ package com.iti.model.entity;
 // Generated Mar 23, 2019 1:04:18 PM by Hibernate Tools 4.3.1
 
 
+import org.hibernate.annotations.Cascade;
+
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,13 +25,14 @@ public class ShoppingCart implements java.io.Serializable {
     @Column(name="total_cost", nullable=false, precision=6, scale=3)
     private Double totalCost;
 
-    @OneToOne(mappedBy="shoppingCart")
+    @OneToOne(mappedBy="shoppingCart",cascade = CascadeType.ALL)
     private User user;
 
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="shopping_cart_items", catalog="toysonlineshoppingdb",
             joinColumns = {@JoinColumn(name="cart_id", nullable=false, updatable=false) },
             inverseJoinColumns = {@JoinColumn(name="items_id", nullable=false, updatable=false) })
+    @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
     private Set<CartItem> shoppingCartItems = new HashSet<>(0);
 
     public ShoppingCart() {

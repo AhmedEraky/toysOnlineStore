@@ -11,6 +11,9 @@ public interface CartItemDao {
     CartItem retriveCartItemByExample(CartItem item, Session session);
     ArrayList<CartItem> retriveCartItemsByExample(CartItem item, Session session);
     ArrayList<CartItem> retriveCartItemByShoppingCart(ShoppingCart cart, Session session);
+    boolean deleteCartItem(CartItem cartItem,Session session);
 
     boolean persistCartItem(CartItem item, Session session);
+    //Aya taha
+    public boolean updateCartItem(CartItem item, Session session);
 }
