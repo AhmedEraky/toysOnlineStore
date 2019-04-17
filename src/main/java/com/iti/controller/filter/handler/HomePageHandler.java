@@ -23,16 +23,16 @@ public class HomePageHandler implements  Handler{
             HomePageService homePageService = new HomePageServiceImpl();
             ArrayList<HomePageProductsResponse> newProducts = homePageService.getNewProducts();
             ArrayList<HomePageProductsResponse> userFeaturedProducts =homePageService.getUserFeaturedProducts(userEmail);
-            session.setAttribute("NewProducts",newProducts);
-            session.setAttribute("FeaturedProducts",userFeaturedProducts);
+            request.setAttribute("NewProducts",newProducts);
+            request.setAttribute("FeaturedProducts",userFeaturedProducts);
             filterChain.doFilter(request, response);
         }
         else{
             HomePageService homePageService = new HomePageServiceImpl();
             ArrayList<HomePageProductsResponse> newProducts = homePageService.getNewProducts();
             ArrayList<HomePageProductsResponse> guestFeaturedProducts =homePageService.getGuestFeaturedProducts();
-            session.setAttribute("NewProducts",newProducts);
-            session.setAttribute("FeaturedProducts",guestFeaturedProducts);
+            request.setAttribute("NewProducts",newProducts);
+            request.setAttribute("FeaturedProducts",guestFeaturedProducts);
             filterChain.doFilter(request, response);
         }
     }
