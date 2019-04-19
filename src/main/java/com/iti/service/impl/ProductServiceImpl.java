@@ -59,7 +59,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ConfirmationResponse insert(Product product,String categoryName,String storeName) {
-        //get store by name
+        //get storename
         //get store object
 
         //add to product

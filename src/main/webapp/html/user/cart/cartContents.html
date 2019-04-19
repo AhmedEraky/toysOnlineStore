@@ -14,7 +14,7 @@
                 <h3>Chec<span>kout</span></h3>
                 <div class="checkout-right">
                     <h4>Your shopping cart contains: <span>${sessionScope.cart.getShoppingCartItems().size()}</span> item</h4>
-                    <table class="timetable_sub">
+                    <table class="timetable_sub" id="productsTable">
                         <thead>
                         <tr>
                             <th>SL No.</th>
@@ -54,7 +54,7 @@
                 <div class="checkout-left">
                     <div class="col-md-4 checkout-left-basket">
                         <h4 id="buyingButton">Buy Now</h4>
-                        <ul>
+                        <ul id="productsCheck">
                             <c:set var="totalPrice" value="${0}"/>
                             <c:forEach items="${sessionScope.cart.getShoppingCartItems()}" var="cartItem">
                                 <c:set var="totalPrice" value="${totalPrice + (cartItem.getQuantity() * cartItem.getProducts().getPrice())}"/>
@@ -71,4 +71,5 @@
         <!-- //top products -->
     </div>
     <script src="js/cart.js"></script>
+    <script src="js/addMinusRemove.js"></script>
 </section>

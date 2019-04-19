@@ -29,11 +29,7 @@
                 <div class="form-group row">
                     <label for="inputStore" class="col-sm-2 col-form-label">Store</label>
                     <div class="col-sm-5">
-                        <select class="form-control" id="inputStore" name="storeName" required>
-                            <c:forEach items="${sessionScope.stores}" var="current">
-                            <option value="${current}"><c:out value="${current}"/></option>
-                            </c:forEach>
-                        </select>
+                        <input  type="text" name="name" class="form-control" id="inputStore" placeholder="Store Name...." required=""/>
                     </div>
                 </div>
 

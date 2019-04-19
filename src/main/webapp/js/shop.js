@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    showDialog();
     link=window.location.pathname.split("/")[1];
     searchParams = new URLSearchParams(window.location.search);
 
@@ -24,4 +25,9 @@ $(document).ready(function(){
         }
         window.location.href=link;
     });
+
 });
+
+function showDialog() {
+    $( "#dialog" ).dialog();
+}

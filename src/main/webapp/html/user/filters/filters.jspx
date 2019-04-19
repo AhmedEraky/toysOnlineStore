@@ -11,7 +11,4 @@
 
     <jsp:directive.include file="filters.html"/>
 
-    <c:if test="${not empty requestScope.actionFigures}">
-
-    </c:if>
 </jsp:root>
