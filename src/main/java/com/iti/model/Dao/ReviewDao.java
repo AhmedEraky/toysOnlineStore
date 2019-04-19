@@ -16,6 +16,7 @@ public interface ReviewDao {
 
     //Aya Part
     ArrayList<Review>  retrieveReviewsByProductID(int productID,Session session);
+    boolean updateReview(Review review,Session session);
 
 
 }

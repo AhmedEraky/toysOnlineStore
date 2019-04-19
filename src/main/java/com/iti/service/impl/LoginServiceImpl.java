@@ -1,15 +1,19 @@
 package com.iti.service.impl;
 
+import com.iti.model.Dao.AdminDao;
 import com.iti.model.Dao.UserDao;
+import com.iti.model.Dao.implementation.AdminDaoImplementation;
 import com.iti.model.Dao.implementation.CartItemDaoImplementation;
 import com.iti.model.Dao.implementation.UserDaoImplementation;
 import com.iti.model.cfg.HibernateUtils;
 import com.iti.model.cfg.transaction.TransactionManager;
+import com.iti.model.entity.Admin;
 import com.iti.model.entity.CartItem;
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.response.Status;
 import com.iti.model.entity.User;
 import com.iti.model.response.AuthenticationResponse;
+import com.iti.model.response.Usertype;
 import com.iti.service.LoginService;
 import org.hibernate.Session;
 
@@ -25,10 +29,20 @@ public class LoginServiceImpl implements LoginService {
         try {
             return transactionManager.runInTransaction(session -> {
                 UserDao userDao=new UserDaoImplementation();
-                if(userDao.isUser(user,session)){
+                AdminDao adminDao=new AdminDaoImplementation();
+                Admin admin=new Admin();
+                admin.setEmail(user.getEmail());
+                admin.setPassword(user.getPassword());
+                if(adminDao.isAdmin(admin,session)){
                     response.setStatus(Status.success);
                     response.setEmail(user.getEmail());
                     response.setMessage("Success Login");
+                    response.setUsertype(Usertype.admin);
+                }else if(userDao.isUser(user,session)){
+                    response.setStatus(Status.success);
+                    response.setEmail(user.getEmail());
+                    response.setMessage("Success Login");
+                    response.setUsertype(Usertype.customer);
                 }
                 else {
                     response.setStatus(Status.fail);

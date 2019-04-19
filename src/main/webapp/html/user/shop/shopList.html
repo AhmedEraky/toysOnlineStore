@@ -43,33 +43,31 @@
                                                         <span class="money ">${product.price}</span>
                                                     </div>
                                                 </div>
-                                                <ul class="stars">
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fas fa-star"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fas fa-star"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fas fa-star"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="fas fa-star" ></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <i class="far fa-star-half-o"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                <div class="rating1">
+                                                    <ul  id="starul" class="stars">
+
+                                                        <c:choose>
+                                                            <c:when test="${ product.rate eq 0}">
+                                                                <c:forEach begin="1" end="5">
+                                                                    <i class="fa fa-star fa-2x text-muted" aria-hidden="true"></i>
+                                                                </c:forEach>
+
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <c:forEach begin="1" end="${product.rate}">
+                                                                    <i class="fa fa-star fa-2x text-primary" aria-hidden="true"></i>
+                                                                </c:forEach>
+                                                                <c:forEach begin="${(product.rate)+1}" end="5">
+                                                                    <i class="fa fa-star fa-2x text-muted" aria-hidden="true"></i>
+                                                                </c:forEach>
+                                                            </c:otherwise>
+                                                        </c:choose>
+
+
+
+
+                                                    </ul>
+                                                </div>
                                             </div>
                                             <div class="toys single-item hvr-outline-out">
                                                 <form action="#" method="post">

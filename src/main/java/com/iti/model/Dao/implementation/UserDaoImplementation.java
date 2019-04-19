@@ -83,7 +83,9 @@ public class UserDaoImplementation implements UserDao {
 
     @Override
     public boolean updateUser(User user, Session session) {
+
         session.saveOrUpdate(user);
         return true;
+
     }
 }

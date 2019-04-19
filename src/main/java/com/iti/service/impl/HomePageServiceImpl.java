@@ -78,7 +78,7 @@ public class HomePageServiceImpl implements HomePageService {
             product.setName(dataBaseProduct.getName());
             product.setPrice(dataBaseProduct.getPrice());
             product.setImagePath(dataBaseProduct.getImagePath());
-            product.setProductID(dataBaseProduct.getProductID());
+            product.setId(Integer.toString(dataBaseProduct.getProductID()));
             products.add(product);
         });
     }

@@ -8,7 +8,7 @@
                         <div class="flexslider1">
 
 
-                            <div class="thumb-image"> <img src="images/f2.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                            <div class="thumb-image"> <img src="${requestScope.product.imagePath}" data-imagezoom="true" class="img-fluid" alt=" "> </div>
 
                             <div class="clearfix"></div>
                         </div>
@@ -83,15 +83,23 @@
 
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Quantity</label>
-                            <div class="col-sm-2">
-                                <select class="form-control" id="selection" name="quantity">
+                            <div class="col-sm-3">
 
-                                    <c:forEach begin="1" end="${requestScope.product.quantity}" varStatus="inner">
+                                    <c:choose>
+                                        <c:when test="${requestScope.product.quantity eq 0}">
+                                            <p>Out of Stock</p>
+
+                                        </c:when>
+                                        <c:otherwise>
+                                            <select class="form-control" id="selection" name="quantity">
+                                        <c:forEach begin="1" end="${requestScope.product.quantity}" varStatus="inner">
                                         <option value="${inner.index}"><c:out value="${inner.index}"/></option>
                                     </c:forEach>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </select>
                             </div>
-
+                            <hr/>
                         </div>
 
 
@@ -99,17 +107,47 @@
                         <div class="occasion-cart">
                             <div  id="com" class="toys single-item singlepage">
 
+                                <c:choose>
+                                    <c:when test="${requestScope.product.quantity ne 0}">
 
-                                <input type="button"  name="submitButton" value="   Add to Cart"  id="cart" class="btn btn-outline-danger btn-lg">
-
+                                        <input type="button"  name="submitButton" value="   Add to Cart"  id="cart" class="btn btn-outline-danger btn-lg"/>
+                                  <!--
+                                        <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#editModal">
+                                           Add
+                                        </button>
+                                            -->
+                                    </c:when>
+                                </c:choose>
 
                                 <input type="button"  id="wishes" name="submitButton" value=" Add to wishes"  class="btn btn-outline-danger btn-lg"/>
 
+                                <!--<br>-->
+                                <!--<br>-->
+                                <!--<button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#exampleModal">-->
+                                    <!--Edit-->
+                                <!--</button>-->
 
                                 <input  name="productid" hidden="hidden" value="${requestScope.product.id}"/>
                             </div>
+            <div class="bg-success" id="divid"></div>
+
+
+                            <br>
+
+                            <div>
+                                <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#editModal">
+                                    Edit
+                                </button>
+
+                                <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#deleteModal">
+                                    Delete
+                                </button>
+                            </div>
+
                         </div>
                     </form>
+
+
 
 
 
@@ -117,9 +155,73 @@
             </div>
         </div>
     </div>
+    <!-- Button trigger modal -->
 
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="updateProduct" method="post">
+
+                <div class="modal-body">
+                        <input  name="productId" hidden="hidden" value="${requestScope.product.id}"/>
+                    <div class="form-group row">
+                        <label  class="col-sm-3 col-form-label">Quantity</label>
+                        <input type="number" name="productQuantity" value="${requestScope.product.quantity}" min="0" style="text-align: center" required/>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-3 col-form-label">Price</label>
+                        <input type="number" name="productPrice" value="${requestScope.product.price}" min="1" style="text-align: center" required/>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-3 col-form-label">Discount</label>
+                        <input type="number" name="productDiscount" value="${requestScope.product.discountPercentage}" min="0" style="text-align: center" required/>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-outline-danger">Save changes</button>
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteLabel">Delete Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="updateProduct" method="get">
+
+                    <div class="modal-body">
+                        <input  name="productId" hidden="hidden" value="${requestScope.product.id}"/>
+                        <p>Are You Sure You Want To Delete This Product ?</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
     <!--review-->
-    <div class="responsive_tabs">
+    <div id="revid" class="responsive_tabs">
         <div id="horizontalTab">
             <ul class="resp-tabs-list">
 
@@ -129,8 +231,8 @@
             <div class="resp-tabs-container">
                 <div class="tab2">
                     <div class="single_page">
-                        <div class="bootstrap-tab-text-grids">
-                            <div class="bootstrap-tab-text-grid">
+                        <div  id="idr" class="bootstrap-tab-text-grids">
+                            <div  class="bootstrap-tab-text-grid">
 
 
                                 <h4>Reviews</h4>
@@ -145,7 +247,7 @@
 
 
                                             <div class="bootstrap-tab-text-grid-left">
-                                                <img src="images/team1.jpg" alt=" " class="img-fluid">
+                                                <img src="${current.imagePath}" alt=" " class="img-fluid">
                                             </div>
                                             <div class="bootstrap-tab-text-grid-right">
 
@@ -191,13 +293,13 @@
                                 <form action="" method="post">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="userName" id="userName" placeholder="Enter your name" required="">
+                                            <input type="text" name="userName" id="userName" placeholder="Enter your name" required=""/>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="email" name="userEmail"   placeholder="Enter your email" required="">
+                                            <input type="email" name="userEmail"   id="userEmail" placeholder="Enter your email" required=""/>
                                         </div>
                                         <!--stars-->
-                                        <div class="rate" >
+                                        <div class="rate" id="stardiv">
                                             <input type="radio" id="star5" name="rate" value="5" />
                                             <label for="star5" title="text">5 stars</label>
                                             <input type="radio" id="star4" name="rate" value="4" />
@@ -211,8 +313,8 @@
                                         </div>
                                         <!--end-->
                                     </div>
-                                    <textarea name="reviewDescription"   rows="2" cols="3" placeholder="Enter your message" required=""></textarea>
-                                    <input type="submit" id="send" class="toys-cart ptoys-cart" value="SEND"/>
+                                    <textarea name="reviewDescription"  id="reviewDescription" rows="2" cols="3" placeholder="Enter your message" required=""></textarea>
+                                    <input type="button" id="send"  class="btn btn-outline-danger btn-lg" value="SEND"/>
 
                                     <input  name="productid" id="productid" hidden="hidden" value="${requestScope.product.id}"/>
                                 </form>

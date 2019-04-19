@@ -1,10 +1,12 @@
 package com.iti.controller.filter.handler;
 
 import com.iti.model.response.HomePageProductsResponse;
+import com.iti.model.response.Usertype;
 import com.iti.service.HomePageService;
 import com.iti.service.impl.HomePageServiceImpl;
 
 import javax.servlet.FilterChain;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,21 +20,25 @@ public class HomePageHandler implements  Handler{
     public void handle(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Boolean login) throws IOException, ServletException {
         HttpSession session = request.getSession();
         Boolean loginAttribute = (Boolean)session.getAttribute("login");
-        if( (loginAttribute!=null )&& loginAttribute.equals(true)){
+        if( (loginAttribute!=null )&& loginAttribute.equals(true) && session.getAttribute("userType").equals(Usertype.customer)){
             String userEmail =(String)session.getAttribute("mail");
             HomePageService homePageService = new HomePageServiceImpl();
             ArrayList<HomePageProductsResponse> newProducts = homePageService.getNewProducts();
             ArrayList<HomePageProductsResponse> userFeaturedProducts =homePageService.getUserFeaturedProducts(userEmail);
-            session.setAttribute("NewProducts",newProducts);
-            session.setAttribute("FeaturedProducts",userFeaturedProducts);
+            request.setAttribute("NewProducts",newProducts);
+            request.setAttribute("FeaturedProducts",userFeaturedProducts);
             filterChain.doFilter(request, response);
+        }
+        else if ((loginAttribute!=null )&& loginAttribute.equals(true) && session.getAttribute("userType").equals(Usertype.admin)){
+            RequestDispatcher requestDispatcher=request.getRequestDispatcher("adminHome");
+            requestDispatcher.forward(request,response);
         }
         else{
             HomePageService homePageService = new HomePageServiceImpl();
             ArrayList<HomePageProductsResponse> newProducts = homePageService.getNewProducts();
             ArrayList<HomePageProductsResponse> guestFeaturedProducts =homePageService.getGuestFeaturedProducts();
-            session.setAttribute("NewProducts",newProducts);
-            session.setAttribute("FeaturedProducts",guestFeaturedProducts);
+            request.setAttribute("NewProducts",newProducts);
+            request.setAttribute("FeaturedProducts",guestFeaturedProducts);
             filterChain.doFilter(request, response);
         }
     }

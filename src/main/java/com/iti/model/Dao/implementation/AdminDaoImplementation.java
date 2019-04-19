@@ -3,8 +3,12 @@ package com.iti.model.Dao.implementation;
 import com.iti.model.Dao.AdminDao;
 import com.iti.model.entity.Admin;
 import javax.persistence.PersistenceException;
+
+import com.iti.model.entity.User;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 public class AdminDaoImplementation implements AdminDao
 {
@@ -27,13 +31,15 @@ public class AdminDaoImplementation implements AdminDao
     @Override
     public boolean isAdmin(Admin admin, Session session)
     {
-        Admin testAdmin = session.get(Admin.class, admin.getEmail());
-        if (testAdmin == null)
+        Criteria criteria=session.createCriteria(Admin.class)
+                .add(Restrictions.eq("email",admin.getEmail()))
+                .add(Restrictions.eq("password",admin.getPassword()));
+        Admin tempUser= (Admin) criteria.uniqueResult();
+        if(tempUser==null)
         {
             return false;
-        } 
-        else
-        {
+        }
+        else {
             return true;
         }
     }
