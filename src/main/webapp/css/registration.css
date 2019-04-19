@@ -8,6 +8,11 @@
 	color: #E34234;
 }
 
+#invalidEmail
+{
+	color: #E34234;
+}
+
 .inputError
 {
 	border-color: #E34234;

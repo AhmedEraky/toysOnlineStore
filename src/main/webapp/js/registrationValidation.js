@@ -1,6 +1,13 @@
 var form = document.getElementById("registrationForm");
 var currentDate = new Date();
-
+var urlParams = new URLSearchParams(window.location.search);
+var signupParam = urlParams.get('signup');
+if(signupParam !== null)
+{
+	document.getElementById("inputEmail3").style.borderColor = "#E34234";
+	document.getElementById("invalidEmail").style.color = "#E34234";
+	$("#invalidEmail").text("A user with this email is already registered.");
+}
 
 function isDate18orMoreYearsOld(day, month, year)
 {
@@ -26,7 +33,7 @@ function handleForm(event)
 	var age = getAge(birthDate);
 	if(age < 18)
 	{
-		$("#inputBirthDay3").addClass("inputError");
+		document.getElementById("inputBirthDay3").style.borderColor = "#E34234";
 		$("#invalidAge").text("You must be at least 18 years old to use our service.");
 		event.preventDefault();
 	}
