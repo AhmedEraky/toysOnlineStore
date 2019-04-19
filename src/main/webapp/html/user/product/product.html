@@ -228,6 +228,7 @@
 
 
             </ul>
+
             <div class="resp-tabs-container">
                 <div class="tab2">
                     <div class="single_page">
@@ -279,7 +280,7 @@
                                                 </div>
                                             </div>
                                             <div class="clearfix"> </div>
-                                            <hr/>
+
 
 
                                         </c:forEach>
@@ -288,15 +289,13 @@
 
 
                             </div>
+                            <c:if test = "${not empty sessionScope.userType or sessionScope.userType =='customer' }">
                             <div class="add-review">
                                 <h4>add a review</h4>
                                 <form action="" method="post">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="userName" id="userName" placeholder="Enter your name" required=""/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="email" name="userEmail"   id="userEmail" placeholder="Enter your email" required=""/>
+                                            <input type="email" name="userEmail"   id="userEmail" value="${sessionScope.mail}" readonly/>
                                         </div>
                                         <!--stars-->
                                         <div class="rate" id="stardiv">
@@ -317,8 +316,10 @@
                                     <input type="button" id="send"  class="btn btn-outline-danger btn-lg" value="SEND"/>
 
                                     <input  name="productid" id="productid" hidden="hidden" value="${requestScope.product.id}"/>
+                                    <input  name="emailUser" id="emailUser" hidden="hidden" value="${sessionScope.mail}"/>
                                 </form>
                             </div>
+                            </c:if>
                         </div>
                     </div>
                 </div>
