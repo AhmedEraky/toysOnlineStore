@@ -28,7 +28,7 @@
                 <div class="col-lg-4 col-md-3 right-side-cart">
                     <div class="cart-icons">
                         <ul>
-                            <c:if test = "${not empty sessionScope.userType or sessionScope.userType=='customer' }">
+                            <c:if test = "${empty sessionScope.userType or sessionScope.userType=='customer' }">
 
                                 <li>
                                     <button id="my-fav-items"> <span class="far fa-heart"></span></button>
@@ -41,6 +41,16 @@
                                     <a href="ViewYourCart"><button id="my-cart"><span class="fas fa-cart-arrow-down"></span></button></a>
                                 </li>
                             </c:if>
+                            <c:if test = "${not empty sessionScope.userType and sessionScope.userType=='admin' }">
+                                <li class="toyscart toyscart2 cart cart box_1">
+                                    <a href="listOfUsers"><button ><span class="fas fa-users"></span></button></a>
+                                </li>
+
+                                <li class="toyscart toyscart2 cart cart box_1">
+                                    <a href="addProduct"><button ><span class="fas fa-plus-square"></span></button></a>
+                                </li>
+                            </c:if>
+
                         </ul>
                     </div>
                 </div>
@@ -64,7 +74,7 @@
                     </c:if>
                     <c:if test = "${not empty sessionScope.userType}">
                         <c:if test="${sessionScope.userType=='admin'}">
-                            <li id="nav-shop" class="nav-item">
+                            <li id="nav-editProduct" class="nav-item">
                                 <a href="addProduct" class="nav-link">Add Product</a>
                             </li>
                         </c:if>

@@ -85,18 +85,18 @@
                             <label  class="col-sm-2 col-form-label">Quantity</label>
                             <div class="col-sm-3">
 
-                                    <c:choose>
-                                        <c:when test="${requestScope.product.quantity eq 0}">
-                                            <p>Out of Stock</p>
+                                <c:choose>
+                                    <c:when test="${requestScope.product.quantity eq 0}">
+                                        <p>Out of Stock</p>
 
-                                        </c:when>
-                                        <c:otherwise>
-                                            <select class="form-control" id="selection" name="quantity">
-                                        <c:forEach begin="1" end="${requestScope.product.quantity}" varStatus="inner">
-                                        <option value="${inner.index}"><c:out value="${inner.index}"/></option>
-                                    </c:forEach>
-                                        </c:otherwise>
-                                    </c:choose>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <select class="form-control" id="selection" name="quantity">
+                                            <c:forEach begin="1" end="${requestScope.product.quantity}" varStatus="inner">
+                                                <option value="${inner.index}"><c:out value="${inner.index}"/></option>
+                                            </c:forEach>
+                                    </c:otherwise>
+                                </c:choose>
                                 </select>
                             </div>
                             <hr/>
@@ -111,11 +111,11 @@
                                     <c:when test="${requestScope.product.quantity ne 0}">
 
                                         <input type="button"  name="submitButton" value="   Add to Cart"  id="cart" class="btn btn-outline-danger btn-lg"/>
-                                  <!--
-                                        <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#editModal">
-                                           Add
-                                        </button>
-                                            -->
+                                        <!--
+                                              <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#editModal">
+                                                 Add
+                                              </button>
+                                                  -->
                                     </c:when>
                                 </c:choose>
 
@@ -124,25 +124,27 @@
                                 <!--<br>-->
                                 <!--<br>-->
                                 <!--<button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#exampleModal">-->
-                                    <!--Edit-->
+                                <!--Edit-->
                                 <!--</button>-->
 
                                 <input  name="productid" hidden="hidden" value="${requestScope.product.id}"/>
                             </div>
-            <div class="bg-success" id="divid"></div>
+                            <div class="bg-success" id="divid"></div>
 
 
                             <br>
+                            <c:if test = "${not empty sessionScope.userType and sessionScope.userType =='admin' }">
 
-                            <div>
-                                <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#editModal">
-                                    Edit
-                                </button>
+                                <div>
+                                    <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#editModal">
+                                        Edit
+                                    </button>
 
-                                <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#deleteModal">
-                                    Delete
-                                </button>
-                            </div>
+                                    <button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#deleteModal">
+                                        Delete
+                                    </button>
+                                </div>
+                            </c:if>
 
                         </div>
                     </form>
@@ -169,26 +171,26 @@
                 </div>
                 <form action="updateProduct" method="post">
 
-                <div class="modal-body">
+                    <div class="modal-body">
                         <input  name="productId" hidden="hidden" value="${requestScope.product.id}"/>
-                    <div class="form-group row">
-                        <label  class="col-sm-3 col-form-label">Quantity</label>
-                        <input type="number" name="productQuantity" value="${requestScope.product.quantity}" min="0" style="text-align: center" required/>
-                    </div>
-                    <div class="form-group row">
-                        <label  class="col-sm-3 col-form-label">Price</label>
-                        <input type="number" name="productPrice" value="${requestScope.product.price}" min="1" style="text-align: center" required/>
-                    </div>
-                    <div class="form-group row">
-                        <label  class="col-sm-3 col-form-label">Discount</label>
-                        <input type="number" name="productDiscount" value="${requestScope.product.discountPercentage}" min="0" style="text-align: center" required/>
-                    </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-3 col-form-label">Quantity</label>
+                            <input type="number" name="productQuantity" value="${requestScope.product.quantity}" min="0" style="text-align: center" required/>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-3 col-form-label">Price</label>
+                            <input type="number" name="productPrice" value="${requestScope.product.price}" min="1" style="text-align: center" required/>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-3 col-form-label">Discount</label>
+                            <input type="number" name="productDiscount" value="${requestScope.product.discountPercentage}" min="0" style="text-align: center" required/>
+                        </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-outline-danger">Save changes</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-danger">Save changes</button>
+                    </div>
                 </form>
 
             </div>
@@ -228,6 +230,7 @@
 
 
             </ul>
+
             <div class="resp-tabs-container">
                 <div class="tab2">
                     <div class="single_page">
@@ -279,7 +282,7 @@
                                                 </div>
                                             </div>
                                             <div class="clearfix"> </div>
-                                            <hr/>
+
 
 
                                         </c:forEach>
@@ -288,37 +291,37 @@
 
 
                             </div>
-                            <div class="add-review">
-                                <h4>add a review</h4>
-                                <form action="" method="post">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" name="userName" id="userName" placeholder="Enter your name" required=""/>
+                            <c:if test = "${not empty sessionScope.userType and sessionScope.userType =='customer' }">
+                                <div class="add-review">
+                                    <h4>add a review</h4>
+                                    <form action="" method="post">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="email" name="userEmail"   id="userEmail" value="${sessionScope.mail}" readonly/>
+                                            </div>
+                                            <!--stars-->
+                                            <div class="rate" id="stardiv">
+                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                <label for="star5" title="text">5 stars</label>
+                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                <label for="star4" title="text">4 stars</label>
+                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                <label for="star3" title="text">3 stars</label>
+                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                <label for="star2" title="text">2 stars</label>
+                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                <label for="star1" title="text">1 star</label>
+                                            </div>
+                                            <!--end-->
                                         </div>
-                                        <div class="col-md-6">
-                                            <input type="email" name="userEmail"   id="userEmail" placeholder="Enter your email" required=""/>
-                                        </div>
-                                        <!--stars-->
-                                        <div class="rate" id="stardiv">
-                                            <input type="radio" id="star5" name="rate" value="5" />
-                                            <label for="star5" title="text">5 stars</label>
-                                            <input type="radio" id="star4" name="rate" value="4" />
-                                            <label for="star4" title="text">4 stars</label>
-                                            <input type="radio" id="star3" name="rate" value="3" />
-                                            <label for="star3" title="text">3 stars</label>
-                                            <input type="radio" id="star2" name="rate" value="2" />
-                                            <label for="star2" title="text">2 stars</label>
-                                            <input type="radio" id="star1" name="rate" value="1" />
-                                            <label for="star1" title="text">1 star</label>
-                                        </div>
-                                        <!--end-->
-                                    </div>
-                                    <textarea name="reviewDescription"  id="reviewDescription" rows="2" cols="3" placeholder="Enter your message" required=""></textarea>
-                                    <input type="button" id="send"  class="btn btn-outline-danger btn-lg" value="SEND"/>
+                                        <textarea name="reviewDescription"  id="reviewDescription" rows="2" cols="3" placeholder="Enter your message" required=""></textarea>
+                                        <input type="button" id="send"  class="btn btn-outline-danger btn-lg" value="SEND"/>
 
-                                    <input  name="productid" id="productid" hidden="hidden" value="${requestScope.product.id}"/>
-                                </form>
-                            </div>
+                                        <input  name="productid" id="productid" hidden="hidden" value="${requestScope.product.id}"/>
+                                        <input  name="emailUser" id="emailUser" hidden="hidden" value="${sessionScope.mail}"/>
+                                    </form>
+                                </div>
+                            </c:if>
                         </div>
                     </div>
                 </div>
