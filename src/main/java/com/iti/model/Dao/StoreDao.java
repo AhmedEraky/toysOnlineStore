@@ -15,4 +15,5 @@ public interface StoreDao {
     //Aya
     Store retrieveStoreByName(String name,Session session);
     List<Store> retrieveAllStores(Session session);
+
 }

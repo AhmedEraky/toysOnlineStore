@@ -6,9 +6,10 @@
         <div class="shop_inner_inf">
 
             <h3>Add <span>Products</span></h3>
-
-                  <div> <p> <c:out value="${requestScope.message}"/></p>
+            <c:if test="${not empty param.message}">
+                  <div> <p> <c:out value="${param.message}"/></p>
         </div>
+            </c:if>
             <form method="post" id="addProductForm" action="uploadProduct" enctype="multipart/form-data">
 
 
@@ -27,9 +28,9 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputStore" class="col-sm-2 col-form-label">Store</label>
+                    <label for="storeName" class="col-sm-2 col-form-label">Store</label>
                     <div class="col-sm-5">
-                        <input  type="text" name="name" class="form-control" id="inputStore" placeholder="Store Name...." required=""/>
+                        <input  type="text" name="storeName" class="form-control" id="storeName" placeholder="Store Name...." required=""/>
                     </div>
                 </div>
 

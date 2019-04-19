@@ -44,4 +44,6 @@ public class StoreDaoImplementation implements StoreDao
         List<Store> stores= criteria.list();
         return stores;
     }
+
+
 }

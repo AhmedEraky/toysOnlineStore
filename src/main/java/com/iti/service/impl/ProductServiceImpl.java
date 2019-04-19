@@ -148,7 +148,22 @@ public class ProductServiceImpl implements ProductService {
                 Store store;
                 StoreDao storeDao=new StoreDaoImplementation();
                 store= storeDao.retrieveStoreByName(storeName,session);
-                return store;
+                if(store !=null) {
+                    return store;
+                }
+                else{
+                    //add new store
+                    Session secondSession =HibernateUtils.getSession();
+                    Store newStore=new Store();
+                    newStore.setName(storeName);
+                    boolean flagStore=storeDao.persistStore(newStore,secondSession);
+                    //get the new store
+                    if(flagStore){
+                        Session thirddSession =HibernateUtils.getSession();
+                        store=storeDao.retrieveStoreByName(storeName,thirddSession);
+                    }
+                    return store;
+                }
 
             });
         } catch (Exception e) {
