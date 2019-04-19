@@ -1,0 +1,41 @@
+<!--header-->
+<jsp:directive.include file="/html/common/header.html"/>
+<!--//header-->
+
+<!-- banner -->
+<jsp:directive.include file="/html/common/banner.html"/>
+<!--//banner -->
+
+<!--Page Content-->
+<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <div class="shop_inner_inf">
+            <div class="privacy about">
+                <h3>Wish <span>List</span></h3>
+                <div class="checkout-right">
+                    <h4>Your wish list contains: <span>${requestScope.wishList.size()}</span> item</h4>
+                    <table class="timetable_sub" id="productsTable">
+                        <thead>
+                        <tr>
+                            <th>SL No.</th>
+                            <th>Product</th>
+                            <th>Product Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${requestScope.wishList}" var="product">
+                            <tr class="rem1">
+                                <td class="invert">${product.getProductID()}</td>
+                                <td class="invert-image"><a href="single.html"><img src="${product.getImagePath()}" alt=" " class="img-responsive"></a></td>
+                                <td class="invert">${product.getName()}</td>
+                                <td class="invert">${product.getPrice()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- //top products -->
+    </div>
+</section>

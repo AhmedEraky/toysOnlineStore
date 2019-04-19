@@ -1,6 +1,7 @@
 package com.iti.model.Dao.implementation;
 
 import com.iti.model.Dao.UserDao;
+import com.iti.model.entity.Product;
 import com.iti.model.entity.User;
 import com.iti.model.util.UserUtil;
 import org.hibernate.Criteria;
@@ -10,6 +11,8 @@ import org.hibernate.criterion.Restrictions;
 
 import javax.persistence.PersistenceException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class UserDaoImplementation implements UserDao {
     @Override
@@ -87,5 +90,12 @@ public class UserDaoImplementation implements UserDao {
         session.saveOrUpdate(user);
         return true;
 
+    }
+
+    @Override
+    public List<Product> retrieveUserWishList(String userEmail, Session session)
+    {
+        List<Product> userWishes;
+        return null;
     }
 }
