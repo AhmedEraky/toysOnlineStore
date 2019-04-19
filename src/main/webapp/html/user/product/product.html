@@ -8,7 +8,7 @@
                         <div class="flexslider1">
 
 
-                            <div class="thumb-image"> <img src="images/f2.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                            <div class="thumb-image"> <img src="${requestScope.product.imagePath}" data-imagezoom="true" class="img-fluid" alt=" "> </div>
 
                             <div class="clearfix"></div>
                         </div>
@@ -82,7 +82,10 @@
 
 
                         <div class="form-group row">
-                            <label  class="col-sm-2 col-form-label">Quantity</label>
+                            <label  class="col-sm-2 col-form-label">Quantity:</label>
+                            <c:choose>
+                                <c:when test="${ empty sessionScope.userType or sessionScope.userType=='customer' }">
+
                             <div class="col-sm-3">
 
                                 <c:choose>
@@ -97,14 +100,25 @@
                                             </c:forEach>
                                     </c:otherwise>
                                 </c:choose>
+
                                 </select>
                             </div>
                             <hr/>
+                                </c:when>
+                                <c:otherwise>
+                                    <label class="col-sm-2 col-form-label"><c:out  value= "${requestScope.product.quantity}"/> </label>
+
+                                </c:otherwise>
+                            </c:choose>
+
                         </div>
 
 
                         <div class="occasion-cart">
                             <div  id="com" class="toys single-item singlepage">
+                                <c:if test = "${ empty sessionScope.userType or sessionScope.userType=='customer' }">
+
+
 
                                 <c:if test="${requestScope.product.quantity ne 0}">
                                 <input type="button"  name="submitButton" value="   Add to Cart"  id="cart" class="btn btn-outline-danger btn-lg"/>
@@ -119,6 +133,7 @@
                                 <!--</button>-->
                                 <input  name="productId" hidden="hidden" value="${param.ProductID}"/>
                                 <input  name="productid" hidden="hidden" value="${requestScope.product.id}"/>
+                                </c:if>
                             </div>
 
 
@@ -237,7 +252,7 @@
 
 
                                             <div class="bootstrap-tab-text-grid-left">
-                                                <img src="images/team1.jpg" alt=" " class="img-fluid">
+                                                <img src="${current.imagePath}" alt=" " class="img-fluid">
                                             </div>
                                             <div class="bootstrap-tab-text-grid-right">
 

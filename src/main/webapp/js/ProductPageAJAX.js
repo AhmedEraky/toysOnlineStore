@@ -37,10 +37,13 @@ $(document).ready(function () {
 
             success: function (data) {
 
+
+
+
                // ShowCustomDialog(data);
 
 
-                console.log(data);
+               console.log(data);
                 var mark=" <p class=\"bg-success\" id=\'p\'>"+data+"</p>";
                $("#com").append(mark);
 

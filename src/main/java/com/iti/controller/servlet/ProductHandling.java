@@ -30,31 +30,35 @@ import java.util.Set;
 
 public class ProductHandling extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String productid=request.getParameter("productid");
-        String userEmail=(String)request.getSession().getAttribute("mail");
-       //get product by id
-        ProductService productService=new ProductServiceImpl();
-        Product product=productService.getProductByID(Integer.parseInt(productid));
+        String productid = request.getParameter("productid");
+        String userEmail = (String) request.getSession().getAttribute("mail");
+        PrintWriter out = response.getWriter();
+        if (userEmail == null || userEmail.isEmpty()) {
+            out.print("Please login first!");
+        } else {
+            //get product by id
+            ProductService productService = new ProductServiceImpl();
+            Product product = productService.getProductByID(Integer.parseInt(productid));
 
-        //user
-        ProfileService profileService=new ProfileServiceImpl();
+            //user
+            ProfileService profileService = new ProfileServiceImpl();
 
-        User user=profileService.getUserByEmail(userEmail);
+            User user = profileService.getUserByEmail(userEmail);
             //add wishes for user
-            Set<Product> userProducts=new HashSet();
+            Set<Product> userProducts = new HashSet();
             userProducts.add(product);
             user.setUserWishes(userProducts);
             //update user
-        Boolean flagUser=profileService.updateProfile(user);
+            Boolean flagUser = profileService.updateProfile(user);
 
-        //response.sendRedirect("productPage?ProductID="+productid);
-        if(flagUser) {
-            PrintWriter out = response.getWriter();
-            out.print("Successfully added to wishes list");
-        }
-        else{
-            PrintWriter out = response.getWriter();
-            out.print("fail to add in wish list");
+            //response.sendRedirect("productPage?ProductID="+productid);
+            if (flagUser) {
+
+                out.print("Successfully added to wishes list");
+            } else {
+
+                out.print("fail to add in wish list");
+            }
         }
     }
 }
