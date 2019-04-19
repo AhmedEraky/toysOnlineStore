@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css"/>
         <link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
         <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
         <jsp:directive.include file="/html/common/head.html"/>
 
 
