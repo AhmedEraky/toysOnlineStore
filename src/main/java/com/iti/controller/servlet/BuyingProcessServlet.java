@@ -56,7 +56,7 @@ public class BuyingProcessServlet extends HttpServlet
         Set<CartItem> cartItems = cart.getShoppingCartItems();
         for(CartItem cartItem:cartItems)
         {
-            totalCost+=(cartItem.getQuantity() * cartItem.getProducts().getPrice());
+            totalCost+=(cartItem.getQuantity() * (cartItem.getProducts().getPrice() - cartItem.getProducts().getPrice()*(cartItem.getProducts().getDiscountPercentage()/100.0)));
         }
         return totalCost;
     }
