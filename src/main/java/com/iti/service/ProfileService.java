@@ -7,4 +7,6 @@ public interface ProfileService {
 
     ProfileResponse getProfileInfo(User user);
     Boolean updateProfile(User user);
+    /*==Aya==*/
+    User getUserByEmail(String userEmail);
 }

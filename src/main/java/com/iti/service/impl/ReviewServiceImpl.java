@@ -17,6 +17,8 @@ import com.iti.service.ReviewService;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class ReviewServiceImpl implements ReviewService {
 
@@ -26,8 +28,10 @@ public class ReviewServiceImpl implements ReviewService {
         try {
             return transactionManager.runInTransaction(session -> {
                 ArrayList<ReviewResponse> responses=new  ArrayList<ReviewResponse>();
+                ProductDao productDao=new ProductDaoImplementation();
+                Product product=productDao.retriveProductByID(productID,session);
                 ReviewDao reviewDao = new ReviewDaoImplementation();
-                ArrayList<Review> reviews=reviewDao.retrieveReviewsByProductID(productID,session);
+                ArrayList<Review> reviews=reviewDao.retrieveReviewsByProduct(product,session);
                 if(reviews.size()!=0) {
                     //response
                     for (Review review : reviews) {
@@ -38,6 +42,7 @@ public class ReviewServiceImpl implements ReviewService {
                         response.setUserEmail(review.getUser().getEmail());
                         response.setUserName(review.getUser().getName());
                         response.setRate(review.getRate());
+                        response.setImagePath(review.getUser().getImagePath());
 
                         responses.add(response);
                     }
@@ -75,8 +80,22 @@ public class ReviewServiceImpl implements ReviewService {
                 reviewId.setProductsId(product.getProductID());
                 review.setId(reviewId);
                 //insert review
-                Session sessionPeview= HibernateUtils.getSession();
-                return (reviewDao.persistReview(review,session));
+                //if user update the review
+                Set<Review> userReviews=user.getReviews();
+                Review oldReview=new Review();
+                boolean revFalg=false;
+                for(Review userReview:userReviews){
+                   if(userReview.getId().equals(reviewId)){
+                       revFalg=true;
+                        oldReview=userReview;
+                   }
+                }
+                if(revFalg){
+                    return (reviewDao.updateReviewData(oldReview,review,session));
+                }
+                else {
+                    return (reviewDao.persistReview(review, session));
+                }
             });
         } catch (Exception e) {
             e.printStackTrace();

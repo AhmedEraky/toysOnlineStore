@@ -63,6 +63,10 @@ public class ProfileServiceImpl implements ProfileService {
                     currentUser.setJob(user.getJob());
                     currentUser.setAddress(user.getAddress());
                     currentUser.setCreditLimit(user.getCreditLimit());
+                    /*==Aya==*/
+                    if(user.getUserWishes().size() !=0){
+                        currentUser.setUserWishes(user.getUserWishes());
+                    }
                     Session secondSession =HibernateUtils.getSession();
                     updated = userDao.updateUser(currentUser,secondSession);
                 }
@@ -73,5 +77,22 @@ public class ProfileServiceImpl implements ProfileService {
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public User getUserByEmail(String userEmail) {
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+
+        try {
+            return transactionManager.runInTransaction(session -> {
+                UserDao userDao = new UserDaoImplementation();
+                User retrivedUser = userDao.retiveUserEmail(userEmail, session);
+                return  retrivedUser;
+            });
+        }catch (Exception e) {
+            e.printStackTrace();
+            return new User();
+        }
+
     }
 }

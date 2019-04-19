@@ -8,6 +8,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.List;
+import java.util.Set;
+
 public class StoreDaoImplementation implements StoreDao
 {
 
@@ -34,4 +37,13 @@ public class StoreDaoImplementation implements StoreDao
         return store;
 
     }
+
+    @Override
+    public List<Store> retrieveAllStores(Session session) {
+        Criteria criteria = session.createCriteria(Store.class);
+        List<Store> stores= criteria.list();
+        return stores;
+    }
+
+
 }

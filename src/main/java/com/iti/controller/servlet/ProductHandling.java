@@ -11,6 +11,11 @@ import com.iti.model.entity.CartItem;
 import com.iti.model.entity.Product;
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.entity.User;
+import com.iti.model.response.ProductResponse;
+import com.iti.service.ProductService;
+import com.iti.service.ProfileService;
+import com.iti.service.impl.ProductServiceImpl;
+import com.iti.service.impl.ProfileServiceImpl;
 import org.hibernate.Session;
 
 import javax.servlet.ServletException;
@@ -25,35 +30,31 @@ import java.util.Set;
 
 public class ProductHandling extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String productid=(String)request.getParameter("productid");
+        String productid=request.getParameter("productid");
         String userEmail=(String)request.getSession().getAttribute("mail");
        //get product by id
-        ProductDao productDao=new ProductDaoImplementation();
-        Session session= HibernateUtils.getSession();
-        Product product=productDao.retriveProductByID(Integer.parseInt(productid),session);
+        ProductService productService=new ProductServiceImpl();
+        Product product=productService.getProductByID(Integer.parseInt(productid));
+
         //user
-        UserDao userDao=new UserDaoImplementation();
+        ProfileService profileService=new ProfileServiceImpl();
 
-        Session sessionUser= HibernateUtils.getSession();
-
-
-
-
-
-            //get product from id
-
+        User user=profileService.getUserByEmail(userEmail);
             //add wishes for user
-
-            User user=userDao.retiveUserEmail(userEmail,sessionUser);
             Set<Product> userProducts=new HashSet();
             userProducts.add(product);
             user.setUserWishes(userProducts);
             //update user
-            Session sessionWishes= HibernateUtils.getSession();
-            boolean flag=userDao.updateUser(user,sessionWishes);
+        Boolean flagUser=profileService.updateProfile(user);
 
         //response.sendRedirect("productPage?ProductID="+productid);
-        PrintWriter out=response.getWriter();
-        out.print("Successfully added to wishes list");
+        if(flagUser) {
+            PrintWriter out = response.getWriter();
+            out.print("Successfully added to wishes list");
+        }
+        else{
+            PrintWriter out = response.getWriter();
+            out.print("fail to add in wish list");
+        }
     }
 }

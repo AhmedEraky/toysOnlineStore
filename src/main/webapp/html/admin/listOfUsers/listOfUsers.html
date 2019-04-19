@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <jsp:directive.include file="/html/common/head.html"></jsp:directive.include>
+    <script src="js/listOfUsers.js"></script>
+
+</head>
+<body>
+
+<jsp:directive.include file="/html/common/header.html"/>
+<jsp:directive.include file="/html/common/banner.html"/>
+<div class="container">
+
+    <h1 class="text-center">Search Form</h1>
+    <p class="text-center">Please Enter What You Want to search For</p>
+    <form class="centered">
+        <label>Name:</label>
+        <input required="" id="name" placeholder="name"/>
+        <input id="searhUser" type="button" value="search"/>
+    </form>
+    <jsp:include page="retrieveUser"/>
+    <c:if test="${not empty users}">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-sm table-striped" style="margin-top: 3%">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>credit limit</th>
+                    <th>View Details</th>
+                </tr>
+                </thead>
+
+                <tbody id="usersTableList">
+                <c:forEach var="user" items="${users}">
+                    <tr>
+                        <td>${user.email}</td>
+                        <td>${user.name}</td>
+                        <td>${user.creditLimit}</td>
+                        <td><a class="btn btn-primary" href="profile?mail=${user.email}">view Information</a></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+
+            </table>
+        </div>
+    </c:if>
+</div>
+
+<jsp:directive.include file="/html/common/footer.html"/>
+</body>
+</html>

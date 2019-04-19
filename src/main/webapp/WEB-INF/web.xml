@@ -49,7 +49,10 @@
         <jsp-file>/html/user/shop/shop.jspx</jsp-file>
     </servlet>
 
-
+    <servlet>
+        <servlet-name>adminHome</servlet-name>
+        <jsp-file>/html/admin/dashboard/adminDashboard.jspx</jsp-file>
+    </servlet>
 
     <!--Aya Servlet-->
 
@@ -150,7 +153,10 @@
         <url-pattern>/shop</url-pattern>
     </servlet-mapping>
 
-
+    <servlet-mapping>
+        <servlet-name>adminHome</servlet-name>
+        <url-pattern>/adminHome</url-pattern>
+    </servlet-mapping>
 
     <!--Aya Servlet  Mapping-->
 

@@ -60,6 +60,7 @@ public class MainFilter implements Filter {
            else if(currentPage.contains("/shop")){
                handler=new ShopHandler();
                handler.handle(request,response,filterChain,login);
+
            }
 
 
@@ -76,6 +77,12 @@ public class MainFilter implements Filter {
 
 
             }
+            /*
+           else if(currentPage.equals("/addProduct")) {
+               handler=new AddProductHandler();
+               handler.handle(request,response,filterChain,login);
+           }
+           */
             //Islam Part
             else if(currentPage.equals("/ViewYourCart"))
             {

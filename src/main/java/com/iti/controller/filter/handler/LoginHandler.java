@@ -5,8 +5,11 @@ import com.iti.model.entity.ShoppingCart;
 import com.iti.model.entity.User;
 import com.iti.model.response.AuthenticationResponse;
 import com.iti.model.response.Status;
+import com.iti.model.response.Usertype;
 import com.iti.service.LoginService;
 import com.iti.service.impl.LoginServiceImpl;
+import org.hibernate.usertype.UserType;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -24,12 +27,18 @@ public class LoginHandler  extends HomeHandler{
         user = createUser(request);
         LoginService service=new LoginServiceImpl();
         AuthenticationResponse loginResponse=service.login(user);
+
         if (loginResponse.getStatus().equals(Status.success)) {
             session.setAttribute("login",true);
             session.setAttribute("mail",user.getEmail());
+            session.setAttribute("userType",loginResponse.getUsertype());
             //Get saved cart and merge its items with session cart items.
-            mergeCarts(user, session);
-            filterChain.doFilter(request, response);
+            if(loginResponse.getUsertype().equals(Usertype.customer)) {
+                mergeCarts(user, session);
+                response.sendRedirect("home");
+            }else {
+                response.sendRedirect("adminHome");
+            }
         } else {
             response.sendRedirect("login?message="+loginResponse.getMessage());
         }

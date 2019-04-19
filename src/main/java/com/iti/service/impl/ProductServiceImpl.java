@@ -59,7 +59,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ConfirmationResponse insert(Product product,String categoryName,String storeName) {
-        //get store by name
+        //get storename
         //get store object
 
         //add to product
@@ -139,6 +139,8 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
+
+
     public Store getStore(String storeName){
         TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
         try {
@@ -146,7 +148,22 @@ public class ProductServiceImpl implements ProductService {
                 Store store;
                 StoreDao storeDao=new StoreDaoImplementation();
                 store= storeDao.retrieveStoreByName(storeName,session);
-                return store;
+                if(store !=null) {
+                    return store;
+                }
+                else{
+                    //add new store
+                    Session secondSession =HibernateUtils.getSession();
+                    Store newStore=new Store();
+                    newStore.setName(storeName);
+                    boolean flagStore=storeDao.persistStore(newStore,secondSession);
+                    //get the new store
+                    if(flagStore){
+                        Session thirddSession =HibernateUtils.getSession();
+                        store=storeDao.retrieveStoreByName(storeName,thirddSession);
+                    }
+                    return store;
+                }
 
             });
         } catch (Exception e) {
@@ -169,6 +186,21 @@ public class ProductServiceImpl implements ProductService {
             return new Category();
         }
 
+    }
+    @Override
+    public Product getProductByID(Integer productId) {
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+
+        try {
+            return transactionManager.runInTransaction(session -> {
+                ProductDao productDao = new ProductDaoImplementation();
+                Product product=productDao.retriveProductByID(productId,session);
+                return product;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Product();
+        }
     }
 
 }

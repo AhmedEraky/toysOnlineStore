@@ -43,7 +43,7 @@ public class ReviewDaoImplementation implements ReviewDao
     @Override
     public boolean persistReview(Review review, Session session)
     {
-        session.saveOrUpdate(review);
+        session.save(review);
         return true;
     }
 
@@ -66,5 +66,12 @@ public class ReviewDaoImplementation implements ReviewDao
         return reviews;
     }
 
+    @Override
+    public boolean updateReview(Review newReview, Session session)
+    {
 
+        session.saveOrUpdate(newReview);
+        return true;
+
+    }
 }

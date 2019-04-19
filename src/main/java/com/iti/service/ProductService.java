@@ -10,6 +10,11 @@ public interface ProductService {
     ConfirmationResponse insert(Product product,String categoryName,String storeName);
     Boolean updateProduct(Product product);
     Boolean removeProduct(Integer productId);
+    /*==Aya==*/
+    Product getProductByID(Integer productId);
+
+
+
 }
 
 

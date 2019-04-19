@@ -20,11 +20,15 @@ $(document).ready(function () {
 
             success: function (data) {
                 console.log(data);
-                alert("dddd");
+
                  $('#userEmail').val("");
                $("#userName").val();
                 $("#reviewDescription").val("");
                 $("#rate").val("");
+                //remove  all reviews
+
+                //add new reviews
+
 
             }
 
