@@ -28,15 +28,19 @@
                 <div class="col-lg-4 col-md-3 right-side-cart">
                     <div class="cart-icons">
                         <ul>
-                            <li>
-                                <button id="my-fav-items"> <span class="far fa-heart"></span></button>
-                            </li>
-                            <li>
-                                <a href="profile"><button id="my-profile"> <span class="far fa-user"></span></button></a>
-                            </li>
-                            <li class="toyscart toyscart2 cart cart box_1">
-                                <a href="ViewYourCart"><button id="my-cart"><span class="fas fa-cart-arrow-down"></span></button></a>
-                            </li>
+                            <c:if test = "${empty sessionScope.userType or sessionScope.userType=='customer' }">
+
+                                <li>
+                                    <button id="my-fav-items"> <span class="far fa-heart"></span></button>
+                                </li>
+                                <li>
+                                    <a href="profile"><button id="my-profile"> <span class="far fa-user"></span></button></a>
+                                </li>
+
+                                <li class="toyscart toyscart2 cart cart box_1">
+                                    <a href="ViewYourCart"><button id="my-cart"><span class="fas fa-cart-arrow-down"></span></button></a>
+                                </li>
+                            </c:if>
                         </ul>
                     </div>
                 </div>
@@ -51,12 +55,43 @@
                     <li id="nav-home" class="nav-item">
                         <a class="nav-link" href="home">Home</a>
                     </li>
-                    <li id="nav-about" class="nav-item">
-                        <a href="about" class="nav-link">About</a>
-                    </li>
-                    <li id="nav-shop" class="nav-item">
-                        <a href="shop" class="nav-link">Shop Now</a>
-                    </li>
+
+                    <c:if test = "${empty sessionScope.userType or sessionScope.userType=='customer' }">
+                        <li id="nav-about" class="nav-item">
+                            <a href="about" class="nav-link">About</a>
+                        </li>
+
+                    </c:if>
+                    <c:if test = "${not empty sessionScope.userType}">
+                        <c:if test="${sessionScope.userType=='admin'}">
+                            <li id="nav-shop" class="nav-item">
+                                <a href="addProduct" class="nav-link">Add Product</a>
+                            </li>
+                        </c:if>
+                    </c:if>
+
+                    <c:choose>
+                        <c:when test = "${not empty sessionScope.userType}">
+                            <c:if test="${sessionScope.userType=='customer'}">
+                                <li id="nav-shop" class="nav-item">
+                                    <a href="shop" class="nav-link">Shop Now</a>
+                                </li>
+                            </c:if>
+                            <c:if test="${sessionScope.userType=='admin'}">
+                                <li id="nav-shop" class="nav-item">
+                                    <a href="shop" class="nav-link">Edit Products</a>
+                                </li>
+                            </c:if>
+                        </c:when>
+                        <c:otherwise>
+                            <li id="nav-shop" class="nav-item">
+                                <a href="shop" class="nav-link">Shop Now</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+
+
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Product
