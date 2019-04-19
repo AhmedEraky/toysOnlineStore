@@ -7,9 +7,9 @@
 
             <h3>Add <span>Products</span></h3>
 
-                  <div></div>  <p> <c:out value="${requestScope.message}"/></p>
+                  <div> <p> <c:out value="${requestScope.message}"/></p>
         </div>
-            <form method="post" id="addProductForm" action="">
+            <form method="post" id="addProductForm" action="uploadProduct" enctype="multipart/form-data">
 
 
                 <div class="form-group row">
@@ -29,7 +29,11 @@
                 <div class="form-group row">
                     <label for="inputStore" class="col-sm-2 col-form-label">Store</label>
                     <div class="col-sm-5">
-                        <input  type="text" name="storeName" class="form-control" id="inputStore" placeholder="Store...." required=""/>
+                        <select class="form-control" id="inputStore" name="storeName" required>
+                            <c:forEach items="${sessionScope.stores}" var="current">
+                            <option value="${current}"><c:out value="${current}"/></option>
+                            </c:forEach>
+                        </select>
                     </div>
                 </div>
 
@@ -69,7 +73,7 @@
                 <div class="form-group row">
                     <label for="inputDiscount" class="col-sm-2 col-form-label">Discount</label>
                     <div class="col-sm-5">
-                        <input  type="number" min="0" step="0.01" name="discountPercentage" class="form-control" id="inputDiscount" placeholder="Enter Discount...." required=""/>
+                        <input  type="number" min="0" step="1"  max="100" name="discountPercentage" class="form-control" id="inputDiscount" placeholder="Enter Discount...." required=""/>
                     </div>
                 </div>
                 <br>

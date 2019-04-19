@@ -4,7 +4,7 @@ public class HomePageProductsResponse extends ValidationResponse {
     private String name;
     private Double price;
     private String imagePath;
-    private Integer ProductID;
+    private String id;
 
     public String getName() {
         return name;
@@ -30,12 +30,11 @@ public class HomePageProductsResponse extends ValidationResponse {
         this.imagePath = imagePath;
     }
 
-    public Integer getProductID() {
-        return ProductID;
+    public String getId() {
+        return id;
     }
 
-    public void setProductID(Integer productID) {
-        ProductID = productID;
+    public void setId(String id) {
+        this.id = id;
     }
-
 }

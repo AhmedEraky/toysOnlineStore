@@ -40,6 +40,7 @@ public interface ProductDao {
     //Ashraf Part
 
     //Hadeer's Part
+    boolean removeProductByID(Integer productID,Session session);
 
     //Islam's Part
     boolean updateProductPurchaseCount(Product soldProduct, Session session);

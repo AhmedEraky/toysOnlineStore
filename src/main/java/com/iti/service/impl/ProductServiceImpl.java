@@ -97,6 +97,50 @@ public class ProductServiceImpl implements ProductService {
         }
 
     }
+
+    @Override
+    public Boolean updateProduct(Product product) {
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+        try {
+            return transactionManager.runInTransaction(session -> {
+                ProductDao productDao = new ProductDaoImplementation();
+                Boolean updated = false;
+                Product currentProduct = productDao.retriveProductByID(product.getProductID(),session);
+                Product newProduct = productDao.retriveProductByID(product.getProductID(),session);
+                if(newProduct != null){
+                    newProduct.setDiscountPercentage(product.getDiscountPercentage());
+                    newProduct.setPrice(product.getPrice());
+                    newProduct.setQuantity(product.getQuantity());
+                    Session secondSession =HibernateUtils.getSession();
+                    updated = productDao.updateProduct(currentProduct,newProduct,secondSession);
+                }
+                return updated;
+
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean removeProduct(Integer productId) {
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+        try {
+            return transactionManager.runInTransaction(session -> {
+                ProductDao productDao = new ProductDaoImplementation();
+                Boolean deleted = false;
+                return productDao.removeProductByID(productId,session);
+
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+
     public Store getStore(String storeName){
         TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
         try {
@@ -127,6 +171,21 @@ public class ProductServiceImpl implements ProductService {
             return new Category();
         }
 
+    }
+    @Override
+    public Product getProductByID(Integer productId) {
+        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
+
+        try {
+            return transactionManager.runInTransaction(session -> {
+                ProductDao productDao = new ProductDaoImplementation();
+                Product product=productDao.retriveProductByID(productId,session);
+                return product;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Product();
+        }
     }
 
 }

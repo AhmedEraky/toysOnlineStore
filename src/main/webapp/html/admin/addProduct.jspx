@@ -19,7 +19,7 @@
     <jsp:include page="/html/common/header.jspx"/>
     <jsp:include page="/html/common/banner.jspx"/>
 
-    <jsp:include page="/html/admin/addProduct.jsp"/>
+    <jsp:include page="/html/admin/addProduct.html"/>
     <jsp:directive.include file="/html/common/footer.html"/>
 
     </body>

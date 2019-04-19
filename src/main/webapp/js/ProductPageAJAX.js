@@ -35,9 +35,12 @@ $(document).ready(function () {
             type: "POST",
 
             success: function (data) {
+
+               // $(".popup-overlay, .popup-content").addClass("active");
+
                 console.log(data);
                 var mark=" <p class=\"bg-success\" id=\'p\'>"+data+"</p>";
-                $("#com").append(mark);
+               $("#com").append(mark);
 
             }
 
