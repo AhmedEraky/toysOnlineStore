@@ -1,5 +1,6 @@
 
 $('head').append('<link rel="stylesheet" href="css/shop.css" type="text/css" />');
+
 $(document).ready(function () {
     $("#wishes").click(function () {
         var productid = $('input#productid').val();
@@ -36,11 +37,13 @@ $(document).ready(function () {
 
             success: function (data) {
 
-               // $(".popup-overlay, .popup-content").addClass("active");
+               // ShowCustomDialog(data);
+
 
                 console.log(data);
                 var mark=" <p class=\"bg-success\" id=\'p\'>"+data+"</p>";
                $("#com").append(mark);
+
 
             }
 
@@ -49,6 +52,59 @@ $(document).ready(function () {
 
 
     });
+    function ShowCustomDialog(data)
+    {
+
+        ShowDialogBox('Warning',data,'Ok','', 'GoToAssetList',null);
+    }
+    function ShowDialogBox(title, content, btn1text, btn2text, functionText, parameterList) {
+        var btn1css;
+        var btn2css;
+
+        if (btn1text == '') {
+            btn1css = "hidecss";
+        } else {
+            btn1css = "showcss";
+        }
+
+        if (btn2text == '') {
+            btn2css = "hidecss";
+        } else {
+            btn2css = "showcss";
+        }
+        $("#lblMessage").html(content);
+
+        $("#dialog").dialog({
+            resizable: false,
+            title: title,
+            modal: true,
+            width: '400px',
+            height: 'auto',
+            bgiframe: false,
+            hide: { effect: 'scale', duration: 400 },
+
+            buttons: [
+                {
+                    text: btn1text,
+                    "class": btn1css,
+                    click: function () {
+
+                        $("#dialog").dialog('close');
+
+                    }
+                },
+                {
+                    text: btn2text,
+                    "class": btn2css,
+                    click: function () {
+                        $("#dialog").dialog('close');
+                    }
+                }
+            ]
+        });
+
+
+    }
 
     $("#send").click(function () {
 
