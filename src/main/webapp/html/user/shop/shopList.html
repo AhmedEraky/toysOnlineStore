@@ -37,7 +37,7 @@
                                             <div class="grid_meta">
                                                 <div class="product_price">
                                                     <h4>
-                                                        <a href="single.html">${product.name}</a>
+                                                        <a href=productPage?ProductID=${product.id}">${product.name}</a>
                                                     </h4>
                                                     <div class="grid-price mt-2">
                                                         <span class="money ">${product.price}</span>
@@ -62,24 +62,19 @@
                                                                 </c:forEach>
                                                             </c:otherwise>
                                                         </c:choose>
-
-
-
-
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="toys single-item hvr-outline-out">
-                                                <form action="#" method="post">
-                                                    <input type="hidden" name="cmd" value="_cart"/>
-                                                    <input type="hidden" name="add" value="1"/>
-                                                    <input type="hidden" name="toys_item" value="toys(barbie)"/>
-                                                    <input type="hidden" name="amount" value="575.00"/>
-                                                    <button type="submit" class="toys-cart ptoys-cart">
-                                                        <i class="fas fa-cart-plus"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
+                                            <c:if test = "${empty sessionScope.userType or sessionScope.userType=='customer'}">
+                                                <div class="toys single-item hvr-outline-out">
+                                                    <form method="post">
+                                                        <input type="hidden" id="productid" value="${product.id}"/>
+                                                        <button type="button" id="addToCartBtn" class="toys-cart ptoys-cart">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </c:if>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -94,7 +89,7 @@
 </section>
 
 <div style="display:flex; margin-bottom: 5%">
-<div id="pagination" style="margin:auto;" ></div>
+    <div id="pagination" style="margin:auto;" ></div>
 </div>
 
 <!-- footer -->
