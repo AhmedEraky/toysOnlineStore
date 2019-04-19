@@ -42,6 +42,7 @@ public class ReviewServiceImpl implements ReviewService {
                         response.setUserEmail(review.getUser().getEmail());
                         response.setUserName(review.getUser().getName());
                         response.setRate(review.getRate());
+                        response.setImagePath(review.getUser().getImagePath());
 
                         responses.add(response);
                     }

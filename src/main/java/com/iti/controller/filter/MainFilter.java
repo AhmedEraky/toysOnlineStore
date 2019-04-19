@@ -60,6 +60,7 @@ public class MainFilter implements Filter {
            else if(currentPage.contains("/shop")){
                handler=new ShopHandler();
                handler.handle(request,response,filterChain,login);
+
            }
 
 
