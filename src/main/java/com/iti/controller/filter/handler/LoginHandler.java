@@ -35,7 +35,7 @@ public class LoginHandler  extends HomeHandler{
             //Get saved cart and merge its items with session cart items.
             if(loginResponse.getUsertype().equals(Usertype.customer)) {
                 mergeCarts(user, session);
-                filterChain.doFilter(request, response);
+                response.sendRedirect("home");
             }else {
                 response.sendRedirect("adminHome");
             }

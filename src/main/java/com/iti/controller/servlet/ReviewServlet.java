@@ -23,7 +23,6 @@ public class ReviewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productid=(String)request.getParameter("productid");
             String email=request.getParameter("userEmail");
-            String name=request.getParameter("userName");
         String message=request.getParameter("reviewDescription");
         int rate;
         if((request.getParameter("rate"))!=null) {
@@ -36,7 +35,6 @@ public class ReviewServlet extends HttpServlet {
         ReviewResponse reviewResponse=new ReviewResponse();
 
         reviewResponse.setRate(rate);
-        reviewResponse.setUserName(name);
         reviewResponse.setUserEmail(email);
         reviewResponse.setReviewDescription(message);
         reviewResponse.setProductid(Integer.parseInt(productid));

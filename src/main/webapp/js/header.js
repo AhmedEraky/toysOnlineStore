@@ -10,6 +10,8 @@ $( window ).on( "load",
             $("#nav-login").addClass("active");
         }else if (window.location.href.substring(window.location.href.length-12, window.location.href.length)=="registration") {
             $("#nav-registration").addClass("active");
+        }else if(window.location.href.substring(window.location.href.length-10, window.location.href.length)=="addProduct"){
+            $("#nav-editProduct").addClass("active");
         }
         $("#search-input").css({'color':'red'});
     });

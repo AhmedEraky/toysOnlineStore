@@ -20,16 +20,8 @@ public class HomePageHandler implements  Handler{
     public void handle(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Boolean login) throws IOException, ServletException {
         HttpSession session = request.getSession();
         Boolean loginAttribute = (Boolean)session.getAttribute("login");
-        if( (loginAttribute!=null )&& loginAttribute.equals(true) && session.getAttribute("userType").equals(Usertype.customer)){
-            String userEmail =(String)session.getAttribute("mail");
-            HomePageService homePageService = new HomePageServiceImpl();
-            ArrayList<HomePageProductsResponse> newProducts = homePageService.getNewProducts();
-            ArrayList<HomePageProductsResponse> userFeaturedProducts =homePageService.getUserFeaturedProducts(userEmail);
-            request.setAttribute("NewProducts",newProducts);
-            request.setAttribute("FeaturedProducts",userFeaturedProducts);
-            filterChain.doFilter(request, response);
-        }
-        else if ((loginAttribute!=null )&& loginAttribute.equals(true) && session.getAttribute("userType").equals(Usertype.admin)){
+
+        if ((loginAttribute!=null )&& loginAttribute.equals(true) && session.getAttribute("userType").equals(Usertype.admin)){
             RequestDispatcher requestDispatcher=request.getRequestDispatcher("adminHome");
             requestDispatcher.forward(request,response);
         }

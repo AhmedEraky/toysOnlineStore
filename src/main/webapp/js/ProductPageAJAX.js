@@ -54,7 +54,6 @@ $(document).ready(function () {
 
         var productid = $('input#productid').val();
         var userEmail = $('[name="userEmail"]').val();
-        var userName=$('[name="userName"]').val();
         var reviewDescription=$('[name="reviewDescription"]').val();
         var rate=$("[name='rate']:checked").val();
 
@@ -62,7 +61,6 @@ $(document).ready(function () {
             data: {
                 "productid": productid,
                 "userEmail": userEmail,
-                "userName":userName,
                 "reviewDescription":reviewDescription,
                 "rate":rate
 
@@ -70,11 +68,10 @@ $(document).ready(function () {
             type: "POST",
 
             success: function (data) {
-
+                var email = $('input#emailUser').val();
                 console.log(data);
 
-                $('#userEmail').val("");
-                $("#userName").val("");
+
                 $("#reviewDescription").val("");
                 //stars
                 $("#stardiv").empty();
@@ -137,11 +134,12 @@ $(document).ready(function () {
                 }
                 //add new reviews
                 else {
+                    var image;
                     for (var count = 0; count < objectr.length; count++) {
-
+                            image=objectr[count].imagePath;
                         rev =
                             "<div class=\"bootstrap-tab-text-grid-left\">" +
-                            "<img src=\"images/team1.jpg\" alt=\" \" class=\"img-fluid\">" +
+                            "<img src="+image+"  class=\"img-fluid\">" +
                             "</div>" +
                             "<div class=\"bootstrap-tab-text-grid-right\">" +
 
@@ -178,11 +176,9 @@ $(document).ready(function () {
                     "                                <h4>add a review</h4>\n" +
                     "                                <form action=\"\" method=\"post\">\n" +
                     "                                    <div class=\"row\">\n" +
+
                     "                                        <div class=\"col-md-6\">\n" +
-                    "                                            <input type=\"text\" name=\"userName\" id=\"userName\" placeholder=\"Enter your name\" required=\"\"/>\n" +
-                    "                                        </div>\n" +
-                    "                                        <div class=\"col-md-6\">\n" +
-                    "                                            <input type=\"email\" name=\"userEmail\"   id=\"userEmail\" placeholder=\"Enter your email\" required=\"\"/>\n" +
+                    "                                            <input type=\"email\" name=\"userEmail\"   id=\"userEmail\" value="+email+" readonly/>\n" +
                     "                                        </div>\n" +
                     "                                        <!--stars-->\n" +
                     "                                        <div class=\"rate\" id=\"stardiv\">\n" +
