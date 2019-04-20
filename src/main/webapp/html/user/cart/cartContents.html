@@ -40,7 +40,7 @@
                                     </div>
                                 </td>
                                 <td class="invert">${cartItem.getProducts().getName()}</td>
-                                <td class="invert">${(cartItem.getQuantity() * cartItem.getProducts().getPrice())}</td>
+                                <td class="invert">${(cartItem.getQuantity() * (cartItem.getProducts().getPrice() - cartItem.getProducts().getPrice()*(cartItem.getProducts().getDiscountPercentage()/100)))}</td>
                                 <td class="invert">
                                     <div class="rem">
                                         <div class="close1"> </div>
@@ -57,8 +57,8 @@
                         <ul id="productsCheck">
                             <c:set var="totalPrice" value="${0}"/>
                             <c:forEach items="${sessionScope.cart.getShoppingCartItems()}" var="cartItem">
-                                <c:set var="totalPrice" value="${totalPrice + (cartItem.getQuantity() * cartItem.getProducts().getPrice())}"/>
-                                <li>${cartItem.getProducts().getName()} <i>-</i> <span>${(cartItem.getQuantity() * cartItem.getProducts().getPrice())} </span></li>
+                                <c:set var="totalPrice" value="${totalPrice + (cartItem.getQuantity() * (cartItem.getProducts().getPrice() - cartItem.getProducts().getPrice()*(cartItem.getProducts().getDiscountPercentage()/100)))}"/>
+                                <li>${cartItem.getProducts().getName()} <i>-</i> <span>${(cartItem.getQuantity() * (cartItem.getProducts().getPrice() - cartItem.getProducts().getPrice()*(cartItem.getProducts().getDiscountPercentage()/100)))} </span></li>
                             </c:forEach>
                             <li>Total <i>-</i> <span>${totalPrice}</span></li>
                         </ul>

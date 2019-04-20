@@ -1,9 +1,12 @@
 package com.iti.model.Dao;
 
+import com.iti.model.entity.Product;
 import com.iti.model.entity.User;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public interface UserDao {
 
@@ -21,4 +24,6 @@ public interface UserDao {
     //Aya Part
     boolean updateUser(User user, Session session);
 
+    //Islam's Part
+    List<Product> retrieveUserWishList(String userEmail, Session session);
 }
