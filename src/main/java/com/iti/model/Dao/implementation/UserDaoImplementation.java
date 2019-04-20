@@ -95,7 +95,8 @@ public class UserDaoImplementation implements UserDao {
     @Override
     public List<Product> retrieveUserWishList(String userEmail, Session session)
     {
-        List<Product> userWishes;
-        return null;
+        User user=session.get(User.class,userEmail);
+        List<Product> userWishes=new ArrayList<>(user.getUserWishes());
+        return userWishes;
     }
 }
