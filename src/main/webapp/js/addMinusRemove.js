@@ -13,11 +13,12 @@ $(document).ready(function () {
         var productId = $(this).parent().parent().parent().prev().prev();
         var productName = $(this).parent().parent().parent().next();
         var productTotalCost = $(this).parent().parent().parent().next().next();
+        console.log(productTotalCost.text());
         increasedProductCost = productTotalCost;
 
         var oldquantity = parseFloat(amount.text()) - 1;
-        var oldCost = parseFloat(productTotalCost.text().substring(1));
-        productTotalCost.text("$" + increaseCost(oldquantity, oldCost).toFixed(2));
+        var oldCost = parseFloat(productTotalCost.text());
+        productTotalCost.text(increaseCost(oldquantity, oldCost).toFixed(1));
 
         increaseAjaxCall(operation, productId.text(), productName.text(), amount.text());
 
@@ -32,8 +33,8 @@ $(document).ready(function () {
         if (canDecreaseCost) {
             var currentQuantity = parseFloat(amount.text());
             var oldquantity = parseFloat(amount.text()) + 1;
-            var oldCost = parseFloat(productTotalCost.text().substring(1));
-            productTotalCost.text("$" + decreaseCost(oldquantity, oldCost).toFixed(2));
+            var oldCost = parseFloat(productTotalCost.text());
+            productTotalCost.text(decreaseCost(oldquantity, oldCost).toFixed(1));
             if (currentQuantity == 1) { canDecreaseCost = false; }
         }
 
@@ -52,33 +53,44 @@ $(document).ready(function () {
 function addCallBack(data){
     if((data=="Sorry Fail to added to Shopping cart")||(data=="You added quantity more than the available quantity")){
         increasedProductQuantity.text(parseInt(increasedProductQuantity.text())-1);
-        increasedProductCost.text("$" + decreaseCost(parseFloat(increasedProductQuantity.text()) + 1, parseFloat(increasedProductCost.text().substring(1))).toFixed(2));
+        increasedProductCost.text(decreaseCost(parseFloat(increasedProductQuantity.text()) + 1, parseFloat(increasedProductCost.text())).toFixed(1));
     }
     displayTotalCost();
 }
 
 function displayTotalCost() {
-    $(document).ready(function () {
-        var totalCost = 0;
-        var name;
-        var price;
-        $('#productsCheck').empty();
-        $('#productsTable').find('tr').each(function (rowIndex, r) {
-            $(this).find('td').each(function (colIndex, c) {
-                if (colIndex == 3) {
-                    name = c.textContent;
-                }
-                else if (colIndex == 4) {
-                    price = c.textContent;
-                }
-                else if (colIndex == 5) {
-                    $('#productsCheck').append("<li>" + name + "<span>" + price + " </span></li>");
-                    totalCost += parseFloat(price.substring(1));
-                }
-            });
+    var totalCost = 0;
+    var name;
+    var price;
+    // setTimeout(
+    //     function()
+    //     {
+    //         //do something special
+    //     }, 2000);
+    $('#productsCheck').empty();
+    $('#productsTable').find('tr').each(function (rowIndex, r) {
+        $(this).find('td').each(function (colIndex, c) {
+            if (colIndex == 3) {
+                name = c.textContent;
+            }
+            else if (colIndex == 4) {
+                price = c.textContent;
+            }
+            else if (colIndex == 5) {
+                $('#productsCheck').append("<li>" + name + "<span>$" + price + " </span></li>");
+                totalCost += parseFloat(price);
+            }
         });
-        $('#productsCheck').append("<li>Total <i>-</i> <span>$" + totalCost + "</span></li>");
     });
+    $('#productsCheck').append("<li>Total <i>-</i> <span>$" + totalCost + "</span></li>");
+
+
+    // var theProductsTableBody = $("#productsTable tbody");
+    // if (theProductsTableBody.children().length == 0) {
+    //     console.log("table is empty");
+    //     $('#productsCheck').empty();
+    //     $('#productsCheck').append("<li>Total <i>-</i> <span>$0</span></li>");
+    // }
 }
 
 function decreaseCost(oldquantity, oldCost) {

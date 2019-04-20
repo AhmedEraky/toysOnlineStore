@@ -95,6 +95,10 @@
         <servlet-class>com.iti.controller.servlet.BuyingProcessServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>wishes</servlet-name>
+        <jsp-file>/html/user/Wish List/wishList.jspx</jsp-file>
+    </servlet>
 
     <!--Ashraf Servlet-->
     <servlet>
@@ -199,6 +203,10 @@
         <url-pattern>/BuyingProcessServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>wishes</servlet-name>
+        <url-pattern>/ViewYourWishes</url-pattern>
+    </servlet-mapping>
     <!--Ashraf Servlet  Mapping-->
 
     <servlet-mapping>
