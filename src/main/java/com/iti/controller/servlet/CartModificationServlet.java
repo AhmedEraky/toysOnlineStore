@@ -2,6 +2,8 @@ package com.iti.controller.servlet;
 
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.response.AddingResponse;
+import com.iti.model.response.DecreaseProductQuantityInCartResponse;
+import com.iti.model.response.RemoveProductFromCartResponse;
 import com.iti.service.AddToCartService;
 import com.iti.service.DecreaseCartItemQuantityService;
 import com.iti.service.RemoveCartItemService;
@@ -27,19 +29,24 @@ public class CartModificationServlet extends HttpServlet {
         ShoppingCart shoppingCart = (ShoppingCart) request.getSession().getAttribute("cart");
         if(operation.equals("increaseQuantityOperation")){
             AddToCartService addToCartService = new AddToCartServiceImpl();
-            AddingResponse addingResponse=addToCartService.addToCart(productId,1,shoppingCart);
+            AddingResponse addingResponse = addToCartService.addToCart(productId,1,shoppingCart);
             out.print(addingResponse.getMessage());
         }
         else if(operation.equals("decreaseQuantityOperation")){
             DecreaseCartItemQuantityService decreaseCartItemQuantityService =
                     new DecreaseCartItemQuantityServiceImpl();
-            shoppingCart = decreaseCartItemQuantityService.decreaseQuantity(productId,amount,shoppingCart);
+            DecreaseProductQuantityInCartResponse decreaseResponse =
+                    decreaseCartItemQuantityService.decreaseQuantity(productId,amount,shoppingCart);
+            shoppingCart = decreaseResponse.getCart();
             request.setAttribute("cart",shoppingCart);
+            out.print(decreaseResponse.getMessage());
         }
         else if(operation.equals("removeProductOperation")){
             RemoveCartItemService removeCartItemService = new RemoveCartItemServiceImpl();
-            shoppingCart = removeCartItemService.removeCartItem(productId,shoppingCart);
+            RemoveProductFromCartResponse removeResponse = removeCartItemService.removeCartItem(productId,shoppingCart);
+            shoppingCart = removeResponse.getCart();
             request.setAttribute("cart",shoppingCart);
+            out.print(removeResponse.getMessage());
         }
     }
 }

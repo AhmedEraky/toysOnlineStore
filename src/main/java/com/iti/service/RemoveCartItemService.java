@@ -1,7 +1,8 @@
 package com.iti.service;
 
 import com.iti.model.entity.ShoppingCart;
+import com.iti.model.response.RemoveProductFromCartResponse;
 
 public interface RemoveCartItemService {
-    ShoppingCart removeCartItem(Integer productID,ShoppingCart cart);
+    RemoveProductFromCartResponse removeCartItem(Integer productID,ShoppingCart cart);
 }
