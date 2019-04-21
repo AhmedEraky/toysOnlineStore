@@ -34,6 +34,7 @@ public class ShopServiceImpl implements ShopService {
                     response.setImagePath(product.getImagePath());
                     response.setPrice("$"+product.getPrice());
                     response.setImagePath(product.getImagePath());
+                    response.setQuantity(product.getQuantity());
                     //rate
                     ArrayList<ReviewResponse> responses=new  ArrayList<ReviewResponse>();
                     ReviewDao reviewDao = new ReviewDaoImplementation();

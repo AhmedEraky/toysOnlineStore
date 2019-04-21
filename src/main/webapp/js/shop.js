@@ -23,22 +23,28 @@ $(document).ready(function(){
         window.location.href=link;
     });
 
-    $("#addToCartBtn").click(function () {
-        var productid = $('#productid').val();
-        var quantity=1;
-        $.ajax({url: "ShoppingCartServlet",
-            data: {
-                "productid": productid,
-                "quantity":quantity
-            },
-            type: "POST",
-
-            success: function (data) {
-
-                // $(".popup-overlay, .popup-content").addClass("active");
-
-                console.log(data);
-
-        }});});
+    $("#addToCartBtn").click();
 
 });
+
+function addtoCart(productid) {
+    var quantity=1;
+    $.ajax({url: "ShoppingCartServlet",
+        data: {
+            "productid": productid,
+            "quantity":quantity
+        },
+        type: "POST",
+
+        success: function (data) {
+            $.hyc.ui.alert(data, function () {
+            });
+        }});
+}
+
+function outOfStock() {
+    $.hyc.ui.alert("Sorry This Product Out Of Stock", function () {
+    });
+}
+
+
