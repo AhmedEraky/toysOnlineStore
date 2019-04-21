@@ -22,29 +22,25 @@ public class UserWishesServletImpl implements UserWishesServlet {
             return transactionManager.runInTransaction(session -> {
                 ProductDao productDao = new ProductDaoImplementation();
                 Product product = productDao.retriveProductByID(productId, session);
+                Set<User> users=product.getUserWishes();
+
                 UserDao userDao = new UserDaoImplementation();
                 User user = userDao.retiveUserEmail(userEmail, session);
+                users.add(user);
                 Set<Product> userProducts = user.getUserWishes();
-                
-                userProducts.add(product);
-
-                Boolean updated = false;
-                User currentUser = userDao.retiveUserEmail(user.getEmail(),session);
-                if(currentUser != null) {
-                    currentUser.setBirthDate(user.getBirthDate());
-                    currentUser.setJob(user.getJob());
-                    currentUser.setAddress(user.getAddress());
-                    currentUser.setCreditLimit(user.getCreditLimit());
-                    /*==Aya==*/
-                    if (user.getUserWishes().size() != 0) {
-                        currentUser.setUserWishes(user.getUserWishes());
-                    }
-
-                    updated = userDao.updateUser(currentUser, session);
-
+                //check is it exists
+                Boolean check=true;
+                for(Product product1:userProducts) {
+                    if(product1.getProductID()==productId)
+                        check=false;
 
                 }
-                return updated;
+                if(check){
+                    userProducts.add(product);
+                    userDao.updateUser(user,session);
+                }
+
+                return check;
             });
         } catch (Exception e) {
             e.printStackTrace();

@@ -50,7 +50,7 @@ public class ProductHandling extends HttpServlet {
                 out.print("Successfully added to wishes list");
             } else {
 
-                out.print("fail to add in wish list");
+                out.print("It has been already added to your wish list");
             }
         }
     }
