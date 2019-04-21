@@ -83,8 +83,7 @@ public class AddProductServlet extends HttpServlet {
             }
         }
         ProductService productService = new ProductServiceImpl();
-        ConfirmationResponse confirmationResponse = new ConfirmationResponse();
-        confirmationResponse = productService.insert(product, categoryName, storeName);
+        ConfirmationResponse confirmationResponse = productService.insert(product, categoryName, storeName);
         if (confirmationResponse.getStatus().equals(Status.success)) {
             String appPath=request.getServletContext().getRealPath("");
             String directory=appPath+ File.separator+"images"+File.separator+"products";
@@ -94,10 +93,10 @@ public class AddProductServlet extends HttpServlet {
                 UploadImageService uploadImageService = new UploadImageServiceImpl();
                 uploadImageService.uploadImage(imageItem, directory, filename);
             }
-            response.sendRedirect("addProduct?message=" + confirmationResponse.getMessage());
+            response.sendRedirect("addProduct?successMessage=" + confirmationResponse.getMessage());
         }
         else{
-            response.sendRedirect("addProduct?message=" + confirmationResponse.getMessage());
+            response.sendRedirect("addProduct?errorMessage=" + confirmationResponse.getMessage());
         }
     }
 

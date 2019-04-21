@@ -21,6 +21,8 @@ import com.iti.service.ProductService;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ProductServiceImpl implements ProductService {
@@ -59,28 +61,38 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ConfirmationResponse insert(Product product,String categoryName,String storeName) {
-        //get storename
-        //get store object
 
-        //add to product
-        product.setStore(getStore(storeName));
-
-        //create product object from data in clientside
-        //image
-        product.setImagePath("images/"+product.getImagePath());
-        //add to product
-        product.setCategory(getCategory(categoryName));
         ConfirmationResponse confirmationResponse=new ConfirmationResponse();
         TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
         try {
+
             return transactionManager.runInTransaction(session -> {
+                Store storeProduct=getStore(storeName,product,session);
+                product.setStore(storeProduct);
+                product.setImagePath("images/"+product.getImagePath());
+                CategoryDao categoryDao=new CategoryDaoImplementation();
+                Category category= categoryDao.retriveCategoryByName(categoryName,session);
+                category.getProducts().add(product);
+                product.setCategory(category);
+
                 //insert product
                 ProductDao productDao=new ProductDaoImplementation();
                 boolean flag=productDao.persistProduct(product,session);
                 // message in confirmationResponse
                 if(flag){
+                    StoreDao storeDao=new StoreDaoImplementation();
+                    // to get setproduct in store
+                    //session.refresh(storeProduct);
+
+                    Set<Product> setProducts=storeProduct.getStoreProducts();
+                    // to get setproduct in category
+                    // Set<Product> categoryProduct=category.getProducts();
+                    setProducts.add(product);
+                    //categoryProduct.add(product);
+                    //category.setProducts(categoryProduct);
+                    storeDao.updateStore(storeProduct,session);
                     confirmationResponse.setStatus(Status.success);
-                    confirmationResponse.setMessage(product.getName()+" Successfully added");
+                    confirmationResponse.setMessage("("+product.getName()+")"+" is added Successfully ");
                 }
                 else{
                     confirmationResponse.setStatus(Status.fail);
@@ -141,52 +153,30 @@ public class ProductServiceImpl implements ProductService {
 
 
 
-    public Store getStore(String storeName){
-        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
-        try {
-            return transactionManager.runInTransaction(session -> {
-                Store store;
-                StoreDao storeDao=new StoreDaoImplementation();
-                store= storeDao.retrieveStoreByName(storeName,session);
-                if(store !=null) {
-                    return store;
-                }
-                else{
-                    //add new store
-                    Session secondSession =HibernateUtils.getSession();
-                    Store newStore=new Store();
-                    newStore.setName(storeName);
-                    boolean flagStore=storeDao.persistStore(newStore,secondSession);
-                    //get the new store
-                    if(flagStore){
-                        Session thirddSession =HibernateUtils.getSession();
-                        store=storeDao.retrieveStoreByName(storeName,thirddSession);
-                    }
-                    return store;
-                }
+    public Store getStore(String storeName,Product product,Session session) {
+        Store store;
+        StoreDao storeDao = new StoreDaoImplementation();
+        store = storeDao.retrieveStoreByName(storeName, session);
+        if (store != null) {
+            return store;
+        } else {
+            //add new store
+            Store newStore = new Store();
+            newStore.setName(storeName);
+            boolean flagStore = storeDao.persistStore(newStore, session);
+            //get the new store
+            if (flagStore) {
+                store = storeDao.retrieveStoreByName(storeName, session);
+            }
 
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new Store();
+            return store;
         }
     }
 
-    public Category getCategory(String categoryName){
-        TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
 
-        try {
-            return transactionManager.runInTransaction(session -> {
-                CategoryDao categoryDao=new CategoryDaoImplementation();
-                Category category= categoryDao.retriveCategoryByName(categoryName,session);
-                return category;
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new Category();
-        }
 
-    }
+
+
     @Override
     public Product getProductByID(Integer productId) {
         TransactionManager transactionManager=new TransactionManager(HibernateUtils.getSessionFactory());
@@ -202,5 +192,7 @@ public class ProductServiceImpl implements ProductService {
             return new Product();
         }
     }
+
+
 
 }

@@ -15,5 +15,6 @@ public interface StoreDao {
     //Aya
     Store retrieveStoreByName(String name,Session session);
     List<Store> retrieveAllStores(Session session);
-
+    boolean updateStore(Store store,Session session);
+    Set<Product> retrieveProductByStore(Store store,Session session);
 }

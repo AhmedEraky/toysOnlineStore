@@ -16,6 +16,7 @@ public class UserDaoImplementation implements UserDao {
     public User retiveUserEmail(String email, Session session) {
         Criteria criteria=session.createCriteria(User.class).add(Restrictions.eq("email",email));
         User user= (User) criteria.uniqueResult();
+        user.getUserWishes();
         return user;
     }
 

@@ -113,6 +113,7 @@ public class ProductDaoImplementation implements ProductDao {
     @Override
     public boolean persistProduct(Product product, Session session) {
             session.save(product);
+        System.out.println("======================="+session.isOpen());
             return true;
     }
 

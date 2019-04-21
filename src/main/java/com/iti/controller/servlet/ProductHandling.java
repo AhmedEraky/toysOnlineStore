@@ -45,9 +45,9 @@ public class ProductHandling extends HttpServlet {
 
             User user = profileService.getUserByEmail(userEmail);
             //add wishes for user
-            Set<Product> userProducts = new HashSet();
+            Set<Product> userProducts = user.getUserWishes();
             userProducts.add(product);
-            user.setUserWishes(userProducts);
+
             //update user
             Boolean flagUser = profileService.updateProfile(user);
 
