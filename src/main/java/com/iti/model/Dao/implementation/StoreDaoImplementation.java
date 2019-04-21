@@ -26,14 +26,23 @@ public class StoreDaoImplementation implements StoreDao
     @Override
     public boolean persistStore(Store store, Session session)
     {
-        session.persist(store);
-        return true;
+        try {
+
+
+            session.save(store);
+            return true;
+        }catch (HibernateException ex){
+            ex.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public Store retrieveStoreByName(String name, Session session) {
         Criteria criteria = session.createCriteria(Store.class).add(Restrictions.eq("name",name));
         Store store=(Store) criteria.uniqueResult();
+        if(store!=null)
+            System.out.println("number of products = "+store.getStoreProducts().size());
         return store;
 
     }
@@ -43,6 +52,21 @@ public class StoreDaoImplementation implements StoreDao
         Criteria criteria = session.createCriteria(Store.class);
         List<Store> stores= criteria.list();
         return stores;
+    }
+
+    @Override
+    public boolean updateStore(Store store, Session session) {
+        try {
+            session.update(store);
+            return true;
+        }catch (HibernateException ex){
+            return false;
+        }
+    }
+
+    @Override
+    public Set<Product> retrieveProductByStore(Store store, Session session) {
+    return null;
     }
 
 

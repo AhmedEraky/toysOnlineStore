@@ -2,8 +2,13 @@
 $('head').append('<link rel="stylesheet" href="css/shop.css" type="text/css" />');
 
 $(document).ready(function () {
+    $.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        return results[1] || 0;
+    }
+
     $("#wishes").click(function () {
-        var productid = $('input#productid').val();
+        var productid = $.urlParam('ProductID');
 
         $.ajax({url: "ProductHandling",
             data: {
@@ -13,7 +18,8 @@ $(document).ready(function () {
 
             success: function (data) {
                 console.log(data);
-                var mark=" <p class=\"bg-success\" id=\'p\'>"+data+"</p>";
+                $("#p").remove();
+                var mark=" <p style='color:green' id=\'p\'>"+data+"</p>";
                 $("#com").append(mark);
 
             }
@@ -26,7 +32,7 @@ $(document).ready(function () {
 
 
     $("#cart").click(function () {
-        var productid = $('input#productid').val();
+        var productid = $.urlParam('ProductID');
         var quantity=$("#selection").val();
         $.ajax({url: "ShoppingCartServlet",
             data: {
@@ -36,13 +42,24 @@ $(document).ready(function () {
             type: "POST",
 
             success: function (data) {
+/*
+                var divadd="<div data-role=\"body\">\n" +
+                    data+
+                    "                                        </div>";
 
-               // ShowCustomDialog(data);
+                $("#dialog").html(divadd);
+                $("#dialog").dialog({
+                    resizable: true,
+                    show:true
+                });
 
-
+*/
+              //  $('#myModal').modal({show:true});
                 console.log(data);
-                var mark=" <p class=\"bg-success\" id=\'p\'>"+data+"</p>";
-               $("#com").append(mark);
+                $("#p").remove();
+                var mark=" <p style='color:green' id=\'p\'>"+data+"</p>";
+                $("#com").append(mark);
+
 
 
             }
@@ -124,7 +141,7 @@ $(document).ready(function () {
             type: "POST",
 
             success: function (data) {
-                var email = $('input#emailUser').val();
+                var email = $('input#userEmail').val();
                 console.log(data);
 
 

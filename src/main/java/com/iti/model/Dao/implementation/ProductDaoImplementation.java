@@ -71,6 +71,7 @@ public class ProductDaoImplementation implements ProductDao {
         Product product = (Product) criteria.uniqueResult();
         product.getCategory().getProducts();
         product.getStore();
+        product.getUserWishes();
         return product;
     }
 
@@ -113,6 +114,7 @@ public class ProductDaoImplementation implements ProductDao {
     @Override
     public boolean persistProduct(Product product, Session session) {
             session.save(product);
+        System.out.println("======================="+session.isOpen());
             return true;
     }
 

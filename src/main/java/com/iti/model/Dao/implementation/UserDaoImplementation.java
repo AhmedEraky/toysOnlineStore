@@ -5,6 +5,7 @@ import com.iti.model.entity.Product;
 import com.iti.model.entity.User;
 import com.iti.model.util.UserUtil;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
@@ -19,6 +20,7 @@ public class UserDaoImplementation implements UserDao {
     public User retiveUserEmail(String email, Session session) {
         Criteria criteria=session.createCriteria(User.class).add(Restrictions.eq("email",email));
         User user= (User) criteria.uniqueResult();
+        user.getUserWishes();
         return user;
     }
 
@@ -86,11 +88,12 @@ public class UserDaoImplementation implements UserDao {
 
     @Override
     public boolean updateUser(User user, Session session) {
+             session.update(user);
+             return true;
+   }
 
-        session.saveOrUpdate(user);
-        return true;
 
-    }
+
 
     @Override
     public List<Product> retrieveUserWishList(String userEmail, Session session)
