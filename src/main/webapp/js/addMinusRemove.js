@@ -1,72 +1,72 @@
-var canDecreaseCost = true;
 var increasedProductQuantity;
 var increasedProductCost;
+var callBackMessage = "";
 
 $(document).ready(function () {
-    displayTotalCost();
-    $("div[class='entry value-plus active']").click(function () {
 
-        canDecreaseCost = true;
+    setInterval(displayTotalCost, 2000);
+
+    $("div[class='entry value-plus active']").click(function () {
         var amount = $(this).prev().first();
         increasedProductQuantity = amount;
         var operation = "increaseQuantityOperation";
         var productId = $(this).parent().parent().parent().prev().prev();
         var productName = $(this).parent().parent().parent().next();
         var productTotalCost = $(this).parent().parent().parent().next().next();
-        console.log(productTotalCost.text());
         increasedProductCost = productTotalCost;
-
-        var oldquantity = parseFloat(amount.text()) - 1;
-        var oldCost = parseFloat(productTotalCost.text());
-        productTotalCost.text(increaseCost(oldquantity, oldCost).toFixed(1));
-
-        increaseAjaxCall(operation, productId.text(), productName.text(), amount.text());
-
+        ajaxCall(operation, productId.text(), productName.text(), amount.text());
+        if(callBackMessage=="Successfully added to Shopping cart"){
+            console.log("increaseing quantity");
+            console.log(increaseCost(parseInt(amount.text()),parseFloat(productTotalCost.text())).toFixed(1));
+            productTotalCost.text(increaseCost(parseInt(amount.text()),parseFloat(productTotalCost.text())).toFixed(1));
+            amount.text(parseInt(amount.text())+1);
+        }
+        displayTotalCost();
     });
+
     $("div[class='entry value-minus']").click(function () {
         var amount = $(this).next().first();
-        var operation = "decreaseQuantityOperation";
-        var productId = $(this).parent().parent().parent().prev().prev();
-        var productName = $(this).parent().parent().parent().next();
-        var productTotalCost = $(this).parent().parent().parent().next().next();
-
-        if (canDecreaseCost) {
-            var currentQuantity = parseFloat(amount.text());
-            var oldquantity = parseFloat(amount.text()) + 1;
-            var oldCost = parseFloat(productTotalCost.text());
-            productTotalCost.text(decreaseCost(oldquantity, oldCost).toFixed(1));
-            if (currentQuantity == 1) { canDecreaseCost = false; }
+        if(parseInt(amount.text())>1){
+            var operation = "decreaseQuantityOperation";
+            var productId = $(this).parent().parent().parent().prev().prev();
+            var productName = $(this).parent().parent().parent().next();
+            var productTotalCost = $(this).parent().parent().parent().next().next();
+            ajaxCall(operation, productId.text(), productName.text(), amount.text());
+            if(callBackMessage=="Successfully decreased product quantity from Shopping cart"){
+                productTotalCost.text(decreaseCost(parseInt(amount.text()),parseFloat(productTotalCost.text())).toFixed(1));
+                amount.text(parseInt(amount.text())-1);
+            }
+            displayTotalCost();
         }
-
-        decreaseAndRemoveAjaxCall(operation, productId.text(), productName.text(), amount.text());
     });
+
     $("div[class='rem']").click(function () {
         var amount = 0;
         var operation = "removeProductOperation";
         var productId = $(this).parent().prev().prev().prev().prev().prev();
         var productName = $(this).parent().prev().prev();
-
-        decreaseAndRemoveAjaxCall(operation, productId.text(), productName.text(), amount);
+        var productRow  = $(this).parent().parent();
+        ajaxCall(operation, productId.text(), productName.text(), amount);
+        if(callBackMessage=="Successfully removed product from Shopping cart"){
+            productRow.fadeOut('slow', function (c) {
+                productRow.remove();
+            });
+        }
+        displayTotalCost();
     });
+
 });
 
-function addCallBack(data){
-    if((data=="Sorry Fail to added to Shopping cart")||(data=="You added quantity more than the available quantity")){
-        increasedProductQuantity.text(parseInt(increasedProductQuantity.text())-1);
-        increasedProductCost.text(decreaseCost(parseFloat(increasedProductQuantity.text()) + 1, parseFloat(increasedProductCost.text())).toFixed(1));
-    }
-    displayTotalCost();
+function ajaxCallBack(data){
+    callBackMessage = data;
+    console.log(callBackMessage);
 }
 
 function displayTotalCost() {
     var totalCost = 0;
     var name;
     var price;
-    // setTimeout(
-    //     function()
-    //     {
-    //         //do something special
-    //     }, 2000);
+
     $('#productsCheck').empty();
     $('#productsTable').find('tr').each(function (rowIndex, r) {
         $(this).find('td').each(function (colIndex, c) {
@@ -77,31 +77,27 @@ function displayTotalCost() {
                 price = c.textContent;
             }
             else if (colIndex == 5) {
-                $('#productsCheck').append("<li>" + name + "<span>$" + price + " </span></li>");
+                $('#productsCheck').append("<li>" + name + "<span>" + price + " </span></li>");
                 totalCost += parseFloat(price);
             }
         });
     });
-    $('#productsCheck').append("<li>Total <i>-</i> <span>$" + totalCost + "</span></li>");
+    $('#productsCheck').append("<li>Total <i>-</i> <span>" + totalCost + "</span></li>");
+    updateNumberOfShoppingCartItems();
 
-
-    // var theProductsTableBody = $("#productsTable tbody");
-    // if (theProductsTableBody.children().length == 0) {
-    //     console.log("table is empty");
-    //     $('#productsCheck').empty();
-    //     $('#productsCheck').append("<li>Total <i>-</i> <span>$0</span></li>");
-    // }
 }
 
 function decreaseCost(oldquantity, oldCost) {
-    return oldCost - (oldCost / oldquantity);
+    return oldCost - (oldCost / parseFloat(oldquantity));
 }
 
 function increaseCost(oldquantity, oldCost) {
-    return oldCost + (oldCost / oldquantity);
+    return oldCost + (oldCost / parseFloat(oldquantity));
 }
 
-function increaseAjaxCall(operation, productId, productName, amount) {
+function ajaxCall(operation, productId, productName, amount) {
+    console.log("Operation : "+operation+" , Amount : "+amount+", Product ID : "+productId+" , Product name : "+productName+" .");
+    $.ajaxSetup({async: false});
     $.post("cartModification",
         {
             operation: operation,
@@ -109,20 +105,10 @@ function increaseAjaxCall(operation, productId, productName, amount) {
             productName: productName,
             amount: amount
         }
-        , addCallBack);
+        , ajaxCallBack);
     // console.log("Operation : "+operation+" , Amount : "+amount+", Product ID : "+productId+" , Product name : "+productName+" .");
 }
 
-
-function decreaseAndRemoveAjaxCall(operation, productId, productName, amount) {
-    $.post("cartModification",
-        {
-            operation: operation,
-            productId: productId,
-            productName: productName,
-            amount: amount
-        }
-        , displayTotalCost);
-    // console.log("Operation : "+operation+" , Amount : "+amount+", Product ID : "+productId+" , Product name : "+productName+" .");
+function updateNumberOfShoppingCartItems (){
+    $('#numberOfShoppingCartItems').text($('#productsTable tbody tr').length);
 }
-

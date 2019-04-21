@@ -18,6 +18,7 @@ public class CategoryDaoImplementation implements CategoryDao {
     public Category retriveCategoryByID(Integer ID, Session session) {
         Criteria criteria = session.createCriteria(Category.class).add(Restrictions.idEq(ID));
         Category category = (Category) criteria.uniqueResult();
+
         return category;
         
     }
@@ -51,6 +52,7 @@ public class CategoryDaoImplementation implements CategoryDao {
          Criteria criteria= session.createCriteria(Category.class).createCriteria("products")
                 .add(Restrictions.idEq(product.getCategory().getCategoryID()));
          Category category=(Category) criteria.uniqueResult();
+
         return category;
     }
 
@@ -64,6 +66,7 @@ public class CategoryDaoImplementation implements CategoryDao {
     public Category retriveCategoryByName(String name, Session session) {
         Criteria criteria = session.createCriteria(Category.class).add(Restrictions.eq("name",name));
         Category category=(Category)criteria.uniqueResult();
+       category.getProducts();
         return category;
     }
 

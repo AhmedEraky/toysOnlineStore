@@ -2,6 +2,9 @@ package com.iti.controller.listner;
 
 import com.iti.model.entity.CartItem;
 import com.iti.model.entity.ShoppingCart;
+import com.iti.model.response.Usertype;
+import com.iti.service.UpdateShoppingCartService;
+import com.iti.service.impl.UpdateShoppingCartServiceImpl;
 
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebListener;
@@ -23,6 +26,12 @@ public class SessionListner implements HttpSessionListener {
 
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
+        if(se.getSession().getAttribute("userType").equals(Usertype.customer)) {
+            ShoppingCart cart = ((ShoppingCart) se.getSession().getAttribute("cart"));
 
+            UpdateShoppingCartService updateShoppingCartService = new UpdateShoppingCartServiceImpl();
+            String email = (String) se.getSession().getAttribute("mail");
+            updateShoppingCartService.updateCart(cart, email);
+        }
     }
 }

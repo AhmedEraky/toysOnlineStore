@@ -63,12 +63,7 @@ public class ProfileServiceImpl implements ProfileService {
                     currentUser.setJob(user.getJob());
                     currentUser.setAddress(user.getAddress());
                     currentUser.setCreditLimit(user.getCreditLimit());
-                    /*==Aya==*/
-                    if(user.getUserWishes().size() !=0){
-                        currentUser.setUserWishes(user.getUserWishes());
-                    }
-                    Session secondSession =HibernateUtils.getSession();
-                    updated = userDao.updateUser(currentUser,secondSession);
+                    updated = userDao.updateUser(currentUser,session);
                 }
                 return updated;
 

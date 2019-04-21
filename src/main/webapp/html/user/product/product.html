@@ -1,4 +1,5 @@
 <!--/shop-->
+
 <section class="banner-bottom py-lg-5 py-3 ">
     <div class="container">
         <div class="inner-sec-shop pt-lg-4 pt-3">
@@ -8,7 +9,7 @@
                         <div class="flexslider1">
 
 
-                            <div class="thumb-image"> <img src="images/f2.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                            <div class="thumb-image"> <img src="${requestScope.product.imagePath}" data-imagezoom="true" class="img-fluid" alt=" "> </div>
 
                             <div class="clearfix"></div>
                         </div>
@@ -82,7 +83,10 @@
 
 
                         <div class="form-group row">
-                            <label  class="col-sm-2 col-form-label">Quantity</label>
+                            <label  class="col-sm-2 col-form-label">Quantity:</label>
+                            <c:choose>
+                                <c:when test="${ empty sessionScope.userType or sessionScope.userType=='customer' }">
+
                             <div class="col-sm-3">
 
                                 <c:choose>
@@ -97,28 +101,62 @@
                                             </c:forEach>
                                     </c:otherwise>
                                 </c:choose>
+
                                 </select>
                             </div>
                             <hr/>
+                                </c:when>
+                                <c:otherwise>
+                                    <label class="col-sm-2 col-form-label"><c:out  value= "${requestScope.product.quantity}"/> </label>
+
+                                </c:otherwise>
+                            </c:choose>
+
                         </div>
 
 
                         <div class="occasion-cart">
                             <div  id="com" class="toys single-item singlepage">
+                                <p id="p"></p>
+                                <c:if test = "${ empty sessionScope.userType or sessionScope.userType=='customer' }">
 
+
+
+                                    <div class="modal" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h4 class="modal-title">Modal title</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Content for the dialog / modal goes here.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="#" data-dismiss="modal" class="btn">Close</a>
+                                                    <a href="#" class="btn btn-primary">Save changes</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <c:if test="${   empty sessionScope.userType or sessionScope.userType=='customer' }">
                                 <c:if test="${requestScope.product.quantity ne 0}">
+
                                 <input type="button"  name="submitButton" value="   Add to Cart"  id="cart" class="btn btn-outline-danger btn-lg"/>
 
                                 </c:if>
+
                                 <input type="button"  id="wishes" name="submitButton" value=" Add to wishes"  class="btn btn-outline-danger btn-lg"/>
 
+                                    </c:if>
                                 <!--<br>-->
                                 <!--<br>-->
                                 <!--<button type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#exampleModal">-->
                                 <!--Edit-->
                                 <!--</button>-->
-                                <input  name="productId" hidden="hidden" value="${param.ProductID}"/>
+
                                 <input  name="productid" hidden="hidden" value="${requestScope.product.id}"/>
+                                </c:if>
                             </div>
 
 
@@ -159,12 +197,25 @@
                 </div>
                 <form action="updateProduct" method="post">
 
+                    <c:if test="${  empty sessionScope.userType or sessionScope.userType=='customer' }">
                     <div class="modal-body">
                         <input  name="productId" hidden="hidden" value="${requestScope.product.id}"/>
                         <div class="form-group row">
                             <label  class="col-sm-3 col-form-label">Quantity</label>
+                            <c:choose>
+                            <c:when test="${requestScope.product.quantity ne 0}">
                             <input type="number" name="productQuantity" value="${requestScope.product.quantity}" min="0" style="text-align: center"/>
+                            </c:when>
+                                <c:otherwise>
+                                    <div><p>Out of stock</p></div>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
+                    </div>
+                    </c:if>
+                    <c:if test="${  not empty sessionScope.userType and sessionScope.userType=='admin' }">
+                        <pre><c:out value="${requestScope.product.quantity}"/></pre>
+                    </c:if>
                         <div class="form-group row">
                             <label  class="col-sm-3 col-form-label">Price</label>
                             <input type="number" name="productPrice" value="${requestScope.product.price}" min="1" style="text-align: center"/>
@@ -237,7 +288,7 @@
 
 
                                             <div class="bootstrap-tab-text-grid-left">
-                                                <img src="images/team1.jpg" alt=" " class="img-fluid">
+                                                <img src="${current.imagePath}" alt=" " class="img-fluid">
                                             </div>
                                             <div class="bootstrap-tab-text-grid-right">
 
@@ -260,9 +311,9 @@
 
                                                 </ul>
                                                 <div class="container  py-lg-5 py-md-5 py-sm-4 py-4">
-                                                    <div class="bootstrap-tab-text-grid">
-                                                        <div class="single_page">
-                                                            <p class="para"><span><c:out value="${current.reviewDescription}"/></span>
+                                                    <div class="bootstrap-tab-text-grid col-lg-8 col-xs-12 col-centered py-lg-5 py-md-5 py-sm-4 py-4">
+                                                        <div class="single_page  col-lg-8 col-xs-12 col-centered py-lg-5 py-md-5 py-sm-4 py-4">
+                                                            <p class="para  col-lg-8 col-xs-12 col-centered py-lg-5 py-md-5 py-sm-4 py-4"><c:out value="${current.reviewDescription}"/>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -278,15 +329,14 @@
 
 
                             </div>
+                            <c:if test="${ not empty sessionScope.userType and sessionScope.userType=='customer' }">
                             <div class="add-review">
                                 <h4>add a review</h4>
                                 <form action="" method="post">
                                     <div class="row">
+
                                         <div class="col-md-6">
-                                            <input type="text" name="userName" id="userName" placeholder="Enter your name" required=""/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="email" name="userEmail"   id="userEmail" placeholder="Enter your email" required=""/>
+                                            <input type="email" name="userEmail"   id="userEmail"  value="${sessionScope.mail}" readonly/>
                                         </div>
                                         <!--stars-->
                                         <div class="rate" id="stardiv">
@@ -305,10 +355,11 @@
                                     </div>
                                     <textarea name="reviewDescription"  id="reviewDescription" rows="2" cols="3" placeholder="Enter your message" required=""></textarea>
                                     <input type="button" id="send"  class="btn btn-outline-danger btn-lg" value="SEND"/>
-
+                                    <input  name="userEmail" id="emailUser" hidden="hidden" value="${sessionScope.mail}"/>
                                     <input  name="productid" id="productid" hidden="hidden" value="${requestScope.product.id}"/>
                                 </form>
                             </div>
+                            </c:if>
                         </div>
                     </div>
                 </div>
