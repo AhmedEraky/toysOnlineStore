@@ -17,6 +17,8 @@
     </head>
     <body>
     <jsp:directive.include file="wishListContents.html"/>
+    <jsp:directive.include file="/html/common/footer.html"/>
+
     </body>
     </html>
 </jsp:root>

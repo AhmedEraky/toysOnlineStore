@@ -1,13 +1,17 @@
 package com.iti.controller.filter.handler;
 
 import com.iti.model.entity.CartItem;
+import com.iti.model.entity.Product;
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.entity.User;
 import com.iti.model.response.AuthenticationResponse;
 import com.iti.model.response.Status;
 import com.iti.model.response.Usertype;
+import com.iti.model.util.CartItemUtils;
 import com.iti.service.LoginService;
+import com.iti.service.ProductService;
 import com.iti.service.impl.LoginServiceImpl;
+import com.iti.service.impl.ProductServiceImpl;
 import org.hibernate.usertype.UserType;
 
 import javax.servlet.FilterChain;
@@ -35,7 +39,9 @@ public class LoginHandler  extends HomeHandler{
             //Get saved cart and merge its items with session cart items.
             if(loginResponse.getUsertype().equals(Usertype.customer)) {
                 mergeCarts(user, session);
-                response.sendRedirect("home");
+                CartItemUtils cartItemUtils = new CartItemUtils();
+                cartItemUtils.checkItemsAvailability(session);
+                response.sendRedirect("home?justLoggedIn=true");
             }else {
                 response.sendRedirect("adminHome");
             }
@@ -84,4 +90,6 @@ public class LoginHandler  extends HomeHandler{
             session.setAttribute("cart", sessionCart);
         }
     }
+
+
 }
