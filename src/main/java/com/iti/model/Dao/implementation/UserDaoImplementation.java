@@ -88,8 +88,13 @@ public class UserDaoImplementation implements UserDao {
 
     @Override
     public boolean updateUser(User user, Session session) {
-             session.update(user);
-             return true;
+        try {
+            session.update(user);
+            return true;
+        }catch (HibernateException ex){
+            ex.printStackTrace();
+            return false;
+        }
    }
 
 

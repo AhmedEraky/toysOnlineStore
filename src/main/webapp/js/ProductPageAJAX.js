@@ -229,9 +229,9 @@ $(document).ready(function () {
                         rev+=" </li></ul>";
 
                         //review
-                        rev+="<div class=\"container  py-lg-5 py-md-5 py-sm-4 py-4\">";
+                        rev+="<div class=\"bootstrap-tab-text-grid-left>";
 
-                        rev+=" <p><span>"+objectr[count].reviewDescription+"</p></span>";
+                        rev+=" <p style='direction:ltr'><span>"+objectr[count].reviewDescription+"</p></span>";
                         rev+= "</div>" ;
 
 
