@@ -18,14 +18,6 @@ public class Logout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        if(req.getSession().getAttribute("userType").equals(Usertype.customer)) {
-            ShoppingCart cart = ((ShoppingCart) req.getSession().getAttribute("cart"));
-            if (cart.getShoppingCartItems().size() != 0) {
-                UpdateShoppingCartService updateShoppingCartService = new UpdateShoppingCartServiceImpl();
-                String email = (String) req.getSession().getAttribute("mail");
-                updateShoppingCartService.updateCart(cart, email);
-            }
-        }
         req.getSession().invalidate();
         resp.sendRedirect("home");
     }
