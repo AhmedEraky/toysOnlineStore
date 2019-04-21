@@ -28,11 +28,10 @@ public class SessionListner implements HttpSessionListener {
     public void sessionDestroyed(HttpSessionEvent se) {
         if(se.getSession().getAttribute("userType").equals(Usertype.customer)) {
             ShoppingCart cart = ((ShoppingCart) se.getSession().getAttribute("cart"));
-            if (cart.getShoppingCartItems().size() != 0) {
-                UpdateShoppingCartService updateShoppingCartService = new UpdateShoppingCartServiceImpl();
-                String email = (String) se.getSession().getAttribute("mail");
-                updateShoppingCartService.updateCart(cart, email);
-            }
+
+            UpdateShoppingCartService updateShoppingCartService = new UpdateShoppingCartServiceImpl();
+            String email = (String) se.getSession().getAttribute("mail");
+            updateShoppingCartService.updateCart(cart, email);
         }
     }
 }
