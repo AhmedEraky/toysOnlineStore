@@ -6,7 +6,6 @@ import com.iti.model.Dao.UserDao;
 import com.iti.model.Dao.implementation.CartItemDaoImplementation;
 import com.iti.model.Dao.implementation.ProductDaoImplementation;
 import com.iti.model.Dao.implementation.UserDaoImplementation;
-import com.iti.model.cfg.HibernateUtils;
 import com.iti.model.entity.CartItem;
 import com.iti.model.entity.Product;
 import com.iti.model.entity.ShoppingCart;
@@ -14,8 +13,10 @@ import com.iti.model.entity.User;
 import com.iti.model.response.ProductResponse;
 import com.iti.service.ProductService;
 import com.iti.service.ProfileService;
+import com.iti.service.UserWishesServlet;
 import com.iti.service.impl.ProductServiceImpl;
 import com.iti.service.impl.ProfileServiceImpl;
+import com.iti.service.impl.UserWishesServletImpl;
 import org.hibernate.Session;
 
 import javax.servlet.ServletException;
@@ -37,19 +38,11 @@ public class ProductHandling extends HttpServlet {
             out.print("Please login first!");
         } else {
             //get product by id
-            ProductService productService = new ProductServiceImpl();
-            Product product = productService.getProductByID(Integer.parseInt(productid));
+/*==================================================*/
+            /*===========================================*/
+            UserWishesServlet userWishesServlet=new UserWishesServletImpl();
 
-            //user
-            ProfileService profileService = new ProfileServiceImpl();
-
-            User user = profileService.getUserByEmail(userEmail);
-            //add wishes for user
-            Set<Product> userProducts = user.getUserWishes();
-            userProducts.add(product);
-
-            //update user
-            Boolean flagUser = profileService.updateProfile(user);
+            Boolean flagUser = userWishesServlet.insertNewUserWishes(Integer.parseInt(productid),userEmail);
 
             //response.sendRedirect("productPage?ProductID="+productid);
             if (flagUser) {

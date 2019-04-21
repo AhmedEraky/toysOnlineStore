@@ -71,6 +71,7 @@ public class ProductDaoImplementation implements ProductDao {
         Product product = (Product) criteria.uniqueResult();
         product.getCategory().getProducts();
         product.getStore();
+        product.getUserWishes();
         return product;
     }
 
