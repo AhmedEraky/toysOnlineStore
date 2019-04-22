@@ -80,32 +80,7 @@ public class ReviewServlet extends HttpServlet {
       // response.sendRedirect("/toysOnlineStore_war_exploded/productPage?ProductID="+productid);
 
     }
-/*
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        session=request.getSession();
-        ReviewService service=new ReviewServiceImpl();
-        ArrayList<ReviewResponse> reviewResponse=service.fetch(Integer.parseInt(request.getParameter("productid")));
-        JsonObject reviewJson = new JsonObject();
-        Gson gsonBuilder = new GsonBuilder().create();
-        String jsonFromJavaArrayList = gsonBuilder.toJson(reviewResponse);
-        if(reviewResponse.size()!=0) {
 
-
-            reviewJson.addProperty("averageRate", Integer.toString(retrieveRate(reviewResponse)));
-            reviewJson.addProperty("reviews",jsonFromJavaArrayList);
-
-
-        }
-        else{
-            reviewJson.addProperty("averageRate", "0");
-            reviewJson.addProperty("reviews",jsonFromJavaArrayList);
-
-        }
-       // PrintWriter out=response.getWriter();
-       // out.print(reviewJson);
-        response.sendRedirect("productPage?ProductID="+request.getParameter("productid"));
-    }
-    */
     public int retrieveRate(ArrayList<ReviewResponse> reviews){
         int sum=0;
         for(ReviewResponse review:reviews){

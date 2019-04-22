@@ -6,8 +6,15 @@ public class ShopResponse {
     private String rate;
     private String name;
     private String id;
+    private double quantity;
 
+    public double getQuantity() {
+        return quantity;
+    }
 
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
+    }
 
     public String getImagePath() {
         return imagePath;

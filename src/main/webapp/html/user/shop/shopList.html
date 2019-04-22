@@ -1,3 +1,14 @@
+<html>
+<head>
+    <title>Toys Shop</title>
+    <link type="text/css" rel="stylesheet" href="css/simplePagination.css"/>
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <jsp:directive.include file="/html/common/head.html"/>
+    <link href="css/jquery-alert.css" rel="stylesheet">
+
+
+</head>
+<body>
 <!--header-->
 <jsp:directive.include file="/html/common/header.html"/>
 <!--//header-->
@@ -65,13 +76,24 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <c:if test = "${empty sessionScope.userType or sessionScope.userType=='customer'}">
+                                            <c:if test = "${ empty sessionScope.userType or sessionScope.userType=='customer'}">
                                                 <div class="toys single-item hvr-outline-out">
                                                     <form method="post">
-                                                        <input type="hidden" id="productid" value="${product.id}"/>
-                                                        <button type="button" id="addToCartBtn" class="toys-cart ptoys-cart">
-                                                            <i class="fas fa-cart-plus"></i>
-                                                        </button>
+                                                        <input type="hidden" id="productid${product.id}"  value="${product.id}"/>
+                                                        <c:choose>
+
+                                                            <c:when test = "${product.quantity gt 0}">
+                                                                <button type="button" id="addToCartBtn${product.id}" onclick="addtoCart(${product.id})" class="toys-cart ptoys-cart">
+                                                                    <i class="fas fa-cart-plus"></i>
+                                                                </button>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <button type="button" id="addToCartBtn${product.id}" onclick="outOfStock()"  class="toys-cart ptoys-cart">
+                                                                    <i class="fas fa-exclamation-circle"></i>
+                                                                </button>
+                                                            </c:otherwise>
+                                                        </c:choose>
+
                                                     </form>
                                                 </div>
                                             </c:if>
@@ -194,3 +216,6 @@
 </script>
 <script src="js/shop.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-alert.js"></script>
+</body>
+</html>

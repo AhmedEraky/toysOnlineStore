@@ -15,7 +15,10 @@
 
             <h3>Add <span>Products</span></h3>
             <c:if test="${not empty param.successMessage}">
-                <div>  <h2  style="color:green;"> <c:out value="${param.successMessage}"/></h2></div>
+
+                <div>  <h  style="color:green;"> <c:out value="${param.successMessage}"/></h></div>
+
+
             </c:if>
             <c:if test="${not empty param.errorMessage}">
                 <div>  <h2  style="color:red;"> <c:out value="${param.successMessage}"/></h2></div>
@@ -118,5 +121,14 @@
     </div>
 </section>
 <jsp:directive.include file="/html/common/footer.html"/>
+<script src="js/jquery-alert.js"></script>
+<script>
+
+    function outOfStock(data) {
+        $.hyc.ui.alert(data, function () {
+        });
+    }
+</script>
+
 </body>
 </html>
