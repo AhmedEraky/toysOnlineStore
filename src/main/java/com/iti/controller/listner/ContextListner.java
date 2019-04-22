@@ -43,7 +43,7 @@ public class ContextListner implements ServletContextListener {
         categoryDao.persistCategory(category,session);
 
         Category category4=new Category();
-        category.setName("Cars And Planes");
+        category4.setName("Cars And Planes");
         categoryDao.persistCategory(category4,session);
 
         Category category1=new Category();

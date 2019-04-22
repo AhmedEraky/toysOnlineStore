@@ -42,13 +42,8 @@ Contributor(s):
     <property name="hibernate.connection.password">root</property>
     <property name="show_sql">true</property>
     <property name="cache.use_second_level_cache">false</property>
-    <property name="hbm2ddl.auto">create</property>
+    <property name="hbm2ddl.auto">update</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <property name="hibernate.c3p0.min_size">3</property>
-    <property name="c3p0.max_size">15</property>
-    <property name="hibernate.c3p0.acquire_increment">3</property>
-    <property name="hibernate.c3p0.timeout">1500</property>
-    <property name="hibernate.c3p0.max_statements">50</property>
     <mapping class="com.iti.model.entity.Admin"/>
     <mapping class="com.iti.model.entity.Category"/>
     <mapping class="com.iti.model.entity.CartItem"/>
