@@ -1,0 +1,12 @@
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+    content: "05";
+    position: absolute;
+    left: 0;
+    color: gold;
+}
