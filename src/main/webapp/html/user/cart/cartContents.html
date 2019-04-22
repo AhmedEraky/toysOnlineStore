@@ -70,6 +70,26 @@
         </div>
         <!-- //top products -->
     </div>
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var removedParam = urlParams.get('removed');
+        var removedProducts = '${sessionScope.removedItems}';
+        if(removedParam == 'true' && removedProducts !== '[]') {
+            var removedProducts = '${sessionScope.removedItems}';
+            console.log(removedProducts);
+            removedProducts = removedProducts.replace('[', '');
+            removedProducts = removedProducts.replace(']', '');
+            removedProducts = removedProducts.split(',');
+            var removed = "";
+            if (removedProducts.length !== 0) {
+                for (var i = 0; i < removedProducts.length; i++) {
+                    removed += removedProducts[i];
+                    removed += "\n";
+                }
+                alert("The following products have been removed from your cart because they're out of stock:" + "\n" + removed);
+            }
+        }
+    </script>
     <script src="js/cart.js"></script>
     <script src="js/addMinusRemove.js"></script>
 </section>

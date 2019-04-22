@@ -1,6 +1,7 @@
 package com.iti.controller.filter;
 
 import com.iti.controller.filter.handler.*;
+import com.iti.model.util.CartItemUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -86,6 +87,13 @@ public class MainFilter implements Filter {
             //Islam Part
             else if(currentPage.equals("/ViewYourCart"))
             {
+                CartItemUtils cartItemUtils = new CartItemUtils();
+                boolean removed;
+                removed = cartItemUtils.checkItemsAvailability(request.getSession());
+                if(removed)
+                {
+                    response.sendRedirect("ViewYourCart?removed=true");
+                }
                 filterChain.doFilter(servletRequest,servletResponse);
             }
             //Ashraf Part
