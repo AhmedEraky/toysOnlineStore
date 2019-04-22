@@ -124,6 +124,11 @@
         <servlet-class>com.iti.controller.servlet.UpdateProduct</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>error</servlet-name>
+        <jsp-file>/html/common/error.jspx</jsp-file>
+    </servlet>
+
     <!--Eraky Servlet Mapping-->
 
     <servlet-mapping>
@@ -233,6 +238,10 @@
         <url-pattern>/updateProduct</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>error</servlet-name>
+        <url-pattern>/error</url-pattern>
+    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>home</welcome-file>
@@ -240,23 +249,23 @@
 
     <error-page>
         <error-code>401</error-code>
-        <location>/html/common/error.html</location>
+        <location>/html/common/error.jspx</location>
     </error-page>
     <error-page>
         <error-code>403</error-code>
-        <location>/html/common/error.html</location>
+        <location>/html/common/error.jspx</location>
     </error-page>
     <error-page>
         <error-code>404</error-code>
-        <location>/html/common/error.html</location>
+        <location>/html/common/error.jspx</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/html/common/error.html</location>
+        <location>/html/common/error.jspx</location>
     </error-page>
     <error-page>
         <error-code>503</error-code>
-        <location>/html/common/error.html</location>
+        <location>/html/common/error.jspx</location>
     </error-page>
 
 </web-app>
