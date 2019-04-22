@@ -13,8 +13,9 @@ import java.util.Set;
 
 public class CartItemUtils
 {
-    public void checkItemsAvailability(HttpSession session)
+    public boolean checkItemsAvailability(HttpSession session)
     {
+        boolean removed = false;
         ShoppingCart sessionCart = (ShoppingCart) session.getAttribute("cart");
         Set<CartItem> sessionItems = sessionCart.getShoppingCartItems();
         List<String> removedProducts = new ArrayList<>();
@@ -28,13 +29,16 @@ public class CartItemUtils
             int productQuantity = retrievedProduct.getQuantity();
             if(productQuantity == 0)
             {
+                removed = true;
                 sessionItems.remove(cartItem);
                 removedProducts.add(retrievedProduct.getName());
             }
             else if(productQuantity < itemQuantity)
             {
+                removed = true;
                 cartItem.setQuantity(productQuantity);
             }
         }
+        return removed;
     }
 }

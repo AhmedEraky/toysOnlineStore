@@ -51,7 +51,7 @@ public class UserWishesServiceImpl implements UserWishesService {
                 }
                 else{
                     response.setStatus(Status.success);
-                    response.setMessage("it has been added");
+                    response.setMessage("It has been added to wish list");
                 }
                 return response;
 

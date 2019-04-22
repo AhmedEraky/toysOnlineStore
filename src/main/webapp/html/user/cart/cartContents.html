@@ -5,7 +5,7 @@
 <!-- banner -->
 <jsp:directive.include file="/html/common/banner.html"/>
 <!--//banner -->
-
+<link href="css/jquery-alert.css" rel="stylesheet">
 <!--Page Content-->
 <section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
     <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
@@ -70,6 +70,29 @@
         </div>
         <!-- //top products -->
     </div>
+    <script src="js/jquery-alert.js"></script>
+    <script>
+        var removedParam = '${sessionScope.removed}';
+        console.log(removedParam);
+        var removedProducts = '${sessionScope.removedItems}';
+        console.log(removedProducts);
+        if(removedParam == 'true' && removedProducts !== '[]') {
+            console.log(removedProducts);
+            removedProducts = removedProducts.replace('[', '');
+            removedProducts = removedProducts.replace(']', '');
+            removedProducts = removedProducts.split(',');
+            var removed = "";
+            if (removedProducts.length !== 0) {
+                for (var i = 0; i < removedProducts.length; i++) {
+                    removed += removedProducts[i];
+                    removed += "\n";
+                }
+                $.hyc.ui.alert("The following products have been removed from your cart because they're out of stock:" + "\n" + removed, function () {
+                });
+                //alert("The following products have been removed from your cart because they're out of stock:" + "\n" + removed);
+            }
+        }
+    </script>
     <script src="js/cart.js"></script>
     <script src="js/addMinusRemove.js"></script>
 </section>

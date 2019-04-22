@@ -9,7 +9,10 @@
           xmlns:c="http://java.sun.com/jsp/jstl/core" >
     <jsp:directive.page contentType="text/html" isELIgnored="false"/>
     <html>
-    <head><title>Title</title></head>
+
+    <head>
+        <title>Title</title>
+    </head>
     <body>
 </body>
 </html>

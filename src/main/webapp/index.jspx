@@ -18,6 +18,10 @@
         <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/shop.css" rel="stylesheet" type="text/css"/>
         <link href="css/clientSideCss/index.css" rel="stylesheet"/>
+        <link href="css/jquery-alert.css" rel="stylesheet"/>
+
+
+
     </head>
     <body>
     <jsp:directive.include file="/html/common/header.html"/>

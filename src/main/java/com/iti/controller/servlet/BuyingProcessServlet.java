@@ -4,6 +4,7 @@ import com.iti.model.entity.CartItem;
 import com.iti.model.entity.ShoppingCart;
 import com.iti.model.response.Status;
 import com.iti.model.response.ValidationResponse;
+import com.iti.model.util.CartItemUtils;
 import com.iti.service.BuyingProcessHandlingService;
 import com.iti.service.UpdateShoppingCartService;
 import com.iti.service.impl.BuyingProcessHandlingServiceImpl;
@@ -29,8 +30,15 @@ public class BuyingProcessServlet extends HttpServlet
             String userEmail =(String)request.getSession().getAttribute("mail");
             ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
             double totalCost = getTotalCostOfCart(cart);
+            CartItemUtils cartItemUtils = new CartItemUtils();
+            boolean removed = cartItemUtils.checkItemsAvailability(request.getSession());
+            /*if(removed)
+            {
+                request.getSession().setAttribute("removed", "true");
+                response.sendRedirect("ViewYourCart");
+            }*/
             ValidationResponse validationResponse = buyingService.hasEnoughCredit(userEmail, totalCost);
-            if(validationResponse.getStatus().equals(Status.success))
+            if(validationResponse.getStatus().equals(Status.success) && !removed)
             {
                 buyingService.updateProductsData(cart);
                 cart.setShoppingCartItems(new HashSet<>());
@@ -38,6 +46,11 @@ public class BuyingProcessServlet extends HttpServlet
                 UpdateShoppingCartService updateShoppingCartService = new UpdateShoppingCartServiceImpl();
                 updateShoppingCartService.updateCart(cart, userEmail);
                 response.sendRedirect("ViewYourCart?success");
+            }
+            else if(removed)
+            {
+                request.getSession().setAttribute("removed", "true");
+                response.sendRedirect("ViewYourCart");
             }
             else
             {
