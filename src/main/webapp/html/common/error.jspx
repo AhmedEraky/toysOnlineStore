@@ -10,7 +10,6 @@
 
 
     <jsp:directive.include file="/html/common/header.html"/>
-    <jsp:directive.include file="/html/common/banner.html"/>
 
     <jsp:directive.include file="/html/common/error.html"/>
     <jsp:directive.include file="/html/common/footer.html"/>
