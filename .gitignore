@@ -4,3 +4,6 @@
 *.class
 target/maven-status/*
 target/LoginApp/*
+target/classes/*
+target/generated-sources/*
+target/maven-archiver/*
