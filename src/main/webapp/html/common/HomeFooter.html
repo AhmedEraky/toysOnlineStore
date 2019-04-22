@@ -115,3 +115,27 @@
 <!--bootstrap working-->
 <script src="js/bootstrap.min.js"></script>
 <!-- //bootstrap working-->
+
+<script src="js/jquery-alert.js"></script>
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var justLoggedInParam = urlParams.get('justLoggedIn');
+    var removedProducts = '${sessionScope.removedItems}';
+    if(justLoggedInParam === 'true' && removedProducts !== '[]') {
+        var removedProducts = '${sessionScope.removedItems}';
+        console.log(removedProducts);
+        removedProducts = removedProducts.replace('[', '');
+        removedProducts = removedProducts.replace(']', '');
+        removedProducts = removedProducts.split(',');
+        var removed = "";
+        if (removedProducts.length !== 0) {
+            for (var i = 0; i < removedProducts.length; i++) {
+                removed += removedProducts[i];
+                removed += "\n";
+            }
+            //alert("The following products have been removed from your cart because they're out of stock:" + "\n" + removed);
+            $.hyc.ui.alert("The following products have been removed from your cart because they're out of stock:" + "\n" + removed, function () {
+            });
+        }
+    }
+</script>
