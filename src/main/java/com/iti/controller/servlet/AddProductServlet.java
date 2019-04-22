@@ -78,7 +78,7 @@ public class AddProductServlet extends HttpServlet {
                     String imageName = item.getName().substring(0, item.getName().length() - 4);
                     String imageExtantion = item.getName().substring(item.getName().length() - 4, item.getName().length());
                     filename = FilenameUtils.getName(imageName + imageCount + imageExtantion); // Get filename.
-                    product.setImagePath("images" + File.separator + "products\\" + filename);
+                    product.setImagePath(  "products" + File.separator + filename);
                 }
             }
         }
