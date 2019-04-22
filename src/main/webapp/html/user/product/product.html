@@ -80,7 +80,7 @@
 
                             <div class="form-group">
                                 <label>Description</label>
-                                <p><span ><c:out value="${requestScope.product.description}"/></span></p>
+                                <p style="font-size: 2vmin"><c:out value="${requestScope.product.description}"/></p>
 
 
                             </div>
@@ -289,10 +289,7 @@
                                         <hr/>
                                     </c:when>
                                     <c:otherwise>
-
                                         <c:forEach items="${requestScope.reviews}" var="current">
-
-
                                             <div class="bootstrap-tab-text-grid-left">
                                                 <img src="${current.imagePath}" alt=" " class="img-fluid">
                                             </div>
@@ -319,7 +316,7 @@
                                                 <div class="container  py-lg-5 py-md-5 py-sm-4 py-4">
                                                     <div class="bootstrap-tab-text-grid">
                                                         <div class="single_page ">
-                                                            <p class="para"><c:out value="${current.reviewDescription}"/>
+                                                            <p  style="font-size: 2vmin"><c:out value="${current.reviewDescription}"/>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -346,7 +343,7 @@
                                             </div>
                                             <!--stars-->
                                             <div class="rate" id="stardiv">
-                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                <input type="radio" id="star5" name="rate" value="5"  />
                                                 <label for="star5" title="text">5 stars</label>
                                                 <input type="radio" id="star4" name="rate" value="4" />
                                                 <label for="star4" title="text">4 stars</label>

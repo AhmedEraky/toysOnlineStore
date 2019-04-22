@@ -14,7 +14,7 @@
         var defaults = {
             content:'This is a dialog box.',
             buttons:[{
-                name:'Okey',
+                name:'Ok',
                 id:'confirmBtn',
                 color:'#fff',
                 bgColor:'#337AB7',
