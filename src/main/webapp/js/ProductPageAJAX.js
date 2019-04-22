@@ -17,13 +17,16 @@ $(document).ready(function () {
             type: "POST",
 
             success: function (data) {
-                console.log(data);
-                $("#p").remove();
-                var mark=" <p style='color:green' id=\'p\'>"+data+"</p>";
-                $("#com").append(mark);
+                /**
+                 console.log(data);
+                 $("#p").remove();
+                 var mark=" <p style='color:green' id=\'p\'>"+data+"</p>";
+                 $("#com").append(mark);
 
+
+                 **/
+                outOfStock(data);
             }
-
 
         });
 
@@ -43,23 +46,12 @@ $(document).ready(function () {
 
             success: function (data) {
 /*
-                var divadd="<div data-role=\"body\">\n" +
-                    data+
-                    "                                        </div>";
-
-                $("#dialog").html(divadd);
-                $("#dialog").dialog({
-                    resizable: true,
-                    show:true
-                });
-
-*/
-              //  $('#myModal').modal({show:true});
                 console.log(data);
                 $("#p").remove();
                 var mark=" <p style='color:green' id=\'p\'>"+data+"</p>";
                 $("#com").append(mark);
-
+*/
+                outOfStock(data);
 
 
             }
@@ -69,59 +61,6 @@ $(document).ready(function () {
 
 
     });
-    function ShowCustomDialog(data)
-    {
-
-        ShowDialogBox('Warning',data,'Ok','', 'GoToAssetList',null);
-    }
-    function ShowDialogBox(title, content, btn1text, btn2text, functionText, parameterList) {
-        var btn1css;
-        var btn2css;
-
-        if (btn1text == '') {
-            btn1css = "hidecss";
-        } else {
-            btn1css = "showcss";
-        }
-
-        if (btn2text == '') {
-            btn2css = "hidecss";
-        } else {
-            btn2css = "showcss";
-        }
-        $("#lblMessage").html(content);
-
-        $("#dialog").dialog({
-            resizable: false,
-            title: title,
-            modal: true,
-            width: '400px',
-            height: 'auto',
-            bgiframe: false,
-            hide: { effect: 'scale', duration: 400 },
-
-            buttons: [
-                {
-                    text: btn1text,
-                    "class": btn1css,
-                    click: function () {
-
-                        $("#dialog").dialog('close');
-
-                    }
-                },
-                {
-                    text: btn2text,
-                    "class": btn2css,
-                    click: function () {
-                        $("#dialog").dialog('close');
-                    }
-                }
-            ]
-        });
-
-
-    }
 
     $("#send").click(function () {
 
@@ -198,7 +137,7 @@ $(document).ready(function () {
 
                 var rev;
                 rev="<h4>Reviews</h4>";
-
+                rev+="<hr></hr>"
                 $("#revid").append(rev);
                 if(objectr.length =="0"){
                     rev=" <p>"+"No Reviews"+"</p>\n" +
@@ -209,7 +148,7 @@ $(document).ready(function () {
                 else {
                     var image;
                     for (var count = 0; count < objectr.length; count++) {
-                            image=objectr[count].imagePath;
+                        image=objectr[count].imagePath;
                         rev =
                             "<div class=\"bootstrap-tab-text-grid-left\">" +
                             "<img src="+image+"  class=\"img-fluid\">" +
@@ -226,18 +165,18 @@ $(document).ready(function () {
                         for(var d=parseInt(objectr[count].rate)+1;d<=5;d++){
                             rev+="<i class=\"fa fa-star fa-2x text-muted\" aria-hidden=\"true\"></i>";
                         }
-                        rev+=" </li></ul>";
+                        rev+=" </li></ul></div></div>";
 
                         //review
-                        rev+="<div class=\"bootstrap-tab-text-grid-left>";
+                        rev+="<div class='bootstrap-tab-text-grid-left'>";
 
-                        rev+=" <p style='direction:ltr'><span>"+objectr[count].reviewDescription+"</p></span>";
+                        rev+=" <p>"+objectr[count].reviewDescription+"</p>";
                         rev+= "</div>" ;
 
 
 
                         $("#revid").append(rev);
-                        $("#revid").append("</div>\n" +
+                        $("#revid").append("</div>\n"+
                             "<div class=\"clearfix\"> </div>\n" +
                             " <hr/>");
 
@@ -284,4 +223,9 @@ $(document).ready(function () {
 
 
     });
-    });
+    function outOfStock(data) {
+        $.hyc.ui.alert(data, function () {
+        });
+    }
+
+});
