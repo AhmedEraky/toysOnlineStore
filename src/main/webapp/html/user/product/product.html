@@ -2,7 +2,10 @@
 <head>
 
     <link href="css/jquery-alert.css" rel="stylesheet">
-    
+
+
+
+
 
 </head>
 <body>
@@ -342,7 +345,7 @@
                                                 <input type="email" name="userEmail"   id="userEmail"  value="${sessionScope.mail}" readonly/>
                                             </div>
                                             <!--stars-->
-                                            <!--
+                                                <!--
                                             <div class="rate" id="stardiv">
                                                 <input type="radio" id="star5" name="rate" value="5"  />
                                                 <label for="star5">5 stars</label>
@@ -356,10 +359,9 @@
                                                 <label for="star1" title="text">1 star</label>
                                             </div>
 
-                                            -->
-                                            <div class="rating">
-                                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                                            </div>
+-->
+                                            <input id="rating-system"  name="rate" type="number"  min="1" max="5" step="1"/>
+
                                         </div>
                                         <textarea name="reviewDescription"  id="reviewDescription" rows="2" cols="3" placeholder="Enter your message" required=""></textarea>
                                         <input type="button" id="send"  class="btn btn-outline-danger btn-lg" value="SEND"/>

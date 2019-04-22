@@ -67,7 +67,7 @@ $(document).ready(function () {
         var productid = $('input#productid').val();
         var userEmail = $('[name="userEmail"]').val();
         var reviewDescription=$('[name="reviewDescription"]').val();
-        var rate=$("[name='rate']:checked").val();
+        var rate=$('[name="rate"]').val();
         if((reviewDescription!="")&&(rate !=undefined)) {
             $.ajax({
                 url: "ReviewServlet",
@@ -190,22 +190,11 @@ $(document).ready(function () {
                         "                                        <div class=\"col-md-6\">\n" +
                         "                                            <input type=\"email\" name=\"userEmail\"   id=\"userEmail\" value=" + email + " readonly/>\n" +
                         "                                        </div>\n" +
-                        "                                        <!--stars-->\n" +
-                        "                                        <div class=\"rate\" id=\"stardiv\">\n" +
-                        "                                            <input type=\"radio\" id=\"star5\" name=\"rate\" value=\"5\" />\n" +
-                        "                                            <label for=\"star5\" title=\"text\">5 stars</label>\n" +
-                        "                                            <input type=\"radio\" id=\"star4\" name=\"rate\" value=\"4\" />\n" +
-                        "                                            <label for=\"star4\" title=\"text\">4 stars</label>\n" +
-                        "                                            <input type=\"radio\" id=\"star3\" name=\"rate\" value=\"3\" />\n" +
-                        "                                            <label for=\"star3\" title=\"text\">3 stars</label>\n" +
-                        "                                            <input type=\"radio\" id=\"star2\" name=\"rate\" value=\"2\" />\n" +
-                        "                                            <label for=\"star2\" title=\"text\">2 stars</label>\n" +
-                        "                                            <input type=\"radio\" id=\"star1\" name=\"rate\" value=\"1\" />\n" +
-                        "                                            <label for=\"star1\" title=\"text\">1 star</label>\n" +
-                        "                                        </div>\n" +
-                        "                                        <!--end-->\n" +
+
+                        "                        <input id=\"rating-system\"  name=\"rate\" type=\"number\" class=\"rating\" min=\"1\" max=\"5\" step=\"1\"/>"+
+
                         "                                    </div>\n" +
-                        "                                    <textarea name=\"reviewDescription\"  id=\"reviewDescription\" rows=\"2\" cols=\"3\" placeholder=\"Enter your message\" required=\"\"></textarea>\n" +
+                        "                                   <textarea name=\"reviewDescription\"  id=\"reviewDescription\" rows=\"2\" cols=\"3\" placeholder=\"Enter your message\" required=\"\"></textarea>\n" +
                         "                                    <input type=\"button\" id=\"send\"  class=\"btn btn-outline-danger btn-lg\" value=\"SEND\"/>\n" +
                         "\n" +
                         "                                    <input  name=\"productid\" id=\"productid\" hidden=\"hidden\" value=\"${requestScope.product.id}\"/>\n" +
