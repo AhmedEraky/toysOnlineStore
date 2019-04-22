@@ -3,3 +3,4 @@
 *.iws
 *.class
 target/maven-status/*
+target/LoginApp/*
