@@ -1,0 +1,14 @@
+.mySearchComponent{
+    width: 90%;
+    margin: auto;
+}
+
+.myPriceRangeComponent{
+    width: 50%;
+    margin: auto;
+}
+
+.myPreferenceComponent , .myDiscountsComponent , .myReviewsComponent {
+    width: 45%;
+    margin: auto;
+}

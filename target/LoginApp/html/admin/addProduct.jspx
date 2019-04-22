@@ -1,0 +1,11 @@
+<!--
+        Document   : addProductForm
+        Created on : Mar 27, 2019, 8:17:50 PM
+        Author     : AG
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <jsp:directive.page contentType="text/html" isELIgnored="false"/>
+    <jsp:directive.include file="/html/admin/addProduct.html"/>
+
+</jsp:root>

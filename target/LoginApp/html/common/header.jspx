@@ -1,0 +1,111 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: Eraky
+  Date: 3/26/2019
+  Time: 2:27 PM
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <jsp:directive.page contentType="text/html" isELIgnored="false"/>
+    <html>
+    <head>
+        <jsp:directive.include file="/html/common/head.html"/>
+    </head>
+    <body>
+
+    <div class="header-outs" id="home">
+        <div class="header-bar">
+            <div class="info-top-grid">
+                <div class="info-contact-agile">
+                    <ul>
+                        <li>
+                            <span class="fas fa-phone-volume"></span>
+                            <p><a href="tel:01116630078">+201116630078</a></p>
+                        </li>
+                        <li>
+                            <span class="fas fa-envelope"></span>
+                            <p><a href="mailto:ITI@edu.eg">ITI@edu.eg</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="hedder-up row">
+                    <div class="col-lg-3 col-md-3 logo-head">
+                        <h1><a class="navbar-brand" href="home">Toys-Shop</a></h1>
+                    </div>
+                    <div class="col-lg-5 col-md-6 search-right">
+                        <form class="form-inline my-lg-0">
+                            <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search"/>
+                            <button class="btn">Search</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-4 col-md-3 right-side-cart">
+                        <div class="cart-icons">
+                            <ul>
+                                <li>
+                                    <button id="my-fav-items"> <span class="far fa-heart"></span></button>
+                                </li>
+                                <li>
+                                    <a href="profile"><button id="my-profile"> <span class="far fa-user"></span></button></a>
+                                </li>
+                                <li class="toyscart toyscart2 cart cart box_1">
+                                    <button id="my-cart"><span class="fas fa-cart-arrow-down"></span></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav ">
+                        <li id="nav-home" class="nav-item">
+                            <a class="nav-link" href="home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="shop" class="nav-link">Shop Now</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Product
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" href="shop?actionFigures=on">Action Figures</a>
+                                <a class="nav-link " href="shop?carsAndPlanes=on">Cars And Planes</a>
+                                <a class="nav-link " href="shop?construction=on">Construction</a>
+                                <a class="nav-link " href="shop?dolls=on">Dolls</a>
+                                <a class="nav-link " href="shop?puzzles=on">Puzzles</a>
+                            </div>
+                        </li>
+
+                        <c:if test="${empty sessionScope.login}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="registration">Register</a>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${not empty sessionScope.login}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout">Logout</a>
+                            </li>
+                        </c:if>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    </body>
+    </html>
+</jsp:root>

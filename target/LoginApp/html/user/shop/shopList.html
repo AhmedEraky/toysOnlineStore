@@ -1,0 +1,221 @@
+<html>
+<head>
+    <title>Toys Shop</title>
+    <link type="text/css" rel="stylesheet" href="css/simplePagination.css"/>
+    <link rel="stylesheet" href="css/shop.css" type="text/css" />
+    <jsp:directive.include file="/html/common/head.html"/>
+    <link href="css/jquery-alert.css" rel="stylesheet">
+
+
+</head>
+<body>
+<!--header-->
+<jsp:directive.include file="/html/common/header.html"/>
+<!--//header-->
+
+<!-- banner -->
+<jsp:directive.include file="/html/common/banner.html"/>
+<!--//banner -->
+
+<!--show Now-->
+<section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Toys Shop</h3>
+        <div class="container mb-lg-4 mb-md-3 mb-sm-2 mb-2">
+            <div  class="center-block text-center">
+                <button id="filterButton" type="submit" class="btn col-3  btn-success">Filter</button>
+                <button id="clearFilter" type="submit" class="btn col-3  btn-danger">Clear</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left-ads-display col-sm-12">
+                <div class="row">
+                    <c:forEach items="${shopProduct}" var="product">
+                        <div class="col-lg-4 col-md-6 col-sm-6 product-men women_two">
+                            <div class="product-toys-info">
+                                <div class="men-pro-item">
+                                    <div class="men-thumb-item">
+                                        <img src="${product.imagePath}" class="img-thumbnail img-fluid" alt=""/>
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="productPage?ProductID=${product.id}" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+                                    </div>
+                                    <div class="item-info-product">
+                                        <div class="info-product-price">
+                                            <div class="grid_meta">
+                                                <div class="product_price">
+                                                    <h4>
+                                                        <a href=productPage?ProductID=${product.id}">${product.name}</a>
+                                                    </h4>
+                                                    <div class="grid-price mt-2">
+                                                        <span class="money ">${product.price}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="rating1">
+                                                    <ul  id="starul" class="stars">
+
+                                                        <c:choose>
+                                                            <c:when test="${ product.rate eq 0}">
+                                                                <c:forEach begin="1" end="5">
+                                                                    <i class="fa fa-star fa-2x text-muted" aria-hidden="true"></i>
+                                                                </c:forEach>
+
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <c:forEach begin="1" end="${product.rate}">
+                                                                    <i class="fa fa-star fa-2x text-primary" aria-hidden="true"></i>
+                                                                </c:forEach>
+                                                                <c:forEach begin="${(product.rate)+1}" end="5">
+                                                                    <i class="fa fa-star fa-2x text-muted" aria-hidden="true"></i>
+                                                                </c:forEach>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <c:if test = "${ empty sessionScope.userType or sessionScope.userType=='customer'}">
+                                                <div class="toys single-item hvr-outline-out">
+                                                    <form method="post">
+                                                        <input type="hidden" id="productid${product.id}"  value="${product.id}"/>
+                                                        <c:choose>
+
+                                                            <c:when test = "${product.quantity gt 0}">
+                                                                <button type="button" id="addToCartBtn${product.id}" onclick="addtoCart(${product.id})" class="toys-cart ptoys-cart">
+                                                                    <i class="fas fa-cart-plus"></i>
+                                                                </button>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <button type="button" id="addToCartBtn${product.id}" onclick="outOfStock()"  class="toys-cart ptoys-cart">
+                                                                    <i class="fas fa-exclamation-circle"></i>
+                                                                </button>
+                                                            </c:otherwise>
+                                                        </c:choose>
+
+                                                    </form>
+                                                </div>
+                                            </c:if>
+
+
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="display:flex; margin-bottom: 5%">
+    <div id="pagination" style="margin:auto;" ></div>
+</div>
+
+<!-- footer -->
+<footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
+    <div class="copy-agile-right">
+        <p>
+            © 2018 Toys-Shop. All Rights Reserved | Design by <a href="http://www.W3Layouts.com" target="_blank">W3Layouts</a>
+        </p>
+    </div>
+</footer>
+<!-- //footer -->
+
+<script src='js/jquery-2.2.3.min.js'></script>
+<script type="text/javascript" src="js/jquery.simplePagination.js"></script>
+<script>
+    jQuery(function($) {
+        var searchParams = new URLSearchParams(window.location.search)
+
+        var numItems = ${requestScope.size};
+
+        var perPage = 9;
+        var currentPage=1;
+        if(searchParams.has("pageNo")){
+            currentPage=searchParams.get("pageNo")
+        }
+        $("#pagination").pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            cssStyle: "compact-theme",
+            currentPage:currentPage,
+            // This is the actual page changing functionality.
+            onPageClick: function(pageNumber) {
+                var link=window.location.pathname+"?";
+                var cout=0;
+                for(var pair of searchParams.entries()){
+                    if(pair[0]!="pageNo"){
+                        if(cout>0){
+                            link+="&";
+                        }
+                        link+=pair[0]+"="+pair[1];
+                        cout++;
+                    }
+                }
+
+                if(cout>0){
+                    link+='&';
+                }
+                link+="pageNo="+pageNumber;
+                window.location.href=link;
+            }
+        });
+    });
+</script>
+
+<script src="js/jquery-ui.js"></script>
+<script>
+    //<![CDATA[
+    $(window).load(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 9000,
+            values: [50, 6000],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+    }); //]]>
+</script>
+<script src="js/move-top.js"></script>
+<script src="js/easing.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 900);
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
+
+
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+    });
+</script>
+<script src="js/shop.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-alert.js"></script>
+</body>
+</html>
