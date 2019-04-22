@@ -35,6 +35,7 @@ public class CartItemUtils
             }
             else if(productQuantity < itemQuantity)
             {
+                removed = true;
                 cartItem.setQuantity(productQuantity);
             }
         }
