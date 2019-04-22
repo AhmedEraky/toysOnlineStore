@@ -55,12 +55,12 @@ public class SignUp extends HttpServlet {
                     String imageName = item.getName().substring(0, item.getName().length() - 4);
                     String imageExtantion = item.getName().substring(item.getName().length() - 4, item.getName().length());
                     filename = FilenameUtils.getName(imageName + imageCount + imageExtantion); // Get filename.
-                    user.setImagePath("images" + File.separator + "users\\" + filename);
+                    user.setImagePath("images" + File.separator + "users" + File.separator + filename);
                 }
             }
         }
         if(user.getImagePath()==null){
-            user.setImagePath("images\\a2.jpg");
+            user.setImagePath("images"+File.separator +"a2.jpg");
         }
         //Try To Register
         RegistrationService service=new RegistrationServiceImpl();
