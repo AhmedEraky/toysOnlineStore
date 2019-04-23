@@ -469,6 +469,72 @@ public class ContextListner implements ServletContextListener {
     //Aya Part
 
     private void createDollsProduct(Session session, Store store3, Category category2) {
+        ProductDao productDao=new ProductDaoImplementation();
+        Product product1Dolls=new Product();
+        product1Dolls.setName("Accessory Set");
+        product1Dolls.setMinAge(3);
+        product1Dolls.setPurchaseCount(0);
+        product1Dolls.setDiscountPercentage(20);
+        product1Dolls.setPrice(100d);
+        product1Dolls.setImagePath("images/products/dolls/01/acc.jpg");
+        product1Dolls.setQuantity(10);
+        product1Dolls.setDescription("Dolls Product");
+        product1Dolls.setStore(store3);
+        product1Dolls.setCategory(category2);
+        productDao.persistProduct(product1Dolls,session);
+        /**product**/
+
+        Product product2Dolls=new Product();
+        product2Dolls.setName("Baby");
+        product2Dolls.setMinAge(1);
+        product2Dolls.setPurchaseCount(0);
+        product2Dolls.setDiscountPercentage(10);
+        product2Dolls.setPrice(100d);
+        product2Dolls.setImagePath("images/products/dolls/01/baby.jpg");
+        product2Dolls.setQuantity(10);
+        product2Dolls.setDescription("Dolls Product");
+        product2Dolls.setStore(store3);
+        product2Dolls.setCategory(category2);
+        productDao.persistProduct(product2Dolls,session);
+        /** product**/
+        Product product3Dolls=new Product();
+        product3Dolls.setName("Bear");
+        product3Dolls.setMinAge(2);
+        product3Dolls.setPurchaseCount(0);
+        product3Dolls.setDiscountPercentage(10);
+        product3Dolls.setPrice(100d);
+        product3Dolls.setImagePath("images/products/dolls/01/bear.jpg");
+        product3Dolls.setQuantity(6);
+        product3Dolls.setDescription("Dolls Product");
+        product3Dolls.setStore(store3);
+        product3Dolls.setCategory(category2);
+        productDao.persistProduct(product3Dolls,session);
+        /**product**/
+        Product product4Dolls=new Product();
+        product4Dolls.setName("Dog");
+        product4Dolls.setMinAge(2);
+        product4Dolls.setPurchaseCount(0);
+        product4Dolls.setDiscountPercentage(10);
+        product4Dolls.setPrice(100d);
+        product4Dolls.setImagePath("images/products/dolls/01/dog.jpg");
+        product4Dolls.setQuantity(6);
+        product4Dolls.setDescription("Dolls Product");
+        product4Dolls.setStore(store3);
+        product4Dolls.setCategory(category2);
+        productDao.persistProduct(product4Dolls,session);
+        /**product**/
+        Product product5Dolls=new Product();
+        product5Dolls.setName("Home");
+        product5Dolls.setMinAge(2);
+        product5Dolls.setPurchaseCount(0);
+        product5Dolls.setDiscountPercentage(10);
+        product5Dolls.setPrice(500d);
+        product5Dolls.setImagePath("images/products/dolls/01/home.jpg");
+        product5Dolls.setQuantity(5);
+        product5Dolls.setDescription("Dolls Product");
+        product5Dolls.setStore(store3);
+        product5Dolls.setCategory(category2);
+        productDao.persistProduct(product5Dolls,session);
     }
 
 
