@@ -42,6 +42,14 @@
       <artifactId>hibernate-core</artifactId>
       <version>5.4.1.Final</version>
     </dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-hikaricp -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-hikaricp</artifactId>
+		<version>5.4.1.Final</version>
+	</dependency>
+
 
     <dependency>
       <groupId>mysql</groupId>
