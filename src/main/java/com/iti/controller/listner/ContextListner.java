@@ -52,6 +52,9 @@ public class ContextListner implements ServletContextListener {
 
 
                 createActionFiguresProduct(session,store1,category1);
+                createActionFiguresProduct(session,store2,category3);
+                createDollsProduct(session,store3,category2);
+                createpuzzlesProduct(session,store3,category2);
 
                 return null;
             });
@@ -60,23 +63,10 @@ public class ContextListner implements ServletContextListener {
         }
     }
 
-    private void createStores(Session session) {
-        Store store=new Store();
-        store.setName("Eraky Store");
-        StoreDao storeDao=new StoreDaoImplementation();
 
-        Store store1=new Store();
-        store1.setName("Aya Store");
 
-        Store store2=new Store();
-        store2.setName("Islam Store");
 
-        storeDao.persistStore(store,session);
-        storeDao.persistStore(store1,session);
-        storeDao.persistStore(store2,session);
-
-    }
-
+    //Eraky Part
     private void createActionFiguresProduct(Session session,Store store,Category category) {
         Product product1=new Product();
         product1.setName("Fly");
@@ -97,6 +87,42 @@ public class ContextListner implements ServletContextListener {
 
 
     }
+
+
+    //Aya Part
+
+    private void createDollsProduct(Session session, Store store3, Category category2) {
+    }
+
+
+    //Islam Part
+    private void createpuzzlesProduct(Session session, Store store3, Category category2) {
+    }
+
+
+
+
+
+
+
+
+    private void createStores(Session session) {
+        Store store=new Store();
+        store.setName("Eraky Store");
+        StoreDao storeDao=new StoreDaoImplementation();
+
+        Store store1=new Store();
+        store1.setName("Aya Store");
+
+        Store store2=new Store();
+        store2.setName("Islam Store");
+
+        storeDao.persistStore(store,session);
+        storeDao.persistStore(store1,session);
+        storeDao.persistStore(store2,session);
+
+    }
+
 
     private void createCategories(Session session) {
         CategoryDao categoryDao=new CategoryDaoImplementation();
