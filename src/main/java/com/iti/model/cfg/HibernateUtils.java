@@ -37,7 +37,6 @@ public class HibernateUtils {
                 return null;
             }
         }
-        factory= new  Configuration().configure().buildSessionFactory();
         return factory;
     }
 
