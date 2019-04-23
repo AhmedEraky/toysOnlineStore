@@ -46,13 +46,13 @@ Contributor(s):
     <property name="hibernate.current_session_context_class">thread</property>
 	    <property name="hibernate.connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
     <!-- Maximum waiting time for a connection from the pool -->
-    <property name="hibernate.hikari.connectionTimeout">10000</property>
+    <property name="hibernate.hikari.connectionTimeout">2000</property>
     <!-- Minimum number of ideal connections in the pool -->
-    <property name="hibernate.hikari.minimumIdle">1</property>
+    <property name="hibernate.hikari.minimumIdle">10</property>
     <!-- Maximum number of actual connection in the pool -->
-    <property name="hibernate.hikari.maximumPoolSize">15</property>
+    <property name="hibernate.hikari.maximumPoolSize">10</property>
     <!-- Maximum time that a connection is allowed to sit ideal in the pool -->
-    <property name="hibernate.hikari.idleTimeout">200000</property>
+    <property name="hibernate.hikari.idleTimeout">1000</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="com.iti.model.entity.Admin"/>
     <mapping class="com.iti.model.entity.Category"/>
