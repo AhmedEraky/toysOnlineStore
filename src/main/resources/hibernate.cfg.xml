@@ -42,7 +42,7 @@ Contributor(s):
     <property name="hibernate.connection.password">root</property>
     <property name="show_sql">true</property>
     <property name="cache.use_second_level_cache">false</property>
-    <property name="hbm2ddl.auto">create</property>
+    <property name="hbm2ddl.auto">update</property>
     <property name="hibernate.current_session_context_class">thread</property>
 	    <property name="hibernate.connection.provider_class">org.hibernate.hikaricp.internal.HikariCPConnectionProvider</property>
     <!-- Maximum waiting time for a connection from the pool -->
@@ -53,7 +53,6 @@ Contributor(s):
     <property name="hibernate.hikari.maximumPoolSize">10</property>
     <!-- Maximum time that a connection is allowed to sit ideal in the pool -->
     <property name="hibernate.hikari.idleTimeout">1000</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="com.iti.model.entity.Admin"/>
     <mapping class="com.iti.model.entity.Category"/>
     <mapping class="com.iti.model.entity.CartItem"/>
