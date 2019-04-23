@@ -213,7 +213,7 @@
                                 <label  class="col-sm-3 col-form-label">Quantity</label>
                                 <c:choose>
                                     <c:when test="${requestScope.product.quantity ne 0}">
-                                        <input type="number" name="productQuantity" value="${requestScope.product.quantity}" min="0" style="text-align: center"/>
+                                        <input type="number" name="productQuantity" value="${requestScope.product.quantity}" min="0" style="text-align:"/>
                                     </c:when>
                                     <c:otherwise>
                                         <div><p>Out of stock</p></div>
@@ -223,7 +223,10 @@
                         </div>
                     </c:if>
                     <c:if test="${  not empty sessionScope.userType and sessionScope.userType=='admin' }">
-                        <pre><c:out value="${requestScope.product.quantity}"/></pre>
+                        <div class="form-group row">
+                            <label  class="col-sm-3 col-form-label">Quantity</label>
+                            <input type="number" name="productQuantity" value="${requestScope.product.quantity}" min="0" style="text-align: center"/>
+                        </div>
                     </c:if>
                     <div class="form-group row">
                         <label  class="col-sm-3 col-form-label">Price</label>
@@ -233,16 +236,14 @@
                         <label  class="col-sm-3 col-form-label">Discount</label>
                         <input type="number" name="productDiscount" value="${requestScope.product.discountPercentage}" min="0" style="text-align: center"/>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-danger">Save changes</button>
+                    </div>
+                </form>
 
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-outline-danger">Save changes</button>
-            </div>
-            </form>
-
         </div>
-    </div>
     </div>
 
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
@@ -345,19 +346,19 @@
                                                 <input type="email" name="userEmail"   id="userEmail"  value="${sessionScope.mail}" readonly/>
                                             </div>
                                             <!--stars-->
-                                                <!--
-                                            <div class="rate" id="stardiv">
-                                                <input type="radio" id="star5" name="rate" value="5"  />
-                                                <label for="star5">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                <label for="star4" title="text">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3" />
-                                                <label for="star3" title="text">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2" />
-                                                <label for="star2" title="text">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1" />
-                                                <label for="star1" title="text">1 star</label>
-                                            </div>
+                                            <!--
+                                        <div class="rate" id="stardiv">
+                                            <input type="radio" id="star5" name="rate" value="5"  />
+                                            <label for="star5">5 stars</label>
+                                            <input type="radio" id="star4" name="rate" value="4" />
+                                            <label for="star4" title="text">4 stars</label>
+                                            <input type="radio" id="star3" name="rate" value="3" />
+                                            <label for="star3" title="text">3 stars</label>
+                                            <input type="radio" id="star2" name="rate" value="2" />
+                                            <label for="star2" title="text">2 stars</label>
+                                            <input type="radio" id="star1" name="rate" value="1" />
+                                            <label for="star1" title="text">1 star</label>
+                                        </div>
 
 -->
                                             <input id="rating-system"  name="rate" type="number"  min="1" max="5" step="1"/>
