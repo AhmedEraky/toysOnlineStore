@@ -92,6 +92,19 @@
                 //alert("The following products have been removed from your cart because they're out of stock:" + "\n" + removed);
             }
         }
+        var urlParams = new URLSearchParams(window.location.search);
+        var successParam = urlParams.get('success');
+        var lowCreditParam = urlParams.get('lowcredit');
+        if(successParam==='true')
+        {
+            $.hyc.ui.alert("Buying process completed successfully. Your order is now being shipped.", function () {
+            });
+        }
+        if(lowCreditParam==='true')
+        {
+            $.hyc.ui.alert("Buying process failed. You don't have enough credit.", function () {
+            });
+        }
     </script>
     <script src="js/cart.js"></script>
     <script src="js/addMinusRemove.js"></script>

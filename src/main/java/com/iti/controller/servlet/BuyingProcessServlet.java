@@ -45,7 +45,7 @@ public class BuyingProcessServlet extends HttpServlet
                 cart.setTotalCost(0.0);
                 UpdateShoppingCartService updateShoppingCartService = new UpdateShoppingCartServiceImpl();
                 updateShoppingCartService.updateCart(cart, userEmail);
-                response.sendRedirect("ViewYourCart?success");
+                response.sendRedirect("ViewYourCart?success=true");
             }
             else if(removed)
             {
@@ -54,7 +54,7 @@ public class BuyingProcessServlet extends HttpServlet
             }
             else
             {
-                response.sendRedirect("ViewYourCart?lowcredit");
+                response.sendRedirect("ViewYourCart?lowcredit=true");
             }
         }
         else
