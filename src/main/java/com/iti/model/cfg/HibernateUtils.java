@@ -26,7 +26,7 @@ public class HibernateUtils {
                     cfg = cfg.setProperty("hibernate.connection.url", dbUrl)
                             .setProperty("hibernate.connection.username", username)
                             .setProperty("hibernate.connection.password", password)
-                            .setProperty("hibernate.hbm2ddl.auto", "crate")
+                            .setProperty("hibernate.hbm2ddl.auto", "create")
                             .setProperty("hibernate.connection.driver_class",
                                     "org.postgresql.Driver")
                             .setProperty("hibernate.dialect",
