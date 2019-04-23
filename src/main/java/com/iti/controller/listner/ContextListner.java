@@ -473,7 +473,138 @@ public class ContextListner implements ServletContextListener {
 
 
     //Islam Part
-    private void createpuzzlesProduct(Session session, Store store3, Category category2) {
+    private void createpuzzlesProduct(Session session, Store store3, Category category2)
+    {
+        ProductDao productDao=new ProductDaoImplementation();
+        Product product1=new Product();
+        product1.setName("Memory Puzzles");
+        product1.setMinAge(3);
+        product1.setPurchaseCount(0);
+        product1.setDiscountPercentage(10);
+        product1.setPrice(200d);
+        product1.setImagePath("images/products/puzzles/34/79.jpg");
+        product1.setQuantity(30);
+        product1.setDescription("Puzzles Product");
+        product1.setStore(store3);
+        product1.setCategory(category2);
+        productDao.persistProduct(product1,session);
+        //Another Product
+        Product product2=new Product();
+        product2.setName("Early Puzzles");
+        product2.setMinAge(3);
+        product2.setPurchaseCount(0);
+        product2.setDiscountPercentage(10);
+        product2.setPrice(200d);
+        product2.setImagePath("images/products/puzzles/34/49.jpg");
+        product2.setQuantity(30);
+        product2.setDescription("Puzzles Product");
+        product2.setStore(store3);
+        product2.setCategory(category2);
+        productDao.persistProduct(product2,session);
+        //Another Product
+        Product product3=new Product();
+        product3.setName("Jumping Monkey Puzzles");
+        product3.setMinAge(3);
+        product3.setPurchaseCount(0);
+        product3.setDiscountPercentage(10);
+        product3.setPrice(200d);
+        product3.setImagePath("images/products/puzzles/34/99.jpg");
+        product3.setQuantity(30);
+        product3.setDescription("Puzzles Product");
+        product3.setStore(store3);
+        product3.setCategory(category2);
+        productDao.persistProduct(product3,session);
+        //Another Product
+        Product product4=new Product();
+        product4.setName("Cars Puzzles");
+        product4.setMinAge(3);
+        product4.setPurchaseCount(0);
+        product4.setDiscountPercentage(10);
+        product4.setPrice(200d);
+        product4.setImagePath("images/products/puzzles/34/59.jpg");
+        product4.setQuantity(30);
+        product4.setDescription("Puzzles Product");
+        product4.setStore(store3);
+        product4.setCategory(category2);
+        productDao.persistProduct(product4,session);
+        //Another Product
+        Product product5=new Product();
+        product5.setName("Disney Puzzles");
+        product5.setMinAge(3);
+        product5.setPurchaseCount(0);
+        product5.setDiscountPercentage(10);
+        product5.setPrice(200d);
+        product5.setImagePath("images/products/puzzles/34/159.jpg");
+        product5.setQuantity(30);
+        product5.setDescription("Puzzles Product");
+        product5.setStore(store3);
+        product5.setCategory(category2);
+        productDao.persistProduct(product5,session);
+        //Another Product
+        Product product6=new Product();
+        product6.setName("Jumpling Tower Puzzles");
+        product6.setMinAge(3);
+        product6.setPurchaseCount(0);
+        product6.setDiscountPercentage(10);
+        product6.setPrice(200d);
+        product6.setImagePath("images/products/puzzles/34/199.jpg");
+        product6.setQuantity(30);
+        product6.setDescription("Puzzles Product");
+        product6.setStore(store3);
+        product6.setCategory(category2);
+        productDao.persistProduct(product6,session);
+        //Another Product
+        Product product7=new Product();
+        product7.setName("Paw Patrol Puzzles");
+        product7.setMinAge(3);
+        product7.setPurchaseCount(0);
+        product7.setDiscountPercentage(10);
+        product7.setPrice(200d);
+        product7.setImagePath("images/products/puzzles/34/29.jpg");
+        product7.setQuantity(30);
+        product7.setDescription("Puzzles Product");
+        product7.setStore(store3);
+        product7.setCategory(category2);
+        productDao.persistProduct(product7,session);
+        //Another Product
+        Product product8=new Product();
+        product8.setName("Jumping Monkey Puzzles");
+        product8.setMinAge(3);
+        product8.setPurchaseCount(0);
+        product8.setDiscountPercentage(10);
+        product8.setPrice(200d);
+        product8.setImagePath("images/products/puzzles/34/99.jpg");
+        product8.setQuantity(30);
+        product8.setDescription("Puzzles Product");
+        product8.setStore(store3);
+        product8.setCategory(category2);
+        productDao.persistProduct(product8,session);
+        //Another Product
+        Product product9=new Product();
+        product9.setName("Pig Puzzles");
+        product9.setMinAge(3);
+        product9.setPurchaseCount(0);
+        product9.setDiscountPercentage(10);
+        product9.setPrice(200d);
+        product9.setImagePath("images/products/puzzles/34/119.jpg");
+        product9.setQuantity(30);
+        product9.setDescription("Puzzles Product");
+        product9.setStore(store3);
+        product9.setCategory(category2);
+        productDao.persistProduct(product9,session);
+        //Another Product
+        Product product10=new Product();
+        product10.setName("Cat Puzzles");
+        product10.setMinAge(3);
+        product10.setPurchaseCount(0);
+        product10.setDiscountPercentage(10);
+        product10.setPrice(200d);
+        product10.setImagePath("images/products/puzzles/57/129.jpg");
+        product10.setQuantity(30);
+        product10.setDescription("Puzzles Product");
+        product10.setStore(store3);
+        product10.setCategory(category2);
+        productDao.persistProduct(product10,session);
     }
 
 
