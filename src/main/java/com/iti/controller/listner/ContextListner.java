@@ -52,7 +52,7 @@ public class ContextListner implements ServletContextListener {
 
 
                 createActionFiguresProduct(session,store1,category1);
-                creatcarsandplanesProduct(session,store1,category1);
+                creatcarsandplanesProduct(session,store1,category2);
                 createDollsProduct(session,store3,category4);
                 createpuzzlesProduct(session,store3,category5);
                 createconstructionProducrts(session,store1,category3);
