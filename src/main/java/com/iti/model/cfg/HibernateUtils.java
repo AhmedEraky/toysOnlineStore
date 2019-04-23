@@ -13,7 +13,7 @@ public class HibernateUtils {
 
     private HibernateUtils(){}
 
-    public static SessionFactory getSessionFactory(){
+    public static synchronized SessionFactory getSessionFactory(){
         if(factory==null){
             try {
                 Configuration cfg = new Configuration().configure();
@@ -32,7 +32,8 @@ public class HibernateUtils {
                             .setProperty("hibernate.dialect",
                                     "org.hibernate.dialect.PostgreSQLDialect");
                 }
-                return cfg.buildSessionFactory();
+                factory=cfg.buildSessionFactory();
+                return factory;
             } catch (URISyntaxException ex) {
                 return null;
             }
